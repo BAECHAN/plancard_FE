@@ -9,12 +9,7 @@ module.exports = {
     'react-refresh', // react-refresh 린트
     'prettier', // prettier 린트
   ],
-  extends: [
-    // 다른 사람들이 만든 ESLint 설정옵션 가져오기
-    'eslint:recommended', // eslint에서 추천하는 설정
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
-  ],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react/recommended', 'plugin:storybook/recommended'],
   rules: {
     // 규칙을 하나하나 세세하게 제어하기 위해 사용 (보통 extends 옵션에 의해 설정된 규칙을 덮어쓰고 싶을 때 사용)
 
