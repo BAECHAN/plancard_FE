@@ -1,4 +1,3 @@
-import { InputTextCommonProps } from '@/shared/type';
 import { forwardRef } from 'react';
 
 type InputTextProps = {
@@ -6,6 +5,13 @@ type InputTextProps = {
   onChange: (value: string) => void;
   value: string;
 } & InputTextCommonProps;
+
+export type InputTextCommonProps = {
+  label?: string;
+  placeholder?: string;
+  type?: 'text' | 'password' | 'email' | 'number';
+  isError?: boolean;
+};
 
 const InputText = forwardRef<HTMLInputElement, InputTextProps>(
   (
