@@ -1,7 +1,7 @@
 import {
   UserCardListContent,
   UserCardListToggleButton,
-} from '@/widgets/userCardList';
+} from '@/widgets/UserCardList';
 import { useState } from 'react';
 
 const UserCardListLayout = () => {

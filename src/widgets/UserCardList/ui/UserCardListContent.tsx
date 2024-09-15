@@ -1,6 +1,6 @@
 import { UserCard, UserInfo } from '@/entities/user';
 import { QueryStatusWrapper } from '@/shared/ui';
-import { useUserListQuery } from '@/widgets/userCardList';
+import { useUserListQuery } from '@/widgets/UserCardList';
 import { UseQueryResult } from '@tanstack/react-query';
 
 const UserCardListContent = () => {

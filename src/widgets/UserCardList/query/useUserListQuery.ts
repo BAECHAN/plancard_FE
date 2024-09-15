@@ -1,6 +1,6 @@
 import { UserInfo } from '@/entities/user';
 import { queryKeys } from '@/shared/query';
-import { getUserList } from '@/widgets/userCardList';
+import { getUserList } from '@/widgets/UserCardList';
 import { useQuery } from '@tanstack/react-query';
 
 const fetchUsers = async (): Promise<UserInfo[]> => {
