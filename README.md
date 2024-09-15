@@ -574,8 +574,29 @@ updateUserMutate({ ...data, id: userInfo.id }); // useForm에 id가 없어서 ke
 
 ### api 이름은 create / update / get / delete로
 
-### 해야할 것
+### storybook 추가 - 기존 코드 활용
 
+#### 시작
+
+1. storybook 추가
+
+```bash
+npx storybook@latest init
+```
+
+2. 추가적으로 필요한 라이브러리 추가
+```bash
+npm install @storybook/addon-docs
+npm install @storybook/builder-vite @storybook/addon-essentials --save-dev
+```
+
+### 폰트 추가
+
+```bash
+ npm install @fontsource/noto-sans-kr
+```
+
+### 해야할 것
 1. query와 api 위치 나 코드를 결합할지 고민
 2. useQuery 더 학습 및 캡슐화
 3. 폴더 위치 및 type, model 등 어떻게 할 것 인지 고민
