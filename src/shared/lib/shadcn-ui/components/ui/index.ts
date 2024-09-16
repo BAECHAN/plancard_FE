@@ -32,3 +32,4 @@ export {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from './dropdown-menu';
+export { Tabs, TabsContent, TabsList, TabsTrigger } from './tabs';

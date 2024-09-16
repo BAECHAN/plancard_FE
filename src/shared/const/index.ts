@@ -11,6 +11,11 @@ export {
   small as buttonSmall,
 } from './Button';
 export {
+  large as tabLarge,
+  medium as tabMedium,
+  small as tabSmall,
+} from './Tab';
+export {
   large as titleLarge,
   medium as titleMedium,
   small as titleSmall,
