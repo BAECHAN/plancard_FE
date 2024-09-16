@@ -6,6 +6,7 @@ module.exports = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
+    './.storybook/**/*.{js,jsx,ts,tsx}' // Storybook 폴더도 Tailwind에서 인식되게 설정
   ],
   prefix: "",
   theme: {

@@ -1,5 +1,6 @@
 import { EmailInput, PasswordInput } from '@/entities/login';
 import { login } from '@/shared/api';
+import { Button } from '@/shared/lib/shadcn-ui/components/ui';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
@@ -83,6 +84,8 @@ const LoginForm: React.FC = () => {
           </small>
         )}
       </div>
+
+      <Button>cancel</Button>
 
       <button
         type="submit"
