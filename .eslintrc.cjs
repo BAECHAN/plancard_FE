@@ -9,7 +9,12 @@ module.exports = {
     'react-refresh', // react-refresh 린트
     'prettier', // prettier 린트
   ],
-  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react/recommended', 'plugin:storybook/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
+    'plugin:storybook/recommended',
+  ],
   rules: {
     // 규칙을 하나하나 세세하게 제어하기 위해 사용 (보통 extends 옵션에 의해 설정된 규칙을 덮어쓰고 싶을 때 사용)
 
@@ -72,6 +77,12 @@ module.exports = {
             group: [
               '@/shared/lib/shadcn-ui/components/ui/*',
               '!@/shared/lib/shadcn-ui/components/ui/index',
+
+              '@/shared/const/*',
+              '!@/shared/const/index',
+
+              '@/shared/type/*',
+              '!@/shared/type/index',
 
               '@/entities/**/*.{ts,tsx}',
               '!@/entities/**/index.{ts,tsx}',
@@ -176,7 +187,13 @@ module.exports = {
     node: true, // NodeJs에서 접근가능 전역 객체 등록
     es6: true, // ECMAScript 6 버전 사용
   },
-  ignorePatterns: ['build', 'dist', 'public', 'tailwind.config.js'], // 린트 무시할 파일/폴더 (기본적으로 node_modules 폴더나 .로 시작하는 설정 파일은 무시)
+  ignorePatterns: [
+    'build',
+    'dist',
+    'public',
+    'tailwind.config.js',
+    'src/shared/type/index.d.ts',
+  ], // 린트 무시할 파일/폴더 (기본적으로 node_modules 폴더나 .로 시작하는 설정 파일은 무시)
   overrides: [
     {
       files: ['*.cjs'],

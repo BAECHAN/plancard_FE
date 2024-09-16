@@ -1,6 +1,3 @@
-import { Button } from '@/shared/lib/shadcn-ui/components/ui';
-import React from 'react';
-
 import {
   amber,
   buttonLarge as large,
@@ -14,9 +11,11 @@ import {
   primary,
   skyblue,
 } from '@/shared/const';
+import { Button } from '@/shared/lib/shadcn-ui/components/ui';
 import { ButtonSize, ButtonVariant } from '@/shared/type';
+import React from 'react';
 
-interface BaseButtonProps {
+interface TagButtonProps {
   children: React.ReactNode;
   onClick: () => void;
 
@@ -25,7 +24,7 @@ interface BaseButtonProps {
   disabled?: boolean;
 }
 
-export const BaseButton = ({
+export const TagButton = ({
   children,
   onClick,
 
@@ -33,7 +32,7 @@ export const BaseButton = ({
   disabled = false,
   size = 'medium',
   ...props
-}: BaseButtonProps) => {
+}: TagButtonProps) => {
   const sizeClass: Record<ButtonSize, string> = {
     small,
     medium,
@@ -50,7 +49,7 @@ export const BaseButton = ({
 
   return (
     <Button
-      className={`${sizeClass[size]} ${variantClass[variant]} ${disabledStyle} ${hoverStyle}`}
+      className={`rounded-full ${sizeClass[size]} ${variantClass[variant]} ${disabledStyle} ${hoverStyle}`}
       disabled={disabled}
       {...props}
     >
