@@ -1,4 +1,4 @@
-import { SidebarSize } from '@/shared/type';
+import { Size } from '@/shared/type';
 
 import {
   sidebarLarge as large,
@@ -8,7 +8,7 @@ import {
 
 interface MenuSidebarProps {
   children: React.ReactNode;
-  size?: SidebarSize;
+  size?: Size;
 }
 
 export const MenuSidebar = ({
@@ -16,7 +16,7 @@ export const MenuSidebar = ({
   size = 'medium',
   ...props
 }: MenuSidebarProps) => {
-  const sizeClass: Record<SidebarSize, string> = {
+  const sizeClass: Record<Size, string> = {
     small,
     medium,
     large,

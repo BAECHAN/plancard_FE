@@ -54,6 +54,22 @@ module.exports = {
           fontWeight: '700',
         },
       ],
+      '3xl': [
+        '30px', // 폰트 크기
+        {
+          lineHeight: '40px', // 줄 간격
+          letterSpacing: '0', // 자간
+          fontWeight: '700', // 폰트 두께
+        },
+      ],
+      '4xl': [
+        '36px', // 폰트 크기
+        {
+          lineHeight: '48px', // 줄 간격
+          letterSpacing: '0', // 자간
+          fontWeight: '700', // 폰트 두께
+        },
+      ],
     },
     extend: {
       keyframes: {

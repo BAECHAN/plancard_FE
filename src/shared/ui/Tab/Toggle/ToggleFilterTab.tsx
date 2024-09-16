@@ -9,13 +9,13 @@ import {
   tabMedium as medium,
   tabSmall as small,
 } from '@/shared/const';
-import { Option, TabSize } from '@/shared/type';
+import { Option, Size } from '@/shared/type';
 
 interface ToggleFilterTabProps {
   option: Option[];
   onClick: () => void;
 
-  size?: TabSize;
+  size?: Size;
   disabled?: boolean;
 }
 
@@ -27,7 +27,7 @@ export const ToggleFilterTab = ({
   size = 'medium',
   ...props
 }: ToggleFilterTabProps) => {
-  const sizeClass: Record<TabSize, string> = {
+  const sizeClass: Record<Size, string> = {
     small,
     medium,
     large,

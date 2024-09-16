@@ -3,14 +3,14 @@ import {
   menuMedium as medium,
   menuSmall as small,
 } from '@/shared/const';
-import { MenuSize } from '@/shared/type';
+import { Size } from '@/shared/type';
 
 interface MenuItemProps {
   children: React.ReactNode;
   onClick: () => void;
   active: boolean;
 
-  size?: MenuSize;
+  size?: Size;
 }
 
 export const MenuItem = ({
@@ -18,7 +18,7 @@ export const MenuItem = ({
   active,
   size = 'medium',
 }: MenuItemProps) => {
-  const sizeClass: Record<MenuSize, string> = {
+  const sizeClass: Record<Size, string> = {
     small,
     medium,
     large,

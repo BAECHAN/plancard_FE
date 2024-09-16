@@ -11,6 +11,11 @@ export {
   small as buttonSmall,
 } from './Button';
 export {
+  large as headerLarge,
+  medium as headerMedium,
+  small as headerSmall,
+} from './Header';
+export {
   large as sidebarLarge,
   medium as sidebarMedium,
   menuLarge,

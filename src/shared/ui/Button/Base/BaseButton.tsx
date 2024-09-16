@@ -14,14 +14,14 @@ import {
   primary,
   skyblue,
 } from '@/shared/const';
-import { ButtonSize, ButtonVariant } from '@/shared/type';
+import { Size, Variant } from '@/shared/type';
 
 interface BaseButtonProps {
   children: React.ReactNode;
   onClick: () => void;
 
-  variant?: ButtonVariant;
-  size?: ButtonSize;
+  variant?: Variant;
+  size?: Size;
   disabled?: boolean;
 }
 
@@ -34,13 +34,13 @@ export const BaseButton = ({
   size = 'medium',
   ...props
 }: BaseButtonProps) => {
-  const sizeClass: Record<ButtonSize, string> = {
+  const sizeClass: Record<Size, string> = {
     small,
     medium,
     large,
   };
 
-  const variantClass: Record<ButtonVariant, string> = {
+  const variantClass: Record<Variant, string> = {
     primary,
     gray,
     skyblue,

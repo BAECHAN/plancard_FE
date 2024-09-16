@@ -4,14 +4,14 @@ import {
   titleMedium as medium,
   titleSmall as small,
 } from '@/shared/const';
-import { TitleSize } from '@/shared/type';
+import { Size } from '@/shared/type';
 import { TbPointFilled } from 'react-icons/tb';
 
 interface SortingTitleProps {
   title: string;
   onClick: () => void;
 
-  size?: TitleSize;
+  size?: Size;
   active?: boolean;
 }
 export const SortingTitle = ({
@@ -21,7 +21,7 @@ export const SortingTitle = ({
   size = 'medium',
   ...props
 }: SortingTitleProps) => {
-  const sizeClass: Record<TitleSize, string> = {
+  const sizeClass: Record<Size, string> = {
     small,
     medium,
     large,
