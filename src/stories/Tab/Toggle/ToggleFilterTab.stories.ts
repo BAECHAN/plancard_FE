@@ -24,16 +24,6 @@ const meta: Meta<typeof ToggleFilterTab> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Medium: Story = {
-  args: {
-    option: [
-      { label: '전체', value: 'all' },
-      { label: '스크랩', value: 'scrap' },
-    ],
-    size: 'medium',
-  },
-};
-
 export const Small: Story = {
   args: {
     option: [
@@ -41,6 +31,16 @@ export const Small: Story = {
       { label: '스크랩', value: 'scrap' },
     ],
     size: 'small',
+  },
+};
+
+export const Medium: Story = {
+  args: {
+    option: [
+      { label: '전체', value: 'all' },
+      { label: '스크랩', value: 'scrap' },
+    ],
+    size: 'medium',
   },
 };
 
