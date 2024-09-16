@@ -645,6 +645,12 @@ export default preview;
 
 ```
 
+### react-icons 라이브러리 추가
+```bash
+npm install react-icons
+```
+
+공식문서 : https://react-icons.github.io/react-icons/search/#q=plus
 
 ### 해야할 것
 1. query와 api 위치 나 코드를 결합할지 고민
