@@ -24,10 +24,15 @@ export {
   small as sidebarSmall,
 } from './Sidebar';
 export {
-  large as tabLarge,
-  medium as tabMedium,
-  small as tabSmall,
-} from './Tab';
+  large as filterTabLarge,
+  medium as filterTabMedium,
+  small as filterTabSmall,
+} from './Tab/FilterTab';
+export {
+  large as searchTabLarge,
+  medium as searchTabMedium,
+  small as searchTabSmall,
+} from './Tab/SearchTab';
 export {
   large as titleLarge,
   medium as titleMedium,

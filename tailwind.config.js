@@ -100,6 +100,7 @@ module.exports = {
     },
 
     colors: {
+      primary: '#3578FF',
       white: '#ffffff',
       mono100: '#f1f1f1',
       mono200: '#bebebe',

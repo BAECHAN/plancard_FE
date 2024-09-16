@@ -1,10 +1,10 @@
-import { ToggleFilterTab } from '@/shared/ui/Tab/Toggle/ToggleFilterTab';
+import { ToggleSearchTab } from '@/shared/ui/Tab/Toggle/ToggleSearchTab';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-const meta: Meta<typeof ToggleFilterTab> = {
-  title: 'Tab/ToggleFilterTab',
-  component: ToggleFilterTab,
+const meta: Meta<typeof ToggleSearchTab> = {
+  title: 'Tab/ToggleSearchTab',
+  component: ToggleSearchTab,
   parameters: {
     layout: 'centered',
   },
@@ -19,14 +19,14 @@ const meta: Meta<typeof ToggleFilterTab> = {
     disabled: { control: 'boolean', description: '탭 비활성화 여부' },
   },
   args: { onClick: fn() },
-} satisfies Meta<typeof ToggleFilterTab>;
+} satisfies Meta<typeof ToggleSearchTab>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 const optionDefault = [
-  { label: '전체', value: 'all' },
-  { label: '스크랩', value: 'scrap' },
+  { label: 'Mine', value: 'my' },
+  { label: 'Explore', value: 'explore' },
 ];
 
 export const Small: Story = {
