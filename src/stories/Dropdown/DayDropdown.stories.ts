@@ -17,40 +17,34 @@ const meta: Meta<typeof DayDropdown> = {
     },
     onClick: { action: 'clicked', description: '버튼 클릭 이벤트' },
   },
-  args: { onClick: fn() },
+  args: {
+    onClick: fn(),
+    option: [
+      new Date('2022-01-01'),
+      new Date('2022-01-02'),
+      new Date('2022-01-03'),
+      new Date('2022-01-04'),
+      new Date('2022-01-05'),
+      new Date('2022-01-06'),
+    ],
+    index: 0,
+    size: 'medium',
+  },
 } satisfies Meta<typeof DayDropdown>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const optionDefault = [
-  new Date('2022-01-01'),
-  new Date('2022-01-02'),
-  new Date('2022-01-03'),
-  new Date('2022-01-04'),
-  new Date('2022-01-05'),
-  new Date('2022-01-06'),
-];
 export const Small: Story = {
   args: {
-    option: optionDefault,
-    index: 0,
     size: 'small',
   },
 };
 
-export const Medium: Story = {
-  args: {
-    option: optionDefault,
-    index: 0,
-    size: 'medium',
-  },
-};
+export const Medium: Story = {};
 
 export const Large: Story = {
   args: {
-    option: optionDefault,
-    index: 0,
     size: 'large',
   },
 };

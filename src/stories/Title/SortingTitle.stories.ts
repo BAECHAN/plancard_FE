@@ -25,40 +25,28 @@ const meta: Meta<typeof SortingTitle> = {
     },
     onClick: { action: 'clicked', description: '텍스트 클릭 이벤트' },
   },
-  args: { onClick: fn() },
+  args: { onClick: fn(), title: 'Title', size: 'medium', active: false },
 } satisfies Meta<typeof SortingTitle>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Medium: Story = {
-  args: {
-    title: 'Title',
-    size: 'medium',
-    active: false,
-  },
-};
+export const Medium: Story = {};
 
 export const Small: Story = {
   args: {
-    title: 'Title',
     size: 'small',
-    active: false,
   },
 };
 
 export const Large: Story = {
   args: {
-    title: 'Title',
     size: 'large',
-    active: false,
   },
 };
 
 export const Active: Story = {
   args: {
-    title: 'Title',
-    size: 'medium',
     active: true,
   },
 };

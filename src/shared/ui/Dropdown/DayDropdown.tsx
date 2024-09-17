@@ -8,8 +8,8 @@ import {
 
 import { Size } from '@/shared/type';
 import { Util } from '@/shared/util';
-import { useState } from 'react';
 
+import useToggle from '@/shared/hooks/useToggle';
 import { ToggleArrowDown } from '../Icon/ToggleArrowDown';
 
 const small = 'text-xs';
@@ -36,16 +36,12 @@ export const DayDropdown = ({
     large,
   };
 
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  const handleOpenChange = () => {
-    setIsOpen(prev => !prev);
-  };
+  const { value: isOpen, toggle } = useToggle(false);
 
   return (
     <DropdownMenu
       open={isOpen}
-      onOpenChange={handleOpenChange}
+      onOpenChange={toggle}
     >
       <DropdownMenuTrigger className={`${sizeClass[size]} ${flexCenter} gap-2`}>
         <b>day {index + 1}</b>
@@ -57,12 +53,12 @@ export const DayDropdown = ({
           size={size}
         />
       </DropdownMenuTrigger>
-      <DropdownMenuContent className={`${sizeClass[size]}`}>
+      <DropdownMenuContent>
         {option.map((date, i) => (
           <DropdownMenuItem
             key={i}
             onClick={onClick}
-            className={`${flexCenter} gap-2 hover:bg-skyblue cursor-pointer`}
+            className={`${flexCenter} ${sizeClass[size]} gap-2 hover:bg-skyblue cursor-pointer`}
           >
             <b>day {i + 1}</b>
             <b className="text-mono400">{Util.formatDateForDayPlan(date)}</b>

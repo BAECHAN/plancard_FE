@@ -16,6 +16,10 @@ const meta: Meta<typeof ToggleArrowDown> = {
     },
     isOpen: { control: 'boolean', description: '메뉴 활성화 여부' },
   },
+  args: {
+    size: 'medium',
+    isOpen: true,
+  },
 } satisfies Meta<typeof ToggleArrowDown>;
 
 export default meta;
@@ -24,27 +28,19 @@ type Story = StoryObj<typeof meta>;
 export const Small: Story = {
   args: {
     size: 'small',
-    isOpen: true,
   },
 };
 
-export const Medium: Story = {
-  args: {
-    size: 'medium',
-    isOpen: true,
-  },
-};
+export const Medium: Story = {};
 
 export const Large: Story = {
   args: {
     size: 'large',
-    isOpen: true,
   },
 };
 
 export const Inactive: Story = {
   args: {
-    size: 'medium',
     isOpen: false,
   },
 };

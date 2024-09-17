@@ -48,7 +48,7 @@ export const ToggleSearchTab = ({
           {option[0].label}
         </TabsTrigger>
         <TabsTrigger
-          className={`${activeClass} ${sizeClass[size]}  w-[50%]`}
+          className={`${activeClass} ${sizeClass[size]} w-[50%]`}
           value={option[1].value}
         >
           {option[1].label}

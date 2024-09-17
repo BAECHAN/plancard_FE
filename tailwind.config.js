@@ -103,9 +103,10 @@ module.exports = {
       primary: '#3578FF',
       white: '#ffffff',
       mono100: '#f1f1f1',
-      mono200: '#bebebe',
-      mono300: '#d6d7d9',
+      mono200: '#d6d7d9',
+      mono300: '#bebebe',
       mono400: '#808080',
+      
       error: '#d01e1e',
       social: '#395997',
       black: '#000000',
