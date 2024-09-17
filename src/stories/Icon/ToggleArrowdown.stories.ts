@@ -1,9 +1,9 @@
-import { MenuItem } from '@/shared/ui/Sidebar/Menu/MenuItem';
+import { ToggleArrowDown } from '@/shared/ui/Icon/ToggleArrowDown';
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof MenuItem> = {
-  title: 'Sidebar/MenuItem',
-  component: MenuItem,
+const meta: Meta<typeof ToggleArrowDown> = {
+  title: 'Icon/ToggleArrowdown',
+  component: ToggleArrowDown,
   parameters: {
     layout: 'centered',
   },
@@ -14,41 +14,37 @@ const meta: Meta<typeof MenuItem> = {
       options: ['small', 'medium', 'large'],
       description: '메뉴 크기',
     },
-    active: { control: 'boolean', description: '메뉴 활성화 여부' },
+    isOpen: { control: 'boolean', description: '메뉴 활성화 여부' },
   },
-} satisfies Meta<typeof MenuItem>;
+} satisfies Meta<typeof ToggleArrowDown>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Small: Story = {
   args: {
-    children: <b>플랜</b>,
     size: 'small',
-    active: true,
+    isOpen: true,
   },
 };
 
 export const Medium: Story = {
   args: {
-    children: <b>플랜</b>,
     size: 'medium',
-    active: true,
+    isOpen: true,
   },
 };
 
 export const Large: Story = {
   args: {
-    children: <b>플랜</b>,
     size: 'large',
-    active: true,
+    isOpen: true,
   },
 };
 
 export const Inactive: Story = {
   args: {
-    children: <b>플랜</b>,
     size: 'medium',
-    active: false,
+    isOpen: false,
   },
 };

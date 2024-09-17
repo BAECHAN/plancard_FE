@@ -4,14 +4,13 @@ import {
   TabsTrigger,
 } from '@/shared/lib/shadcn-ui/components/ui';
 
-import {
-  searchTabLarge as large,
-  searchTabMedium as medium,
-  searchTabSmall as small,
-} from '@/shared/const';
 import { Option, Size } from '@/shared/type';
 
-interface ToggleSearchTabProps {
+const small = 'h-7 text-xs';
+const medium = 'h-9 text-sm';
+const large = 'h-11 text-base';
+
+interface ToggleFilterTabProps {
   option: Option[];
   onClick: () => void;
 
@@ -19,14 +18,14 @@ interface ToggleSearchTabProps {
   disabled?: boolean;
 }
 
-export const ToggleSearchTab = ({
+export const ToggleFilterTab = ({
   option,
   onClick,
 
   disabled = false,
   size = 'medium',
   ...props
-}: ToggleSearchTabProps) => {
+}: ToggleFilterTabProps) => {
   const sizeClass: Record<Size, string> = {
     small,
     medium,
@@ -34,7 +33,7 @@ export const ToggleSearchTab = ({
   };
 
   const activeClass =
-    'data-[state=active]:border-none  data-[state=active]:rounded-none data-[state=active]:shadow-[inset_0_-1px_0_0,0_4px_0_0] data-[state=active]:shadow-current data-[state=active]:text-primary';
+    'data-[state=active]:bg-skyblue data-[state=active]:text-white';
 
   return (
     <Tabs
@@ -42,15 +41,15 @@ export const ToggleSearchTab = ({
       onClick={onClick}
       {...props}
     >
-      <TabsList className="bg-white w-[100vw] h-auto">
+      <TabsList className="bg-lightgray w-auto h-auto">
         <TabsTrigger
-          className={`${activeClass} ${sizeClass[size]} w-[50%]`}
+          className={`${activeClass} ${sizeClass[size]}`}
           value={option[0].value}
         >
           {option[0].label}
         </TabsTrigger>
         <TabsTrigger
-          className={`${activeClass} ${sizeClass[size]}  w-[50%]`}
+          className={`${activeClass} ${sizeClass[size]}`}
           value={option[1].value}
         >
           {option[1].label}

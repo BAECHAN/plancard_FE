@@ -1,4 +1,4 @@
-import { ToggleFilterTab } from '@/shared/ui/Tab/Toggle/ToggleFilterTab';
+import { ToggleFilterTab } from '@/shared/ui/Tab/ToggleFilterTab';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 

@@ -1,18 +1,16 @@
 import { Size } from '@/shared/type';
 import React from 'react';
 
-import {
-  headerLarge as large,
-  headerMedium as medium,
-  headerSmall as small,
-} from '@/shared/const';
-
 interface HeaderProps {
   children: React.ReactNode;
 
   size?: Size;
 }
 export const Header = ({ children, size = 'medium' }: HeaderProps) => {
+  const small = 'text-xs';
+  const medium = 'text-sm';
+  const large = 'text-base';
+
   const sizeClass: Record<Size, string> = {
     small,
     medium,

@@ -1,9 +1,8 @@
-import {
-  menuLarge as large,
-  menuMedium as medium,
-  menuSmall as small,
-} from '@/shared/const';
 import { Size } from '@/shared/type';
+
+const small = 'text-xs';
+const medium = 'text-sm';
+const large = 'text-base';
 
 interface MenuItemProps {
   children: React.ReactNode;

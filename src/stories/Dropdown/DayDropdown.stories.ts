@@ -1,10 +1,10 @@
-import { ToggleSearchTab } from '@/shared/ui/Tab/Toggle/ToggleSearchTab';
+import { DayDropdown } from '@/shared/ui/Dropdown/DayDropdown';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-const meta: Meta<typeof ToggleSearchTab> = {
-  title: 'Tab/ToggleSearchTab',
-  component: ToggleSearchTab,
+const meta: Meta<typeof DayDropdown> = {
+  title: 'Dropdown/DayDropdown',
+  component: DayDropdown,
   parameters: {
     layout: 'centered',
   },
@@ -13,25 +13,28 @@ const meta: Meta<typeof ToggleSearchTab> = {
     size: {
       control: 'radio',
       options: ['small', 'medium', 'large'],
-      description: '탭 크기',
+      description: '버튼 크기',
     },
-    onClick: { action: 'clicked', description: '탭 토글 이벤트' },
-    disabled: { control: 'boolean', description: '탭 비활성화 여부' },
+    onClick: { action: 'clicked', description: '버튼 클릭 이벤트' },
   },
   args: { onClick: fn() },
-} satisfies Meta<typeof ToggleSearchTab>;
+} satisfies Meta<typeof DayDropdown>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 const optionDefault = [
-  { label: 'Mine', value: 'my' },
-  { label: 'Explore', value: 'explore' },
+  new Date('2022-01-01'),
+  new Date('2022-01-02'),
+  new Date('2022-01-03'),
+  new Date('2022-01-04'),
+  new Date('2022-01-05'),
+  new Date('2022-01-06'),
 ];
-
 export const Small: Story = {
   args: {
     option: optionDefault,
+    index: 0,
     size: 'small',
   },
 };
@@ -39,6 +42,7 @@ export const Small: Story = {
 export const Medium: Story = {
   args: {
     option: optionDefault,
+    index: 0,
     size: 'medium',
   },
 };
@@ -46,6 +50,7 @@ export const Medium: Story = {
 export const Large: Story = {
   args: {
     option: optionDefault,
+    index: 0,
     size: 'large',
   },
 };

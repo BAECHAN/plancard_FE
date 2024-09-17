@@ -1,11 +1,11 @@
-import { TagButton } from '@/shared/ui/Button/Tag/TagButton';
+import { BaseButton } from '@/shared/ui/Button/BaseButton';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { FaArrowRightLong, FaCalendarDay } from 'react-icons/fa6';
+import { FaPlus } from 'react-icons/fa6';
 
-const meta: Meta<typeof TagButton> = {
-  title: 'Button/TagButton',
-  component: TagButton,
+const meta: Meta<typeof BaseButton> = {
+  title: 'Button/BaseButton',
+  component: BaseButton,
   parameters: {
     layout: 'centered',
   },
@@ -21,16 +21,11 @@ const meta: Meta<typeof TagButton> = {
       options: ['small', 'medium', 'large'],
       description: '버튼 크기',
     },
-    children: {
-      control: 'text',
-      description: '버튼 text',
-      defaultValue: 'icon',
-    },
     onClick: { action: 'clicked', description: '버튼 클릭 이벤트' },
     disabled: { control: 'boolean', description: '버튼 비활성화 여부' },
   },
   args: { onClick: fn() },
-} satisfies Meta<typeof TagButton>;
+} satisfies Meta<typeof BaseButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -106,13 +101,9 @@ export const WithIcon: Story = {
     size: 'medium',
     children: (
       <>
-        <span>13 Jan</span>
+        <span>Button</span>
         <span>
-          <FaArrowRightLong />
-        </span>
-        <span>21 Jan</span>
-        <span>
-          <FaCalendarDay />
+          <FaPlus />
         </span>
       </>
     ),

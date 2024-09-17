@@ -12,15 +12,15 @@ import {
   skyblue,
 } from '@/shared/const';
 import { Button } from '@/shared/lib/shadcn-ui/components/ui';
-import { ButtonSize, ButtonVariant } from '@/shared/type';
+import { Size, Variant } from '@/shared/type';
 import React from 'react';
 
 interface TagButtonProps {
   children: React.ReactNode;
   onClick: () => void;
 
-  variant?: ButtonVariant;
-  size?: ButtonSize;
+  variant?: Variant;
+  size?: Size;
   disabled?: boolean;
 }
 
@@ -33,13 +33,13 @@ export const TagButton = ({
   size = 'medium',
   ...props
 }: TagButtonProps) => {
-  const sizeClass: Record<ButtonSize, string> = {
+  const sizeClass: Record<Size, string> = {
     small,
     medium,
     large,
   };
 
-  const variantClass: Record<ButtonVariant, string> = {
+  const variantClass: Record<Variant, string> = {
     primary,
     gray,
     skyblue,

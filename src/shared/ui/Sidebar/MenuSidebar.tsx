@@ -1,10 +1,8 @@
 import { Size } from '@/shared/type';
 
-import {
-  sidebarLarge as large,
-  sidebarMedium as medium,
-  sidebarSmall as small,
-} from '@/shared/const';
+const small = 'w-48 text-xs';
+const medium = 'w-60 text-sm';
+const large = 'w-72 text-base';
 
 interface MenuSidebarProps {
   children: React.ReactNode;
