@@ -82,6 +82,9 @@ module.exports = {
           to: { height: '0' },
         },
       },
+      boxShadow: {
+        'custom': '0 4px 10px rgba(0, 0, 0, 0.2)',
+      },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
@@ -91,6 +94,7 @@ module.exports = {
     backgroundColor: {
       primary: '#3578FF',
       amber: '#FFA201',
+      cream: '#FFEFD4',
       navy: '#0C46B9',
       skyblue: '#7FCEF9',
       gray: '#808080',
@@ -106,7 +110,8 @@ module.exports = {
       mono200: '#d6d7d9',
       mono300: '#bebebe',
       mono400: '#808080',
-      
+
+      amber: '#FFA201',
       error: '#d01e1e',
       social: '#395997',
       black: '#000000',
