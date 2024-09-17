@@ -6,6 +6,7 @@ import {
   buttonLarge as large,
   buttonMedium as medium,
   buttonSmall as small,
+  cream,
   disabledStyle,
   flexCenter,
   gray,
@@ -43,6 +44,7 @@ export const BaseButton = ({
   const variantClass: Record<Variant, string> = {
     primary,
     gray,
+    cream,
     skyblue,
     amber,
     navy,

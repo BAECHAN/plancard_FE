@@ -7,6 +7,7 @@ export const gray = 'bg-gray text-white';
 export const skyblue = 'bg-skyblue text-black';
 export const amber = 'bg-amber text-black';
 export const navy = 'bg-navy text-white';
+export const cream = 'bg-cream text-amber';
 
 export const disabledStyle = 'disabled:bg-mono100 disabled:text-mono200';
 export const hoverStyle = 'hover:bg-opacity-70';

@@ -1,5 +1,6 @@
 export {
   amber,
+  cream,
   disabledStyle,
   gray,
   hoverStyle,
