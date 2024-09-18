@@ -7,9 +7,11 @@ export {
   large as buttonLarge,
   medium as buttonMedium,
   navy,
+  periwinkle,
   primary,
   skyblue,
   small as buttonSmall,
+  xsmall as buttonXSmall,
 } from './Button';
 export {
   large as titleLarge,

@@ -1,3 +1,5 @@
+import { Badge } from '@/shared/lib/shadcn-ui/components/ui';
+
 import {
   amber,
   buttonLarge as large,
@@ -5,37 +7,26 @@ import {
   buttonSmall as small,
   buttonXSmall as xsmall,
   cream,
-  disabledStyle,
   flexCenter,
   gray,
-  hoverStyle,
   navy,
   periwinkle,
   primary,
   skyblue,
 } from '@/shared/const';
-import { Button } from '@/shared/lib/shadcn-ui/components/ui';
 import { ExtendedSize, Variant } from '@/shared/type';
-import React from 'react';
 
-interface TagButtonProps {
+interface BaseBadgeProps {
   children: React.ReactNode;
-  onClick: () => void;
-
   variant?: Variant;
   size?: ExtendedSize;
-  disabled?: boolean;
 }
 
-export const TagButton = ({
+export const BaseBadge = ({
   children,
-  onClick,
-
   variant = 'primary',
-  disabled = false,
   size = 'medium',
-  ...props
-}: TagButtonProps) => {
+}: BaseBadgeProps) => {
   const sizeClass: Record<ExtendedSize, string> = {
     xsmall,
     small,
@@ -54,12 +45,10 @@ export const TagButton = ({
   };
 
   return (
-    <Button
-      className={`rounded-full ${sizeClass[size]} ${variantClass[variant]} ${disabledStyle} ${hoverStyle}`}
-      disabled={disabled}
-      {...props}
+    <Badge
+      className={`${sizeClass[size]} ${variantClass[variant]} border-none`}
     >
       <span className={`${flexCenter} gap-2`}>{children}</span>
-    </Button>
+    </Badge>
   );
 };

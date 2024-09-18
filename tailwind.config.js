@@ -34,7 +34,7 @@ module.exports = {
         {
           lineHeight: '21px',
           letterSpacing: '0',
-          fontWeight: '400',
+          fontWeight: '500',
         },
       ],
       base: [
@@ -42,7 +42,7 @@ module.exports = {
         {
           lineHeight: '24px',
           letterSpacing: '0',
-          fontWeight: '400',
+          fontWeight: '600',
         },
       ],
       xl: ['20px', '30px'],
@@ -99,6 +99,8 @@ module.exports = {
       skyblue: '#7FCEF9',
       gray: '#808080',
       lightgray: '#D8D8D8',
+      periwinkle: '#E6F0FF',
+      
       black: '#000000',
       white: '#ffffff',
     },

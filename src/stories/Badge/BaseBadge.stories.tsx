@@ -1,11 +1,10 @@
-import { TagButton } from '@/shared/ui/Button/TagButton';
+import { BaseBadge } from '@/shared/ui/Badge/BaseBadge';
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
 import { FaArrowRightLong, FaCalendarDay } from 'react-icons/fa6';
 
-const meta: Meta<typeof TagButton> = {
-  title: 'Button/TagButton',
-  component: TagButton,
+const meta: Meta<typeof BaseBadge> = {
+  title: 'Badge/BaseBadge',
+  component: BaseBadge,
   parameters: {
     layout: 'centered',
   },
@@ -14,31 +13,25 @@ const meta: Meta<typeof TagButton> = {
     variant: {
       control: 'radio',
       options: ['primary', 'skyblue', 'navy', 'gray', 'amber', 'periwinkle'],
-      description: '버튼 색상',
+      description: '배지 색상',
     },
     size: {
       control: 'radio',
       options: ['xsmall', 'small', 'medium', 'large'],
-      description: '버튼 크기',
+      description: '배지 크기',
     },
-    children: {
-      control: 'text',
-      description: '버튼 text',
-      defaultValue: 'icon',
-    },
-    onClick: { action: 'clicked', description: '버튼 클릭 이벤트' },
-    disabled: { control: 'boolean', description: '버튼 비활성화 여부' },
   },
-  args: { onClick: fn() },
-} satisfies Meta<typeof TagButton>;
+  args: {
+    size: 'medium',
+    variant: 'primary',
+  },
+} satisfies Meta<typeof BaseBadge>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    variant: 'primary',
-    size: 'medium',
     children: 'Button',
   },
 };
@@ -103,15 +96,6 @@ export const Small: Story = {
     variant: 'primary',
     size: 'small',
     children: 'Button',
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    variant: 'gray',
-    size: 'medium',
-    children: 'Button',
-    disabled: true,
   },
 };
 
