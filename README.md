@@ -652,6 +652,13 @@ npm install react-icons
 
 공식문서 : https://react-icons.github.io/react-icons/search/#q=plus
 
+### flagIcon이 필요하여 아래 사이트 참고
+
+svg파일 cdn으로 가져오는 중
+
+- https://kr.freepik.com/free-vector/flags-world-collection_837815.htm#fromView=keyword&page=1&position=2&uuid=b9b26ff4-3808-4ed0-8ef7-a0ebbd46de46
+- https://flagcdn.com/gr.svg
+  
 ### 해야할 것
 1. query와 api 위치 나 코드를 결합할지 고민
 2. useQuery 더 학습 및 캡슐화
