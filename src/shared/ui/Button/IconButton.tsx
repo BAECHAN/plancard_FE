@@ -14,7 +14,7 @@ interface IconButtonProps {
   size?: Size;
 }
 
-export const IconButton = ({
+const IconButton = ({
   iconPath,
   IconComponent,
   alt = '',
@@ -43,3 +43,5 @@ export const IconButton = ({
     </button>
   );
 };
+
+export default IconButton;

@@ -5,7 +5,7 @@ import ModalComponent, {
 
 const modalHeader = 'text-2xl mb-4';
 const UserEditModal: React.FC<ModalComponentProps> = props => {
-  const { isOpen, onRequestClose, onAfterOpen } = props;
+  const { isOpen, onRequestClose } = props;
 
   return (
     <ModalComponent

@@ -45,7 +45,14 @@ module.exports = {
           fontWeight: '600',
         },
       ],
-      xl: ['20px', '30px'],
+      xl: [
+        '20px',
+        {
+          lineHeight: '30px',
+          letterSpacing: '0',
+          fontWeight: '700',
+        },
+      ],
       '2xl': [
         '24px',
         {

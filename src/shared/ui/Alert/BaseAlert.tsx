@@ -4,6 +4,7 @@ import {
   flexCenter,
   gray,
   navy,
+  periwinkle,
   primary,
   skyblue,
 } from '@/shared/const';
@@ -38,6 +39,7 @@ export const BaseAlert = ({
     skyblue,
     amber,
     navy,
+    periwinkle,
   };
 
   return (
