@@ -1,4 +1,4 @@
-import { BaseBadge } from '@/shared/ui/Badge/BaseBadge';
+import BaseBadge from '@/shared/ui/Badge/BaseBadge';
 import type { Meta, StoryObj } from '@storybook/react';
 import { FaArrowRightLong, FaCalendarDay } from 'react-icons/fa6';
 

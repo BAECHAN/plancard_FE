@@ -11,7 +11,7 @@ interface FlagBadgeProps {
   size?: Size;
 }
 
-export const FlagBadge = ({
+const FlagBadge = ({
   imgPath,
   alt = '국기',
   size = 'medium',
@@ -29,3 +29,5 @@ export const FlagBadge = ({
     />
   );
 };
+
+export default FlagBadge;

@@ -22,7 +22,7 @@ interface BaseBadgeProps {
   size?: ExtendedSize;
 }
 
-export const BaseBadge = ({
+const BaseBadge = ({
   children,
   variant = 'primary',
   size = 'medium',
@@ -52,3 +52,5 @@ export const BaseBadge = ({
     </Badge>
   );
 };
+
+export default BaseBadge;

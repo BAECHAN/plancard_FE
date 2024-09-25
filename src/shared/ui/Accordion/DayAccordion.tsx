@@ -1,9 +1,9 @@
 import { flexCenter } from '@/shared/const';
 import useToggle from '@/shared/hooks/useToggle';
 import { Size } from '@/shared/type';
+import ToggleArrowDown from '@/shared/ui/Icon/ToggleArrowDown';
+import EditableTitle from '@/shared/ui/Title/EditableTitle';
 import React from 'react';
-import { ToggleArrowDown } from '../Icon/ToggleArrowDown';
-import { EditableTitle } from '../Title/EditableTitle';
 
 interface DayAccordionProps {
   children: React.ReactNode;
@@ -12,7 +12,7 @@ interface DayAccordionProps {
   title?: string;
 }
 
-export const DayAccordion = ({
+const DayAccordion = ({
   children,
   onSaveTitle,
   title = '',
@@ -55,3 +55,5 @@ export const DayAccordion = ({
     </div>
   );
 };
+
+export default DayAccordion;

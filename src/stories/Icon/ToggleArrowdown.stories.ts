@@ -1,4 +1,4 @@
-import { ToggleArrowDown } from '@/shared/ui/Icon/ToggleArrowDown';
+import ToggleArrowDown from '@/shared/ui/Icon/ToggleArrowDown';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof ToggleArrowDown> = {

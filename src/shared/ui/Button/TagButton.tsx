@@ -27,7 +27,7 @@ interface TagButtonProps {
   disabled?: boolean;
 }
 
-export const TagButton = ({
+const TagButton = ({
   children,
   onClick,
 
@@ -63,3 +63,5 @@ export const TagButton = ({
     </Button>
   );
 };
+
+export default TagButton;

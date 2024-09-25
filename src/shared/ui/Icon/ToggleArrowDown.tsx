@@ -9,10 +9,7 @@ interface IconProps {
   size?: Size;
   isOpen: boolean;
 }
-export const ToggleArrowDown: React.FC<IconProps> = ({
-  size = 'medium',
-  isOpen,
-}) => {
+const ToggleArrowDown: React.FC<IconProps> = ({ size = 'medium', isOpen }) => {
   const sizeClass: Record<Size, string> = {
     small,
     medium,
@@ -27,3 +24,5 @@ export const ToggleArrowDown: React.FC<IconProps> = ({
     />
   );
 };
+
+export default ToggleArrowDown;

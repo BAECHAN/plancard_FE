@@ -18,7 +18,7 @@ interface ToggleFilterTabProps {
   disabled?: boolean;
 }
 
-export const ToggleFilterTab = ({
+const ToggleFilterTab = ({
   option,
   onClick,
 
@@ -58,3 +58,5 @@ export const ToggleFilterTab = ({
     </Tabs>
   );
 };
+
+export default ToggleFilterTab;

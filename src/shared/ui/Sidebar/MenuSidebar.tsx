@@ -9,7 +9,7 @@ interface MenuSidebarProps {
   size?: Size;
 }
 
-export const MenuSidebar = ({
+const MenuSidebar = ({
   children,
   size = 'medium',
   ...props
@@ -29,3 +29,5 @@ export const MenuSidebar = ({
     </aside>
   );
 };
+
+export default MenuSidebar;

@@ -17,7 +17,7 @@ interface ToggleSearchTabProps {
   disabled?: boolean;
 }
 
-export const ToggleSearchTab = ({
+const ToggleSearchTab = ({
   option,
   onClick,
 
@@ -57,3 +57,5 @@ export const ToggleSearchTab = ({
     </Tabs>
   );
 };
+
+export default ToggleSearchTab;

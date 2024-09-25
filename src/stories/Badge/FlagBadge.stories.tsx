@@ -1,4 +1,4 @@
-import { FlagBadge } from '@/shared/ui/Badge/FlagBadge';
+import FlagBadge from '@/shared/ui/Badge/FlagBadge';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof FlagBadge> = {

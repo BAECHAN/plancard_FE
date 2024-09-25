@@ -12,11 +12,7 @@ interface MenuItemProps {
   size?: Size;
 }
 
-export const MenuItem = ({
-  children,
-  active,
-  size = 'medium',
-}: MenuItemProps) => {
+const MenuItem = ({ children, active, size = 'medium' }: MenuItemProps) => {
   const sizeClass: Record<Size, string> = {
     small,
     medium,
@@ -31,3 +27,5 @@ export const MenuItem = ({
     </div>
   );
 };
+
+export default MenuItem;

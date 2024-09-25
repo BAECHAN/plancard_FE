@@ -20,7 +20,7 @@ interface BaseAlertProps {
   variant?: Variant;
   size?: Size;
 }
-export const BaseAlert = ({
+const BaseAlert = ({
   children,
   variant = 'cream',
   size = 'medium',
@@ -51,3 +51,5 @@ export const BaseAlert = ({
     </div>
   );
 };
+
+export default BaseAlert;

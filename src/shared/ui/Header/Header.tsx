@@ -6,7 +6,7 @@ interface HeaderProps {
 
   size?: Size;
 }
-export const Header = ({ children, size = 'medium' }: HeaderProps) => {
+const Header = ({ children, size = 'medium' }: HeaderProps) => {
   const small = 'text-xs';
   const medium = 'text-sm';
   const large = 'text-base';
@@ -25,3 +25,5 @@ export const Header = ({ children, size = 'medium' }: HeaderProps) => {
     </header>
   );
 };
+
+export default Header;

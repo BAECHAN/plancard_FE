@@ -1,4 +1,4 @@
-import { Header } from '@/shared/ui/Header/Header';
+import Header from '@/shared/ui/Header/Header';
 import type { Meta, StoryObj } from '@storybook/react';
 import { FaUser } from 'react-icons/fa';
 import { MdLogout } from 'react-icons/md';

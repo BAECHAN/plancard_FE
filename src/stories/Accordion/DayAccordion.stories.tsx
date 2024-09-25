@@ -1,4 +1,4 @@
-import { DayAccordion } from '@/shared/ui/Accordion/DayAccordion';
+import DayAccordion from '@/shared/ui/Accordion/DayAccordion';
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 

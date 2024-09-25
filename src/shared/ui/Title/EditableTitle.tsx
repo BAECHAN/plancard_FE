@@ -15,7 +15,7 @@ interface EditableTitleProps {
   size?: Size;
   placeholder?: string;
 }
-export const EditableTitle = ({
+const EditableTitle = ({
   initialTitle,
   onFocusTitle,
   onSaveTitle,
@@ -82,3 +82,5 @@ export const EditableTitle = ({
     </span>
   );
 };
+
+export default EditableTitle;

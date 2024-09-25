@@ -14,7 +14,7 @@ interface SortingTitleProps {
   size?: Size;
   active?: boolean;
 }
-export const SortingTitle = ({
+const SortingTitle = ({
   title,
   onClick,
   active = false,
@@ -43,3 +43,5 @@ export const SortingTitle = ({
     </span>
   );
 };
+
+export default SortingTitle;

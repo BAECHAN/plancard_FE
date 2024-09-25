@@ -1,4 +1,4 @@
-import { ToggleSearchTab } from '@/shared/ui/Tab/ToggleSearchTab';
+import ToggleSearchTab from '@/shared/ui/Tab/ToggleSearchTab';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 

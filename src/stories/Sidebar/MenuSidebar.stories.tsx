@@ -1,5 +1,5 @@
-import { MenuItem } from '@/shared/ui/Sidebar/MenuItem';
-import { MenuSidebar } from '@/shared/ui/Sidebar/MenuSidebar';
+import MenuItem from '@/shared/ui/Sidebar/MenuItem';
+import MenuSidebar from '@/shared/ui/Sidebar/MenuSidebar';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof MenuSidebar> = {

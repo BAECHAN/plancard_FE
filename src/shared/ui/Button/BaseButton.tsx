@@ -12,6 +12,7 @@ import {
   gray,
   hoverStyle,
   navy,
+  periwinkle,
   primary,
   skyblue,
 } from '@/shared/const';
@@ -26,7 +27,7 @@ interface BaseButtonProps {
   disabled?: boolean;
 }
 
-export const BaseButton = ({
+const BaseButton = ({
   children,
   onClick,
 
@@ -48,6 +49,7 @@ export const BaseButton = ({
     skyblue,
     amber,
     navy,
+    periwinkle,
   };
 
   return (
@@ -60,3 +62,5 @@ export const BaseButton = ({
     </Button>
   );
 };
+
+export default BaseButton;

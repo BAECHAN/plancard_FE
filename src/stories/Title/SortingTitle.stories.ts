@@ -1,4 +1,4 @@
-import { SortingTitle } from '@/shared/ui/Title/SortingTitle';
+import SortingTitle from '@/shared/ui/Title/SortingTitle';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 

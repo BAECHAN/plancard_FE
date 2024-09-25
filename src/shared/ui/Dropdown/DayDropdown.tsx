@@ -10,7 +10,7 @@ import { Size } from '@/shared/type';
 import { Util } from '@/shared/util';
 
 import useToggle from '@/shared/hooks/useToggle';
-import { ToggleArrowDown } from '../Icon/ToggleArrowDown';
+import ToggleArrowDown from '../Icon/ToggleArrowDown';
 
 const small = 'text-xs';
 const medium = 'text-sm';
@@ -23,7 +23,7 @@ interface DayDropdownProps {
   onClick: () => void;
 }
 
-export const DayDropdown = ({
+const DayDropdown = ({
   option,
   index,
   onClick,
@@ -68,3 +68,5 @@ export const DayDropdown = ({
     </DropdownMenu>
   );
 };
+
+export default DayDropdown;
