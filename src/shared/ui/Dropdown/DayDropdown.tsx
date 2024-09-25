@@ -17,14 +17,14 @@ const medium = 'text-sm';
 const large = 'text-base';
 
 interface DayDropdownProps {
-  option: Date[];
+  optionList: Date[];
   index: number;
   size?: Size;
   onClick: () => void;
 }
 
 const DayDropdown = ({
-  option,
+  optionList,
   index,
   onClick,
   size = 'medium',
@@ -46,19 +46,19 @@ const DayDropdown = ({
       <DropdownMenuTrigger className={`${sizeClass[size]} ${flexCenter} gap-2`}>
         <b>day {index + 1}</b>
         <b className="text-mono400">
-          {Util.formatDateForDayPlan(option[index])}
+          {Util.formatDateForDayPlan(optionList[index])}
         </b>
         <ToggleArrowDown
           isOpen={isOpen}
           size={size}
         />
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        {option.map((date, i) => (
+      <DropdownMenuContent side="bottom">
+        {optionList.map((date, i) => (
           <DropdownMenuItem
             key={i}
             onClick={onClick}
-            className={`${flexCenter} ${sizeClass[size]} gap-2 hover:bg-skyblue cursor-pointer`}
+            className={`${flexCenter} ${sizeClass[size]} gap-2 hover:bg-skyblue cursor-pointer rounded-md`}
           >
             <b>day {i + 1}</b>
             <b className="text-mono400">{Util.formatDateForDayPlan(date)}</b>

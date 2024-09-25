@@ -124,6 +124,7 @@ module.exports = {
       error: '#d01e1e',
       social: '#395997',
       black: '#000000',
+      navy: '#0C46B9',
     },
   },
   plugins: [require('tailwindcss-animate')],

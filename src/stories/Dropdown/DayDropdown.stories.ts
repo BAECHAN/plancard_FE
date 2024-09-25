@@ -19,7 +19,7 @@ const meta: Meta<typeof DayDropdown> = {
   },
   args: {
     onClick: fn(),
-    option: [
+    optionList: [
       new Date('2022-01-01'),
       new Date('2022-01-02'),
       new Date('2022-01-03'),
