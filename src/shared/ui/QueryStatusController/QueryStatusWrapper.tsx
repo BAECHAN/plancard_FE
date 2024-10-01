@@ -1,5 +1,6 @@
 // src/components/QueryStatusWrapper.tsx
 import { UseQueryResult } from '@tanstack/react-query';
+import React from 'react';
 
 interface QueryStatusWrapperProps<T> {
   queryResult: UseQueryResult<T>;

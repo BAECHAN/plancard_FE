@@ -1,4 +1,4 @@
-import DayDropdown from '@/shared/ui/Dropdown/DayDropdown';
+import { DayDropdown } from '@/shared/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 

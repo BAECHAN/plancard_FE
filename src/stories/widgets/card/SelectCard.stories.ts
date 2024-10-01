@@ -1,10 +1,10 @@
-import EmptyCardLayout from '@/widgets/layout/ui/EmptyCardLayout';
+import { SelectCard } from '@/widgets/card';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-const meta: Meta<typeof EmptyCardLayout> = {
-  title: 'Layout/EmptyCardLayout',
-  component: EmptyCardLayout,
+const meta: Meta<typeof SelectCard> = {
+  title: 'Widgets/Card/SelectCard',
+  component: SelectCard,
   parameters: {
     layout: 'centered',
   },
@@ -22,7 +22,7 @@ const meta: Meta<typeof EmptyCardLayout> = {
     },
   },
   args: { onClick: fn() },
-} satisfies Meta<typeof EmptyCardLayout>;
+} satisfies Meta<typeof SelectCard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

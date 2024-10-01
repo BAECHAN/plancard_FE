@@ -9,8 +9,8 @@ import {
 import { Size } from '@/shared/type';
 import { Util } from '@/shared/util';
 
-import useToggle from '@/shared/hooks/useToggle';
-import ToggleArrowDown from '../Icon/ToggleArrowDown';
+import { useToggle } from '@/shared/hooks';
+import { ToggleArrowDown } from '@/shared/ui';
 
 const small = 'text-xs';
 const medium = 'text-sm';

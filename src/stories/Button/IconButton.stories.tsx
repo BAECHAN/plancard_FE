@@ -1,4 +1,4 @@
-import IconButton from '@/shared/ui/Button/IconButton';
+import { IconButton } from '@/shared/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import {

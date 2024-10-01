@@ -2,8 +2,8 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
 } from '@/shared/lib/shadcn-ui/components/ui';
-import IconButton from '@/shared/ui/Button/IconButton';
-import BaseDropdown from '@/shared/ui/Dropdown/BaseDropdown';
+import { BaseDropdown, IconButton } from '@/shared/ui';
+
 import type { Meta, StoryObj } from '@storybook/react';
 import { FiMoreVertical } from 'react-icons/fi';
 

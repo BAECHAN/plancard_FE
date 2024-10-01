@@ -659,6 +659,12 @@ svg파일 cdn으로 가져오는 중
 - https://kr.freepik.com/free-vector/flags-world-collection_837815.htm#fromView=keyword&page=1&position=2&uuid=b9b26ff4-3808-4ed0-8ef7-a0ebbd46de46
 - https://flagcdn.com/gr.svg
   
+### 폴더 및 파일 네임컨벤션
+
+- 폴더 : 카멜케이스
+- 컴포넌트 파일 : 파스칼케이스
+- 일반 파일 : 카멜케이스
+
 ### 해야할 것
 1. query와 api 위치 나 코드를 결합할지 고민
 2. useQuery 더 학습 및 캡슐화

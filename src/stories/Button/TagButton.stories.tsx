@@ -1,4 +1,4 @@
-import TagButton from '@/shared/ui/Button/TagButton';
+import { TagButton } from '@/shared/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { FaArrowRightLong, FaCalendarDay } from 'react-icons/fa6';

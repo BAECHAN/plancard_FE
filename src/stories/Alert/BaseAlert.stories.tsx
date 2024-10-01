@@ -1,5 +1,4 @@
-import BaseAlert from '@/shared/ui/Alert/BaseAlert';
-import BaseButton from '@/shared/ui/Button/BaseButton';
+import { BaseAlert, BaseButton } from '@/shared/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { PiWarningCircleFill } from 'react-icons/pi';
 

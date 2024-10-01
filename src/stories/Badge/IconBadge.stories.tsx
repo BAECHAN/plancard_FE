@@ -1,4 +1,4 @@
-import IconBadge from '@/shared/ui/Badge/IconBadge';
+import { IconBadge } from '@/shared/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { FaStar } from 'react-icons/fa6';
 

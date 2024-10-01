@@ -1,4 +1,4 @@
-import EditableTitle from '@/shared/ui/Title/EditableTitle';
+import { EditableTitle } from '@/shared/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { useState } from 'react';

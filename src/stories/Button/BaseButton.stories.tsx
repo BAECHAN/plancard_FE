@@ -1,4 +1,4 @@
-import BaseButton from '@/shared/ui/Button/BaseButton';
+import { BaseButton } from '@/shared/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { FaPlus } from 'react-icons/fa6';

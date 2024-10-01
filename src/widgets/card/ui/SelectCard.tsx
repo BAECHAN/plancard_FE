@@ -5,9 +5,9 @@ import {
   flexCenter,
 } from '@/shared/const';
 import { Size, Variant } from '@/shared/type';
-import BaseButton from '@/shared/ui/Button/BaseButton';
+import { BaseButton } from '@/shared/ui';
 
-interface EmptyCardLayoutProps {
+interface SelectCardProps {
   children: React.ReactNode;
   onClick: () => void;
 
@@ -16,11 +16,11 @@ interface EmptyCardLayoutProps {
   disabled?: boolean;
 }
 
-const EmptyCardLayout = ({
+const SelectCard = ({
   onClick,
   size = 'medium',
   variant = 'primary',
-}: EmptyCardLayoutProps) => {
+}: SelectCardProps) => {
   const sizeClass: Record<Size, string> = {
     small,
     medium,
@@ -42,4 +42,4 @@ const EmptyCardLayout = ({
   );
 };
 
-export default EmptyCardLayout;
+export default SelectCard;

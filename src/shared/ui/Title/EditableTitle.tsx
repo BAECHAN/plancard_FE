@@ -3,8 +3,8 @@ import {
   titleMedium as medium,
   titleSmall as small,
 } from '@/shared/const';
-import useInput from '@/shared/hooks/useInput';
-import useToggle from '@/shared/hooks/useToggle';
+import { useInput, useToggle } from '@/shared/hooks';
+
 import { Size } from '@/shared/type';
 import { ChangeEvent, useEffect, useRef } from 'react';
 

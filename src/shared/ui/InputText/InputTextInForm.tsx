@@ -1,6 +1,6 @@
+import { InputTextCommonProps } from '@/shared/ui/inputText/InputText';
 import { forwardRef } from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
-import { InputTextCommonProps } from './InputText';
 
 type InputTextInFormProps = {
   id: string;

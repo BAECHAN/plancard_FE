@@ -112,7 +112,6 @@ module.exports = {
               './src/features',
               './src/widgets',
               './src/pages',
-              './src/processes',
               './src/app',
             ],
           },
@@ -122,29 +121,19 @@ module.exports = {
               './src/features',
               './src/widgets',
               './src/pages',
-              './src/processes',
               './src/app',
             ],
           },
           {
             target: './src/features',
-            from: [
-              './src/widgets',
-              './src/pages',
-              './src/processes',
-              './src/app',
-            ],
+            from: ['./src/widgets', './src/pages', './src/app'],
           },
           {
             target: './src/widgets',
-            from: ['./src/pages', './src/processes', './src/app'],
+            from: ['./src/pages', './src/app'],
           },
           {
             target: './src/pages',
-            from: ['./src/processes', './src/app'],
-          },
-          {
-            target: './src/processes',
             from: ['./src/app'],
           },
         ],
@@ -210,5 +199,46 @@ module.exports = {
         'react/function-component-definition': 'off',
       },
     }, // shadcn-ui에서는 함수 컴포넌트 정의 규칙을 무시
+    {
+      files: ['**/*.stories.{js,jsx,ts,tsx}'], // Storybook 스토리 파일 패턴
+      rules: {
+        'no-restricted-imports': [
+          'error',
+          {
+            patterns: [
+              {
+                group: [
+                  '@/shared/lib/shadcn-ui/components/ui/*',
+                  '!@/shared/lib/shadcn-ui/components/ui/index',
+
+                  '@/shared/const/*',
+                  '!@/shared/const/index',
+
+                  '@/shared/type/*',
+                  '!@/shared/type/index',
+
+                  '@/shared/ui/*.{ts,tsx}',
+                  '!@/shared/ui/index.{ts,tsx}',
+
+                  '@/entities/**/*.{ts,tsx}',
+                  '!@/entities/**/index.{ts,tsx}',
+
+                  '@/features/**/*.{ts,tsx}',
+                  '!@/features/**/index.{ts,tsx}',
+
+                  '@/widgets/**/*.{ts,tsx}',
+                  '!@/widgets/**/index.{ts,tsx}',
+
+                  '@/pages/**/*.{ts,tsx}',
+                  '!@/pages/**/index.{ts,tsx}',
+                ],
+                message:
+                  '컴포넌트는 바렐 파일(src/*/index.ts)을 통해서만 임포트해 주세요.',
+              },
+            ],
+          },
+        ],
+      },
+    },
   ],
 };

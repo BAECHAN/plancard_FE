@@ -1,8 +1,8 @@
 import { flexCenter } from '@/shared/const';
 import useToggle from '@/shared/hooks/useToggle';
 import { Size } from '@/shared/type';
-import ToggleArrowDown from '@/shared/ui/Icon/ToggleArrowDown';
-import EditableTitle from '@/shared/ui/Title/EditableTitle';
+import { EditableTitle, ToggleArrowDown } from '@/shared/ui';
+
 import React from 'react';
 
 interface DayAccordionProps {

@@ -1,7 +1,7 @@
 import { UserInfo } from '@/entities/user/type/UserType';
 import { modalOpenAtom } from '@/shared/store';
 import { modalUserInfoDataAtom } from '@/shared/store/atom';
-import { PencilIcon } from '@/shared/ui/Icon';
+import { PencilIcon } from '@/shared/ui';
 import { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 
