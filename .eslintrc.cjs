@@ -1,4 +1,30 @@
 // .eslintrc.json
+
+const importPatterns = [
+  '@/shared/lib/shadcn-ui/components/ui/*',
+  '!@/shared/lib/shadcn-ui/components/ui/index',
+
+  '@/shared/const/*',
+  '!@/shared/const/index',
+
+  '@/shared/type/*',
+  '!@/shared/type/index',
+
+  '@/shared/ui/*.{ts,tsx}',
+  '!@/shared/ui/index.{ts,tsx}',
+
+  '@/entities/**/*.{ts,tsx}',
+  '!@/entities/**/index.{ts,tsx}',
+
+  '@/features/**/*.{ts,tsx}',
+  '!@/features/**/index.{ts,tsx}',
+
+  '@/widgets/**/**/*.{ts,tsx}',
+  '!@/widgets/**/**/index.{ts,tsx}',
+
+  '@/pages/**/*.{ts,tsx}',
+  '!@/pages/**/index.{ts,tsx}',
+];
 module.exports = {
   root: true, // 현재 폴더(root)의 린트 설정파일만 적용함 (상위에 eslintrc 파일이 있어도 참고하지 않음)
   plugins: [
@@ -74,28 +100,7 @@ module.exports = {
         paths: [],
         patterns: [
           {
-            group: [
-              '@/shared/lib/shadcn-ui/components/ui/*',
-              '!@/shared/lib/shadcn-ui/components/ui/index',
-
-              '@/shared/const/*',
-              '!@/shared/const/index',
-
-              '@/shared/type/*',
-              '!@/shared/type/index',
-
-              '@/entities/**/*.{ts,tsx}',
-              '!@/entities/**/index.{ts,tsx}',
-
-              '@/features/**/*.{ts,tsx}',
-              '!@/features/**/index.{ts,tsx}',
-
-              '@/widgets/**/*.{ts,tsx}',
-              '!@/widgets/**/index.{ts,tsx}',
-
-              '@/pages/**/*.{ts,tsx}',
-              '!@/pages/**/index.{ts,tsx}',
-            ],
+            group: importPatterns,
             message: 'Please import from the index.ts file in the ui folder.',
           },
         ],
@@ -207,31 +212,7 @@ module.exports = {
           {
             patterns: [
               {
-                group: [
-                  '@/shared/lib/shadcn-ui/components/ui/*',
-                  '!@/shared/lib/shadcn-ui/components/ui/index',
-
-                  '@/shared/const/*',
-                  '!@/shared/const/index',
-
-                  '@/shared/type/*',
-                  '!@/shared/type/index',
-
-                  '@/shared/ui/*.{ts,tsx}',
-                  '!@/shared/ui/index.{ts,tsx}',
-
-                  '@/entities/**/*.{ts,tsx}',
-                  '!@/entities/**/index.{ts,tsx}',
-
-                  '@/features/**/*.{ts,tsx}',
-                  '!@/features/**/index.{ts,tsx}',
-
-                  '@/widgets/**/*.{ts,tsx}',
-                  '!@/widgets/**/index.{ts,tsx}',
-
-                  '@/pages/**/*.{ts,tsx}',
-                  '!@/pages/**/index.{ts,tsx}',
-                ],
+                group: importPatterns,
                 message:
                   '컴포넌트는 바렐 파일(src/*/index.ts)을 통해서만 임포트해 주세요.',
               },

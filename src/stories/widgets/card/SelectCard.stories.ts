@@ -1,4 +1,4 @@
-import { SelectCard } from '@/widgets/card';
+import { SelectCard } from '@/widgets/card/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 

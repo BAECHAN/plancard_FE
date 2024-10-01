@@ -1,5 +1,5 @@
 import { Button } from '@/shared/lib/shadcn-ui/components/ui';
-import useUserListQuery from '../query/useUserListQuery';
+import { useUserListQuery } from '@/widgets/userCardList/query';
 
 const UserCardListToggleButton = ({
   isActive,

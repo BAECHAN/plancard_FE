@@ -2,7 +2,7 @@ import { LogoutButton } from '@/features/auth';
 import { getBoardData } from '@/shared/api';
 import { modalOpenAtom } from '@/shared/store';
 import UserEditModal from '@/widgets/modal/ui/UserEditModal';
-import { UserCardListLayout } from '@/widgets/UserCardList';
+import { UserCardListLayout } from '@/widgets/userCardList/ui';
 import { useRecoilState } from 'recoil';
 
 export const MyPage = () => {
