@@ -14,6 +14,16 @@ export {
   xsmall as buttonXSmall,
 } from './Button';
 export {
+  large as cardLarge,
+  medium as cardMedium,
+  small as cardSmall,
+} from './Card';
+export {
+  large as iconLarge,
+  medium as iconMedium,
+  small as iconSmall,
+} from './Icon';
+export {
   large as titleLarge,
   medium as titleMedium,
   small as titleSmall,

@@ -4,24 +4,21 @@ import {
   iconSmall as small,
 } from '@/shared/const';
 import { Size } from '@/shared/type';
-import { MouseEventHandler } from 'react';
-import { IconType } from 'react-icons'; // FontAwesome이나 react-icons 같은 라이브러리용
+import { IconType } from 'react-icons';
 
-interface IconButtonProps {
-  onClick: MouseEventHandler<HTMLButtonElement>;
+interface IconBadgeProps {
   iconPath?: string; // SVG 경로를 전달할 때
   IconComponent?: IconType; // FontAwesome 같은 라이브러리에서 컴포넌트를 전달할 때
   alt?: string; // SVG에 대한 설명
   size?: Size;
 }
 
-const IconButton = ({
+const IconBadge = ({
   iconPath,
   IconComponent,
   alt = '',
-  onClick,
-  size = 'small',
-}: IconButtonProps) => {
+  size = 'medium',
+}: IconBadgeProps) => {
   const sizeClass: Record<Size, string> = {
     small,
     medium,
@@ -29,10 +26,7 @@ const IconButton = ({
   };
 
   return (
-    <button
-      onClick={onClick}
-      className={`inline-flex items-center justify-center rounded-full p-0 transition-colors duration-300`}
-    >
+    <div>
       {iconPath && (
         <img
           src={iconPath}
@@ -41,8 +35,8 @@ const IconButton = ({
         />
       )}
       {IconComponent && <IconComponent className={`${sizeClass[size]}`} />}
-    </button>
+    </div>
   );
 };
 
-export default IconButton;
+export default IconBadge;

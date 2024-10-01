@@ -13,7 +13,7 @@ const meta: Meta<typeof BaseButton> = {
   argTypes: {
     variant: {
       control: 'radio',
-      options: ['primary', 'skyblue', 'navy', 'gray', 'amber'],
+      options: ['primary', 'skyblue', 'navy', 'gray', 'amber', 'periwinkle'],
       description: '버튼 색상',
     },
     size: {
