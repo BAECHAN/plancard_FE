@@ -8,7 +8,7 @@ const importPatterns = [
   '!@/shared/const/index',
 
   '@/shared/type/*',
-  '!@/shared/type/index',
+  '!@/shared/type/index.ts',
 
   '@/shared/ui/*.{ts,tsx}',
   '!@/shared/ui/index.{ts,tsx}',
