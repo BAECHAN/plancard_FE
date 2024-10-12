@@ -2,8 +2,9 @@ import {
   iconLarge as large,
   iconMedium as medium,
   iconSmall as small,
+  iconXSmall as xsmall,
 } from '@/shared/const';
-import { Size } from '@/shared/type';
+import { SizeWithXSmall } from '@/shared/type';
 import { MouseEventHandler } from 'react';
 import { IconType } from 'react-icons'; // FontAwesome이나 react-icons 같은 라이브러리용
 
@@ -12,7 +13,8 @@ interface IconButtonProps {
   iconPath?: string; // SVG 경로를 전달할 때
   IconComponent?: IconType; // FontAwesome 같은 라이브러리에서 컴포넌트를 전달할 때
   alt?: string; // SVG에 대한 설명
-  size?: Size;
+  size?: SizeWithXSmall;
+  color?: string;
 }
 
 const IconButton = ({
@@ -21,8 +23,10 @@ const IconButton = ({
   alt = '',
   onClick,
   size = 'small',
+  color,
 }: IconButtonProps) => {
-  const sizeClass: Record<Size, string> = {
+  const sizeClass: Record<SizeWithXSmall, string> = {
+    xsmall,
     small,
     medium,
     large,
@@ -38,9 +42,15 @@ const IconButton = ({
           src={iconPath}
           alt={alt}
           className={`${sizeClass[size]}`}
+          color={color}
         />
       )}
-      {IconComponent && <IconComponent className={`${sizeClass[size]}`} />}
+      {IconComponent && (
+        <IconComponent
+          className={`${sizeClass[size]} `}
+          color={color}
+        />
+      )}
     </button>
   );
 };

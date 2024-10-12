@@ -61,4 +61,13 @@ export class Util {
 
     return true;
   };
+
+  /**
+   * @description 첫 글자를 대문자로 변환하는 함수
+   * @param string
+   * @returns
+   */
+  static capitalizeFirstLetter = (str: string) => {
+    return str.replace(/^\w/, c => c.toUpperCase());
+  };
 }

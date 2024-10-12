@@ -11,7 +11,7 @@ interface CountryCardProps {
   size?: Size;
 }
 
-const SelectCard = ({ onClick, info, size = 'medium' }: CountryCardProps) => {
+const CountryCard = ({ onClick, info, size = 'medium' }: CountryCardProps) => {
   const sizeClass: Record<Size, string> = {
     small,
     medium,
@@ -42,4 +42,4 @@ const SelectCard = ({ onClick, info, size = 'medium' }: CountryCardProps) => {
   );
 };
 
-export default SelectCard;
+export default CountryCard;

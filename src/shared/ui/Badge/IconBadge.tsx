@@ -2,15 +2,16 @@ import {
   iconLarge as large,
   iconMedium as medium,
   iconSmall as small,
+  iconXSmall as xsmall,
 } from '@/shared/const';
-import { Size } from '@/shared/type';
+import { SizeWithXSmall } from '@/shared/type';
 import { IconType } from 'react-icons';
 
 interface IconBadgeProps {
   iconPath?: string; // SVG 경로를 전달할 때
   IconComponent?: IconType; // FontAwesome 같은 라이브러리에서 컴포넌트를 전달할 때
   alt?: string; // SVG에 대한 설명
-  size?: Size;
+  size?: SizeWithXSmall; // 아이콘 크기
 }
 
 const IconBadge = ({
@@ -19,7 +20,8 @@ const IconBadge = ({
   alt = '',
   size = 'medium',
 }: IconBadgeProps) => {
-  const sizeClass: Record<Size, string> = {
+  const sizeClass: Record<SizeWithXSmall, string> = {
+    xsmall,
     small,
     medium,
     large,

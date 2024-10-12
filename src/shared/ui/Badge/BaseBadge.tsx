@@ -14,12 +14,12 @@ import {
   primary,
   skyblue,
 } from '@/shared/const';
-import { ExtendedSize, Variant } from '@/shared/type';
+import { SizeWithXSmall, Variant } from '@/shared/type';
 
 interface BaseBadgeProps {
   children: React.ReactNode;
   variant?: Variant;
-  size?: ExtendedSize;
+  size?: SizeWithXSmall;
 }
 
 const BaseBadge = ({
@@ -27,7 +27,7 @@ const BaseBadge = ({
   variant = 'primary',
   size = 'medium',
 }: BaseBadgeProps) => {
-  const sizeClass: Record<ExtendedSize, string> = {
+  const sizeClass: Record<SizeWithXSmall, string> = {
     xsmall,
     small,
     medium,

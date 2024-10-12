@@ -1,5 +1,5 @@
 export type Size = 'small' | 'medium' | 'large';
-export type ExtendedSize = 'xsmall' | Size;
+export type SizeWithXSmall = Size | 'xsmall';
 export type Variant =
   | 'primary'
   | 'gray'
@@ -38,19 +38,19 @@ interface PaginationRequest {
   size: number;
 }
 
-interface Card {
+export type Card = {
   cardId: string; // 부모 key와 연결해야함
   title: string;
   description: string;
-  country: Country;
-  city: City;
-  theme: Theme[];
-  category: Category;
+  country: Country['title'];
+  city: City['title'];
+  theme: Theme['title'][];
+  category: Category['title'];
   rating: number; // 1 ~ 5
   googleMapLink: string;
   imageList: CardImage[];
   scrap: boolean;
-}
+};
 
 interface MyCard extends Card {
   getDate: Date;
@@ -208,6 +208,7 @@ interface City extends RegionBase {
 type Category = {
   categoryId: string;
   title:
+    | '관광지'
     | 'attraction'
     | 'restaurant'
     | 'cafe'

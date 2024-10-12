@@ -34,7 +34,7 @@ module.exports = {
         {
           lineHeight: '21px',
           letterSpacing: '0',
-          fontWeight: '500',
+          fontWeight: '600',
         },
       ],
       base: [
@@ -90,7 +90,7 @@ module.exports = {
         },
       },
       boxShadow: {
-        'custom': '0 4px 10px rgba(0, 0, 0, 0.2)',
+        custom: '0 4px 10px rgba(0, 0, 0, 0.2)',
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -107,18 +107,24 @@ module.exports = {
       gray: '#808080',
       lightgray: '#D8D8D8',
       periwinkle: '#E6F0FF',
-      
+
       black: '#000000',
       white: '#ffffff',
+    },
+
+    borderColor: {
+      mono500: '#91929F',
     },
 
     colors: {
       primary: '#3578FF',
       white: '#ffffff',
       mono100: '#f1f1f1',
+      
       mono200: '#d6d7d9',
       mono300: '#bebebe',
       mono400: '#808080',
+      mono500: '#91929F',
 
       amber: '#FFA201',
       error: '#d01e1e',

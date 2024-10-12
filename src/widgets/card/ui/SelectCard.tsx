@@ -29,7 +29,7 @@ const SelectCard = ({
 
   return (
     <div
-      className={`border-dashed border-2 border-[#91929F] ${flexCenter} ${sizeClass[size]}`}
+      className={`border-dashed border-2 border-mono500 ${flexCenter} ${sizeClass[size]}`}
     >
       <BaseButton
         variant={variant}
