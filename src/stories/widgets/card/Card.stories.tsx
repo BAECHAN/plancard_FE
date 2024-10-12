@@ -1,3 +1,5 @@
+import CheckboxButton from '@/shared/ui/button/CheckboxButton';
+import TrashButton from '@/shared/ui/button/TrashButton';
 import { Card } from '@/widgets/card/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
@@ -63,5 +65,17 @@ export const Medium: Story = {
 export const Large: Story = {
   args: {
     size: 'large',
+  },
+};
+
+export const WithDeleteIcon: Story = {
+  args: {
+    IconComponent: TrashButton,
+  },
+};
+
+export const WithCheckboxIcon: Story = {
+  args: {
+    IconComponent: CheckboxButton,
   },
 };
