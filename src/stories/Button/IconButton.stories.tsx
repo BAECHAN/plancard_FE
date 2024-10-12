@@ -1,18 +1,14 @@
 import { IconButton } from '@/shared/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import {
-  FaBookmark,
-  FaRegBookmark,
-  FaRegHeart,
-  FaTrashAlt,
-} from 'react-icons/fa';
+import { FaBookmark, FaRegBookmark, FaRegHeart } from 'react-icons/fa';
 import { FaPlus, FaRegCopy } from 'react-icons/fa6';
 import { FiMoreVertical } from 'react-icons/fi';
 import { HiMapPin, HiPencilSquare } from 'react-icons/hi2';
 import { ImCheckboxChecked, ImCheckboxUnchecked } from 'react-icons/im';
 import { IoMdShare } from 'react-icons/io';
 import { IoClose } from 'react-icons/io5';
+import { TbTrashX, TbTrashXFilled } from 'react-icons/tb';
 
 const meta: Meta<typeof IconButton> = {
   title: 'Button/IconButton',
@@ -127,7 +123,9 @@ export const WithIconComponentMoreVertical: Story = {
 
 export const WithIconComponentTrashAlt: Story = {
   args: {
-    IconComponent: FaTrashAlt,
+    IconComponent: TbTrashX,
+    HoverIconComponent: TbTrashXFilled,
+    color: 'gray',
     alt: '삭제 아이콘',
   },
 };
@@ -142,14 +140,9 @@ export const WithIconComponentCopy: Story = {
 export const WithIconComponentCheckboxUnchecked: Story = {
   args: {
     IconComponent: ImCheckboxUnchecked,
-    alt: '체크박스 빈 아이콘',
-  },
-};
-
-export const WithIconComponentCheckboxChecked: Story = {
-  args: {
-    IconComponent: ImCheckboxChecked,
-    alt: '체크박스 체크 아이콘',
+    HoverIconComponent: ImCheckboxChecked,
+    hoverIconColor: '#28A745',
+    alt: '체크박스 아이콘',
   },
 };
 
