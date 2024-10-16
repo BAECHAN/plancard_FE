@@ -228,7 +228,7 @@ type CardTag = {
   tagName: string;
 };
 
-interface CardImage {
+export interface CardImage {
   imageId: string;
   imageUrl: string;
   alt: string;
