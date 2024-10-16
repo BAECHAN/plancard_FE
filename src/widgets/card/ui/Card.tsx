@@ -41,7 +41,7 @@ const sizeClassDescription: Record<Size, string> = {
 
 interface CardProps {
   onClick: () => void;
-  IconComponent: React.ElementType;
+  IconComponent?: React.ElementType;
   info: CardType;
   size?: Size;
 }
@@ -72,7 +72,7 @@ const Card = ({ onClick, info, size = 'medium', IconComponent }: CardProps) => {
       )}
 
       <div
-        className={`rounded-md ${sizeClassCountry[size]} flex flex-col border-[1px] border-[#D9D9DE] p-2 text-ellipsis whitespace-pre-wrap`}
+        className={`bg-white rounded-md ${sizeClassCountry[size]} flex flex-col border-[1px] border-[#D9D9DE] p-2 text-ellipsis whitespace-pre-wrap`}
         onClick={onClick}
       >
         <div className="card-header flex justify-between  ">

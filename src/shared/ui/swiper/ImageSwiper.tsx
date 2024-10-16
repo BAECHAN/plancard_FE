@@ -10,7 +10,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 // import required modules
-import { CardImage } from '@/shared/type';
+import { CardImage, Size } from '@/shared/type';
 import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
 
 const StyledSwiper = styled(Swiper)`
@@ -62,7 +62,7 @@ const StyledSwiper = styled(Swiper)`
 
 type ImageSwiperProps = {
   imageList: CardImage[];
-  size: 'small' | 'medium' | 'large';
+  size: Size;
 };
 
 const ImageSwiper = ({ imageList, size = 'medium' }: ImageSwiperProps) => {
