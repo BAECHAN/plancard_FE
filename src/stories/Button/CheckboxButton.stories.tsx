@@ -1,4 +1,4 @@
-import CheckboxButton from '@/shared/ui/button/CheckboxButton';
+import { CheckboxButton } from '@/shared/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof CheckboxButton> = {

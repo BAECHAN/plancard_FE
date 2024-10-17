@@ -15,7 +15,7 @@ import {
   skyblue,
 } from '@/shared/const';
 import { Button } from '@/shared/lib/shadcn-ui/components/ui';
-import { ExtendedSize, Variant } from '@/shared/type';
+import { SizeWithXSmall, Variant } from '@/shared/type';
 import React from 'react';
 
 interface TagButtonProps {
@@ -23,7 +23,7 @@ interface TagButtonProps {
   onClick: () => void;
 
   variant?: Variant;
-  size?: ExtendedSize;
+  size?: SizeWithXSmall;
   disabled?: boolean;
 }
 
@@ -36,7 +36,7 @@ const TagButton = ({
   size = 'medium',
   ...props
 }: TagButtonProps) => {
-  const sizeClass: Record<ExtendedSize, string> = {
+  const sizeClass: Record<SizeWithXSmall, string> = {
     xsmall,
     small,
     medium,
