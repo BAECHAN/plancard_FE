@@ -14,6 +14,7 @@ export { default as ToggleArrowDown } from './icon/ToggleArrowDown';
 export { default as InputText } from './inputText/InputText';
 export { default as InputTextInForm } from './inputText/InputTextInForm';
 export { default as QueryStatusWrapper } from './queryStatusController/QueryStatusWrapper';
+export { default as SearchInputText } from './search/SearchInputText';
 export { default as MenuItem } from './sidebar/MenuItem';
 export { default as MenuSidebar } from './sidebar/MenuSidebar';
 export { default as ToggleFilterTab } from './tab/ToggleFilterTab';
