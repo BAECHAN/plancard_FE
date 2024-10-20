@@ -1,4 +1,4 @@
-import CardSwiper from '@/widgets/swiper/CardSwiper';
+import { CardSwiper } from '@/widgets/swiper/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof CardSwiper> = {
