@@ -1,6 +1,6 @@
 import { UserCard, UserInfo } from '@/entities/user';
 import { QueryStatusWrapper } from '@/shared/ui';
-import { useUserListQuery } from '@/widgets/userCardList/ui';
+import { useUserListQuery } from '@/widgets/userCardList/query';
 import { UseQueryResult } from '@tanstack/react-query';
 
 const UserCardListContent = () => {
@@ -9,7 +9,7 @@ const UserCardListContent = () => {
   return (
     <div className="flex justify-center gap-4 flex-col items-center">
       <QueryStatusWrapper queryResult={queryResult}>
-        {queryResult.data?.map((user: UserInfo) => (
+        {queryResult?.data?.map((user: UserInfo) => (
           <UserCard
             key={user.id}
             user={user}
