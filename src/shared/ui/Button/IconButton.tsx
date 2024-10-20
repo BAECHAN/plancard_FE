@@ -60,15 +60,11 @@ const IconButton = ({
             <HoverIconComponent
               className={`${sizeClass[size]} `}
               color={hoverIconColor}
-              onMouseEnter={openToggle}
-              onMouseLeave={closeToggle}
             />
           ) : (
             <IconComponent
               className={`${sizeClass[size]} `}
               color={color}
-              onMouseEnter={openToggle}
-              onMouseLeave={closeToggle}
             />
           )
         ) : (
