@@ -2,7 +2,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
 } from '@/shared/lib/shadcn-ui/components/ui';
-import { BaseDropdown, IconButton } from '@/shared/ui';
+import { BaseDropdown, IconBadge } from '@/shared/ui';
 
 import type { Meta, StoryObj } from '@storybook/react';
 import { FiMoreVertical } from 'react-icons/fi';
@@ -30,10 +30,10 @@ const dropdownMenuSeparatorStyle = 'border-t my-2 w-[90%] mx-auto text-mono400';
 export const PlanDetailMenu: Story = {
   args: {
     triggerNode: (
-      <IconButton
+      <IconBadge
         IconComponent={FiMoreVertical}
-        onClick={() => {}}
         alt={'세로 더보기 아이콘'}
+        size="small"
       />
     ),
     contentNode: (
