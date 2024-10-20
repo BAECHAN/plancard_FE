@@ -1,8 +1,8 @@
 import Modal from 'react-modal';
 
-Modal.setAppElement('#root'); // 모달이 열린 상태에서도 접근성을 보장하기 위해 필요합니다.
+Modal.setAppElement('body'); // 모달이 열린 상태에서도 접근성을 보장하기 위해 필요합니다.
 
-export type ModalComponentProps = {
+export type BaseModalProps = {
   isOpen: boolean; // 모달의 열림 상태를 결정합니다.
   onRequestClose: () => void; // 모달을 닫으려고 할 때 호출되는 콜백 함수입니다. 사용자가 모달 외부를 클릭하거나 ESC 키를 누를 때 호출됩니다.
   children: React.ReactNode;
@@ -14,7 +14,7 @@ export type ModalComponentProps = {
   closeTimeoutMS?: number; // 모달이 닫히는 데 걸리는 시간을 설정합니다. 기본값은 0입니다.
 };
 
-const ModalComponent: React.FC<ModalComponentProps> = ({
+const BaseModal: React.FC<BaseModalProps> = ({
   isOpen,
   onRequestClose,
   contentLabel = 'Modal',
@@ -28,7 +28,7 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
       contentLabel={contentLabel}
       style={{
         overlay: {
-          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          backgroundColor: '#D8D8D8',
         },
         content: {
           top: '50%',
@@ -39,8 +39,8 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
           transform: 'translate(-50%, -50%)',
           padding: '20px',
           borderRadius: '8px',
-          width: '50vw',
-          height: '50vh',
+          width: '92vw',
+          height: '95vh',
         },
       }}
     >
@@ -55,4 +55,4 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
   );
 };
 
-export default ModalComponent;
+export default BaseModal;

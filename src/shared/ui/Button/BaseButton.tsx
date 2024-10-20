@@ -56,6 +56,7 @@ const BaseButton = ({
     <Button
       className={`${sizeClass[size]} ${variantClass[variant]} ${disabledStyle} ${hoverStyle}`}
       disabled={disabled}
+      onClick={onClick}
       {...props}
     >
       <span className={`${flexCenter} gap-2`}>{children}</span>

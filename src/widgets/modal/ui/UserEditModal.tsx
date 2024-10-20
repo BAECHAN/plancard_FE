@@ -1,7 +1,7 @@
 import UserEditFormLayout from '@/widgets/layout/ui/UserEditFormLayout';
 import ModalComponent, {
   ModalComponentProps,
-} from '@/widgets/modal/ui/ModalComponent';
+} from '@/widgets/modal/ui/BaseModal';
 
 const modalHeader = 'text-2xl mb-4';
 const UserEditModal: React.FC<ModalComponentProps> = props => {
