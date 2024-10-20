@@ -25,6 +25,7 @@ type Story = StoryObj<typeof meta>;
 
 const dropdownMenuItemStyle =
   'hover:bg-skyblue cursor-pointer w-full flex justify-center text-mono400 hover:text-navy rounded-md text-base'; // font size는 여기서 지정
+const dropdownMenuSeparatorStyle = 'border-t my-2 w-[90%] mx-auto text-mono400';
 
 export const PlanDetailMenu: Story = {
   args: {
@@ -46,14 +47,14 @@ export const PlanDetailMenu: Story = {
         <DropdownMenuItem className={dropdownMenuItemStyle}>
           여행날짜 수정
         </DropdownMenuItem>
-        <DropdownMenuSeparator className="border-t my-2 w-[90%] mx-auto" />
+        <DropdownMenuSeparator className={dropdownMenuSeparatorStyle} />
         <DropdownMenuItem className={dropdownMenuItemStyle}>
           플랜 탐험 등록
         </DropdownMenuItem>
         <DropdownMenuItem className={dropdownMenuItemStyle}>
           플랜 공유 링크 생성
         </DropdownMenuItem>
-        <DropdownMenuSeparator className="border-t my-2 w-[90%] mx-auto" />
+        <DropdownMenuSeparator className={dropdownMenuSeparatorStyle} />
         <DropdownMenuItem className={dropdownMenuItemStyle}>
           플랜 삭제
         </DropdownMenuItem>
