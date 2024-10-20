@@ -47,6 +47,7 @@ const BaseModal: React.FC<BaseModalProps> = ({
       <button
         onClick={onRequestClose}
         style={{ float: 'right', cursor: 'pointer' }}
+        aria-label={'Close Modal'}
       >
         &times;
       </button>
