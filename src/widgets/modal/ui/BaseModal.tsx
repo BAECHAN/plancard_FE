@@ -1,7 +1,5 @@
 import Modal from 'react-modal';
 
-Modal.setAppElement('body'); // 모달이 열린 상태에서도 접근성을 보장하기 위해 필요합니다.
-
 export type BaseModalProps = {
   isOpen: boolean; // 모달의 열림 상태를 결정합니다.
   onRequestClose: () => void; // 모달을 닫으려고 할 때 호출되는 콜백 함수입니다. 사용자가 모달 외부를 클릭하거나 ESC 키를 누를 때 호출됩니다.
