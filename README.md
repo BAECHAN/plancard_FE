@@ -684,6 +684,30 @@ git config core.ignorecase false
 
 - www.davidhu.io/react-spinners/
 
+```tsx
+import SyncLoader from "react-spinners/SyncLoader";
+
+const override: React.CSSProperties = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "70%",
+};
+
+const Loading = () => {
+  return (
+    <SyncLoader
+      color={"#3498db"}
+      loading={true}
+      cssOverride={override}
+      size={15}
+    />
+  );
+};
+
+export default Loading;
+```
+
 ### 폴더 및 파일 네임컨벤션
 
 - 폴더 : 카멜케이스
