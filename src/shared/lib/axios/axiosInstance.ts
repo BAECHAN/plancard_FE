@@ -23,6 +23,20 @@ axiosInstance.interceptors.request.use(
   },
 );
 
+/**
+ * TODO: error를 unknown으로 타입 지정하고 instanceof로 에러 객체인지 확인
+ * 
+ *  try {
+      // 에러 발생 가능성 있는 코드
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.log(error.message); // 타입 안전하게 error 객체의 message에 접근 가능
+      } else {
+        console.log("Unknown error occurred");
+      }
+    }
+ * 
+ */
 axiosInstance.interceptors.response.use(
   response => response,
   async error => {
