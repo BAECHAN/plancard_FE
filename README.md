@@ -548,6 +548,14 @@ import * as ReactModal from 'react-modal';
 ReactModal.setAppElement('#root'); // 모달이 열린 상태에서도 접근성을 보장하기 위해 필요합니다.
 ```
 
+#### Storybook에서 React-Modal 사용하려하니 에러가 나서 수정
+
+```tsx
+import Modal from 'react-modal';
+
+// Modal.setAppElement('#root'); // 해당 코드 제거
+```
+
 #### tip
 
 - 만일 여기서 모달창 밖 부분을 클릭해서 꺼지는 걸 멈추고 싶을땐 shouldCloseOnOverlayClick={false} 속성값을 또 추가한다면 오버레이부분의 클릭으로 인한 꺼짐을 막을 수 있다.
@@ -585,6 +593,7 @@ npx storybook@latest init
 ```
 
 2. 추가적으로 필요한 라이브러리 추가
+
 ```bash
 npm install @storybook/addon-docs
 npm install @storybook/builder-vite @storybook/addon-essentials --save-dev
@@ -598,7 +607,7 @@ npm install @storybook/builder-vite @storybook/addon-essentials --save-dev
 
 ### Shadcn/ui를 storybook에서 사용할 수 있도록
 
-tailwind 기반인 Shadcn/ui를 storybook에서 사용할 수 있도록 설정을 추가합니다. 
+tailwind 기반인 Shadcn/ui를 storybook에서 사용할 수 있도록 설정을 추가합니다.
 
 아래의 방법은 Shadcn/ui뿐만아니라 tailwind 적용하는 방법이기도 함
 
@@ -631,7 +640,7 @@ import '@/app/index.css'; // tailwind 전역 선언한 index.css파일을 호출
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },  // 해당 라인 추가 
+    actions: { argTypesRegex: '^on[A-Z].*' }, // 해당 라인 추가
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -642,10 +651,10 @@ const preview: Preview = {
 };
 
 export default preview;
-
 ```
 
 ### react-icons 라이브러리 추가
+
 ```bash
 npm install react-icons
 ```
@@ -658,7 +667,19 @@ svg파일 cdn으로 가져오는 중
 
 - https://kr.freepik.com/free-vector/flags-world-collection_837815.htm#fromView=keyword&page=1&position=2&uuid=b9b26ff4-3808-4ed0-8ef7-a0ebbd46de46
 - https://flagcdn.com/gr.svg
-  
+
+### Swiper 라이브러리 추가
+
+```bash
+npm install Swiper
+```
+
+### UI 및 스토리북 폴더명을 대문자 -> 소문자로 변경하였으나 git에서 인지를 못하여 아래와 같이 실행
+
+```bash
+git config core.ignorecase false
+```
+
 ### 폴더 및 파일 네임컨벤션
 
 - 폴더 : 카멜케이스
@@ -666,6 +687,7 @@ svg파일 cdn으로 가져오는 중
 - 일반 파일 : 카멜케이스
 
 ### 해야할 것
+
 1. query와 api 위치 나 코드를 결합할지 고민
 2. useQuery 더 학습 및 캡슐화
 3. 폴더 위치 및 type, model 등 어떻게 할 것 인지 고민
