@@ -685,19 +685,19 @@ git config core.ignorecase false
 - www.davidhu.io/react-spinners/
 
 ```tsx
-import SyncLoader from "react-spinners/SyncLoader";
+import SyncLoader from 'react-spinners/SyncLoader';
 
 const override: React.CSSProperties = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  height: "70%",
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '70%',
 };
 
 const Loading = () => {
   return (
     <SyncLoader
-      color={"#3498db"}
+      color={'#3498db'}
       loading={true}
       cssOverride={override}
       size={15}
@@ -706,6 +706,12 @@ const Loading = () => {
 };
 
 export default Loading;
+```
+
+### react-transition-group
+
+```bash
+npm install @types/react-transition-group
 ```
 
 ### 폴더 및 파일 네임컨벤션
