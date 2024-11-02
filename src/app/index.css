@@ -18,6 +18,8 @@ html {
 }
 
 body {
+  overflow-x: hidden; /* 가로 스크롤 숨김 */
+  overflow-y: scroll; /* 세로 스크롤은 항상 표시 */
   font-family: 'Noto Sans KR', sans-serif;
   background-color: white;
   color: black;
