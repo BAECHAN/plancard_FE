@@ -5,10 +5,6 @@ import {
 } from '@/shared/lib/shadcn-ui/components/ui';
 import { Option, Size } from '@/shared/type';
 
-const small = 'h-7 text-xl';
-const medium = 'h-9 text-2xl';
-const large = 'h-11 text-3xl';
-
 interface ToggleSearchTabProps {
   option: Option[];
   onClick: () => void;
@@ -26,9 +22,9 @@ const ToggleSearchTab = ({
   ...props
 }: ToggleSearchTabProps) => {
   const sizeClass: Record<Size, string> = {
-    small,
-    medium,
-    large,
+    small: 'h-7 text-xl',
+    medium: 'h-9 text-2xl',
+    large: 'h-11 text-3xl',
   };
 
   const activeClass =

@@ -12,10 +12,6 @@ import { Util } from '@/shared/util';
 import { useToggle } from '@/shared/hooks';
 import { ToggleArrowDown } from '@/shared/ui';
 
-const small = 'text-xs';
-const medium = 'text-sm';
-const large = 'text-base';
-
 interface DayDropdownProps {
   optionList: Date[];
   index: number;
@@ -31,9 +27,9 @@ const DayDropdown = ({
   ...props
 }: DayDropdownProps) => {
   const sizeClass: Record<Size, string> = {
-    small,
-    medium,
-    large,
+    small: 'text-xs',
+    medium: 'text-sm',
+    large: 'text-base',
   };
 
   const { value: isOpen, toggle } = useToggle(false);

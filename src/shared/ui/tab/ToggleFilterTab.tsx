@@ -6,10 +6,6 @@ import {
 
 import { Option, Size } from '@/shared/type';
 
-const small = 'h-7 text-xs';
-const medium = 'h-9 text-sm';
-const large = 'h-11 text-base';
-
 interface ToggleFilterTabProps {
   option: Option[];
   onClick: () => void;
@@ -27,9 +23,9 @@ const ToggleFilterTab = ({
   ...props
 }: ToggleFilterTabProps) => {
   const sizeClass: Record<Size, string> = {
-    small,
-    medium,
-    large,
+    small: 'h-7 text-xs',
+    medium: 'h-9 text-sm',
+    large: 'h-11 text-base',
   };
 
   const activeClass =

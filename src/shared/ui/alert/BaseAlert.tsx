@@ -11,10 +11,6 @@ import {
 import { Size, Variant } from '@/shared/type';
 import React from 'react';
 
-const small = 'text-sm p-2';
-const medium = 'text-base p-2';
-const large = 'text-xl p-2';
-
 interface BaseAlertProps {
   children: React.ReactNode;
   variant?: Variant;
@@ -27,9 +23,9 @@ const BaseAlert = ({
   ...props
 }: BaseAlertProps) => {
   const sizeClass: Record<Size, string> = {
-    small,
-    medium,
-    large,
+    small: 'text-sm p-2',
+    medium: 'text-base p-2',
+    large: 'text-xl p-2',
   };
 
   const variantClass: Record<Variant, string> = {

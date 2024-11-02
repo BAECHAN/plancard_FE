@@ -1,9 +1,5 @@
 import { Size } from '@/shared/type';
 
-const small = 'text-xs';
-const medium = 'text-sm';
-const large = 'text-base';
-
 interface MenuItemProps {
   children: React.ReactNode;
   onClick: () => void;
@@ -14,9 +10,9 @@ interface MenuItemProps {
 
 const MenuItem = ({ children, active, size = 'medium' }: MenuItemProps) => {
   const sizeClass: Record<Size, string> = {
-    small,
-    medium,
-    large,
+    small: 'text-xs',
+    medium: 'text-sm',
+    large: 'text-base',
   };
 
   const activeClass = active ? 'bg-skyblue text-white' : '';

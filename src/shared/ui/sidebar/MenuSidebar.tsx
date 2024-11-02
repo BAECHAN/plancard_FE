@@ -1,9 +1,5 @@
 import { Size } from '@/shared/type';
 
-const small = 'w-48 text-xs';
-const medium = 'w-60 text-sm';
-const large = 'w-72 text-base';
-
 interface MenuSidebarProps {
   children: React.ReactNode;
   size?: Size;
@@ -15,9 +11,9 @@ const MenuSidebar = ({
   ...props
 }: MenuSidebarProps) => {
   const sizeClass: Record<Size, string> = {
-    small,
-    medium,
-    large,
+    small: 'w-48 text-xs',
+    medium: 'w-60 text-sm',
+    large: 'w-72 text-base',
   };
 
   return (
