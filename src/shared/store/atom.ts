@@ -1,6 +1,6 @@
 /* eslint-disable import/no-restricted-paths */
 
-import { UserInfo } from '@/entities/user/ui';
+import { UserInfo } from '@/entities/user/type';
 import { atom, selector } from 'recoil';
 
 export const counterAtom = atom<number>({

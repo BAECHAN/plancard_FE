@@ -1,4 +1,3 @@
-import { Accordion } from '@/shared/lib/shadcn-ui/components/ui';
 import { counterAtom } from '@/shared/store';
 import { CounterTestLayout, LoginFormLayout } from '@/widgets/layout/ui';
 import { useRecoilState } from 'recoil';
@@ -20,7 +19,6 @@ export const LoginPage = () => {
         linkName="Main"
       />
 
-      <Accordion></Accordion>
       <LoginFormLayout />
     </div>
   );

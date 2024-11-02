@@ -17,7 +17,6 @@ const DayAccordion = ({
   onSaveTitle,
   title = '',
   size = 'medium',
-  ...props
 }: DayAccordionProps) => {
   const { value: isOpen, toggle, closeToggle } = useToggle(false);
 

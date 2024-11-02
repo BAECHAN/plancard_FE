@@ -1,4 +1,4 @@
-import { UserInfo } from '@/entities/user/ui';
+import { UserInfo } from '@/entities/user/type';
 import { queryKeys } from '@/shared/query';
 import { getUserList } from '@/widgets/userCardList/api';
 import { useQuery } from '@tanstack/react-query';

@@ -21,7 +21,6 @@ const EditableTitle = ({
   onSaveTitle,
   size = 'medium',
   placeholder = '제목 입력',
-  ...props
 }: EditableTitleProps) => {
   const sizeClass: Record<Size, string> = {
     small,

@@ -1,5 +1,5 @@
-import { UserInfo } from '@/entities/user/ui';
-import { updateUserInfo } from '@/features/user/ui';
+import { UserInfo } from '@/entities/user/type';
+import { updateUserInfo } from '@/features/user/api';
 import { queryClient, queryKeys } from '@/shared/query';
 import { useMutation } from '@tanstack/react-query';
 

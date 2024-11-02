@@ -24,7 +24,6 @@ const DayDropdown = ({
   index,
   onClick,
   size = 'medium',
-  ...props
 }: DayDropdownProps) => {
   const sizeClass: Record<Size, string> = {
     small: 'text-xs',
