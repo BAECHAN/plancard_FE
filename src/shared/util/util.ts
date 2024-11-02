@@ -88,4 +88,8 @@ export class Util {
         return 'xsmall';
     }
   };
+
+  static openInNewTab = (url: string) => {
+    window.open(url, '_blank');
+  };
 }

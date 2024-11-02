@@ -68,6 +68,8 @@ const Card = ({ onClick, info, size = 'medium', IconComponent }: CardProps) => {
 
   const handleMapPinButtonClick = () => {
     console.log('지도 핀 버튼 클릭');
+
+    Util.openInNewTab(googleMapLink);
   };
 
   return (
