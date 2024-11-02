@@ -1,8 +1,8 @@
-import ImageSwiper from '@/shared/ui/swiper/ImageSwiper';
+import ImageSwiper from '@/widgets/swiper/ui/ImageSwiper';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof ImageSwiper> = {
-  title: 'Swiper/ImageSwiper',
+  title: 'Widgets/Swiper/ImageSwiper',
   component: ImageSwiper,
   parameters: {
     layout: 'centered',
