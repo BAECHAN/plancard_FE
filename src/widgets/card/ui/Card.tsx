@@ -10,8 +10,8 @@ import {
   titleXsmall3,
 } from '@/shared/const';
 import { Card as CardType, Size } from '@/shared/type';
-import { BaseBadge, IconBadge, IconButton } from '@/shared/ui';
-import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
+import { BaseBadge, IconBadge, IconButton, ScrapButton } from '@/shared/ui';
+import { Util } from '@/shared/util';
 import { FaStar } from 'react-icons/fa6';
 import { HiMapPin } from 'react-icons/hi2';
 
@@ -60,8 +60,15 @@ const Card = ({ onClick, info, size = 'medium', IconComponent }: CardProps) => {
     scrap,
   } = info;
 
-  const iconSize =
-    size === 'medium' ? 'small' : size === 'large' ? 'medium' : 'xsmall';
+  const iconSize = Util.convertSizeToIconSize(size);
+
+  const handleScrapButtonClick = () => {
+    console.log('북마크 버튼 클릭');
+  };
+
+  const handleMapPinButtonClick = () => {
+    console.log('지도 핀 버튼 클릭');
+  };
 
   return (
     <div className="flex flex-col gap-1">
@@ -89,9 +96,9 @@ const Card = ({ onClick, info, size = 'medium', IconComponent }: CardProps) => {
           </div>
           <div className="flex-grow-0" />
           <div className="card-bookmark">
-            <IconBadge
-              IconComponent={scrap ? FaBookmark : FaRegBookmark}
-              alt="북마크"
+            <ScrapButton
+              onClick={handleScrapButtonClick}
+              initialScrap={scrap}
               size={iconSize}
             />
           </div>
@@ -138,7 +145,7 @@ const Card = ({ onClick, info, size = 'medium', IconComponent }: CardProps) => {
             <IconButton
               IconComponent={HiMapPin}
               alt="지도 핀 아이콘"
-              onClick={() => {}}
+              onClick={handleMapPinButtonClick}
               size={iconSize}
               color="#ff2424"
             />

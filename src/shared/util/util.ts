@@ -1,3 +1,5 @@
+import { Size } from '@/shared/type';
+
 export class Util {
   constructor() {}
   /**
@@ -69,5 +71,21 @@ export class Util {
    */
   static capitalizeFirstLetter = (str: string) => {
     return str.replace(/^\w/, c => c.toUpperCase());
+  };
+
+  /**
+   * @description size를 받아서 icon size로 변환하는 함수
+   * @param size
+   * @returns 'large' -> 'medium', 'medium' -> 'small', 'small' -> 'xsmall'
+   */
+  static convertSizeToIconSize = (size: Size) => {
+    switch (size) {
+      case 'large':
+        return 'medium';
+      case 'medium':
+        return 'small';
+      case 'small':
+        return 'xsmall';
+    }
   };
 }
