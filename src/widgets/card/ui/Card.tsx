@@ -120,16 +120,21 @@ const Card = ({ onClick, info, size = 'medium', IconComponent }: CardProps) => {
 
         <div className="card-body">
           <div className="flex justify-between">
-            <IconBadge
-              IconComponent={(props: any) => (
-                <FaStar
-                  color="#FFCB01"
-                  {...props}
+            <div className="flex gap-1">
+              {Array.from({ length: rating }).map((_, index) => (
+                <IconBadge
+                  key={index}
+                  IconComponent={(props: any) => (
+                    <FaStar
+                      color="#FFCB01"
+                      {...props}
+                    />
+                  )}
+                  alt="별 아이콘"
+                  size={iconSize}
                 />
-              )}
-              alt="별 아이콘"
-              size={iconSize}
-            />
+              ))}
+            </div>
             <div className="flex-grow-0" />
             <BaseBadge
               variant="periwinkle"
