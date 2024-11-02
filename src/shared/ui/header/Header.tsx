@@ -1,27 +1,41 @@
 import { Size } from '@/shared/type';
-import React from 'react';
+import IconButton from '@/shared/ui/button/IconButton';
+import { FaUser } from 'react-icons/fa';
+import { MdLogout } from 'react-icons/md';
 
 interface HeaderProps {
-  children: React.ReactNode;
-
   size?: Size;
 }
-const Header = ({ children, size = 'medium' }: HeaderProps) => {
-  const small = 'text-xs';
-  const medium = 'text-sm';
-  const large = 'text-base';
 
+const Header = ({ size = 'medium' }: HeaderProps) => {
   const sizeClass: Record<Size, string> = {
-    small,
-    medium,
-    large,
+    small: 'text-2xl',
+    medium: 'text-3xl',
+    large: 'text-4xl',
+  };
+
+  const gapClass: Record<Size, string> = {
+    small: 'gap-4',
+    medium: 'gap-6',
+    large: 'gap-8',
   };
 
   return (
     <header
       className={`${sizeClass[size]} flex justify-between w-[100vw] bg-skyblue text-white items-center py-2 px-3`}
     >
-      {children}
+      <strong>PlanCard</strong>
+      <div className="flex grow-0" />
+      <div className={`flex ${gapClass[size]}`}>
+        <IconButton
+          IconComponent={FaUser}
+          size={size}
+        />
+        <IconButton
+          IconComponent={MdLogout}
+          size={size}
+        />
+      </div>
     </header>
   );
 };
