@@ -46,7 +46,7 @@ export type Card = {
   city: City['title'];
   theme: Theme['title'][];
   category: Category['title'];
-  rating: number; // 1 ~ 5
+  rating: 1 | 2 | 3 | 4 | 5; // 1 ~ 5
   googleMapLink: string;
   imageList: CardImage[];
   scrap: boolean;
