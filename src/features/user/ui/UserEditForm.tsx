@@ -1,6 +1,6 @@
-import { UserInfo } from '@/entities/user';
+import { UserInfo } from '@/entities/user/ui';
 import UserFormInput from '@/entities/user/ui/UserFormInput';
-import { useUpdateUserMutation } from '@/features/user';
+import { useUpdateUserMutation } from '@/features/user/ui';
 import { modalUserInfoDataAtom } from '@/shared/store/atom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useRecoilValue } from 'recoil';

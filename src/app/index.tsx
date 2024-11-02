@@ -1,5 +1,5 @@
-import { LoginPage } from '@/pages/login';
-import { MainPage, MyPage } from '@/pages/main';
+import { LoginPage } from '@/pages/login/ui';
+import { MainPage, MyPage } from '@/pages/main/ui';
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';

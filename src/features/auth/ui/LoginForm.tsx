@@ -1,4 +1,4 @@
-import { EmailInput, PasswordInput } from '@/entities/login';
+import { EmailInput, PasswordInput } from '@/entities/login/ui';
 import { login } from '@/shared/api';
 import { Button } from '@/shared/lib/shadcn-ui/components/ui';
 import { SubmitHandler, useForm } from 'react-hook-form';

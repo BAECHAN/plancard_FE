@@ -1,4 +1,4 @@
-import { UserEditForm } from '@/features/user';
+import { UserEditForm } from '@/features/user/ui';
 
 const UserEditFormLayout = (props: { onSave: () => void }) => {
   return <UserEditForm {...props} />;

@@ -1,4 +1,4 @@
-import { UserInfo } from '@/entities/user';
+import { UserInfo } from '@/entities/user/ui';
 import { axiosInstance } from '@/shared/lib';
 import { API_URL } from '@/shared/util';
 

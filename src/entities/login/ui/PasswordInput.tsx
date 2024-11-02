@@ -1,4 +1,4 @@
-import { FormInputProps } from '@/entities/login';
+import { FormInputProps } from '@/entities/login/ui';
 import { InputTextInForm } from '@/shared/ui';
 import { forwardRef } from 'react';
 

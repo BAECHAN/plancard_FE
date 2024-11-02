@@ -2,7 +2,7 @@ import { MenuItem } from '@/shared/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof MenuItem> = {
-  title: 'Sidebar/MenuItem',
+  title: 'Widgets/Sidebar/MenuItem',
   component: MenuItem,
   parameters: {
     layout: 'centered',

@@ -1,4 +1,4 @@
-import { FormInputProps } from '@/entities/login';
+import { FormInputProps } from '@/entities/login/type';
 
 export interface UserInfo extends Record<string, string | number> {
   readonly id: number;

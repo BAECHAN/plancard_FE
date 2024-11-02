@@ -1,4 +1,4 @@
-import { UserCard, UserInfo } from '@/entities/user';
+import { UserCard, UserInfo } from '@/entities/user/ui';
 import { QueryStatusWrapper } from '@/shared/ui';
 import { useUserListQuery } from '@/widgets/userCardList/query';
 import { UseQueryResult } from '@tanstack/react-query';
