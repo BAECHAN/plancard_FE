@@ -4,6 +4,7 @@ export { default as BaseBadge } from './badge/BaseBadge';
 export { default as IconBadge } from './badge/IconBadge';
 export { default as BaseButton } from './button/BaseButton';
 export { default as IconButton } from './button/IconButton';
+export { default as ScrapButton } from './button/ScrapButton';
 export { default as TagButton } from './button/TagButton';
 export { default as BaseDropdown } from './dropdown/BaseDropdown';
 export { default as DayDropdown } from './dropdown/DayDropdown';
