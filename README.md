@@ -720,6 +720,96 @@ npm install @types/react-transition-group
 - 컴포넌트 파일 : 파스칼케이스
 - 일반 파일 : 카멜케이스
 
+### github-pages로 임시 배포
+
+- 백엔드 개발자를 위해 서버 환경 구축 전에 임시로 사용
+
+#### 1단계: GitHub 저장소 생성
+
+1. **GitHub에 로그인**하고 [새 저장소 생성 페이지](https://github.com/new)로 이동합니다.
+2. 프로젝트 이름을 입력하고, **공개 저장소**로 설정한 후 **Create repository** 버튼을 클릭합니다.
+3. 생성한 저장소의 URL을 복사해 둡니다. 예를 들어, `https://github.com/username/repository-name`입니다.
+
+#### 2단계: 로컬 프로젝트와 GitHub 저장소 연결
+
+1. **터미널을 열고 프로젝트 폴더로 이동**합니다. 예를 들어:
+   ```bash
+   cd path/to/your-project
+   ```
+
+2. **Git 초기화 및 원격 저장소 연결**:
+   ```bash
+   git init
+   git remote add origin https://github.com/username/repository-name.git
+   ```
+
+3. **프로젝트 커밋 및 푸시**:
+   ```bash
+   git add .
+   git commit -m "Initial commit"
+   git push -u origin main
+   ```
+   이 명령어로 `main` 브랜치에 프로젝트 코드를 푸시합니다.
+
+#### 3단계: `gh-pages` 패키지 설치
+
+GitHub Pages에 배포하기 위해 `gh-pages` 패키지를 사용합니다.
+
+1. **`gh-pages` 설치**:
+   ```bash
+   npm install --save gh-pages
+   ```
+   
+2. **`package.json` 설정 업데이트**:
+   `package.json` 파일에 GitHub Pages 배포를 위한 설정을 추가합니다.
+
+   ```json
+   {
+     "homepage": "https://username.github.io/repository-name",
+     "scripts": {
+       "predeploy": "npm run build",
+       "deploy": "gh-pages -d build"
+     }
+   }
+   ```
+   - `homepage`: `https://<GitHub-username>.github.io/<repository-name>` 형식으로 설정하세요.
+   - `predeploy`: `npm run build`를 실행해 배포 전에 빌드를 진행합니다.
+   - `deploy`: `gh-pages -d build` 명령어로 `build` 폴더를 `gh-pages` 브랜치에 배포합니다.
+
+3. **변경 사항 커밋 및 푸시**:
+   ```bash
+   git add package.json
+   git commit -m "Add gh-pages configuration"
+   git push
+   ```
+
+#### 4단계: `gh-pages` 브랜치로 배포
+
+`gh-pages` 브랜치에 배포하려면 `deploy` 스크립트를 실행합니다.
+
+```bash
+npm run deploy
+```
+
+이 명령어는 `gh-pages` 브랜치를 생성하고, `build` 폴더의 내용을 해당 브랜치로 푸시합니다. 이제 GitHub Pages가 `gh-pages` 브랜치를 통해 사이트를 제공하게 됩니다.
+
+#### 5단계: GitHub Pages 설정 확인
+
+1. GitHub 저장소 페이지로 이동하여 **Settings** 탭을 클릭합니다.
+2. 왼쪽 메뉴에서 **Pages** 항목을 클릭합니다.
+3. **Source** 항목에서 `gh-pages` 브랜치가 선택되어 있는지 확인합니다.
+4. URL이 `https://username.github.io/repository-name` 형태로 표시되면, 클릭하여 배포된 사이트가 정상적으로 작동하는지 확인합니다.
+
+#### 6단계: 변경사항 업데이트 (필요할 때)
+
+앱에 변경 사항이 생기면 다시 `npm run deploy` 명령어를 실행하여 배포할 수 있습니다.
+
+```bash
+npm run deploy
+```
+
+이 명령어로 새 빌드를 `gh-pages` 브랜치에 푸시하고, 변경된 내용이 GitHub Pages에 자동으로 반영됩니다.
+
 ### 해야할 것
 
 1. query와 api 위치 나 코드를 결합할지 고민
