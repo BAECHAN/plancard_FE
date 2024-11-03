@@ -835,8 +835,6 @@ npm run deploy
 2. Github - Settings/Pages/Build and deployment
 Source - Deploy from a branch -> Github Actions로 변경
 
-![Alt text](image.png)
-
 ### HashRouter로 변경
 
 #### BrowserRouter vs HashRouter
