@@ -733,11 +733,13 @@ npm install @types/react-transition-group
 #### 2단계: 로컬 프로젝트와 GitHub 저장소 연결
 
 1. **터미널을 열고 프로젝트 폴더로 이동**합니다. 예를 들어:
+
    ```bash
    cd path/to/your-project
    ```
 
 2. **Git 초기화 및 원격 저장소 연결**:
+
    ```bash
    git init
    git remote add origin https://github.com/username/repository-name.git
@@ -759,7 +761,6 @@ GitHub Pages에 배포하기 위해 `gh-pages` 패키지를 사용합니다.
    ```bash
    npm install --save gh-pages
    ```
-   
 2. **`package.json` 설정 업데이트**:
    `package.json` 파일에 GitHub Pages 배포를 위한 설정을 추가합니다.
 
@@ -772,28 +773,29 @@ GitHub Pages에 배포하기 위해 `gh-pages` 패키지를 사용합니다.
      }
    }
    ```
+
    - `homepage`: `https://<GitHub-username>.github.io/<repository-name>` 형식으로 설정하세요.
    - `predeploy`: `npm run build`를 실행해 배포 전에 빌드를 진행합니다.
    - `deploy`: `gh-pages -d dist` 명령어로 `build` 폴더를 `gh-pages` 브랜치에 배포합니다.
 
-2. **`vite.config.ts` 설정 업데이트**:
-  `vite.config.ts` 파일에 GitHub Pages 배포를 위한 설정을 추가합니다.
+3. **`vite.config.ts` 설정 업데이트**:
+   `vite.config.ts` 파일에 GitHub Pages 배포를 위한 설정을 추가합니다.
 
    ```ts
    export default defineConfig({
-      plugins: [react()],
-      base: '',
-      resolve: {
-        alias: {
-          '@': path.resolve(__dirname, './src'),
-        },
-      },
-    });
+     plugins: [react()],
+     base: '',
+     resolve: {
+       alias: {
+         '@': path.resolve(__dirname, './src'),
+       },
+     },
+   });
    ```
+
    - `base`: ``로 설정
 
-
-3. **변경 사항 커밋 및 푸시**:
+4. **변경 사항 커밋 및 푸시**:
    ```bash
    git add package.json
    git commit -m "Add gh-pages configuration"
@@ -826,6 +828,22 @@ npm run deploy
 ```
 
 이 명령어로 새 빌드를 `gh-pages` 브랜치에 푸시하고, 변경된 내용이 GitHub Pages에 자동으로 반영됩니다.
+
+### HashRouter로 변경
+
+#### BrowserRouter vs HashRouter
+
+1. BrowserRouter
+
+- 동작 방식: BrowserRouter는 HTML5의 History API를 사용하여 URL을 관리합니다. 이 방식은 실제 URL 경로를 변경하며, 페이지 이동 시 전체 페이지를 다시 로드하지 않고도 애플리케이션 상태를 유지합니다.
+- URL 형식: URL이 깔끔하며 해시 기호(#)가 없습니다. 예: https://example.com/about
+- 서버 설정 필요: 브라우저가 특정 URL에 직접 접근하거나 새로 고침할 때 서버가 해당 경로에 대한 요청을 처리해야 합니다. 이를 위해 서버는 모든 요청에 대해 index.html을 반환하도록 설정되어야 합니다.
+
+2. HashRouter
+
+- 동작 방식: HashRouter는 URL의 해시 부분(예: # 이후의 문자열)을 사용하여 라우팅을 관리합니다. 해시 변경은 브라우저의 기본 동작으로 서버에 요청을 보내지 않습니다.
+- URL 형식: URL에 해시 기호(#)가 포함됩니다. 예: https://example.com/#/about
+- 서버 설정 불필요: 해시 부분은 서버에 전달되지 않으므로, 서버는 항상 index.html을 반환하면 됩니다. 따라서 추가적인 서버 설정이 필요 없습니다.
 
 ### 해야할 것
 
