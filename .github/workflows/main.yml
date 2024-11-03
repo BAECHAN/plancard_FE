@@ -1,32 +1,46 @@
 # .github/workflows/main.yml
+
 name: Deploy to GitHub Pages
 
+# main 브랜치에 푸시될 때 워크플로우 실행
 on:
   push:
     branches:
-      - main  # main 브랜치에 푸시될 때 실행
+      - main
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. 코드 체크아웃
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # 2. Node.js 설치 (package.json의 node version에 맞추기)
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Node.js 버전 설정
+          node-version: '20' # 프로젝트의 Node.js 버전과 맞춤
 
+      # 3. 의존성 설치
       - name: Install dependencies
         run: npm install
 
-      - name: Build project
-        run: npm run build  # 빌드 스크립트 (보통 React는 `build`로 설정됨)
+      # 4. ESLint와 Prettier 검사
+      - name: Run lint and format check
+        run: |
+          npm run lint
+          npm run format
 
+      # 5. 빌드 수행
+      - name: Build project
+        run: npm run build
+
+      # 6. GitHub Pages로 배포
       - name: Deploy to GitHub Pages
+        if: success()
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  # 빌드된 디렉토리 경로
+          publish_dir: ./dist # 빌드 후 생성되는 디렉토리
