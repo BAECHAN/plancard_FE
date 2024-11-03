@@ -2,7 +2,7 @@ import { LoginPage } from '@/pages/login/ui';
 import { MainPage, MyPage } from '@/pages/main/ui';
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
 import '@/app/index.css';
 import '@fontsource/noto-sans-kr/400.css';

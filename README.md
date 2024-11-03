@@ -768,13 +768,30 @@ GitHub Pages에 배포하기 위해 `gh-pages` 패키지를 사용합니다.
      "homepage": "https://username.github.io/repository-name",
      "scripts": {
        "predeploy": "npm run build",
-       "deploy": "gh-pages -d build"
+       "deploy": "gh-pages -d dist"
      }
    }
    ```
    - `homepage`: `https://<GitHub-username>.github.io/<repository-name>` 형식으로 설정하세요.
    - `predeploy`: `npm run build`를 실행해 배포 전에 빌드를 진행합니다.
-   - `deploy`: `gh-pages -d build` 명령어로 `build` 폴더를 `gh-pages` 브랜치에 배포합니다.
+   - `deploy`: `gh-pages -d dist` 명령어로 `build` 폴더를 `gh-pages` 브랜치에 배포합니다.
+
+2. **`vite.config.ts` 설정 업데이트**:
+  `vite.config.ts` 파일에 GitHub Pages 배포를 위한 설정을 추가합니다.
+
+   ```ts
+   export default defineConfig({
+      plugins: [react()],
+      base: '',
+      resolve: {
+        alias: {
+          '@': path.resolve(__dirname, './src'),
+        },
+      },
+    });
+   ```
+   - `base`: ``로 설정
+
 
 3. **변경 사항 커밋 및 푸시**:
    ```bash
@@ -791,7 +808,7 @@ GitHub Pages에 배포하기 위해 `gh-pages` 패키지를 사용합니다.
 npm run deploy
 ```
 
-이 명령어는 `gh-pages` 브랜치를 생성하고, `build` 폴더의 내용을 해당 브랜치로 푸시합니다. 이제 GitHub Pages가 `gh-pages` 브랜치를 통해 사이트를 제공하게 됩니다.
+이 명령어는 `gh-pages` 브랜치를 생성하고, `dist` 폴더의 내용을 해당 브랜치로 푸시합니다. 이제 GitHub Pages가 `gh-pages` 브랜치를 통해 사이트를 제공하게 됩니다.
 
 #### 5단계: GitHub Pages 설정 확인
 
