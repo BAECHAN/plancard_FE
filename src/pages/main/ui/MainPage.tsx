@@ -3,7 +3,7 @@ import MainLayout from '@/widgets/layout/ui/MainLayout';
 export const MainPage = () => {
   return (
     <MainLayout>
-      <div className="h-[1000px]">여기서부터 다시 시작이다.</div>
+      <div className="h-[1000px]">그러지말자</div>
     </MainLayout>
   );
 };
