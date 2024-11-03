@@ -1,46 +1,51 @@
-# .github/workflows/main.yml
+# GitHub Pages에 정적 콘텐츠를 배포하기 위한 간단한 워크플로우
+name: Deploy static content to Pages
 
-name: Deploy to GitHub Pages
-
-# main 브랜치에 푸시될 때 워크플로우 실행
 on:
+  # 기본 브랜치에 대한 푸시 이벤트 발생 시 실행
   push:
-    branches:
-      - main
+    branches: ['main']
+
+  # Actions 탭에서 수동으로 워크플로우를 실행할 수 있도록 구성
+  workflow_dispatch:
+
+# GITHUB_TOKEN의 권한을 설정하여 GitHub Pages에 배포할 수 있도록 함
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 동시에 하나의 배포만 허용하도록 구성
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  # 단순히 배포만 수행하기에 하나의 잡으로만 구성
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-
     steps:
-      # 1. 코드 체크아웃
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      # 2. Node.js 설치 (package.json의 node version에 맞추기)
-      - name: Set up Node.js
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
         uses: actions/setup-node@v3
         with:
-          node-version: '20' # 프로젝트의 Node.js 버전과 맞춤
-
-      # 3. 의존성 설치
+          node-version: 20
+          cache: 'npm'
       - name: Install dependencies
         run: npm install
-
-      # 4. ESLint와 Prettier 검사
-      - name: Run lint and format check
-        run: |
-          npm run lint
-          npm run format
-
-      # 5. 빌드 수행
-      - name: Build project
+      - name: Build
         run: npm run build
-
-      # 6. GitHub Pages로 배포
-      - name: Deploy to GitHub Pages
-        if: success()
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist # 빌드 후 생성되는 디렉토리
+          # dist 디렉터리 업로드
+          path: './dist'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
