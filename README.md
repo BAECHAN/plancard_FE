@@ -829,6 +829,14 @@ npm run deploy
 
 이 명령어로 새 빌드를 `gh-pages` 브랜치에 푸시하고, 변경된 내용이 GitHub Pages에 자동으로 반영됩니다.
 
+### Github Pages & Github Actions 연동
+
+1. Local - .github/workflows/main.yml 파일 추가 ( 코드는 앱에서 확인 )
+2. Github - Settings/Pages/Build and deployment
+Source - Deploy from a branch -> Github Actions로 변경
+
+![Alt text](image.png)
+
 ### HashRouter로 변경
 
 #### BrowserRouter vs HashRouter
