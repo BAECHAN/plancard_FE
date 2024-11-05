@@ -10,9 +10,9 @@ const meta: Meta<typeof SearchInputText> = {
   },
   tags: ['autodocs'],
   argTypes: {
-    value: {
+    initialValue: {
       control: 'text',
-      description: '검색 텍스트',
+      description: '초기값 텍스트',
     },
 
     placeholder: {
@@ -29,7 +29,7 @@ const meta: Meta<typeof SearchInputText> = {
     },
   },
   args: {
-    onChange: fn(),
+    onSearch: fn(),
     type: 'text',
     placeholder: '검색어를 입력하세요',
   },
@@ -39,5 +39,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    initialValue: '감사',
+  },
 };
