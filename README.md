@@ -833,7 +833,7 @@ npm run deploy
 
 1. Local - .github/workflows/main.yml 파일 추가 ( 코드는 앱에서 확인 )
 2. Github - Settings/Pages/Build and deployment
-Source - Deploy from a branch -> Github Actions로 변경
+   Source - Deploy from a branch -> Github Actions로 변경
 
 ### HashRouter로 변경
 
@@ -850,6 +850,14 @@ Source - Deploy from a branch -> Github Actions로 변경
 - 동작 방식: HashRouter는 URL의 해시 부분(예: # 이후의 문자열)을 사용하여 라우팅을 관리합니다. 해시 변경은 브라우저의 기본 동작으로 서버에 요청을 보내지 않습니다.
 - URL 형식: URL에 해시 기호(#)가 포함됩니다. 예: https://example.com/#/about
 - 서버 설정 불필요: 해시 부분은 서버에 전달되지 않으므로, 서버는 항상 index.html을 반환하면 됩니다. 따라서 추가적인 서버 설정이 필요 없습니다.
+
+### SearchInputText 공통 컴포넌트 개선
+
+- normalize 추가
+- encodeURIComponent 추가
+- debounce 적용
+- 부모컴포넌트에서 ref로 접근할 수 있도록 useImperativeHandle 추가
+- 초기값 받을 수 있도록 initialValue 추가
 
 ### 해야할 것
 
