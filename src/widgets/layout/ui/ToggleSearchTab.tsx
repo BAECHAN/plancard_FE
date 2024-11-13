@@ -4,7 +4,7 @@ import {
   TabsTrigger,
 } from '@/shared/lib/shadcn-ui/components/ui';
 import { Option, Size } from '@/shared/type';
-import { MouseEventHandler, useState } from 'react';
+import { MouseEvent, useState } from 'react';
 
 interface ToggleSearchTabProps {
   size?: Size;
@@ -31,10 +31,11 @@ const ToggleSearchTab = ({
     'data-[state=active]:border-none data-[state=active]:rounded-none data-[state=active]:shadow-[inset_0_-1px_0_0,0_4px_0_0] data-[state=active]:shadow-current data-[state=active]:text-primary pb-4';
 
   const [activeTab, setActiveTab] = useState(optionList[0].value);
-  const handleTabClick: MouseEventHandler = () => {
-    setActiveTab(prev =>
-      prev === optionList[0].value ? optionList[1].value : optionList[0].value,
-    );
+  const handleTabClick = (
+    e: MouseEvent<HTMLButtonElement>,
+    clickedTabValue: Option['value'],
+  ) => {
+    setActiveTab(clickedTabValue);
   };
 
   return (
@@ -47,7 +48,7 @@ const ToggleSearchTab = ({
           <TabsTrigger
             key={option.value}
             value={option.value}
-            onClick={handleTabClick}
+            onClick={e => handleTabClick(e, option.value)}
             className={`w-[50%] ${sizeClass[size]} ${activeClass}`}
           >
             {option.label}
