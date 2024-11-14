@@ -1,9 +1,5 @@
-import {
-  Footer,
-  Header,
-  MenuSidebar,
-  ToggleSearchTab,
-} from '@/widgets/layout/ui';
+import { ToggleSearchTab } from '@/shared/ui';
+import { Footer, Header, MenuSidebar } from '@/widgets/layout/ui';
 import React from 'react';
 
 // Layout 컴포넌트의 Props 타입 정의
