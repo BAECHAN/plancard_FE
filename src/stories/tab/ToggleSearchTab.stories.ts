@@ -1,8 +1,8 @@
-import { ToggleSearchTab } from '@/widgets/layout/ui';
+import { ToggleSearchTab } from '@/shared/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof ToggleSearchTab> = {
-  title: 'Widgets/Layout/ToggleSearchTab',
+  title: 'Tab/ToggleSearchTab',
   component: ToggleSearchTab,
   parameters: {
     layout: 'centered',

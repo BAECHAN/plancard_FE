@@ -18,5 +18,6 @@ export { default as QueryStatusWrapper } from './queryStatusController/QueryStat
 export { default as SearchInputText } from './search/SearchInputText';
 export { default as MenuItem } from './sidebar/MenuItem';
 export { default as ToggleFilterTab } from './tab/ToggleFilterTab';
+export { default as ToggleSearchTab } from './tab/ToggleSearchTab';
 export { default as EditableTitle } from './title/EditableTitle';
 export { default as SortingTitle } from './title/SortingTitle';
