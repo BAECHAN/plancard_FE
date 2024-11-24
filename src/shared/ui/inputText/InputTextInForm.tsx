@@ -5,7 +5,7 @@ import { UseFormRegisterReturn } from 'react-hook-form';
 type InputTextInFormProps = {
   id: string;
   isDirty: boolean;
-  register?: UseFormRegisterReturn;
+  register?: Omit<UseFormRegisterReturn, 'ref'>;
 } & InputTextCommonProps;
 
 const InputTextInForm = forwardRef<HTMLInputElement, InputTextInFormProps>(

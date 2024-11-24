@@ -12,7 +12,7 @@ const UserFormInput = forwardRef<HTMLInputElement, UserFormInputProps>(
       isError,
       isDirty,
       ...rest
-    }: UserFormInputProps,
+    },
     ref,
   ) => {
     return (

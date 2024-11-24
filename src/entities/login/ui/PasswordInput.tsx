@@ -3,7 +3,7 @@ import { InputTextInForm } from '@/shared/ui';
 import { forwardRef } from 'react';
 
 const PasswordInput = forwardRef<HTMLInputElement, FormInputProps>(
-  ({ isError, isDirty, ...rest }: FormInputProps, ref) => {
+  ({ isError, isDirty, ...rest }, ref) => {
     return (
       <InputTextInForm
         id="password"
