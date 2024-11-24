@@ -20,7 +20,9 @@ const MenuItem = ({
     large: 'text-base',
   };
 
-  const activeClass = active ? 'bg-skyblue text-white' : '';
+  const activeClass = active
+    ? 'bg-skyblue text-white'
+    : 'hover:text-white hover:bg-skyblue';
 
   const handleClick = () => {
     onClick();
@@ -28,7 +30,7 @@ const MenuItem = ({
 
   return (
     <div
-      className={`${sizeClass[size]} ${activeClass} w-full px-3 py-2 cursor-pointer`}
+      className={`${sizeClass[size]} ${activeClass} w-full px-3 py-2 cursor-pointer `}
       onClick={handleClick}
     >
       {children}

@@ -12,7 +12,7 @@ interface ToggleSearchTabProps {
 }
 
 const optionList: Option[] = [
-  { label: 'Mine', value: 'my' },
+  { label: 'My Card', value: 'my' },
   { label: 'Explore', value: 'explore' },
 ];
 

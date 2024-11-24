@@ -1,14 +1,21 @@
 import { LoginPage } from '@/pages/login/ui';
-import { MainPage, MyPage } from '@/pages/main/ui';
+import {
+  CardPage,
+  MainPage,
+  MyPage,
+  NotFound,
+  PlanPage,
+} from '@/pages/main/ui';
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 import '@/app/index.css';
 import '@fontsource/noto-sans-kr/400.css';
 import '@fontsource/noto-sans-kr/700.css';
 
 import { queryClient } from '@/shared/query';
+import { MainLayout } from '@/widgets/layout/ui';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { RecoilRoot } from 'recoil';
@@ -19,8 +26,22 @@ const App: React.FC = () => {
       <Routes>
         <Route
           path="/"
-          element={<MainPage />}
-        />
+          element={<MainLayout />}
+        >
+          <Route
+            index
+            element={<MainPage />}
+          />
+          <Route
+            path="card"
+            element={<CardPage />}
+          />
+          <Route
+            path="plan"
+            element={<PlanPage />}
+          />
+        </Route>
+
         <Route
           path="/login"
           element={<LoginPage />}
@@ -28,6 +49,11 @@ const App: React.FC = () => {
         <Route
           path="/mypage"
           element={<MyPage />}
+        />
+        {/* 404 페이지 */}
+        <Route
+          path="*"
+          element={<NotFound />}
         />
       </Routes>
     </Router>

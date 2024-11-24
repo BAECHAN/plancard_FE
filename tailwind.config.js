@@ -132,6 +132,7 @@ module.exports = {
       social: '#395997',
       black: '#000000',
       navy: '#0C46B9',
+      skyblue: '#7FCEF9',
       yellow: '#FFD700',
     },
   },

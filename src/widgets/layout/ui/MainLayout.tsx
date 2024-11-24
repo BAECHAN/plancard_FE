@@ -1,13 +1,8 @@
 import { ToggleSearchTab } from '@/shared/ui';
 import { Footer, Header, MenuSidebar } from '@/widgets/layout/ui';
-import React from 'react';
+import { Outlet } from 'react-router-dom';
 
-// Layout 컴포넌트의 Props 타입 정의
-interface LayoutProps {
-  children: React.ReactNode;
-}
-
-const MainLayout = ({ children }: LayoutProps) => {
+const MainLayout = () => {
   return (
     <div className="">
       <div className="flex flex-col min-h-dvh">
@@ -17,7 +12,7 @@ const MainLayout = ({ children }: LayoutProps) => {
           <section className="w-full p-3">
             <article>
               <ToggleSearchTab size="small" />
-              {children}
+              <Outlet />
             </article>
           </section>
         </main>
