@@ -1,10 +1,10 @@
-import { FocusableSearchInputText } from '@/widgets/search/ui';
+import { SearchInputTextExplore } from '@/shared/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-const meta: Meta<typeof FocusableSearchInputText> = {
-  title: 'Widgets/Search/FocusableSearchInputText',
-  component: FocusableSearchInputText,
+const meta: Meta<typeof SearchInputTextExplore> = {
+  title: 'search/SearchInputTextExplore',
+  component: SearchInputTextExplore,
   parameters: {
     layout: 'centered',
   },
@@ -33,7 +33,7 @@ const meta: Meta<typeof FocusableSearchInputText> = {
     type: 'text',
     placeholder: '검색어를 입력하세요',
   },
-} satisfies Meta<typeof FocusableSearchInputText>;
+} satisfies Meta<typeof SearchInputTextExplore>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

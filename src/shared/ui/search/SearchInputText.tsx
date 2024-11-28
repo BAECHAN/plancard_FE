@@ -13,10 +13,11 @@ export type SearchInputTextProps = {
   initialValue?: string;
   placeholder?: string;
   label?: string;
+  wk;
 };
 
 const searchInputTextStyle =
-  'mt-1 block w-full h-full px-4 py-2 border rounded-lg focus:outline-none border-gray-300';
+  'mt-1 block w-full h-full px-2 py-2 border rounded-lg focus:outline-none border-gray-300';
 
 const SearchInputText = forwardRef<HTMLInputElement, SearchInputTextProps>(
   (
