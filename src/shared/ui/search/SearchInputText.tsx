@@ -13,7 +13,6 @@ export type SearchInputTextProps = {
   initialValue?: string;
   placeholder?: string;
   label?: string;
-  wk;
 };
 
 const searchInputTextStyle =
