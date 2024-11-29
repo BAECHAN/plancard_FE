@@ -74,18 +74,34 @@ export class Util {
   };
 
   /**
-   * @description size를 받아서 icon size로 변환하는 함수
+   * @description size를 받아서 한단계 작은 size로 변환하는 함수
    * @param size
-   * @returns 'large' -> 'medium', 'medium' -> 'small', 'small' -> 'xsmall'
+   * @returns 'large' -> 'medium', 'medium' -> 'small', 'small' -> 'xSmall'
    */
-  static convertSizeToIconSize = (size: Size) => {
+  static convertSizeToDownSize = (size: Size) => {
     switch (size) {
       case 'large':
         return 'medium';
       case 'medium':
         return 'small';
       case 'small':
-        return 'xsmall';
+        return 'xSmall';
+    }
+  };
+
+  /**
+   * @description size를 받아서 한단계 큰 size로 변환하는 함수
+   * @param size
+   * @returns 'small' -> 'medium', 'medium' -> 'large', 'large' -> 'xLarge'
+   */
+  static convertSizeToUpSize = (size: Size) => {
+    switch (size) {
+      case 'small':
+        return 'medium';
+      case 'medium':
+        return 'large';
+      case 'large':
+        return 'xLarge';
     }
   };
 
