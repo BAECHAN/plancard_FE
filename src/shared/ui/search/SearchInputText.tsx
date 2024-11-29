@@ -1,4 +1,5 @@
 import { useDebounce } from '@/shared/hooks';
+
 import {
   forwardRef,
   useEffect,
@@ -17,9 +18,6 @@ export type SearchInputTextProps = {
   label?: string;
 };
 
-const searchInputTextStyle =
-  'block w-full h-full px-2 py-2 border rounded-lg focus:outline-none border-gray-300';
-
 const SearchInputText = forwardRef<HTMLInputElement, SearchInputTextProps>(
   (
     {
@@ -34,6 +32,9 @@ const SearchInputText = forwardRef<HTMLInputElement, SearchInputTextProps>(
     ref,
   ) => {
     const [query, setQuery] = useState<string>(initialValue);
+
+    const searchInputTextStyle = `block w-full h-full pl-2 ${query.length ? 'pr-10' : 'pr-2'} py-2 border rounded-lg focus:outline-none border-gray-300`;
+
     const searchInputRef = useRef<HTMLInputElement>(null);
 
     const debouncedQuery = useDebounce(query, 700);
@@ -49,12 +50,20 @@ const SearchInputText = forwardRef<HTMLInputElement, SearchInputTextProps>(
       setQuery(normalizedValue);
     };
 
+    const handleQueryReset = () => {
+      setQuery('');
+      searchInputRef.current?.focus();
+    };
+
     useEffect(() => {
       onSearch(encodeURIComponent(debouncedQuery));
     }, [debouncedQuery, onSearch]);
 
     return (
-      <label htmlFor={id}>
+      <label
+        htmlFor={id}
+        className="relative"
+      >
         {label}
         <input
           ref={searchInputRef}
@@ -67,6 +76,15 @@ const SearchInputText = forwardRef<HTMLInputElement, SearchInputTextProps>(
           className={`${searchInputTextStyle} text-${align}`}
           autoComplete="off"
         />
+        {query.length > 0 && (
+          <button
+            type="button"
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-mono500 hover:text-black"
+            onClick={() => handleQueryReset()}
+          >
+            ✕
+          </button>
+        )}
       </label>
     );
   },
