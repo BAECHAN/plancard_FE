@@ -2,17 +2,17 @@ import { Badge } from '@/shared/lib/shadcn-ui/components/ui';
 
 import {
   amber,
-  buttonLarge as large,
-  buttonMedium as medium,
-  buttonSmall as small,
-  buttonXSmall as xsmall,
   cream,
   flexCenter,
   gray,
+  buttonLarge as large,
+  buttonMedium as medium,
   navy,
   periwinkle,
   primary,
   skyblue,
+  buttonSmall as small,
+  buttonXSmall as xSmall,
 } from '@/shared/const';
 import { SizeWithXSmall, Variant } from '@/shared/type';
 
@@ -28,7 +28,7 @@ const BaseBadge = ({
   size = 'medium',
 }: BaseBadgeProps) => {
   const sizeClass: Record<SizeWithXSmall, string> = {
-    xsmall,
+    xSmall,
     small,
     medium,
     large,

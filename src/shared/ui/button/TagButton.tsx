@@ -1,18 +1,18 @@
 import {
   amber,
-  buttonLarge as large,
-  buttonMedium as medium,
-  buttonSmall as small,
-  buttonXSmall as xsmall,
   cream,
   disabledStyle,
   flexCenter,
   gray,
   hoverStyle,
+  buttonLarge as large,
+  buttonMedium as medium,
   navy,
   periwinkle,
   primary,
   skyblue,
+  buttonSmall as small,
+  buttonXSmall as xSmall,
 } from '@/shared/const';
 import { Button } from '@/shared/lib/shadcn-ui/components/ui';
 import { SizeWithXSmall, Variant } from '@/shared/type';
@@ -37,7 +37,7 @@ const TagButton = ({
   ...props
 }: TagButtonProps) => {
   const sizeClass: Record<SizeWithXSmall, string> = {
-    xsmall,
+    xSmall,
     small,
     medium,
     large,

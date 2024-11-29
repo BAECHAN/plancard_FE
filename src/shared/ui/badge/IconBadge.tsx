@@ -2,7 +2,7 @@ import {
   iconLarge as large,
   iconMedium as medium,
   iconSmall as small,
-  iconXSmall as xsmall,
+  iconXSmall as xSmall,
 } from '@/shared/const';
 import { SizeWithXSmall } from '@/shared/type';
 import { IconType } from 'react-icons';
@@ -21,7 +21,7 @@ const IconBadge = ({
   size = 'medium',
 }: IconBadgeProps) => {
   const sizeClass: Record<SizeWithXSmall, string> = {
-    xsmall,
+    xSmall,
     small,
     medium,
     large,

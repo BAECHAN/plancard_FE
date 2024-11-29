@@ -2,7 +2,7 @@ import {
   iconLarge as large,
   iconMedium as medium,
   iconSmall as small,
-  iconXSmall as xsmall,
+  iconXSmall as xSmall,
 } from '@/shared/const';
 import { useToggle } from '@/shared/hooks';
 import { SizeWithXSmall } from '@/shared/type';
@@ -31,7 +31,7 @@ const IconButton = ({
   hoverIconColor,
 }: IconButtonProps) => {
   const sizeClass: Record<SizeWithXSmall, string> = {
-    xsmall,
+    xSmall,
     small,
     medium,
     large,
