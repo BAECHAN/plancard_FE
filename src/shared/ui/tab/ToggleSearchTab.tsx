@@ -3,15 +3,17 @@ import {
   TabsList,
   TabsTrigger,
 } from '@/shared/lib/shadcn-ui/components/ui';
-import { Option, Size } from '@/shared/type';
-import { MouseEvent, useState } from 'react';
+import { MyOrExploreAtom } from '@/shared/store/atom';
+import { MyOrExplore, Option, Size } from '@/shared/type';
+import { MouseEvent } from 'react';
+import { useRecoilState } from 'recoil';
 
 interface ToggleSearchTabProps {
   size?: Size;
   disabled?: boolean;
 }
 
-const optionList: Option[] = [
+const optionList: Option<MyOrExplore>[] = [
   { label: 'My Card', value: 'my' },
   { label: 'Explore', value: 'explore' },
 ];
@@ -19,7 +21,6 @@ const optionList: Option[] = [
 const ToggleSearchTab = ({
   disabled = false,
   size = 'medium',
-  ...props
 }: ToggleSearchTabProps) => {
   const sizeClass: Record<Size, string> = {
     small: 'h-7 text-xl',
@@ -30,10 +31,11 @@ const ToggleSearchTab = ({
   const activeClass =
     'data-[state=active]:border-none data-[state=active]:rounded-none data-[state=active]:shadow-[inset_0_-1px_0_0,0_4px_0_0] data-[state=active]:shadow-current data-[state=active]:text-primary pb-4';
 
-  const [activeTab, setActiveTab] = useState(optionList[0].value);
+  const [activeTab, setActiveTab] = useRecoilState(MyOrExploreAtom);
+
   const handleTabClick = (
     e: MouseEvent<HTMLButtonElement>,
-    clickedTabValue: Option['value'],
+    clickedTabValue: Option<MyOrExplore>['value'],
   ) => {
     setActiveTab(clickedTabValue);
   };
