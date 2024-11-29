@@ -7,7 +7,7 @@ import {
 import { Option, Size } from '@/shared/type';
 
 interface ToggleFilterTabProps {
-  option: Option[];
+  option: Option<string>[];
   onClick: () => void;
 
   size?: Size;
