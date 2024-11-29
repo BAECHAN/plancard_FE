@@ -18,6 +18,7 @@ export { default as QueryStatusWrapper } from './queryStatusController/QueryStat
 export { default as FocusableSearchInputText } from './search/FocusableSearchInputText';
 export { default as SearchInputText } from './search/SearchInputText';
 export { default as SearchInputTextExplore } from './search/SearchInputTextExplore';
+export { default as SearchInputTextMy } from './search/SearchInputTextMy';
 export { default as MenuItem } from './sidebar/MenuItem';
 export { default as ToggleFilterTab } from './tab/ToggleFilterTab';
 export { default as ToggleSearchTab } from './tab/ToggleSearchTab';

@@ -1,15 +1,21 @@
+import { Size } from '@/shared/type';
 import { BaseButton, SearchInputTextExplore } from '@/shared/ui';
+import { Util } from '@/shared/util';
 
-const SearchContainerExplore = () => {
+const SearchContainerExplore = ({ size = 'large' }: { size?: Size }) => {
+  const buttonSize = Util.convertSizeToUpSize(size);
+
   return (
-    <div className="card-explore-search-area flex items-center gap-2 py-2 px-1">
+    <div className="explore-search-area flex items-center gap-2 py-2 px-1">
       <SearchInputTextExplore
         id="search"
+        size={size}
+        align="center"
         placeholder="Which country or city do you want to travel to?"
         onSearch={() => {}}
       />
       <BaseButton
-        size="large"
+        size={buttonSize}
         onClick={() => {}}
       >
         Search{' '}

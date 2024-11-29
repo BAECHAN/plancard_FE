@@ -6,17 +6,19 @@ import {
   useRef,
   useState,
 } from 'react';
+
 export type SearchInputTextProps = {
   id: string;
   onSearch: (query: string) => void;
   type?: 'text' | 'password';
   initialValue?: string;
   placeholder?: string;
+  align?: 'left' | 'center' | 'right';
   label?: string;
 };
 
 const searchInputTextStyle =
-  'mt-1 block w-full h-full px-2 py-2 border rounded-lg focus:outline-none border-gray-300';
+  'block w-full h-full px-2 py-2 border rounded-lg focus:outline-none border-gray-300';
 
 const SearchInputText = forwardRef<HTMLInputElement, SearchInputTextProps>(
   (
@@ -26,6 +28,7 @@ const SearchInputText = forwardRef<HTMLInputElement, SearchInputTextProps>(
       onSearch,
       label = '',
       placeholder = '',
+      align = 'left',
       type = 'text',
     },
     ref,
@@ -61,7 +64,8 @@ const SearchInputText = forwardRef<HTMLInputElement, SearchInputTextProps>(
           onChange={handleInputChange}
           placeholder={placeholder}
           spellCheck="false"
-          className={`${searchInputTextStyle}`}
+          className={`${searchInputTextStyle} text-${align}`}
+          autoComplete="off"
         />
       </label>
     );

@@ -1,9 +1,9 @@
-import { SearchContainerExplore } from '@/widgets/search/ui';
+import { SearchContainerMy } from '@/widgets/search/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof SearchContainerExplore> = {
-  title: 'Widgets/Search/SearchContainerExplore',
-  component: SearchContainerExplore,
+const meta: Meta<typeof SearchContainerMy> = {
+  title: 'Widgets/Search/SearchContainerMy',
+  component: SearchContainerMy,
   parameters: {
     layout: 'centered',
   },
@@ -18,7 +18,7 @@ const meta: Meta<typeof SearchContainerExplore> = {
   args: {
     size: 'medium',
   },
-} satisfies Meta<typeof SearchContainerExplore>;
+} satisfies Meta<typeof SearchContainerMy>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

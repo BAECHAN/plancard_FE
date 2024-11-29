@@ -12,7 +12,7 @@ const meta: Meta<typeof SearchInputText> = {
   argTypes: {
     initialValue: {
       control: 'text',
-      description: '초기값 텍스트',
+      description: '검색 초기값 텍스트',
     },
 
     placeholder: {
@@ -26,6 +26,11 @@ const meta: Meta<typeof SearchInputText> = {
     type: {
       control: 'text',
       description: '검색 텍스트 타입',
+    },
+    align: {
+      control: 'radio',
+      options: ['left', 'center', 'right'],
+      description: '검색 텍스트 정렬',
     },
   },
   args: {

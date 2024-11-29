@@ -1,15 +1,13 @@
 import {
-  exploreInputLarge as large,
-  exploreInputMedium as medium,
-  exploreInputSmall as small,
+  myInputLarge as large,
+  myInputMedium as medium,
+  myInputSmall as small,
 } from '@/shared/const';
 import { Size } from '@/shared/type';
 import FocusableSearchInputText from '@/shared/ui/search/FocusableSearchInputText';
 import { SearchInputTextProps } from '@/shared/ui/search/SearchInputText';
 
-const SearchInputTextExplore = (
-  props: SearchInputTextProps & { size: Size },
-) => {
+const SearchInputTextMy = (props: SearchInputTextProps & { size: Size }) => {
   const { size } = props;
 
   const sizeClass: Record<Size, string> = {
@@ -25,4 +23,4 @@ const SearchInputTextExplore = (
   );
 };
 
-export default SearchInputTextExplore;
+export default SearchInputTextMy;
