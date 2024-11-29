@@ -3,27 +3,28 @@ import React from 'react';
 
 import {
   amber,
-  buttonLarge as large,
-  buttonMedium as medium,
-  buttonSmall as small,
   cream,
   disabledStyle,
   flexCenter,
   gray,
   hoverStyle,
+  buttonLarge as large,
+  buttonMedium as medium,
   navy,
   periwinkle,
   primary,
   skyblue,
+  buttonSmall as small,
+  buttonXLarge as xLarge,
 } from '@/shared/const';
-import { Size, Variant } from '@/shared/type';
+import { SizeWithXLarge, Variant } from '@/shared/type';
 
 interface BaseButtonProps {
   children: React.ReactNode;
   onClick: () => void;
 
   variant?: Variant;
-  size?: Size;
+  size?: SizeWithXLarge;
   disabled?: boolean;
 }
 
@@ -36,10 +37,11 @@ const BaseButton = ({
   size = 'medium',
   ...props
 }: BaseButtonProps) => {
-  const sizeClass: Record<Size, string> = {
+  const sizeClass: Record<SizeWithXLarge, string> = {
     small,
     medium,
     large,
+    xLarge,
   };
 
   const variantClass: Record<Variant, string> = {
