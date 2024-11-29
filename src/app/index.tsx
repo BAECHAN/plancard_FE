@@ -33,11 +33,11 @@ const App: React.FC = () => {
             element={<MainPage />}
           />
           <Route
-            path="card"
+            path="/card"
             element={<CardPage />}
           />
           <Route
-            path="plan"
+            path="/plan"
             element={<PlanPage />}
           />
         </Route>
