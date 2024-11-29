@@ -45,6 +45,14 @@ module.exports = {
           fontWeight: '600',
         },
       ],
+      lg: [
+        '18px',
+        {
+          lineHeight: '27px',
+          letterSpacing: '0',
+          fontWeight: '700',
+        },
+      ],
       xl: [
         '20px',
         {
