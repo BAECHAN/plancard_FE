@@ -60,7 +60,7 @@ const Card = ({ onClick, info, size = 'medium', IconComponent }: CardProps) => {
     scrap,
   } = info;
 
-  const iconSize = Util.convertSizeToIconSize(size);
+  const iconSize = Util.convertSizeToDownSize(size);
 
   const handleScrapButtonClick = () => {
     console.log('북마크 버튼 클릭');
