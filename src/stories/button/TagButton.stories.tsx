@@ -18,7 +18,7 @@ const meta: Meta<typeof TagButton> = {
     },
     size: {
       control: 'radio',
-      options: ['xsmall', 'small', 'medium', 'large'],
+      options: ['xSmall', 'small', 'medium', 'large'],
       description: '버튼 크기',
     },
     children: {
@@ -94,7 +94,7 @@ export const Large: Story = {
 export const XSmall: Story = {
   args: {
     variant: 'primary',
-    size: 'xsmall',
+    size: 'xSmall',
     children: 'Button',
   },
 };

@@ -17,7 +17,7 @@ const meta: Meta<typeof BaseBadge> = {
     },
     size: {
       control: 'radio',
-      options: ['xsmall', 'small', 'medium', 'large'],
+      options: ['xSmall', 'small', 'medium', 'large'],
       description: '배지 크기',
     },
   },
@@ -87,7 +87,7 @@ export const Large: Story = {
 export const XSmall: Story = {
   args: {
     variant: 'primary',
-    size: 'xsmall',
+    size: 'xSmall',
     children: 'Button',
   },
 };
