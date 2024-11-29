@@ -10,7 +10,7 @@ const MainLayout = () => {
         <main className="flex flex-1">
           <MenuSidebar size="medium" />
           <section className="w-full p-4">
-            <article>
+            <article className="flex flex-col gap-4">
               <ToggleSearchTab size="small" />
               <Outlet />
             </article>
