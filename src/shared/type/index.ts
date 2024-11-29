@@ -1,5 +1,7 @@
 export type Size = 'small' | 'medium' | 'large';
-export type SizeWithXSmall = Size | 'xsmall';
+export type SizeWithXSmall = Size | 'xSmall';
+export type SizeWithXLarge = Size | 'xLarge';
+
 export type Variant =
   | 'primary'
   | 'gray'
@@ -8,8 +10,8 @@ export type Variant =
   | 'navy'
   | 'cream'
   | 'periwinkle';
-export type Option = {
-  value: string;
+export type Option<ValueT> = {
+  value: ValueT;
   label: string;
 };
 
@@ -27,6 +29,7 @@ type PlanVisibility = 'public' | 'private'; // private 은 mine에만, public은
 export type CountryCode = 'US' | 'KR' | 'JP' | 'CN' | 'FR' | 'SP';
 type SortOrder = 'asc' | 'desc';
 type PlanOrDay = 'plan' | 'day';
+export type MyOrExplore = 'my' | 'explore';
 
 interface PaginationResponse extends PaginationRequest {
   totalPages: number;
