@@ -11,6 +11,7 @@ export { default as DayDropdown } from './dropdown/DayDropdown';
 export { default as DropdownMenu } from './dropdown/DropdownMenu';
 export { default as PencilIcon } from './icon/PencilIcon';
 export { default as ToggleArrowDown } from './icon/ToggleArrowDown';
+export { default as XMark } from './icon/XMark';
 export { default as InputText } from './inputText/InputText';
 export { default as InputTextInForm } from './inputText/InputTextInForm';
 export { default as Loading } from './loading/Loading';
