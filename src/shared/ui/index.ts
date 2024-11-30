@@ -18,6 +18,7 @@ export { default as PlusIcon } from './icon/PlusIcon';
 export { default as ToggleArrowDown } from './icon/ToggleArrowDown';
 export { default as XMarkIcon } from './icon/XMarkIcon';
 
+export { default as SortingTitleButton } from './button/SortingButton/SortingTitleButton';
 export { default as InputText } from './inputText/InputText';
 export { default as InputTextInForm } from './inputText/InputTextInForm';
 export { default as Loading } from './loading/Loading';
@@ -30,4 +31,3 @@ export { default as MenuItem } from './sidebar/MenuItem';
 export { default as ToggleFilterTab } from './tab/ToggleFilterTab';
 export { default as ToggleSearchTab } from './tab/ToggleSearchTab';
 export { default as EditableTitle } from './title/EditableTitle';
-export { default as SortingTitle } from './title/SortingTitle';

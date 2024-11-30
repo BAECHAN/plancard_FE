@@ -1,10 +1,10 @@
-import { SortingTitle } from '@/shared/ui';
+import { SortingTitleButton } from '@/shared/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-const meta: Meta<typeof SortingTitle> = {
-  title: 'Title/SortingTitle',
-  component: SortingTitle,
+const meta: Meta<typeof SortingTitleButton> = {
+  title: 'Button/SortingTitleButton',
+  component: SortingTitleButton,
   parameters: {
     layout: 'centered',
   },
@@ -19,14 +19,10 @@ const meta: Meta<typeof SortingTitle> = {
       options: ['small', 'medium', 'large'],
       description: '텍스트 크기',
     },
-    active: {
-      control: 'boolean',
-      description: '활성화 여부',
-    },
     onClick: { action: 'clicked', description: '텍스트 클릭 이벤트' },
   },
-  args: { onClick: fn(), title: 'Title', size: 'medium', active: false },
-} satisfies Meta<typeof SortingTitle>;
+  args: { onClick: fn(), title: 'Title', size: 'medium' },
+} satisfies Meta<typeof SortingTitleButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -42,11 +38,5 @@ export const Small: Story = {
 export const Large: Story = {
   args: {
     size: 'large',
-  },
-};
-
-export const Active: Story = {
-  args: {
-    active: true,
   },
 };
