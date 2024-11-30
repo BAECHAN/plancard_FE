@@ -9,7 +9,17 @@ export type Variant =
   | 'amber'
   | 'navy'
   | 'cream'
-  | 'periwinkle';
+  | 'periwinkle'
+  | 'white';
+
+type DateToString = 'yyyy-MM-dd';
+type PlanVisibility = 'public' | 'private'; // private 은 mine에만, public은 explore에 노출됨 - 여기서 선택된 타입은 DailyPlan에도 일괄 적용됨
+export type CountryCode = 'US' | 'KR' | 'JP' | 'CN' | 'FR' | 'SP';
+type SortOrder = 'asc' | 'desc';
+type PlanOrDay = 'plan' | 'day';
+export type MyOrExplore = 'my' | 'explore';
+export type AddOrRemove = 'add' | 'remove';
+
 export type Option<ValueT> = {
   value: ValueT;
   label: string;
@@ -23,13 +33,6 @@ interface ApiResponse<T> {
 
   details?: string; // 에러 발생 시 추가
 }
-
-type DateToString = 'yyyy-MM-dd';
-type PlanVisibility = 'public' | 'private'; // private 은 mine에만, public은 explore에 노출됨 - 여기서 선택된 타입은 DailyPlan에도 일괄 적용됨
-export type CountryCode = 'US' | 'KR' | 'JP' | 'CN' | 'FR' | 'SP';
-type SortOrder = 'asc' | 'desc';
-type PlanOrDay = 'plan' | 'day';
-export type MyOrExplore = 'my' | 'explore';
 
 interface PaginationResponse extends PaginationRequest {
   totalPages: number;

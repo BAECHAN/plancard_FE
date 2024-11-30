@@ -11,6 +11,8 @@ export const amber = 'bg-amber text-black';
 export const navy = 'bg-navy text-white';
 export const cream = 'bg-cream text-amber';
 export const periwinkle = 'bg-periwinkle text-primary';
+export const white =
+  'bg-white text-primary border-2 border-[#D9D9DE] border-solid';
 
 export const disabledStyle = 'disabled:bg-mono100 disabled:text-mono200';
 export const hoverStyle = 'hover:bg-opacity-70';

@@ -13,6 +13,7 @@ export {
   periwinkle,
   primary,
   skyblue,
+  white,
 } from './Button';
 export {
   large as cardLarge,
