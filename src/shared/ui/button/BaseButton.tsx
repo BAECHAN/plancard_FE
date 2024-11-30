@@ -15,6 +15,7 @@ import {
   primary,
   skyblue,
   buttonSmall as small,
+  white,
   buttonXLarge as xLarge,
 } from '@/shared/const';
 import { SizeWithXLarge, Variant } from '@/shared/type';
@@ -52,6 +53,7 @@ const BaseButton = ({
     amber,
     navy,
     periwinkle,
+    white,
   };
 
   return (

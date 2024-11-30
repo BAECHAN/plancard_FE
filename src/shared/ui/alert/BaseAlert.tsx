@@ -7,6 +7,7 @@ import {
   periwinkle,
   primary,
   skyblue,
+  white,
 } from '@/shared/const';
 import { Size, Variant } from '@/shared/type';
 import React from 'react';
@@ -36,6 +37,7 @@ const BaseAlert = ({
     amber,
     navy,
     periwinkle,
+    white,
   };
 
   return (

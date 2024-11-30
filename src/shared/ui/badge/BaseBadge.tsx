@@ -12,6 +12,7 @@ import {
   primary,
   skyblue,
   buttonSmall as small,
+  white,
   buttonXSmall as xSmall,
 } from '@/shared/const';
 import { SizeWithXSmall, Variant } from '@/shared/type';
@@ -42,6 +43,7 @@ const BaseBadge = ({
     amber,
     navy,
     periwinkle,
+    white,
   };
 
   return (
