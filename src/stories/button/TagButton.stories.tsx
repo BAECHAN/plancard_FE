@@ -1,4 +1,4 @@
-import { TagButton, XMark } from '@/shared/ui';
+import { TagButton, XMarkIcon } from '@/shared/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { FaArrowRightLong, FaCalendarDay } from 'react-icons/fa6';
@@ -83,6 +83,14 @@ export const Periwinkle: Story = {
   },
 };
 
+export const White: Story = {
+  args: {
+    variant: 'white',
+    size: 'medium',
+    children: 'Button',
+  },
+};
+
 export const Large: Story = {
   args: {
     variant: 'primary',
@@ -134,13 +142,13 @@ export const WithIcon: Story = {
   },
 };
 
-export const WithCloseIcon: Story = {
+export const WithRemove: Story = {
   render: args => {
     return (
       <TagButton {...args}>
         <span>Sports</span>
         <span>
-          <XMark size={args.size} />
+          <XMarkIcon size={args.size} />
         </span>
       </TagButton>
     );
