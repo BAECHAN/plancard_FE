@@ -122,6 +122,8 @@ module.exports = {
 
     borderColor: {
       mono500: '#91929F',
+      mono200: '#d6d7d9',
+      mono300: '#bebebe',
       red: '#FF0000',
     },
 
