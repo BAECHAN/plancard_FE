@@ -1,4 +1,4 @@
-import { TagButton } from '@/shared/ui';
+import { TagButton, XMark } from '@/shared/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { FaArrowRightLong, FaCalendarDay } from 'react-icons/fa6';
@@ -131,5 +131,22 @@ export const WithIcon: Story = {
         </span>
       </>
     ),
+  },
+};
+
+export const WithCloseIcon: Story = {
+  render: args => {
+    return (
+      <TagButton {...args}>
+        <span>Sports</span>
+        <span>
+          <XMark size={args.size} />
+        </span>
+      </TagButton>
+    );
+  },
+  args: {
+    variant: 'primary',
+    size: 'medium',
   },
 };
