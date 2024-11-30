@@ -1,5 +1,5 @@
 import { Size } from '@/shared/type';
-import IconButton from '@/shared/ui/button/IconButton';
+import IconButton from '@/shared/ui/button/IconButton/IconButton';
 import { FaUser } from 'react-icons/fa';
 import { MdLogout } from 'react-icons/md';
 

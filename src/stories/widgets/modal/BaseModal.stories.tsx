@@ -1,5 +1,5 @@
 import { BaseButton } from '@/shared/ui';
-import BaseModal from '@/widgets/modal/ui/BaseModal';
+import { BaseModal } from '@/widgets/modal/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 

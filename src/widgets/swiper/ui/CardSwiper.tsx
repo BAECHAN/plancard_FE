@@ -11,7 +11,7 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Size } from '@/shared/type';
-import TrashButton from '@/shared/ui/button/TrashButton';
+import TrashButton from '@/shared/ui/button/IconButton/TrashButton';
 import { Card } from '@/widgets/card/ui';
 import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
 

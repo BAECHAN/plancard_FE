@@ -9,7 +9,7 @@ const large = 'text-xl';
 interface IconProps {
   size?: SizeWithXSmall;
 }
-const XMark: React.FC<IconProps> = ({ size = 'medium' }) => {
+const XMarkIcon: React.FC<IconProps> = ({ size = 'medium' }) => {
   const sizeClass: Record<SizeWithXSmall, string> = {
     xSmall,
     small,
@@ -20,4 +20,4 @@ const XMark: React.FC<IconProps> = ({ size = 'medium' }) => {
   return <FaXmark className={`${sizeClass[size]} `} />;
 };
 
-export default XMark;
+export default XMarkIcon;
