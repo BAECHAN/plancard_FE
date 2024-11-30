@@ -1,6 +1,7 @@
 import { MyOrExploreAtom } from '@/shared/store';
 import { FilterContainerMy } from '@/widgets/filter/ui';
 import { SearchContainerExplore, SearchContainerMy } from '@/widgets/search/ui';
+import { SortingContainerMy } from '@/widgets/sorting/ui';
 import { useRecoilValue } from 'recoil';
 
 export const CardPage = () => {
@@ -17,6 +18,7 @@ export const CardPage = () => {
             <>
               <SearchContainerMy />
               <FilterContainerMy />
+              <SortingContainerMy />
             </>
           )}
         </div>
