@@ -3,15 +3,21 @@ export { default as BaseAlert } from './alert/BaseAlert';
 export { default as BaseBadge } from './badge/BaseBadge';
 export { default as IconBadge } from './badge/IconBadge';
 export { default as BaseButton } from './button/BaseButton';
-export { default as IconButton } from './button/IconButton';
-export { default as ScrapButton } from './button/ScrapButton';
-export { default as TagButton } from './button/TagButton';
+export { default as CheckboxButton } from './button/IconButton/CheckboxButton';
+export { default as IconButton } from './button/IconButton/IconButton';
+export { default as ScrapButton } from './button/IconButton/ScrapButton';
+export { default as TrashButton } from './button/IconButton/TrashButton';
+export { default as InteractiveTagButton } from './button/TagButton/InteractiveTagButton';
+export { default as TagButton } from './button/TagButton/TagButton';
+
 export { default as BaseDropdown } from './dropdown/BaseDropdown';
 export { default as DayDropdown } from './dropdown/DayDropdown';
 export { default as DropdownMenu } from './dropdown/DropdownMenu';
 export { default as PencilIcon } from './icon/PencilIcon';
+export { default as PlusIcon } from './icon/PlusIcon';
 export { default as ToggleArrowDown } from './icon/ToggleArrowDown';
-export { default as XMark } from './icon/XMark';
+export { default as XMarkIcon } from './icon/XMarkIcon';
+
 export { default as InputText } from './inputText/InputText';
 export { default as InputTextInForm } from './inputText/InputTextInForm';
 export { default as Loading } from './loading/Loading';

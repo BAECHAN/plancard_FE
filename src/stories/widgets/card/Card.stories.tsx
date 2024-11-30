@@ -1,5 +1,5 @@
-import CheckboxButton from '@/shared/ui/button/CheckboxButton';
-import TrashButton from '@/shared/ui/button/TrashButton';
+import CheckboxButton from '@/shared/ui/button/IconButton/CheckboxButton';
+import TrashButton from '@/shared/ui/button/IconButton/TrashButton';
 import { Card } from '@/widgets/card/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';

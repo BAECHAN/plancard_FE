@@ -1,4 +1,4 @@
-import TrashButton from '@/shared/ui/button/TrashButton';
+import TrashButton from '@/shared/ui/button/IconButton/TrashButton';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof TrashButton> = {

@@ -1,5 +1,5 @@
 import { SizeWithXSmall } from '@/shared/type';
-import IconButton from '@/shared/ui/button/IconButton';
+import IconButton from '@/shared/ui/button/IconButton/IconButton';
 import { ImCheckboxChecked, ImCheckboxUnchecked } from 'react-icons/im';
 
 const CheckboxButton = ({ size = 'small' }: { size: SizeWithXSmall }) => {

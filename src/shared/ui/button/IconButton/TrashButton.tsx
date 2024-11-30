@@ -1,5 +1,5 @@
 import { SizeWithXSmall } from '@/shared/type';
-import IconButton from '@/shared/ui/button/IconButton';
+import IconButton from '@/shared/ui/button/IconButton/IconButton';
 import { TbTrashX, TbTrashXFilled } from 'react-icons/tb';
 
 const TrashButton = ({ size = 'small' }: { size: SizeWithXSmall }) => {

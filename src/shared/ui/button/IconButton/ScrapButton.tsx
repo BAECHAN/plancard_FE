@@ -1,5 +1,5 @@
 import { SizeWithXSmall } from '@/shared/type';
-import IconButton from '@/shared/ui/button/IconButton';
+import IconButton from '@/shared/ui/button/IconButton/IconButton';
 import { MouseEventHandler, useState } from 'react';
 import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
 
