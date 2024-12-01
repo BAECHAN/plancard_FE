@@ -5,7 +5,7 @@ import TagButton, {
 import useControlledToggle from '@/shared/hooks/useControlledToggle';
 import { PlusIcon, XMarkIcon } from '@/shared/ui';
 
-const InteractiveTagButton = ({
+const FilterTagButton = ({
   value,
   defaultValue = false,
   onToggle,
@@ -37,4 +37,4 @@ const InteractiveTagButton = ({
   );
 };
 
-export default InteractiveTagButton;
+export default FilterTagButton;

@@ -7,7 +7,7 @@ export { default as CheckboxButton } from './button/IconButton/CheckboxButton';
 export { default as IconButton } from './button/IconButton/IconButton';
 export { default as ScrapButton } from './button/IconButton/ScrapButton';
 export { default as TrashButton } from './button/IconButton/TrashButton';
-export { default as InteractiveTagButton } from './button/TagButton/InteractiveTagButton';
+export { default as FilterTagButton } from './button/TagButton/FilterTagButton';
 export { default as TagButton } from './button/TagButton/TagButton';
 
 export { default as BaseDropdown } from './dropdown/BaseDropdown';

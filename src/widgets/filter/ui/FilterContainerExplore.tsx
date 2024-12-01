@@ -1,10 +1,9 @@
 import { SearchFilterBase } from '@/shared/type';
-import { FilterTagButton, ToggleFilterTab } from '@/shared/ui';
-import { TOGGLE_FILTER_TAB_OPTION } from '@/shared/util/const';
+import { FilterTagButton } from '@/shared/ui';
 import { ButtonList } from '@/widgets/button/ui';
 import { useState } from 'react';
 
-const FilterContainerMy = () => {
+const FilterContainerExplore = () => {
   const [props, setProps] = useState<SearchFilterBase>({
     scrap: false,
     country: 'FR',
@@ -44,26 +43,8 @@ const FilterContainerMy = () => {
           <FilterTagButton defaultValue={false}>Art</FilterTagButton>
         </li>
       </ButtonList>
-      <ButtonList className="gap-3">
-        {TOGGLE_FILTER_TAB_OPTION.filter((_, index) => index === 1).map(
-          option => (
-            <li key={option[1].label}>
-              <ToggleFilterTab
-                size="medium"
-                option={option}
-                onClick={() => {
-                  setProps(prev => ({
-                    ...prev,
-                    scrap: !prev.scrap,
-                  }));
-                }}
-              />
-            </li>
-          ),
-        )}
-      </ButtonList>
     </div>
   );
 };
 
-export default FilterContainerMy;
+export default FilterContainerExplore;

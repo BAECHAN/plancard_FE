@@ -1,10 +1,10 @@
-import { InteractiveTagButton } from '@/shared/ui';
+import { FilterTagButton } from '@/shared/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-const meta: Meta<typeof InteractiveTagButton> = {
-  title: 'Button/InteractiveTagButton',
-  component: InteractiveTagButton,
+const meta: Meta<typeof FilterTagButton> = {
+  title: 'Button/FilterTagButton',
+  component: FilterTagButton,
   parameters: {
     layout: 'centered',
   },
@@ -27,7 +27,7 @@ const meta: Meta<typeof InteractiveTagButton> = {
     disabled: { control: 'boolean', description: '버튼 비활성화 여부' },
   },
   args: { onToggle: fn() },
-} satisfies Meta<typeof InteractiveTagButton>;
+} satisfies Meta<typeof FilterTagButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
