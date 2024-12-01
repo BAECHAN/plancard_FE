@@ -15,13 +15,12 @@ const meta: Meta<typeof ScrapButton> = {
       options: ['small', 'medium', 'large'],
       description: '아이콘 버튼 크기',
     },
-    initialScrap: {
+    defaultValue: {
       control: 'boolean',
-      description: '북마크 초기 상태',
+      description: '아이콘 버튼 초기값',
     },
-    onClick: { action: 'clicked', description: '아이콘 버튼 클릭 이벤트' },
   },
-  args: { onClick: fn(), size: 'small', initialScrap: false },
+  args: { onClick: fn(), size: 'small' },
 } satisfies Meta<typeof ScrapButton>;
 
 export default meta;
@@ -42,5 +41,11 @@ export const Medium: Story = {
 export const Large: Story = {
   args: {
     size: 'large',
+  },
+};
+
+export const Active: Story = {
+  args: {
+    defaultValue: true,
   },
 };

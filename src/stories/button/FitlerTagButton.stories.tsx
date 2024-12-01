@@ -20,10 +20,9 @@ const meta: Meta<typeof FilterTagButton> = {
       description: '버튼 text',
       defaultValue: 'icon',
     },
-    isActive: {
-      control: 'boolean',
-      description: '활성화 여부',
-    },
+    value: { control: 'boolean', description: '버튼 활성화 여부' },
+    defaultValue: { control: 'boolean', description: '버튼 초기값' },
+    onToggle: { action: 'onToggle', description: '버튼 토글 이벤트' },
     disabled: { control: 'boolean', description: '버튼 비활성화 여부' },
   },
   args: { onToggle: fn() },
