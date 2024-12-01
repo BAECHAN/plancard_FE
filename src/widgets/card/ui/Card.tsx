@@ -41,12 +41,19 @@ const sizeClassDescription: Record<Size, string> = {
 
 interface CardProps {
   onClick: () => void;
+  onScrapClick?: () => void;
   IconComponent?: React.ElementType;
   info: CardType;
   size?: Size;
 }
 
-const Card = ({ onClick, info, size = 'medium', IconComponent }: CardProps) => {
+const Card = ({
+  onClick,
+  onScrapClick,
+  info,
+  size = 'medium',
+  IconComponent,
+}: CardProps) => {
   const {
     imageList,
     title,
@@ -61,10 +68,6 @@ const Card = ({ onClick, info, size = 'medium', IconComponent }: CardProps) => {
   } = info;
 
   const iconSize = Util.convertSizeToDownSize(size);
-
-  const handleScrapButtonClick = () => {
-    console.log('북마크 버튼 클릭');
-  };
 
   const handleMapPinButtonClick = () => {
     console.log('지도 핀 버튼 클릭');
@@ -99,8 +102,8 @@ const Card = ({ onClick, info, size = 'medium', IconComponent }: CardProps) => {
           <div className="flex-grow-0" />
           <div className="card-bookmark">
             <ScrapButton
-              onClick={handleScrapButtonClick}
-              initialScrap={scrap}
+              value={scrap}
+              onClick={onScrapClick}
               size={iconSize}
             />
           </div>

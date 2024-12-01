@@ -3,7 +3,7 @@ import { SortingTitleButton } from '@/shared/ui';
 import { SortingTitleButtonList } from '@/widgets/sorting/ui';
 import { useState } from 'react';
 
-const sortingOptions: Option<SearchSortCard>[] = [
+export const sortingOptions: Option<SearchSortCard>[] = [
   {
     label: '빠른 획득순',
     value: {
@@ -85,8 +85,8 @@ const SortingContainerMy = () => {
           <li key={option.label}>
             <SortingTitleButton
               title={option.label}
+              value={activeIndex === index}
               onClick={() => handleButtonClick(index)}
-              isActive={activeIndex === index}
             />
           </li>
         ))}

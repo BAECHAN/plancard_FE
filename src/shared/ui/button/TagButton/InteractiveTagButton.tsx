@@ -2,37 +2,36 @@ import TagButton, {
   TagButtonProps,
 } from '@/shared/ui/button/TagButton/TagButton';
 
-import { AddOrRemove } from '@/shared/type';
+import useControlledToggle from '@/shared/hooks/useControlledToggle';
 import { PlusIcon, XMarkIcon } from '@/shared/ui';
-import { useState } from 'react';
 
-const InteractiveTagButton = (
-  props: Omit<TagButtonProps, 'onClick' | 'variant'> & {
-    onClick: (action: AddOrRemove) => void;
-  },
-) => {
-  const { children, onClick, ...restProps } = props;
-
-  const [canAdd, setCanAdd] = useState(true);
-
-  const handleCanAddToggle = () => {
-    setCanAdd(prev => !prev);
-    canAdd ? onClick('remove') : onClick('add');
-  };
+const InteractiveTagButton = ({
+  value,
+  defaultValue = false,
+  onToggle,
+  children,
+  size = 'medium',
+  ...props
+}: Omit<TagButtonProps, 'onClick'> & {
+  value?: boolean;
+  defaultValue?: boolean; // internalValue 초기값
+  onToggle?: (newValue: boolean) => void;
+}) => {
+  const { actualValue, handleToggle } = useControlledToggle({
+    value,
+    defaultValue,
+    onChange: onToggle,
+  });
 
   return (
     <TagButton
-      {...restProps}
-      variant={canAdd ? 'white' : 'primary'}
-      onClick={() => handleCanAddToggle()}
+      {...props}
+      onClick={handleToggle}
+      variant={actualValue ? 'primary' : 'white'}
     >
       <span>{children}</span>
       <span>
-        {canAdd ? (
-          <PlusIcon size={restProps.size} />
-        ) : (
-          <XMarkIcon size={restProps.size} />
-        )}
+        {actualValue ? <XMarkIcon size={size} /> : <PlusIcon size={size} />}
       </span>
     </TagButton>
   );

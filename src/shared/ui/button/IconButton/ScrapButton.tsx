@@ -1,33 +1,33 @@
+import useControlledToggle from '@/shared/hooks/useControlledToggle';
 import { SizeWithXSmall } from '@/shared/type';
 import IconButton from '@/shared/ui/button/IconButton/IconButton';
-import { MouseEventHandler, useState } from 'react';
 import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
 
 const ScrapButton = ({
   size = 'small',
-  initialScrap = false,
+
+  value,
   onClick,
+  defaultValue = false,
 }: {
   size?: SizeWithXSmall;
-  initialScrap?: boolean;
-  onClick: () => void;
+
+  value?: boolean;
+  onClick?: () => void;
+  defaultValue?: boolean;
 }) => {
-  const [scrap, setScrap] = useState(initialScrap);
-
-  const handleScrapButtonClick: MouseEventHandler = e => {
-    e.preventDefault();
-    e.stopPropagation();
-
-    setScrap(prev => !prev);
-    onClick();
-  };
+  const { actualValue, handleToggle } = useControlledToggle({
+    value,
+    defaultValue,
+    onChange: onClick,
+  });
 
   return (
     <IconButton
-      IconComponent={scrap ? FaBookmark : FaRegBookmark}
+      IconComponent={actualValue ? FaBookmark : FaRegBookmark}
       alt="북마크"
       size={size}
-      onClick={handleScrapButtonClick}
+      onClick={handleToggle}
     />
   );
 };

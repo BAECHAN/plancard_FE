@@ -20,10 +20,13 @@ const meta: Meta<typeof InteractiveTagButton> = {
       description: '버튼 text',
       defaultValue: 'icon',
     },
-    onClick: { action: 'clicked', description: '버튼 클릭 이벤트' },
+    isActive: {
+      control: 'boolean',
+      description: '활성화 여부',
+    },
     disabled: { control: 'boolean', description: '버튼 비활성화 여부' },
   },
-  args: { onClick: fn() },
+  args: { onToggle: fn() },
 } satisfies Meta<typeof InteractiveTagButton>;
 
 export default meta;

@@ -4,23 +4,25 @@ import {
   titleMedium as medium,
   titleSmall as small,
 } from '@/shared/const';
+import useControlledToggle from '@/shared/hooks/useControlledToggle';
 import { Button } from '@/shared/lib/shadcn-ui/components/ui';
 import { Size } from '@/shared/type';
-import { MouseEvent } from 'react';
 import { TbPointFilled } from 'react-icons/tb';
 
 interface SortingTitleButtonProps {
   title: string;
-  onClick: () => void;
 
-  isActive?: boolean;
+  onClick?: (newValue: boolean) => void;
+  value?: boolean;
+  defaultValue?: boolean; // internalValue 초기값
   size?: Size;
 }
 const SortingTitleButton = ({
   title,
-  onClick,
 
-  isActive = false,
+  onClick,
+  value,
+  defaultValue = false,
   size = 'medium',
   ...props
 }: SortingTitleButtonProps) => {
@@ -30,19 +32,16 @@ const SortingTitleButton = ({
     large,
   };
 
-  const activeClass = isActive ? 'text-black' : 'text-mono400 hover:underline';
-
-  const handleButtonClick = (e: MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
-    e.preventDefault();
-
-    onClick();
-  };
+  const { actualValue, handleToggle } = useControlledToggle({
+    value,
+    defaultValue,
+    onChange: onClick,
+  });
 
   return (
     <Button
-      className={`${flexCenter} ${sizeClass[size]} mx-2 ${activeClass} cursor-pointer p-0`}
-      onClick={handleButtonClick}
+      className={`${flexCenter} ${sizeClass[size]} mx-2 ${actualValue ? 'text-black' : 'text-mono400 hover:underline'} cursor-pointer p-0`}
+      onClick={handleToggle}
       {...props}
     >
       <span className="mt-[2px]">
