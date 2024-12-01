@@ -23,13 +23,13 @@ const ToggleFilterTab = ({
   ...props
 }: ToggleFilterTabProps) => {
   const sizeClass: Record<Size, string> = {
-    small: 'h-7 text-xs',
-    medium: 'h-9 text-sm',
-    large: 'h-11 text-base',
+    small: 'w-16 h-6 text-base',
+    medium: 'w-20 h-7 text-lg',
+    large: 'w-24 h-8 text-xl',
   };
 
   const activeClass =
-    'data-[state=active]:bg-skyblue data-[state=active]:text-white';
+    'data-[state=active]:bg-primary data-[state=active]:text-white rounded-md';
 
   return (
     <Tabs
@@ -37,19 +37,16 @@ const ToggleFilterTab = ({
       onClick={onClick}
       {...props}
     >
-      <TabsList className="bg-lightgray w-auto h-auto">
-        <TabsTrigger
-          className={`${activeClass} ${sizeClass[size]}`}
-          value={option[0].value}
-        >
-          {option[0].label}
-        </TabsTrigger>
-        <TabsTrigger
-          className={`${activeClass} ${sizeClass[size]}`}
-          value={option[1].value}
-        >
-          {option[1].label}
-        </TabsTrigger>
+      <TabsList className="bg-lightgray w-auto h-auto ">
+        {option.map((opt, index) => (
+          <TabsTrigger
+            key={index}
+            className={`${activeClass} ${sizeClass[size]}`}
+            value={opt.value}
+          >
+            {opt.label}
+          </TabsTrigger>
+        ))}
       </TabsList>
     </Tabs>
   );
