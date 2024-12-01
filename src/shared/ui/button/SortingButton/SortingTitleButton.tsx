@@ -6,18 +6,21 @@ import {
 } from '@/shared/const';
 import { Button } from '@/shared/lib/shadcn-ui/components/ui';
 import { Size } from '@/shared/type';
-import { useState } from 'react';
+import { MouseEvent } from 'react';
 import { TbPointFilled } from 'react-icons/tb';
 
 interface SortingTitleButtonProps {
   title: string;
   onClick: () => void;
 
+  isActive?: boolean;
   size?: Size;
 }
 const SortingTitleButton = ({
   title,
   onClick,
+
+  isActive = false,
   size = 'medium',
   ...props
 }: SortingTitleButtonProps) => {
@@ -27,18 +30,19 @@ const SortingTitleButton = ({
     large,
   };
 
-  const [active, setActive] = useState(false);
+  const activeClass = isActive ? 'text-black' : 'text-mono400 hover:underline';
 
-  const activeClass = active ? 'text-black' : 'text-mono400 hover:underline';
+  const handleButtonClick = (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    e.preventDefault();
 
-  const handleActiveToggle = () => {
-    setActive(prev => !prev);
+    onClick();
   };
 
   return (
     <Button
       className={`${flexCenter} ${sizeClass[size]} mx-2 ${activeClass} cursor-pointer p-0`}
-      onClick={() => handleActiveToggle()}
+      onClick={handleButtonClick}
       {...props}
     >
       <span className="mt-[2px]">
