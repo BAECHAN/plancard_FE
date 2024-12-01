@@ -1,3 +1,33 @@
+type UppercaseLetter =
+  | 'A'
+  | 'B'
+  | 'C'
+  | 'D'
+  | 'E'
+  | 'F'
+  | 'G'
+  | 'H'
+  | 'I'
+  | 'J'
+  | 'K'
+  | 'L'
+  | 'M'
+  | 'N'
+  | 'O'
+  | 'P'
+  | 'Q'
+  | 'R'
+  | 'S'
+  | 'T'
+  | 'U'
+  | 'V'
+  | 'W'
+  | 'X'
+  | 'Y'
+  | 'Z';
+
+export type CountryCode = `${UppercaseLetter}${UppercaseLetter}`;
+
 export type Size = 'small' | 'medium' | 'large';
 export type SizeWithXSmall = Size | 'xSmall';
 export type SizeWithXLarge = Size | 'xLarge';
@@ -14,7 +44,7 @@ export type Variant =
 
 type DateToString = 'yyyy-MM-dd';
 type PlanVisibility = 'public' | 'private'; // private 은 mine에만, public은 explore에 노출됨 - 여기서 선택된 타입은 DailyPlan에도 일괄 적용됨
-export type CountryCode = 'US' | 'KR' | 'JP' | 'CN' | 'FR' | 'SP';
+
 type SortOrder = 'asc' | 'desc';
 type PlanOrDay = 'plan' | 'day';
 export type MyOrExplore = 'my' | 'explore';
@@ -206,7 +236,7 @@ export interface Country extends RegionBase {
   isoCode: CountryCode; // ISO 3166-1 alpha-2 코드 (예: "US", "KR")
 }
 
-interface City extends RegionBase {
+export interface City extends RegionBase {
   cityId: string;
   countryIsoCode: Country['isoCode']; // ISO 국가 코드 (Country와 연결)
 }
