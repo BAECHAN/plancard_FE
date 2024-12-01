@@ -1,7 +1,8 @@
 import { MyOrExploreAtom } from '@/shared/store';
-import { FilterContainerExplore, FilterContainerMy } from '@/widgets/filter/ui';
-import { SearchContainerExplore, SearchContainerMy } from '@/widgets/search/ui';
-import { SortingContainerMy } from '@/widgets/sorting/ui';
+import {
+  ControlContainerExplore,
+  ControlContainerMy,
+} from '@/widgets/layout/ui';
 import { useRecoilValue } from 'recoil';
 
 export const CardPage = () => {
@@ -13,15 +14,10 @@ export const CardPage = () => {
         {/* <ControlContainerExplore /> */}
         <div className="flex flex-col gap-2">
           {activeTab === 'explore' ? (
-            <>
-              <SearchContainerExplore />
-              <FilterContainerExplore />
-            </>
+            <ControlContainerExplore />
           ) : (
             <>
-              <SearchContainerMy />
-              <FilterContainerMy />
-              <SortingContainerMy />
+              <ControlContainerMy />
             </>
           )}
         </div>
