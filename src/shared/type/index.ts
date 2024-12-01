@@ -87,12 +87,12 @@ interface SearchPlanForm extends SearchBaseForm {
   filter?: SearchFilterPlan;
 }
 
-type SearchFilterBase = {
+export type SearchFilterBase = {
   scrap: boolean;
   country?: Country['isoCode'];
-  city?: City['title'];
-  theme?: Theme[];
-  category?: Category[];
+  city?: City['cityId'];
+  theme?: Theme['themeId'][];
+  category?: Category['categoryId'][];
 };
 
 type SearchFilterCard = SearchFilterBase;
@@ -107,7 +107,7 @@ interface SearchSortBase {
   sortOrder: SortOrder;
 }
 
-interface SearchSortCard extends SearchSortBase {
+export interface SearchSortCard extends SearchSortBase {
   sortBy: 'cardTitle' | 'cityTitle' | 'rating' | 'lastUpdateDate' | 'getDate';
 }
 
@@ -115,7 +115,7 @@ interface SearchSortPlan extends SearchSortBase {
   sortBy: 'planName' | 'createdDate' | 'lastUpdateDate' | 'likeCount';
 }
 
-interface Plan {
+type Plan = {
   planId: string;
   visibility: PlanVisibility;
 
@@ -134,7 +134,7 @@ interface Plan {
   endDate: DateToString; // 여행 끝 일자
   duration: number; // 여행 끝 일자 - 여행 시작 일자 + 1
   tagList: CardTag[]; // country, city, theme, category 태그
-}
+};
 
 interface MyPlan extends Plan {
   thumnailCardList: ThumnailCardForPlan[];
