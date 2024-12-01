@@ -29,7 +29,7 @@ const FilterTagButton = ({
       onClick={handleToggle}
       variant={actualValue ? 'primary' : 'white'}
     >
-      <span>{children}</span>
+      {children}
       <span>
         {actualValue ? <XMarkIcon size={size} /> : <PlusIcon size={size} />}
       </span>

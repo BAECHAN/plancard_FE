@@ -1,4 +1,4 @@
-import { FilterTagButton } from '@/shared/ui';
+import { FilterTagButton, IconBadge } from '@/shared/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
@@ -55,5 +55,19 @@ export const Small: Story = {
   args: {
     size: 'small',
     children: 'Button',
+  },
+};
+
+export const WithIcon: Story = {
+  args: {
+    size: 'medium',
+    children: (
+      <>
+        <IconBadge iconPath={'https://flagcdn.com/gr.svg'} />
+        Button
+      </>
+    ),
+
+    value: true,
   },
 };
