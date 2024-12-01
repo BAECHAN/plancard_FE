@@ -17,11 +17,11 @@ import {
 } from '@/shared/const';
 import { Button } from '@/shared/lib/shadcn-ui/components/ui';
 import { SizeWithXSmall, Variant } from '@/shared/type';
-import { MouseEvent } from 'react';
+import { MouseEventHandler } from 'react';
 
 export type TagButtonProps = {
   children: React.ReactNode;
-  onClick: () => void;
+  onClick: MouseEventHandler<HTMLButtonElement>;
 
   variant?: Variant;
   size?: SizeWithXSmall;
@@ -55,18 +55,11 @@ const TagButton = ({
     white,
   };
 
-  const handleButtonClick = (e: MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
-    e.preventDefault();
-
-    onClick();
-  };
-
   return (
     <Button
       className={`rounded-full ${sizeClass[size]} ${variantClass[variant]} ${disabledStyle} ${hoverStyle}`}
       disabled={disabled}
-      onClick={handleButtonClick}
+      onClick={onClick}
       {...props}
     >
       <span className={`${flexCenter} gap-2`}>{children}</span>
