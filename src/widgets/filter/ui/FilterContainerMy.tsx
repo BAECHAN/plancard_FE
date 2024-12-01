@@ -1,6 +1,7 @@
 import { SearchFilterBase } from '@/shared/type';
-import { InteractiveTagButton } from '@/shared/ui';
-import { TagList } from '@/widgets/tag/ui';
+import { InteractiveTagButton, ToggleFilterTab } from '@/shared/ui';
+import { TOGGLE_FILTER_TAB_OPTION } from '@/shared/util/const';
+import { ButtonList } from '@/widgets/button/ui';
 import { useState } from 'react';
 
 const FilterContainerMy = () => {
@@ -13,8 +14,8 @@ const FilterContainerMy = () => {
   });
 
   return (
-    <div className="flex flex-col gap-2">
-      <TagList>
+    <div className="flex flex-col gap-4">
+      <ButtonList className="gap-3">
         <li>
           <InteractiveTagButton
             value={props.theme?.includes('1')}
@@ -46,7 +47,25 @@ const FilterContainerMy = () => {
         <li>
           <InteractiveTagButton defaultValue={false}>Art</InteractiveTagButton>
         </li>
-      </TagList>
+      </ButtonList>
+      <ButtonList className="gap-3">
+        {TOGGLE_FILTER_TAB_OPTION.filter((_, index) => index === 1).map(
+          option => (
+            <li key={option[1].label}>
+              <ToggleFilterTab
+                size="medium"
+                option={option}
+                onClick={() => {
+                  setProps(prev => ({
+                    ...prev,
+                    scrap: !prev.scrap,
+                  }));
+                }}
+              />
+            </li>
+          ),
+        )}
+      </ButtonList>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { Option, SearchSortCard } from '@/shared/type';
 import { SortingTitleButton } from '@/shared/ui';
-import { SortingTitleButtonList } from '@/widgets/sorting/ui';
+import { ButtonList } from '@/widgets/button/ui';
 import { useState } from 'react';
 
 export const sortingOptions: Option<SearchSortCard>[] = [
@@ -80,7 +80,7 @@ const SortingContainerMy = () => {
 
   return (
     <div className="flex flex-col gap-2">
-      <SortingTitleButtonList>
+      <ButtonList className="">
         {sortingOptions.map((option, index) => (
           <li key={option.label}>
             <SortingTitleButton
@@ -90,7 +90,7 @@ const SortingContainerMy = () => {
             />
           </li>
         ))}
-      </SortingTitleButtonList>
+      </ButtonList>
     </div>
   );
 };

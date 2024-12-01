@@ -1,18 +1,23 @@
 import { TagButton } from '@/shared/ui';
-import { TagList } from '@/widgets/tag/ui';
+import { ButtonList } from '@/widgets/button/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof TagList> = {
-  title: 'Widgets/Tag/TagList',
-  component: TagList,
+const meta: Meta<typeof ButtonList> = {
+  title: 'Widgets/Button/ButtonList',
+  component: ButtonList,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {
     children: {},
+    className: {
+      control: {
+        type: 'text',
+      },
+    },
   },
-} satisfies Meta<typeof TagList>;
+} satisfies Meta<typeof ButtonList>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -20,7 +25,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: args => {
     return (
-      <TagList>
+      <ButtonList className="gap-3">
         <li>
           <TagButton onClick={() => {}}>Button</TagButton>
         </li>
@@ -30,7 +35,7 @@ export const Default: Story = {
         <li>
           <TagButton onClick={() => {}}>Button</TagButton>
         </li>
-      </TagList>
+      </ButtonList>
     );
   },
   args: {},
