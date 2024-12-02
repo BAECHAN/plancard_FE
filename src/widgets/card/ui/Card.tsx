@@ -84,7 +84,7 @@ const Card = ({
       )}
 
       <div
-        className={`bg-white rounded-md ${sizeClassCountry[size]} flex flex-col border-[1px] border-[#D9D9DE] p-2 text-ellipsis whitespace-pre-wrap`}
+        className={`bg-white rounded-md ${sizeClassCountry[size]} flex flex-col border border-[#D9D9DE] p-2 text-ellipsis whitespace-pre-wrap`}
         onClick={onClick}
       >
         <div className="card-header flex justify-between  ">
