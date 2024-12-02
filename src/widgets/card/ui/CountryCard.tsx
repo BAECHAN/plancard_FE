@@ -22,7 +22,7 @@ const CountryCard = ({ onClick, info, size = 'medium' }: CountryCardProps) => {
 
   return (
     <div
-      className={`rounded-md ${sizeClass[size]} flex flex-col gap-1 relative text-ellipsis whitespace-pre-wrap border border-m border-[#D9D9DE] `}
+      className={`rounded-md ${sizeClass[size]} flex flex-col gap-1 relative text-ellipsis whitespace-pre-wrap border border-[#D9D9DE] `}
       onClick={onClick}
     >
       <img
