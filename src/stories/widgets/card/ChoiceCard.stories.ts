@@ -1,10 +1,10 @@
-import { SelectCard } from '@/widgets/card/ui';
+import { ChoiceCard } from '@/widgets/card/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-const meta: Meta<typeof SelectCard> = {
-  title: 'Widgets/Card/SelectCard',
-  component: SelectCard,
+const meta: Meta<typeof ChoiceCard> = {
+  title: 'Widgets/Card/ChoiceCard',
+  component: ChoiceCard,
   parameters: {
     layout: 'centered',
   },
@@ -22,7 +22,7 @@ const meta: Meta<typeof SelectCard> = {
     },
   },
   args: { onClick: fn() },
-} satisfies Meta<typeof SelectCard>;
+} satisfies Meta<typeof ChoiceCard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

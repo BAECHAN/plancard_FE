@@ -1,13 +1,13 @@
 import {
+  flexCenter,
   cardLarge as large,
   cardMedium as medium,
   cardSmall as small,
-  flexCenter,
 } from '@/shared/const';
 import { Size, Variant } from '@/shared/type';
 import { BaseButton } from '@/shared/ui';
 
-interface SelectCardProps {
+interface ChoiceCardProps {
   children: React.ReactNode;
   onClick: () => void;
 
@@ -16,16 +16,23 @@ interface SelectCardProps {
   disabled?: boolean;
 }
 
-const SelectCard = ({
+const ChoiceCard = ({
   onClick,
   size = 'medium',
   variant = 'primary',
-}: SelectCardProps) => {
+}: ChoiceCardProps) => {
   const sizeClass: Record<Size, string> = {
     small,
     medium,
     large,
   };
+
+  // const heightSizeClass =
+  //   size === 'small'
+  //     ? 'h-[15rem]'
+  //     : size === 'medium'
+  //       ? 'h-[22rem]'
+  //       : 'h-[30rem]';
 
   return (
     <div
@@ -42,4 +49,4 @@ const SelectCard = ({
   );
 };
 
-export default SelectCard;
+export default ChoiceCard;
