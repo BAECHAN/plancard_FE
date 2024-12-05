@@ -113,7 +113,7 @@ const Card = ({
         </div>
         <div className="card-image mt-2 mb-4">
           <img
-            src={imageList[0].imageUrl}
+            src={`${imageList[0].imageUrl}`}
             alt="Card Image"
             className="rounded-md"
             width={'100%'}
