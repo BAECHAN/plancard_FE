@@ -8,7 +8,7 @@ import {
 } from '@/pages/main/ui';
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Route, HashRouter as Router, Routes } from 'react-router-dom';
 
 import '@/app/index.css';
 import '@fontsource/noto-sans-kr/400.css';
