@@ -6,3 +6,5 @@ export { default as Header } from './Header';
 export { default as LoginFormLayout } from './LoginFormLayout';
 export { default as MainLayout } from './MainLayout';
 export { default as MenuSidebar } from './MenuSidebar';
+
+export { default as ListContainerCard } from './ListContainerCard';
