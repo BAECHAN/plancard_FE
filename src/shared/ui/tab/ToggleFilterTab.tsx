@@ -5,6 +5,7 @@ import {
 } from '@/shared/lib/shadcn-ui/components/ui';
 
 import { Option, Size } from '@/shared/type';
+import { useState } from 'react';
 
 interface ToggleFilterTabProps {
   option: Option<string>[];
@@ -31,10 +32,18 @@ const ToggleFilterTab = ({
   const activeClass =
     'data-[state=active]:bg-primary data-[state=active]:text-white rounded-md';
 
+  const [activeTab, setActiveTab] = useState(option[0].value);
+
+  const handleTabClick = (newValue: string) => {
+    if (activeTab !== newValue) {
+      onClick();
+      setActiveTab(newValue);
+    }
+  };
+
   return (
     <Tabs
-      defaultValue={option[0].value}
-      onClick={onClick}
+      value={activeTab}
       {...props}
     >
       <TabsList className="bg-lightgray w-auto h-auto ">
@@ -42,6 +51,7 @@ const ToggleFilterTab = ({
           <TabsTrigger
             key={opt.value}
             className={`${activeClass} ${sizeClass[size]}`}
+            onClick={() => handleTabClick(opt.value)}
             value={opt.value}
           >
             {opt.label}

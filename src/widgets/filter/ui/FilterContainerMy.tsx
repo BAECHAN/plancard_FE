@@ -17,6 +17,9 @@ const FilterContainerMy = () => {
     });
   }, []);
 
+  const handleToggleScrapFilterButtonClick = () => {
+    toggleScrapFilter();
+  };
   return (
     <div className="flex flex-col gap-4">
       <ButtonList className="gap-3">
@@ -52,7 +55,7 @@ const FilterContainerMy = () => {
               <ToggleFilterTab
                 size="medium"
                 option={option}
-                onClick={() => toggleScrapFilter()}
+                onClick={handleToggleScrapFilterButtonClick}
               />
             </li>
           ),
