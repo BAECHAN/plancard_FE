@@ -871,6 +871,24 @@ recoil 업데이트가 안되고 있다는 것을 알고 있었지만, zustand�
 npm install zustand
 ```
 
+### github pages로 배포 시 레포지토리 이름은 나오지 않아서 경로를 못찾는 상황이 발생
+
+BrowserRouter -> HashRouter로 변경
+
+```tsx
+import { Route, HashRouter as Router, Routes } from 'react-router-dom';
+```
+
+### 배포하니까 public안에 있는 images 경로를 못찾고 있는 현상 발생
+
+```tsx
+// 변경 전
+<image src='/images/eiffel-tower.svg'/>
+
+// 변경 후
+<image src='./images/eiffel-tower.svg' />
+```
+
 ### 해야할 것
 
 1. query와 api 위치 나 코드를 결합할지 고민
