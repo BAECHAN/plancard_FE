@@ -1,7 +1,7 @@
+import { useSearchCardStore } from '@/shared/store';
 import { Option, SearchSortCard } from '@/shared/type';
 import { SortingTitleButton } from '@/shared/ui';
 import { ButtonList } from '@/widgets/button/ui';
-import { useState } from 'react';
 
 // TODO: API 처리하는 로직은 Props로 받아올 예정
 const SortingContainerMy = ({
@@ -9,22 +9,29 @@ const SortingContainerMy = ({
 }: {
   options: Option<SearchSortCard>[];
 }) => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const {
+    searchCard: {
+      sort: { sortBy, sortOrder },
+    },
+    updateSort,
+  } = useSearchCardStore();
 
-  const handleButtonClick = (index: number) => {
-    setActiveIndex(index);
-    console.log(options[index].value);
+  const handleButtonClick = (newValue: SearchSortCard) => {
+    updateSort(newValue);
   };
 
   return (
     <div className="flex flex-col gap-2">
       <ButtonList className="">
-        {options.map((option, index) => (
+        {options.map(option => (
           <li key={option.label}>
             <SortingTitleButton
               title={option.label}
-              value={activeIndex === index}
-              onClick={() => handleButtonClick(index)}
+              isActive={
+                option.value.sortBy === sortBy &&
+                option.value.sortOrder === sortOrder
+              }
+              onClick={() => handleButtonClick(option.value)}
             />
           </li>
         ))}

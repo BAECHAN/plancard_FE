@@ -1,7 +1,6 @@
 /* eslint-disable import/no-restricted-paths */
 
 import { UserInfo } from '@/entities/user/type';
-import { MyOrExplore } from '@/shared/type';
 import { atom, selector } from 'recoil';
 
 export const counterAtom = atom<number>({
@@ -47,9 +46,4 @@ export const modalUserInfoDataSelector = selector<UserInfo | null>({
   set: ({ set }, newValue) => {
     set(modalUserInfoDataAtom, newValue);
   },
-});
-
-export const MyOrExploreAtom = atom<MyOrExplore>({
-  key: 'MyOrExploreAtom',
-  default: 'my',
 });

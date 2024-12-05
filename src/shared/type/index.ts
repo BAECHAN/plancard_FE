@@ -97,7 +97,6 @@ interface MyCard extends Card {
 }
 
 type SearchBaseForm = {
-  pagination: PaginationRequest;
   sort: SearchSortBase;
 };
 
@@ -105,11 +104,11 @@ interface SearchRegionForm extends SearchBaseForm {
   filter?: SearchFilterBase;
 }
 
-interface SearchCardForm extends SearchBaseForm {
+export type SearchCardForm = SearchBaseForm & {
   sort: SearchSortCard;
   search?: string;
   filter?: SearchFilterCard;
-}
+};
 
 interface SearchPlanForm extends SearchBaseForm {
   sort: SearchSortPlan;
@@ -125,21 +124,21 @@ export type SearchFilterBase = {
   category?: Category['categoryId'][];
 };
 
-type SearchFilterCard = SearchFilterBase;
+export type SearchFilterCard = SearchFilterBase;
 
 interface SearchFilterPlan extends SearchFilterBase {
   like: boolean;
   type: PlanOrDay;
 }
 
-interface SearchSortBase {
+type SearchSortBase = {
   sortBy: string;
   sortOrder: SortOrder;
-}
+};
 
-export interface SearchSortCard extends SearchSortBase {
+export type SearchSortCard = SearchSortBase & {
   sortBy: 'cardTitle' | 'cityTitle' | 'rating' | 'lastUpdateDate' | 'getDate';
-}
+};
 
 interface SearchSortPlan extends SearchSortBase {
   sortBy: 'planName' | 'createdDate' | 'lastUpdateDate' | 'likeCount';

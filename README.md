@@ -859,6 +859,18 @@ npm run deploy
 - 부모컴포넌트에서 ref로 접근할 수 있도록 useImperativeHandle 추가
 - 초기값 받을 수 있도록 initialValue 추가
 
+### Client State library 변경
+
+recoil 업데이트가 안되고 있다는 것을 알고 있었지만, zustand를 쓰고 있었는데
+다시 recoil로도 써보려고 했으나 React DevTools 에서 확인이 안되어 zustand로 우회
+
+- recoil 제거
+- zustand 추가
+
+```bash
+npm install zustand
+```
+
 ### 해야할 것
 
 1. query와 api 위치 나 코드를 결합할지 고민
