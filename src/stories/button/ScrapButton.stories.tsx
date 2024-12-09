@@ -15,7 +15,7 @@ const meta: Meta<typeof ScrapButton> = {
       options: ['small', 'medium', 'large'],
       description: '아이콘 버튼 크기',
     },
-    defaultValue: {
+    defaultIsActive: {
       control: 'boolean',
       description: '아이콘 버튼 초기값',
     },
@@ -46,6 +46,6 @@ export const Large: Story = {
 
 export const Active: Story = {
   args: {
-    defaultValue: true,
+    defaultIsActive: true,
   },
 };

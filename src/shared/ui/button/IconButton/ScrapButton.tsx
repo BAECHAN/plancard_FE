@@ -6,19 +6,18 @@ import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
 const ScrapButton = ({
   size = 'small',
 
-  value,
+  isActive,
   onClick,
-  defaultValue = false,
+  defaultIsActive = false,
 }: {
   size?: SizeWithXSmall;
-
-  value?: boolean;
+  isActive?: boolean;
+  defaultIsActive?: boolean; // internalValue 초기값
   onClick?: () => void;
-  defaultValue?: boolean;
 }) => {
   const { actualValue, handleToggle } = useControlledToggle({
-    value,
-    defaultValue,
+    value: isActive,
+    defaultValue: defaultIsActive,
     onChange: onClick,
   });
 
