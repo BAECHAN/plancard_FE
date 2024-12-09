@@ -540,20 +540,21 @@ npm i @types/react-modal
 }
 ```
 
-3. ModalComponent.tsx - 모달컴포넌트 생성
-
-```tsx
-import * as ReactModal from 'react-modal';
-
-ReactModal.setAppElement('#root'); // 모달이 열린 상태에서도 접근성을 보장하기 위해 필요합니다.
-```
-
-#### Storybook에서 React-Modal 사용하려하니 에러가 나서 수정
+3. App.tsx에 #root 경로로 Modal 세팅
 
 ```tsx
 import Modal from 'react-modal';
 
-// Modal.setAppElement('#root'); // 해당 코드 제거
+Modal.setAppElement('#root'); // 모달이 열린 상태에서도 접근성을 보장하기 위해 필요합니다.
+```
+
+#### Storybook에서 React-Modal 사용하려하니 에러가 나서 Preview.ts파일에 #root가 아닌 #storybook-root로 수정
+
+```ts
+// Preview.ts
+import Modal from 'react-modal';
+
+Modal.setAppElement('#storybook-root');
 ```
 
 #### tip
@@ -888,6 +889,25 @@ import { Route, HashRouter as Router, Routes } from 'react-router-dom';
 // 변경 후
 <image src='./images/eiffel-tower.svg' />
 ```
+
+### storybook/addon-onboarding이 더 이상 사용되지 않아 제거
+
+[@storybook/addon-onboarding] It seems like you have finished the onboarding experience in Storybook! Therefore this addon is not necessary anymore and will not be loaded. You are free to remove it from your project. More info: https://github.com/storybookjs/storybook/tree/next/code/addons/onboarding#uninstalling
+
+### favicion 추가
+
+- https://favicon.io/favicon-generator/
+
+```html
+// index.html
+<link
+  rel="icon"
+  href="/favicon.ico"
+  type="image/x-icon"
+/>
+```
+
+캐시 지우고 확인하면 보입니다.
 
 ### 해야할 것
 
