@@ -3,6 +3,7 @@ export { default as BaseAlert } from './alert/BaseAlert';
 export { default as BaseBadge } from './badge/BaseBadge';
 export { default as IconBadge } from './badge/IconBadge';
 export { default as BaseButton } from './button/BaseButton';
+export { default as ESCButton } from './button/ESCButton/ESCButton';
 export { default as CheckboxButton } from './button/IconButton/CheckboxButton';
 export { default as IconButton } from './button/IconButton/IconButton';
 export { default as ScrapButton } from './button/IconButton/ScrapButton';
