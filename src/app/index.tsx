@@ -18,6 +18,7 @@ import { queryClient } from '@/shared/query';
 import { MainLayout } from '@/widgets/layout/ui';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import Modal from 'react-modal';
 import { RecoilRoot } from 'recoil';
 
 const App: React.FC = () => {
@@ -59,6 +60,8 @@ const App: React.FC = () => {
     </Router>
   );
 };
+
+Modal.setAppElement('#root');
 
 // React 18 createRoot 사용
 const container = document.getElementById('root');
