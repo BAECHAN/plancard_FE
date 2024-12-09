@@ -1,3 +1,4 @@
+import { ESCButton } from '@/shared/ui';
 import Modal from 'react-modal';
 
 export type BaseModalProps = {
@@ -5,6 +6,8 @@ export type BaseModalProps = {
   onRequestClose: () => void; // 모달을 닫으려고 할 때 호출되는 콜백 함수입니다. 사용자가 모달 외부를 클릭하거나 ESC 키를 누를 때 호출됩니다.
   children: React.ReactNode;
 
+  width?: string; // 모달의 너비를 설정합니다.
+  height?: string; // 모달의 높이를 설정합니다
   onAfterOpen?: () => void; // 모달이 열린 후 호출되는 콜백 함수입니다.
   shouldCloseOnOverlayClick?: boolean; // 모달 외부를 클릭했을 때 모달을 닫을지 여부를 결정합니다. 기본값은 true입니다.
   shouldCloseOnEsc?: boolean; // ESC 키를 눌렀을 때 모달을 닫을지 여부를 결정합니다. 기본값은 true입니다.
@@ -17,6 +20,8 @@ const BaseModal: React.FC<BaseModalProps> = ({
   onRequestClose,
   contentLabel = 'Modal',
   children,
+  width = '92vw',
+  height = '95vh',
   onAfterOpen,
 }) => {
   return (
@@ -26,7 +31,7 @@ const BaseModal: React.FC<BaseModalProps> = ({
       contentLabel={contentLabel}
       style={{
         overlay: {
-          backgroundColor: '#D8D8D8',
+          backgroundColor: 'rgba(216, 216, 216, 0.7)',
         },
         content: {
           top: '50%',
@@ -37,18 +42,15 @@ const BaseModal: React.FC<BaseModalProps> = ({
           transform: 'translate(-50%, -50%)',
           padding: '20px',
           borderRadius: '8px',
-          width: '92vw',
-          height: '95vh',
+          width,
+          height,
         },
       }}
     >
-      <button
-        onClick={onRequestClose}
-        style={{ float: 'right', cursor: 'pointer' }}
-        aria-label={'Close Modal'}
-      >
-        &times;
-      </button>
+      <div className="flex justify-end">
+        <ESCButton onClick={onRequestClose} />
+      </div>
+
       {children}
     </Modal>
   );
