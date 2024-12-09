@@ -113,6 +113,12 @@ module.exports = {
       navy: '#0C46B9',
       skyblue: '#7FCEF9',
       gray: '#808080',
+
+      mono200: '#d6d7d9',
+      mono300: '#bebebe',
+      mono400: '#808080',
+      mono500: '#91929F',
+
       lightgray: '#D8D8D8',
       periwinkle: '#E6F0FF',
 
