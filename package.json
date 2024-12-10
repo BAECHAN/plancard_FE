@@ -91,6 +91,9 @@
     "typescript": "^5.7.2",
     "vite": "^5.3.1"
   },
+  "resolutions": {
+    "@emotion/react": "11.10.0"
+  },
   "lint-staged": {
     "*.{ts,tsx}": [
       "eslint --fix",

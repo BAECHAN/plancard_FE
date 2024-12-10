@@ -909,6 +909,45 @@ import { Route, HashRouter as Router, Routes } from 'react-router-dom';
 
 캐시 지우고 확인하면 보입니다.
 
+### storybook emotion warning 관련
+
+Storybook에서 아래와 같은 Warning 출력
+
+> You are loading @emotion/react when it is already loaded. Running multiple instances may cause problems. This can happen if multiple versions are used, or if multiple builds of the same version are used.
+
+해결방법 : @emotion/react 패키지가 중복되어 main.ts를 수정
+
+- @emotion/react 패키지 중복 체크
+
+```bash
+npm ls @emotion/react
+```
+
+- @emotion/react@11.13.3
+
+  - @emotion/styled@11.13.0
+  - @emotion/react@11.13.3 deduped
+
+- .storybook/main.ts 파일에서 @emotion/react를 명시적으로 하나로 고정합니다.
+
+```ts
+// main.ts
+import { mergeConfig } from 'vite';
+
+...
+  viteFinal: async viteConfig => {
+    return mergeConfig(viteConfig, {
+      resolve: {
+        alias: {
+          '@emotion/react': require.resolve('@emotion/react'), // Force a single instance of @emotion/react
+        },
+      },
+    });
+  },
+};
+
+```
+
 ### 해야할 것
 
 1. query와 api 위치 나 코드를 결합할지 고민

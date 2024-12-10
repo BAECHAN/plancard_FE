@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-vite';
+import { mergeConfig } from 'vite';
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
@@ -19,7 +20,17 @@ const config: StorybookConfig = {
     autodocs: 'tag',
   },
   core: {
-    builder: '@storybook/builder-vite', // 👈 The builder enabled here.
+    builder: '@storybook/builder-vite', // Using Vite as the builder
+  },
+  viteFinal: async viteConfig => {
+    return mergeConfig(viteConfig, {
+      resolve: {
+        alias: {
+          '@emotion/react': require.resolve('@emotion/react'), // Force a single instance of @emotion/react
+        },
+      },
+    });
   },
 };
+
 export default config;
