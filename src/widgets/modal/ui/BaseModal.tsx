@@ -42,16 +42,17 @@ const BaseModal: React.FC<BaseModalProps> = ({
           transform: 'translate(-50%, -50%)',
           padding: '20px',
           borderRadius: '8px',
+          display: 'flex',
+          flexDirection: 'column',
           width,
           height,
         },
       }}
     >
-      <div className="flex justify-end">
+      <div className="modal-header flex justify-end">
         <ESCButton onClick={onRequestClose} />
       </div>
-
-      {children}
+      <div className="modal-content flex-1">{children}</div>
     </Modal>
   );
 };
