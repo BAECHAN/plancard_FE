@@ -10,13 +10,13 @@ const tempImageList = [
   {
     imageId: '1',
     isMain: false,
-    imageUrl: '/images/eiffel-tower.svg',
+    imageUrl: './images/eiffel-tower.svg',
     alt: 'Image 1',
   },
   {
     imageId: '2',
     isMain: true,
-    imageUrl: '/images/spain.svg',
+    imageUrl: './images/spain.svg',
     alt: 'Image 2',
   },
   {
