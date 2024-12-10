@@ -63,24 +63,25 @@ const App: React.FC = () => {
 
 Modal.setAppElement('#root');
 
-// React 18 createRoot 사용
-const container = document.getElementById('root');
-if (container) {
-  const root = createRoot(container);
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('root');
+  if (container) {
+    const root = createRoot(container);
 
-  const isDevtoolsOpen =
-    import.meta.env.VITE_IS_TANSTACK_QUERY_DEVTOOLS_OPEN === 'true';
+    const isDevtoolsOpen =
+      import.meta.env.VITE_IS_TANSTACK_QUERY_DEVTOOLS_OPEN === 'true';
 
-  root.render(
-    <React.StrictMode>
-      <QueryClientProvider client={queryClient}>
-        <RecoilRoot>
-          <App />
-        </RecoilRoot>
-        <ReactQueryDevtools initialIsOpen={isDevtoolsOpen} />
-      </QueryClientProvider>
-    </React.StrictMode>,
-  );
-}
+    root.render(
+      <React.StrictMode>
+        <QueryClientProvider client={queryClient}>
+          <RecoilRoot>
+            <App />
+          </RecoilRoot>
+          <ReactQueryDevtools initialIsOpen={isDevtoolsOpen} />
+        </QueryClientProvider>
+      </React.StrictMode>,
+    );
+  }
+});
 
 export default App;

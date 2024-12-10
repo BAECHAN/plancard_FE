@@ -974,6 +974,58 @@ ModalContainerCardDetail.displayName = 'ModalContainerCardDetail';
 export default ModalContainerCardDetail;
 ```
 
+### Warning: You are calling ReactDOMClient.createRoot() on a container that has already been passed to createRoot() before. Instead, call root.render() on the existing root instead if you want to update it.
+
+React 18에서 ReactDOM.render() 관련 문제가 발생하여 document.addEventListener('DOMContentLoaded')의 콜백함수로 전달하여 처리하였습니다.
+
+- App.tsx
+
+```tsx
+// AS-IS
+const container = document.getElementById('root');
+if (container) {
+  const root = createRoot(container);
+
+  const isDevtoolsOpen =
+    import.meta.env.VITE_IS_TANSTACK_QUERY_DEVTOOLS_OPEN === 'true';
+
+  root.render(
+    <React.StrictMode>
+      <QueryClientProvider client={queryClient}>
+        <RecoilRoot>
+          <App />
+        </RecoilRoot>
+        <ReactQueryDevtools initialIsOpen={isDevtoolsOpen} />
+      </QueryClientProvider>
+    </React.StrictMode>,
+  );
+}
+```
+
+```tsx
+// TO-BE
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('root');
+  if (container) {
+    const root = createRoot(container);
+
+    const isDevtoolsOpen =
+      import.meta.env.VITE_IS_TANSTACK_QUERY_DEVTOOLS_OPEN === 'true';
+
+    root.render(
+      <React.StrictMode>
+        <QueryClientProvider client={queryClient}>
+          <RecoilRoot>
+            <App />
+          </RecoilRoot>
+          <ReactQueryDevtools initialIsOpen={isDevtoolsOpen} />
+        </QueryClientProvider>
+      </React.StrictMode>,
+    );
+  }
+});
+```
+
 ### 해야할 것
 
 1. query와 api 위치 나 코드를 결합할지 고민
