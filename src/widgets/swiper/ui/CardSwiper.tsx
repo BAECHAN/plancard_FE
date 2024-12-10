@@ -32,13 +32,13 @@ const StyledSwiper = styled(Swiper)`
 
   /* 추가적으로 Swiper의 네비게이션 버튼 스타일을 커스터마이즈할 수 있습니다 */
   .swiper-button-next {
-    background: url(/icons/arrow-right.png) no-repeat;
+    background: url(./icons/arrow-right.png) no-repeat;
     background-size: 50% auto;
     background-position: center;
   }
 
   .swiper-button-prev {
-    background: url(/icons/arrow-right.png) no-repeat;
+    background: url(./icons/arrow-right.png) no-repeat;
     background-size: 50% auto;
     background-position: center;
     transform: rotate(180deg);
