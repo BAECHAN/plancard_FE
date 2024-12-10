@@ -47,13 +47,14 @@ const BaseModal: React.FC<BaseModalProps> = ({
           flexDirection: 'column',
           width,
           height,
+          gap: '20px',
         },
       }}
     >
-      <div className="modal-header flex justify-end">
+      <div className="modal-header flex justify-end  ">
         <ESCButton onClick={onRequestClose} />
       </div>
-      <div className={`modal-content flex-1 ${flexCenter}`}>{children}</div>
+      <div className={`modal-content flex-1 ${flexCenter} `}>{children}</div>
     </Modal>
   );
 };
