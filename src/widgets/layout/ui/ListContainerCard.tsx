@@ -1,5 +1,6 @@
 import { Card as CardType } from '@/shared/type';
 import { Card, CardList } from '@/widgets/card/ui';
+import ModalContainerCardDetail from '@/widgets/layout/ui/ModalContainerCardDetail';
 import { BaseModal } from '@/widgets/modal/ui';
 import { useState } from 'react';
 
@@ -8,7 +9,8 @@ const cardList: CardType[] = [
     cardId: '1',
     theme: ['symbol', 'night'],
     title: '에펠탑',
-    description: '에펠탑은 프랑스 파리에 위치한 유명한 관광지입니다.',
+    description:
+      '프랑스 파리 안나톨 5가(5 Av.Anatole)에 있는 탑이다. 탑의 이름은 건축가 에펠의 이름을 딴것으로 1889년 3월 31일 준공해 1889년 5월 6일에 개장했다. 프랑스의 건축가 알렉상드르 귀스타브 에펠(Alexandre Gustave Eiffel, 1832~1923)[6]이 만든 거대한 철탑.',
     country: 'France',
     city: 'Paris',
     scrap: false,
@@ -241,7 +243,13 @@ const ListContainerCard = () => {
         width="70vw"
         height="80vh"
       >
-        {JSON.stringify(cardList.find(card => card.cardId === selectedCardId))}
+        {selectedCardId && (
+          <ModalContainerCardDetail
+            cardData={
+              cardList.find(item => item.cardId === selectedCardId) as CardType
+            }
+          />
+        )}
       </BaseModal>
     </div>
   );

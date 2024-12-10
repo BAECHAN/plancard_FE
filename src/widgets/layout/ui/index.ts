@@ -8,3 +8,4 @@ export { default as MainLayout } from './MainLayout';
 export { default as MenuSidebar } from './MenuSidebar';
 
 export { default as ListContainerCard } from './ListContainerCard';
+export { default as ModalContainerCardDetail } from './ModalContainerCardDetail';
