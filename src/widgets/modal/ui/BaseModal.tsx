@@ -1,3 +1,4 @@
+import { flexCenter } from '@/shared/const';
 import { ESCButton } from '@/shared/ui';
 import Modal from 'react-modal';
 
@@ -52,7 +53,7 @@ const BaseModal: React.FC<BaseModalProps> = ({
       <div className="modal-header flex justify-end">
         <ESCButton onClick={onRequestClose} />
       </div>
-      <div className="modal-content flex-1">{children}</div>
+      <div className={`modal-content flex-1 ${flexCenter}`}>{children}</div>
     </Modal>
   );
 };
