@@ -27,6 +27,7 @@ const FilterTagButton = ({
     <TagButton
       {...props}
       onClick={handleToggle}
+      size={size}
       variant={actualValue ? 'primary' : 'white'}
     >
       {children}

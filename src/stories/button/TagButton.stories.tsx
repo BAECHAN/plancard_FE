@@ -91,14 +91,6 @@ export const White: Story = {
   },
 };
 
-export const Large: Story = {
-  args: {
-    variant: 'primary',
-    size: 'large',
-    children: 'Button',
-  },
-};
-
 export const XSmall: Story = {
   args: {
     variant: 'primary',
@@ -110,6 +102,22 @@ export const Small: Story = {
   args: {
     variant: 'primary',
     size: 'small',
+    children: 'Button',
+  },
+};
+
+export const Medium: Story = {
+  args: {
+    variant: 'primary',
+    size: 'medium',
+    children: 'Button',
+  },
+};
+
+export const Large: Story = {
+  args: {
+    variant: 'primary',
+    size: 'large',
     children: 'Button',
   },
 };

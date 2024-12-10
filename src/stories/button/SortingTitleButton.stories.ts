@@ -26,14 +26,12 @@ const meta: Meta<typeof SortingTitleButton> = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-
-export const Medium: Story = {};
-
 export const Small: Story = {
   args: {
     size: 'small',
   },
 };
+export const Medium: Story = {};
 
 export const Large: Story = {
   args: {
