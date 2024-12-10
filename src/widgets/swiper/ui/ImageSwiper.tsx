@@ -14,7 +14,7 @@ import { CardImage, Size } from '@/shared/type';
 import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
 
 const StyledSwiper = styled(Swiper)`
-  width: 532px;
+  width: 100%;
   height: 374px;
   margin: 20px auto;
 
