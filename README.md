@@ -948,6 +948,20 @@ import { mergeConfig } from 'vite';
 
 ```
 
+### Swiper 맨끝으로갔다가 왼쪽버튼 클릭시 맨앞으로가는 현상이 발생하여 cssMode제거후 slidesPerGroup 추가
+
+```tsx
+<StyledSwiper
+  slidesPerGroup={1}
+  navigation
+  pagination
+  mousewheel
+  keyboard
+  modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+  className="mySwiper"
+>
+```
+
 ### 해야할 것
 
 1. query와 api 위치 나 코드를 결합할지 고민
