@@ -62,7 +62,7 @@ const StyledSwiper = styled(Swiper)`
 
 type ImageSwiperProps = {
   imageList: CardImage[];
-  size: Size;
+  size?: Size;
 };
 
 const ImageSwiper = ({ imageList, size = 'medium' }: ImageSwiperProps) => {
@@ -73,7 +73,7 @@ const ImageSwiper = ({ imageList, size = 'medium' }: ImageSwiperProps) => {
   return (
     <>
       <StyledSwiper
-        cssMode
+        slidesPerGroup={1}
         navigation
         pagination
         mousewheel
