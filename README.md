@@ -962,6 +962,18 @@ import { mergeConfig } from 'vite';
 >
 ```
 
+### React.memo 사용 시 displayName을 추가해야되는 경우가 있음
+
+```tsx
+const ModalContainerCardDetail = React.memo();
+
+...
+
+ModalContainerCardDetail.displayName = 'ModalContainerCardDetail';
+
+export default ModalContainerCardDetail;
+```
+
 ### 해야할 것
 
 1. query와 api 위치 나 코드를 결합할지 고민
