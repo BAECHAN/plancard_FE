@@ -890,6 +890,17 @@ import { Route, HashRouter as Router, Routes } from 'react-router-dom';
 <image src='./images/eiffel-tower.svg' />
 ```
 
+#### 경로마다 .을 붙일 수 없으니 vite.config.ts 파일을 수정
+
+- vite.config.ts
+
+```ts
+export default defineConfig({
+  plugins: [react()],
+  base: './',
+});
+```
+
 ### storybook/addon-onboarding이 더 이상 사용되지 않아 제거
 
 [@storybook/addon-onboarding] It seems like you have finished the onboarding experience in Storybook! Therefore this addon is not necessary anymore and will not be loaded. You are free to remove it from your project. More info: https://github.com/storybookjs/storybook/tree/next/code/addons/onboarding#uninstalling

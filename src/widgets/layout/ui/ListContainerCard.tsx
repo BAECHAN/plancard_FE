@@ -17,7 +17,7 @@ const cardList: CardType[] = [
     imageList: [
       {
         imageId: '1',
-        imageUrl: './images/eiffel-tower.svg',
+        imageUrl: '/images/eiffel-tower.svg',
         alt: '에펠탑',
         isMain: true,
       },
@@ -38,7 +38,7 @@ const cardList: CardType[] = [
     imageList: [
       {
         imageId: '1',
-        imageUrl: './images/eiffel-tower.svg',
+        imageUrl: '/images/eiffel-tower.svg',
         alt: '에펠탑',
         isMain: true,
       },
@@ -58,7 +58,7 @@ const cardList: CardType[] = [
     imageList: [
       {
         imageId: '1',
-        imageUrl: './images/eiffel-tower.svg',
+        imageUrl: '/images/eiffel-tower.svg',
         alt: '에펠탑',
         isMain: true,
       },
@@ -78,7 +78,7 @@ const cardList: CardType[] = [
     imageList: [
       {
         imageId: '1',
-        imageUrl: './images/eiffel-tower.svg',
+        imageUrl: '/images/eiffel-tower.svg',
         alt: '에펠탑',
         isMain: true,
       },
@@ -98,7 +98,7 @@ const cardList: CardType[] = [
     imageList: [
       {
         imageId: '1',
-        imageUrl: './images/eiffel-tower.svg',
+        imageUrl: '/images/eiffel-tower.svg',
         alt: '에펠탑',
         isMain: true,
       },
@@ -118,7 +118,7 @@ const cardList: CardType[] = [
     imageList: [
       {
         imageId: '1',
-        imageUrl: './images/eiffel-tower.svg',
+        imageUrl: '/images/eiffel-tower.svg',
         alt: '에펠탑',
         isMain: true,
       },
@@ -139,7 +139,7 @@ const cardList: CardType[] = [
     imageList: [
       {
         imageId: '1',
-        imageUrl: './images/eiffel-tower.svg',
+        imageUrl: '/images/eiffel-tower.svg',
         alt: '에펠탑',
         isMain: true,
       },
@@ -160,7 +160,7 @@ const cardList: CardType[] = [
     imageList: [
       {
         imageId: '1',
-        imageUrl: './images/eiffel-tower.svg',
+        imageUrl: '/images/eiffel-tower.svg',
         alt: '에펠탑',
         isMain: true,
       },
@@ -180,7 +180,7 @@ const cardList: CardType[] = [
     imageList: [
       {
         imageId: '1',
-        imageUrl: './images/eiffel-tower.svg',
+        imageUrl: '/images/eiffel-tower.svg',
         alt: '에펠탑',
         isMain: true,
       },
@@ -200,7 +200,7 @@ const cardList: CardType[] = [
     imageList: [
       {
         imageId: '1',
-        imageUrl: './images/eiffel-tower.svg',
+        imageUrl: '/images/eiffel-tower.svg',
         alt: '에펠탑',
         isMain: true,
       },
