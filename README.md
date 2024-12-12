@@ -897,7 +897,7 @@ import { Route, HashRouter as Router, Routes } from 'react-router-dom';
 ```ts
 export default defineConfig({
   plugins: [react()],
-  base: './',
+  base: '.',
 });
 ```
 
