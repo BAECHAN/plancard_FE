@@ -1026,6 +1026,109 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 ```
 
+### react-toastify 라이브러리 추가
+
+```bash
+npm i react-toastify
+```
+
+나는 package.json에 바로 추가해서 쓰긴함
+
+```json
+// package.json
+"react-toastify": "^10.0.4"
+```
+
+App 컴포넌트랑 같은 depth에 ToastContainer 추가해주어야함
+
+```tsx
+// App.tsx
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+
+<React.StrictMode>
+  <App />
+  <ToastContainer
+    position="bottom-right"
+    autoClose={3000}
+    hideProgressBar={false}
+    newestOnTop={false}
+    closeOnClick
+    rtl={false}
+    pauseOnFocusLoss
+    draggable
+    pauseOnHover
+    theme="light"
+  />
+</React.StrictMode>,
+```
+
+#### Storybook에 react-toastify 적용하는 방법
+
+- 버전 참고 ( package.json )
+
+```json
+"react-toastify": "^10.0.4"
+"@types/react": "^18.3.12",
+"@storybook/react": "^8.3.0",
+```
+
+- .storybook/preview.tsx ( ts가 아닌 tsx ) 17버전 이상이라 import React from 'react'가 안되서 아래와 같이 @jsxImportSource 추가
+
+```tsx
+/** @jsxImportSource react */
+import type { Preview } from '@storybook/react';
+
+// react-toastify 관련 import
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+Modal.setAppElement('#storybook-root');
+
+const preview: Preview = {
+  parameters: {
+    actions: { argTypesRegex: '^on[A-Z].*' },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/i,
+      },
+    },
+  },
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        <ToastContainer
+          position="bottom-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+      </>
+    ),
+  ],
+};
+
+export default preview;
+```
+
+- tsconfig.app.json
+
+```json
+{
+  "compilerOptions": {
+    "jsx": "react-jsx"
+  }
+}
+```
+
 ### 해야할 것
 
 1. query와 api 위치 나 코드를 결합할지 고민

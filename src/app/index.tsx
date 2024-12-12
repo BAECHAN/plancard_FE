@@ -14,11 +14,14 @@ import '@/app/index.css';
 import '@fontsource/noto-sans-kr/400.css';
 import '@fontsource/noto-sans-kr/700.css';
 
+import 'react-toastify/dist/ReactToastify.css';
+
 import { queryClient } from '@/shared/query';
 import { MainLayout } from '@/widgets/layout/ui';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Modal from 'react-modal';
+import { ToastContainer } from 'react-toastify';
 import { RecoilRoot } from 'recoil';
 
 const App: React.FC = () => {
@@ -76,6 +79,18 @@ document.addEventListener('DOMContentLoaded', () => {
         <QueryClientProvider client={queryClient}>
           <RecoilRoot>
             <App />
+            <ToastContainer
+              position="bottom-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+            />
           </RecoilRoot>
           <ReactQueryDevtools initialIsOpen={isDevtoolsOpen} />
         </QueryClientProvider>
