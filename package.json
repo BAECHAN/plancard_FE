@@ -14,7 +14,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "postinstall": "npx update-browserslist-db@latest"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
@@ -37,13 +38,13 @@
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.23.1",
     "react-spinners": "^0.14.1",
+    "react-toastify": "^10.0.4",
     "react-transition-group": "^4.4.5",
     "recoil": "^0.7.7",
     "swiper": "^11.1.14",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "zustand": "^5.0.1",
-    "react-toastify": "^10.0.4"
+    "zustand": "^5.0.1"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.9.0",
