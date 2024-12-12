@@ -887,18 +887,7 @@ import { Route, HashRouter as Router, Routes } from 'react-router-dom';
 <image src='/images/eiffel-tower.svg'/>
 
 // 변경 후
-<image src='./images/eiffel-tower.svg' />
-```
-
-#### 경로마다 .을 붙일 수 없으니 vite.config.ts 파일을 수정
-
-- vite.config.ts
-
-```ts
-export default defineConfig({
-  plugins: [react()],
-  base: '.',
-});
+<image src='images/eiffel-tower.svg' />
 ```
 
 ### storybook/addon-onboarding이 더 이상 사용되지 않아 제거
