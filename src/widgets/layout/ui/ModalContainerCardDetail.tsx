@@ -1,10 +1,9 @@
 import { flexCenter } from '@/shared/const';
 import { Card } from '@/shared/type';
-import { BaseButton, IconButton } from '@/shared/ui';
+import { BaseButton, ClipboardCopyButton } from '@/shared/ui';
 import { ButtonList } from '@/widgets/button/ui';
 import { ImageSwiper } from '@/widgets/swiper/ui';
 import React from 'react';
-import { FaRegCopy } from 'react-icons/fa6';
 
 const tempImageList = [
   {
@@ -29,37 +28,6 @@ const tempImageList = [
 
 const ModalContainerCardDetail = React.memo(
   ({ cardData }: { cardData: Card }) => {
-    const handleCopy = (
-      e: React.MouseEvent<HTMLButtonElement>,
-      copyText: string,
-    ) => {
-      // e.preventDefault();
-      // e.stopPropagation();
-      // if (isSnackbarOpen) {
-      //   return;
-      // }
-      // if (navigator.clipboard && navigator.clipboard.writeText) {
-      //   // 클립보드 API 사용 가능
-      //   navigator.clipboard
-      //     .writeText(description)
-      //     .then(() => {
-      //       console.log('Text copied to clipboard');
-      //       onSnackbarOptionsChange({
-      //         message: '클립보드에 복사되었습니다.',
-      //         variant: 'info',
-      //         duration: 4000,
-      //         position: { vertical: 'top', horizontal: 'center' },
-      //       });
-      //       onSnackbarOpen();
-      //     })
-      //     .catch((err) => {
-      //       console.error('Failed to copy text: ', err);
-      //     });
-      // } else {
-      //   // 클립보드 API 사용 불가능
-      //   console.warn('Clipboard API not supported or unavailable');
-      // }
-    };
     return (
       <div className={`card-detail-container ${flexCenter} w-full gap-3 h-5/6`}>
         <div className="card-detail-image-swiper w-1/2">
@@ -99,10 +67,9 @@ const ModalContainerCardDetail = React.memo(
             <div className="card-detail-content truncate max-w-md">
               {cardData.googleMapLink}
             </div>
-            <IconButton
-              onClick={e => handleCopy(e, cardData.googleMapLink)}
-              IconComponent={FaRegCopy}
-              alt="복사 아이콘"
+            <ClipboardCopyButton
+              copyText={cardData.googleMapLink}
+              size="small"
             />
           </div>
           <div className="card-detail-descrtipion flex flex-col gap-3">

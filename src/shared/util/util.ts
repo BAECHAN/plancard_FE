@@ -105,7 +105,27 @@ export class Util {
     }
   };
 
-  static openInNewTab = (url: string) => {
+  /**
+   * @description url을 새 탭에서 열어주는 함수
+   * @param url
+   *
+   */
+  static openInNewTab = (url: string): void => {
     window.open(url, '_blank');
+  };
+
+  /**
+   * @description 클립보드에 텍스트를 복사하는 함수
+   * @param text
+   * @returns
+   */
+  static copyToClipboard = async (text: string): Promise<boolean> => {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch (error) {
+      console.error('Failed to copy text to clipboard: ', error);
+      return false;
+    }
   };
 }
