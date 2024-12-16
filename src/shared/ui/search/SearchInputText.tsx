@@ -1,12 +1,6 @@
-import { useDebounce } from '@/shared/hooks';
+import { useDebounce, useInput } from '@/shared/hooks';
 
-import {
-  forwardRef,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from 'react';
+import { forwardRef, useEffect, useImperativeHandle } from 'react';
 
 export type SearchInputTextProps = {
   id: string;
@@ -31,11 +25,14 @@ const SearchInputText = forwardRef<HTMLInputElement, SearchInputTextProps>(
     },
     ref,
   ) => {
-    const [query, setQuery] = useState<string>(initialValue);
+    const {
+      value: query,
+      onChange: onChangeQuery,
+      onReset: onResetQuery,
+      ref: searchInputRef,
+    } = useInput(initialValue);
 
     const searchInputTextStyle = `block w-full h-full pl-2 ${query.length ? 'pr-10' : 'pr-2'} py-2 border rounded-lg focus:outline-none border-gray-300`;
-
-    const searchInputRef = useRef<HTMLInputElement>(null);
 
     const debouncedQuery = useDebounce(query, 700);
 
@@ -47,11 +44,11 @@ const SearchInputText = forwardRef<HTMLInputElement, SearchInputTextProps>(
 
       const inputValue = e.target.value;
       const normalizedValue = inputValue.normalize('NFC');
-      setQuery(normalizedValue);
+      onChangeQuery(normalizedValue);
     };
 
     const handleQueryReset = () => {
-      setQuery('');
+      onResetQuery();
       searchInputRef.current?.focus();
     };
 
