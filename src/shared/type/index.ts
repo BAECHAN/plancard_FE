@@ -88,13 +88,15 @@ export type Card = {
   scrap: boolean;
 };
 
-interface MyCard extends Card {
+export interface MyCard extends Card {
   getDate: Date;
   lastUpdateDate: Date;
   myImageList: CardImage[];
   myMemo: string;
   myTagList: CardTag[];
 }
+
+export type CardOrMyCard = Card | MyCard;
 
 type SearchBaseForm = {
   sort: SearchSortBase;
