@@ -1129,6 +1129,51 @@ export default preview;
 }
 ```
 
+### useInput 커스텀훅에 ESC 키보드 입력 시 값 reset되도록 로직 추가
+
+// useInput.tsx
+```tsx
+import { useCallback, useEffect, useRef, useState } from 'react';
+
+const useInput = (initialValue: string = '') => {
+  const [value, setValue] = useState<string>(initialValue);
+  const ref = useRef<HTMLInputElement | null>(null);
+
+  const onChange = useCallback((updatedValue: string) => {
+    setValue(updatedValue);
+  }, []);
+
+  const onReset = useCallback(() => {
+    onChange('');
+  }, [onChange]);
+
+  useEffect(
+    function attachESCKeydownEventListener() {
+      const handleResetESCKeyDown = (event: KeyboardEvent) => {
+        if (event.key === 'Escape') {
+          onReset();
+        }
+      };
+
+      const target = ref.current;
+      if (!value || !target) {
+        return;
+      }
+
+      target.addEventListener('keydown', handleResetESCKeyDown);
+      return () => {
+        target.removeEventListener('keydown', handleResetESCKeyDown);
+      };
+    },
+    [value, onReset],
+  );
+
+  return { ref, value, onChange, onReset };
+};
+
+export default useInput;
+```
+
 ### 해야할 것
 
 1. query와 api 위치 나 코드를 결합할지 고민
