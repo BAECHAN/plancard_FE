@@ -1178,4 +1178,5 @@ export default useInput;
 
 1. query와 api 위치 나 코드를 결합할지 고민
 2. useQuery 더 학습 및 캡슐화
-3. 폴더 위치 및 type, model 등 어떻게 할 것 인지 고민
+3. 컴포넌트 언마운트 시 api abort처리
+4. 폴더 위치 및 type, model 등 어떻게 할 것 인지 고민
