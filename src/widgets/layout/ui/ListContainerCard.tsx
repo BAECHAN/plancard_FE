@@ -1,14 +1,14 @@
-import { Card as CardType } from '@/shared/type';
+import { CardOrMyCard, Card as CardType } from '@/shared/type';
 import { Card, CardList } from '@/widgets/card/ui';
-import ModalContainerCardDetail from '@/widgets/layout/ui/ModalContainerCardDetail';
+import ModalContainerCardDetail from '@/widgets/layout/ui/ModalContainerCard/ModalContainerCardDetail';
 import { BaseModal } from '@/widgets/modal/ui';
 import { useState } from 'react';
 
-const cardList: CardType[] = [
+const cardList: CardOrMyCard[] = [
   {
     cardId: '1',
     theme: ['symbol', 'night'],
-    title: '에펠탑',
+    title: 'Card',
     description:
       '프랑스 파리 안나톨 5가(5 Av.Anatole)에 있는 탑이다. 탑의 이름은 건축가 에펠의 이름을 딴것으로 1889년 3월 31일 준공해 1889년 5월 6일에 개장했다. 프랑스의 건축가 알렉상드르 귀스타브 에펠(Alexandre Gustave Eiffel, 1832~1923)[6]이 만든 거대한 철탑.',
     country: 'France',
@@ -30,7 +30,7 @@ const cardList: CardType[] = [
   {
     cardId: '2',
     theme: ['symbol', 'night'],
-    title: '자유의 여신상',
+    title: 'MyCard',
     description: '자유의 여신상은 미국 뉴욕에 위치한 유명한 관광지입니다.',
     country: 'USA',
     city: 'New York',
@@ -46,6 +46,41 @@ const cardList: CardType[] = [
     rating: 4,
     category: '관광지',
     googleMapLink: 'https://www.google.com/maps/place/Statue+of+Liberty/',
+    getDate: new Date(),
+    lastUpdateDate: new Date(),
+    myImageList: [
+      {
+        imageId: '1',
+        imageUrl: 'images/eiffel-tower.svg',
+        alt: '에펠탑',
+        isMain: true,
+      },
+    ],
+    myMemo: `1시간정도 둘러볼 예정
+근처 맛집 알아봐둠 카드링크 걸어둠 쭉걸어가다보면 걷다가걷다가 걷다보면
+http://plancard/card~
+
+운영시간 09:00~18:00
+입장료 10달러`,
+    myTagList: [
+      {
+        tagId: '1',
+        tagName: 'Landmark',
+      },
+
+      {
+        tagId: '2',
+        tagName: 'outside',
+      },
+      {
+        tagId: '3',
+        tagName: 'night',
+      },
+      {
+        tagId: '4',
+        tagName: 'symbol',
+      },
+    ],
   },
   {
     cardId: '3',
@@ -225,6 +260,8 @@ const ListContainerCard = () => {
     setSelectedCardId(selectedCardId ?? null);
   };
 
+  const cardData = cardList.find(item => item.cardId === selectedCardId);
+
   return (
     <div className="">
       <CardList className="gap-6">
@@ -243,13 +280,7 @@ const ListContainerCard = () => {
         width="70vw"
         height="80vh"
       >
-        {selectedCardId && (
-          <ModalContainerCardDetail
-            cardData={
-              cardList.find(item => item.cardId === selectedCardId) as CardType
-            }
-          />
-        )}
+        {cardData && <ModalContainerCardDetail cardData={cardData} />}
       </BaseModal>
     </div>
   );
