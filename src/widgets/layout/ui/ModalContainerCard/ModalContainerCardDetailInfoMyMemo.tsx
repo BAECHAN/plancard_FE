@@ -10,7 +10,7 @@ const ModalContainerCardDetailInfoMyMemo = ({
   return (
     <div
       aria-label="card-detail-info-my-memo"
-      className="flex flex-col gap-3"
+      className="flex flex-col gap-3 overflow-y-auto"
     >
       <div
         aria-label="card-detail-title"
@@ -23,12 +23,12 @@ const ModalContainerCardDetailInfoMyMemo = ({
           alt="연필 아이콘"
         />
       </div>
-      <pre
+      <div
         aria-label="card-detail-content"
         className="whitespace-pre-wrap"
       >
         {myMemo}
-      </pre>
+      </div>
     </div>
   );
 };
