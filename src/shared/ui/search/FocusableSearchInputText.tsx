@@ -1,4 +1,4 @@
-import { useFocusOnKeyPress } from '@/shared/hooks';
+import { useKeydown } from '@/shared/hooks';
 import SearchInputText, {
   SearchInputTextProps,
 } from '@/shared/ui/search/SearchInputText';
@@ -13,7 +13,9 @@ const FocusableSearchInputText = forwardRef<
 >((props, ref) => {
   const searchInputRef = useRef<HTMLInputElement>(null);
 
-  useFocusOnKeyPress(searchInputRef, '/'); // '/' 키를 누르면 검색 입력창에 포커스
+  useKeydown('/', () => {
+    searchInputRef.current?.focus();
+  }); // '/' 키를 누르면 검색 입력창에 포커스
 
   useImperativeHandle(ref, () => searchInputRef.current!); // 부모컴포넌트에서 ref로 검색 입력창에 접근
 
