@@ -130,6 +130,8 @@ module.exports = {
       mono500: '#91929F',
       mono200: '#d6d7d9',
       mono300: '#bebebe',
+      primary: '#3578FF',
+      navy: '#0C46B9',
       red: '#FF0000',
     },
 
