@@ -1132,6 +1132,7 @@ export default preview;
 ### useInput 커스텀훅에 ESC 키보드 입력 시 값 reset되도록 로직 추가
 
 // useInput.tsx
+
 ```tsx
 import { useCallback, useEffect, useRef, useState } from 'react';
 
@@ -1173,6 +1174,12 @@ const useInput = (initialValue: string = '') => {
 
 export default useInput;
 ```
+
+### React-Modal 에서 Modal을 전역에서 열고 닫을수 있도록 store추가
+
+- useModalStore
+
+### useFocusOnKeyPress 훅을 제거하고 useKeydown 훅으로 확장성있게 변경
 
 ### 해야할 것
 
