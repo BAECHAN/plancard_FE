@@ -1,3 +1,4 @@
+import useModalStore from '@/shared/store/useModalStore';
 import { CardOrMyCard, Card as CardType } from '@/shared/type';
 import { Card, CardList } from '@/widgets/card/ui';
 import ModalContainerCardDetail from '@/widgets/layout/ui/ModalContainerCard/ModalContainerCardDetail';
@@ -251,13 +252,15 @@ const ListContainerCard = () => {
     CardType['cardId'] | null
   >(null);
 
+  const { openModal } = useModalStore();
+
   const handleCardClick = (clickedCardId: string) => {
-    console.log('카드 클릭');
-    const selectedCardId = cardList.find(
+    const findedCardId = cardList.find(
       card => card.cardId === clickedCardId,
     )?.cardId;
 
-    setSelectedCardId(selectedCardId ?? null);
+    setSelectedCardId(findedCardId ?? null);
+    openModal();
   };
 
   const cardData = cardList.find(item => item.cardId === selectedCardId);
@@ -275,10 +278,9 @@ const ListContainerCard = () => {
       </CardList>
 
       <BaseModal
-        isOpen={!!selectedCardId}
-        onRequestClose={() => setSelectedCardId(null)}
         width="70vw"
         height="80vh"
+        onAfterClose={() => setSelectedCardId(null)}
       >
         {cardData && <ModalContainerCardDetail cardData={cardData} />}
       </BaseModal>

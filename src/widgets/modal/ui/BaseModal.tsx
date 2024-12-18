@@ -1,15 +1,17 @@
 import { flexCenter } from '@/shared/const';
+import { useKeydown } from '@/shared/hooks';
+import useModalStore from '@/shared/store/useModalStore';
 import { ESCButton } from '@/shared/ui';
 import Modal from 'react-modal';
 
 export type BaseModalProps = {
-  isOpen: boolean; // 모달의 열림 상태를 결정합니다.
-  onRequestClose: () => void; // 모달을 닫으려고 할 때 호출되는 콜백 함수입니다. 사용자가 모달 외부를 클릭하거나 ESC 키를 누를 때 호출됩니다.
   children: React.ReactNode;
 
   width?: string; // 모달의 너비를 설정합니다.
   height?: string; // 모달의 높이를 설정합니다
+
   onAfterOpen?: () => void; // 모달이 열린 후 호출되는 콜백 함수입니다.
+  onAfterClose?: () => void; // 모달이 닫힌 후 호출되는 콜백 함수입니다.
   shouldCloseOnOverlayClick?: boolean; // 모달 외부를 클릭했을 때 모달을 닫을지 여부를 결정합니다. 기본값은 true입니다.
   shouldCloseOnEsc?: boolean; // ESC 키를 눌렀을 때 모달을 닫을지 여부를 결정합니다. 기본값은 true입니다.
   contentLabel?: string; // 스크린리더 사용자에게 콘텐츠를 전달할 때
@@ -17,18 +19,23 @@ export type BaseModalProps = {
 };
 
 const BaseModal: React.FC<BaseModalProps> = ({
-  isOpen,
-  onRequestClose,
   contentLabel = 'Modal',
   children,
   width = '92vw',
   height = '95vh',
   onAfterOpen,
+  onAfterClose,
 }) => {
+  const { isModalOpen, closeModal } = useModalStore();
+
+  useKeydown('Escape', closeModal);
+
   return (
     <Modal
-      isOpen={isOpen}
-      onRequestClose={onRequestClose}
+      isOpen={isModalOpen}
+      onRequestClose={closeModal}
+      onAfterOpen={onAfterOpen}
+      onAfterClose={onAfterClose}
       contentLabel={contentLabel}
       style={{
         overlay: {
@@ -52,7 +59,7 @@ const BaseModal: React.FC<BaseModalProps> = ({
       }}
     >
       <div className="modal-header flex justify-end  ">
-        <ESCButton onClick={onRequestClose} />
+        <ESCButton onClick={closeModal} />
       </div>
       <div className={`modal-content flex-1 ${flexCenter} `}>{children}</div>
     </Modal>
