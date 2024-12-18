@@ -33,3 +33,4 @@ export {
   DropdownMenuTrigger,
 } from './dropdown-menu';
 export { Tabs, TabsContent, TabsList, TabsTrigger } from './tabs';
+export { Textarea } from './textarea';

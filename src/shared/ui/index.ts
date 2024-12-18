@@ -32,4 +32,5 @@ export { default as SearchInputTextMy } from './search/SearchInputTextMy';
 export { default as MenuItem } from './sidebar/MenuItem';
 export { default as ToggleFilterTab } from './tab/ToggleFilterTab';
 export { default as ToggleSearchTab } from './tab/ToggleSearchTab';
+export { default as BaseTextarea } from './textarea/BaseTextarea';
 export { default as EditableTitle } from './title/EditableTitle';
