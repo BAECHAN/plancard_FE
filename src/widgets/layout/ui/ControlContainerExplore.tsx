@@ -3,7 +3,7 @@ import { FilterContainerExplore } from '@/widgets/filter/ui';
 import { SearchContainerExplore } from '@/widgets/search/ui';
 import { SortingContainerMy } from '@/widgets/sorting/ui';
 
-export const sortingOptions: Option<SearchSortCard>[] = [
+const sortingOptions: Option<SearchSortCard>[] = [
   {
     label: '카드 이름순',
     value: {

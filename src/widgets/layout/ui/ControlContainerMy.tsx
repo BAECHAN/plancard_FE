@@ -3,7 +3,7 @@ import { FilterContainerMy } from '@/widgets/filter/ui';
 import { SearchContainerMy } from '@/widgets/search/ui';
 import { SortingContainerMy } from '@/widgets/sorting/ui';
 
-export const sortingOptions: Option<SearchSortCard>[] = [
+const sortingOptions: Option<SearchSortCard>[] = [
   {
     label: '빠른 획득순',
     value: {
