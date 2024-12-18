@@ -19,8 +19,8 @@ const ModalContainerCardDetailInfo = ({
   googleMapLink: Card['googleMapLink'];
   description: Card['description'];
 
-  myMemo?: MyCard['myMemo'];
-  myTagList?: MyCard['myTagList'];
+  myMemo: MyCard['myMemo'];
+  myTagList: MyCard['myTagList'];
 }) => {
   return (
     <div
@@ -32,7 +32,9 @@ const ModalContainerCardDetailInfo = ({
         googleMapLink={googleMapLink}
       />
       <ModalContainerCardDetailInfoDescription description={description} />
-      {myTagList && <ModalContainerCardDetailInfoMyTag myTagList={myTagList} />}
+      {myTagList.length > 0 && (
+        <ModalContainerCardDetailInfoMyTag myTagList={myTagList} />
+      )}
       {myMemo && <ModalContainerCardDetailInfoMyMemo myMemo={myMemo} />}
     </div>
   );

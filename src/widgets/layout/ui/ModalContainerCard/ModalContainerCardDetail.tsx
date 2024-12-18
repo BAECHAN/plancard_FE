@@ -11,7 +11,7 @@ const ModalContainerCardDetail = React.memo(
 
     const isMyCard = TypeGuard.isMyCard(cardData);
 
-    const { myMemo, myTagList } = isMyCard ? cardData : {};
+    const { myMemo = '', myTagList = [] } = isMyCard ? cardData : {};
 
     return (
       <div
