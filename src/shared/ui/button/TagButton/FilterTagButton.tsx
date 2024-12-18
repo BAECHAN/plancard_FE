@@ -1,9 +1,8 @@
+import { useControlledToggle } from '@/shared/hooks';
+import { PlusIcon, XMarkIcon } from '@/shared/ui';
 import TagButton, {
   TagButtonProps,
 } from '@/shared/ui/button/TagButton/TagButton';
-
-import useControlledToggle from '@/shared/hooks/useControlledToggle';
-import { PlusIcon, XMarkIcon } from '@/shared/ui';
 
 const FilterTagButton = ({
   value,

@@ -4,7 +4,7 @@ import {
   titleMedium as medium,
   titleSmall as small,
 } from '@/shared/const';
-import useControlledToggle from '@/shared/hooks/useControlledToggle';
+import { useControlledToggle } from '@/shared/hooks';
 import { Button } from '@/shared/lib/shadcn-ui/components/ui';
 import { Size } from '@/shared/type';
 import { MouseEvent } from 'react';

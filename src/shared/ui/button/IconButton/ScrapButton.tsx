@@ -1,4 +1,4 @@
-import useControlledToggle from '@/shared/hooks/useControlledToggle';
+import { useControlledToggle } from '@/shared/hooks';
 import { SizeWithXSmall } from '@/shared/type';
 import IconButton from '@/shared/ui/button/IconButton/IconButton';
 import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
