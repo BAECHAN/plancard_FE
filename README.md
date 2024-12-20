@@ -1181,6 +1181,12 @@ export default useInput;
 
 ### useFocusOnKeyPress 훅을 제거하고 useKeydown 훅으로 확장성있게 변경
 
+### textarea 스크롤 생길때 text가 흐려지는 문제
+
+- border-radius를 제거하니 흐려지는 문제가 해결됨
+
+https://stackoverflow.com/questions/49349337/chrome-text-blur-with-overflow-yscroll-and-fixed-height
+
 ### 해야할 것
 
 1. query와 api 위치 나 코드를 결합할지 고민

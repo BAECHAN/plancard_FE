@@ -62,7 +62,11 @@ const cardList: CardOrMyCard[] = [
 http://plancard/card~
 
 운영시간 09:00~18:00
-입장료 10달러`,
+입장료 10달러
+오늘지나면 입장료는 두배로 뛰어버립니다요
+쿠쿠쿠
+아직도
+`,
     myTagList: [
       {
         tagId: '1',
