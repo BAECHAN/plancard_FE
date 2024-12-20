@@ -1,5 +1,5 @@
 import { Textarea } from '@/shared/lib/shadcn-ui/components/ui';
-import { forwardRef } from 'react';
+import { forwardRef, useEffect } from 'react';
 
 interface BaseTextareaProps {
   onEscape?: () => void;
@@ -9,13 +9,30 @@ interface BaseTextareaProps {
 
 const BaseTextarea = forwardRef<HTMLTextAreaElement, BaseTextareaProps>(
   ({ value, onEscape, ...props }, ref) => {
-    const handleEscape = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-      if (e.key === 'Escape') {
-        e.preventDefault();
-        e.stopPropagation();
-        onEscape?.();
-      }
-    };
+    useEffect(
+      function attachEscapeKeyListener() {
+        const handleKeyDown = (e: KeyboardEvent) => {
+          if (e.key === 'Escape') {
+            e.stopPropagation();
+            onEscape?.();
+          }
+        };
+
+        const element =
+          (ref as React.MutableRefObject<HTMLTextAreaElement | null>).current ||
+          window;
+
+        element.addEventListener('keydown', handleKeyDown as EventListener);
+
+        return () => {
+          element.removeEventListener(
+            'keydown',
+            handleKeyDown as EventListener,
+          );
+        };
+      },
+      [onEscape, ref],
+    );
 
     return (
       <Textarea
@@ -23,7 +40,6 @@ const BaseTextarea = forwardRef<HTMLTextAreaElement, BaseTextareaProps>(
         className="w-full p-2 border border-gray-300 bg-transparent focus:outline-none focus:border-navy focus:border-2 resize-none"
         defaultValue={value}
         {...props}
-        onKeyDown={handleEscape}
       />
     );
   },
