@@ -1206,6 +1206,14 @@ npm install -D prettier prettier-plugin-tailwindcss
   ],
 ```
 
+3. 동작 확인
+
+package.json에서 script 확인하여 format에 'prettier --write' 명령어가 포함되는지 확인 후 실행
+
+```
+npm run format
+```
+
 ### 해야할 것
 
 1. query와 api 위치 나 코드를 결합할지 고민
