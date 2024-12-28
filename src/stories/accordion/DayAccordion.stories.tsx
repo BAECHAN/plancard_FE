@@ -50,6 +50,33 @@ export const HasTitle: Story = {
   },
 };
 
+export const HasTitleMultiple: Story = {
+  render: args => {
+    return (
+      <>
+        <DayAccordion
+          {...args}
+          title={'1일차 나의 후쿠오카 여행'}
+        >
+          {' '}
+          <div>데이 플랜 내용</div>
+        </DayAccordion>
+        <DayAccordion
+          {...args}
+          title={'2일차 나의 후쿠오카 여행'}
+        >
+          {' '}
+          <div>데이 33플랜 내용</div>
+        </DayAccordion>
+      </>
+    );
+  },
+  args: {
+    title: '타이틀',
+    size: 'medium',
+  },
+};
+
 // 상태를 관리하는 스토리 정의
 export const OnSaveTitle: Story = {
   render: args => {
