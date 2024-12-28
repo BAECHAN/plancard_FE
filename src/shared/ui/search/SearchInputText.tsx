@@ -6,7 +6,7 @@ export type SearchInputTextProps = {
   id: string;
   onSearch: (query: string) => void;
   type?: 'text' | 'password';
-  initialValue?: string;
+  defaultValue?: string;
   placeholder?: string;
   align?: 'left' | 'center' | 'right';
   label?: string;
@@ -16,7 +16,7 @@ const SearchInputText = forwardRef<HTMLInputElement, SearchInputTextProps>(
   (
     {
       id,
-      initialValue = '',
+      defaultValue = '',
       onSearch,
       label = '',
       placeholder = '',
@@ -30,7 +30,7 @@ const SearchInputText = forwardRef<HTMLInputElement, SearchInputTextProps>(
       onChange: onChangeQuery,
       onReset: onResetQuery,
       ref: searchInputRef,
-    } = useInput(initialValue);
+    } = useInput(defaultValue);
 
     const searchInputTextStyle = `block w-full h-full pl-2 ${query.length ? 'pr-10' : 'pr-2'} py-2 border rounded-lg focus:outline-none border-gray-300`;
 
@@ -72,6 +72,7 @@ const SearchInputText = forwardRef<HTMLInputElement, SearchInputTextProps>(
           spellCheck="false"
           className={`${searchInputTextStyle} text-${align}`}
           autoComplete="off"
+          autoFocus
         />
         {query.length > 0 && (
           <button

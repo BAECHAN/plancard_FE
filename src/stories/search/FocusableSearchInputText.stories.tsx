@@ -10,7 +10,7 @@ const meta: Meta<typeof FocusableSearchInputText> = {
   },
   tags: ['autodocs'],
   argTypes: {
-    initialValue: {
+    defaultValue: {
       control: 'text',
       description: '초기값 텍스트',
     },
@@ -40,6 +40,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    initialValue: '감사',
+    defaultValue: '감사',
   },
 };

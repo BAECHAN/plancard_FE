@@ -10,7 +10,7 @@ const meta: Meta<typeof SearchInputTextMy> = {
   },
   tags: ['autodocs'],
   argTypes: {
-    initialValue: {
+    defaultValue: {
       control: 'text',
       description: '검색 초기값 텍스트',
     },
@@ -45,6 +45,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    initialValue: '감사',
+    defaultValue: '감사',
   },
 };
