@@ -27,14 +27,14 @@ const ModalContainerCardDetailImageSwiper = () => {
   return (
     <div
       aria-label="card-detail-image-swiper"
-      className=" w-1/2"
+      className="w-1/2"
     >
       <ImageSwiper imageList={tempImageList} />
       <div
         aria-label="card-detail-image-button-group"
-        className=" flex"
+        className="flex"
       >
-        <ButtonList className="flex justify-around w-full">
+        <ButtonList className="flex w-full justify-around">
           <BaseButton
             variant="amber"
             onClick={() => {}}

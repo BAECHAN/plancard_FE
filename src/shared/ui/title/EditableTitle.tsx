@@ -73,7 +73,7 @@ const EditableTitle = ({
       ) : (
         <p
           onDoubleClick={handleTitleDoubleClick}
-          className="text-mono400 cursor-pointer"
+          className="cursor-pointer text-mono400"
         >
           {initialTitle !== '' ? initialTitle : placeholder}
         </p>

@@ -30,7 +30,7 @@ const MenuItem = ({
 
   return (
     <div
-      className={`${sizeClass[size]} ${activeClass} w-full px-3 py-2 cursor-pointer `}
+      className={`${sizeClass[size]} ${activeClass} w-full cursor-pointer px-3 py-2`}
       onClick={handleClick}
     >
       {children}

@@ -8,7 +8,7 @@ const UserCardListContent = () => {
   const queryResult: UseQueryResult<UserInfo[], Error> = useUserListQuery();
 
   return (
-    <div className="flex justify-center gap-4 flex-col items-center">
+    <div className="flex flex-col items-center justify-center gap-4">
       <QueryStatusWrapper queryResult={queryResult}>
         {queryResult?.data?.map((user: UserInfo) => (
           <UserCard

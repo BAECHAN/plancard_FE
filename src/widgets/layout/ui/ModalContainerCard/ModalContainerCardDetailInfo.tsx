@@ -25,7 +25,7 @@ const ModalContainerCardDetailInfo = ({
   return (
     <div
       aria-label="card-detail-info"
-      className="flex flex-col gap-3 w-1/2 border rounded-2xl p-4 h-full"
+      className={`flex h-full w-1/2 flex-col gap-3 rounded-2xl border p-4`}
     >
       <ModalContainerCardDetailInfoName title={title} />
       <ModalContainerCardDetailInfoGoogleMapLink

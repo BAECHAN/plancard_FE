@@ -19,7 +19,7 @@ const ModalContainerCardDetailInfoMyTag = ({
         My Tag
       </div>
       <div aria-label="card-detail-content">
-        <ButtonList className="gap-1 flex-wrap">
+        <ButtonList className="flex-wrap gap-1">
           {myTagList?.map(tag => (
             <FilterTagButton
               key={tag.tagId}

@@ -23,7 +23,7 @@ const MenuSidebar = ({ size = 'medium', ...props }: MenuSidebarProps) => {
 
   return (
     <aside
-      className={`${sizeClass[size]} bg-lightgray flex flex-col gap-2 pt-8`}
+      className={`${sizeClass[size]} flex flex-col gap-2 bg-lightgray pt-8`}
       {...props}
     >
       <MenuItem

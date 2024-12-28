@@ -44,7 +44,7 @@ const ToggleSearchTab = ({
       defaultValue={optionList[0].value}
       value={activeTab}
     >
-      <TabsList className="relative bg-white w-full h-auto">
+      <TabsList className="relative h-auto w-full bg-white">
         {optionList.map(option => (
           <TabsTrigger
             key={option.value}

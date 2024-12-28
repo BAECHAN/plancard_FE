@@ -16,7 +16,7 @@ const CounterTestLayout = ({
   linkName,
 }: CounterTestLayoutProps) => {
   return (
-    <div className="flex justify-center flex-col">
+    <div className="flex flex-col justify-center">
       <div className="flex justify-center">{count}</div>
       <button onClick={addCount}>+</button>
       <Link

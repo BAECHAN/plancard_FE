@@ -90,10 +90,10 @@ const Card = ({
       )}
 
       <div
-        className={`bg-white rounded-md ${sizeClassCountry[size]} flex flex-col border border-[#D9D9DE] p-2 text-ellipsis whitespace-pre-wrap`}
+        className={`rounded-md bg-white ${sizeClassCountry[size]} flex flex-col text-ellipsis whitespace-pre-wrap border border-[#D9D9DE] p-2`}
         onClick={onClick}
       >
-        <div className="card-header flex justify-between  ">
+        <div className="card-header flex justify-between">
           <div className="flex gap-1">
             <IconBadge
               iconPath="https://flagcdn.com/fr.svg"
@@ -114,10 +114,10 @@ const Card = ({
             />
           </div>
         </div>
-        <div className={`card-title flex justify-center `}>
+        <div className={`card-title flex justify-center`}>
           <p className={`${sizeClassTitle[size]}`}>{title}</p>
         </div>
-        <div className="card-image mt-2 mb-4">
+        <div className="card-image mb-4 mt-2">
           <img
             src={`${imageList[0].imageUrl}`}
             alt="Card Image"

@@ -53,7 +53,7 @@ const DayDropdown = ({
           <DropdownMenuItem
             key={i}
             onClick={onClick}
-            className={`${flexCenter} ${sizeClass[size]} gap-2 hover:bg-skyblue cursor-pointer rounded-md`}
+            className={`${flexCenter} ${sizeClass[size]} cursor-pointer gap-2 rounded-md hover:bg-skyblue`}
           >
             <b>day {i + 1}</b>
             <b className="text-mono400">{Util.formatDateForDayPlan(date)}</b>

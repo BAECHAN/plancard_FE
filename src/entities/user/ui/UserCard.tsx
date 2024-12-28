@@ -21,7 +21,7 @@ const UserCard = ({ user }: { user: UserInfo }) => {
 
   return (
     <div
-      className="flex justify-center flex-col gap-1 items-center p-4 border border-gray-200 rounded-md w-96 h-36 cursor-pointer"
+      className="border-gray-200 flex h-36 w-96 cursor-pointer flex-col items-center justify-center gap-1 rounded-md border p-4"
       key={id}
       onMouseEnter={() => setIsEdit(true)}
       onMouseLeave={() => setIsEdit(false)}

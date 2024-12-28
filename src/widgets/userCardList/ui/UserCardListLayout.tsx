@@ -8,7 +8,7 @@ const UserCardListLayout = () => {
   const [active, setActive] = useState<boolean>(false);
 
   return (
-    <div className="flex justify-center flex-col gap-4">
+    <div className="flex flex-col justify-center gap-4">
       <UserCardListToggleButton
         isActive={active}
         onClick={() => setActive(prev => !prev)}

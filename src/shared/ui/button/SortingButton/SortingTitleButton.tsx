@@ -47,7 +47,7 @@ const SortingTitleButton = ({
 
   return (
     <Button
-      className={`${flexCenter} ${sizeClass[size]} mx-2 ${actualValue ? 'text-primary font-bold' : 'text-mono400 hover:underline'} cursor-pointer p-0`}
+      className={`${flexCenter} ${sizeClass[size]} mx-2 ${actualValue ? 'font-bold text-primary' : 'text-mono400 hover:underline'} cursor-pointer p-0`}
       onClick={handleButtonClick}
       {...props}
     >

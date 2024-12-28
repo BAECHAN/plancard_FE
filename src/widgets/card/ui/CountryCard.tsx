@@ -22,7 +22,7 @@ const CountryCard = ({ onClick, info, size = 'medium' }: CountryCardProps) => {
 
   return (
     <div
-      className={`rounded-md ${sizeClass[size]} flex flex-col gap-1 relative text-ellipsis whitespace-pre-wrap border border-[#D9D9DE] `}
+      className={`rounded-md ${sizeClass[size]} relative flex flex-col gap-1 text-ellipsis whitespace-pre-wrap border border-[#D9D9DE]`}
       onClick={onClick}
     >
       <img
@@ -30,7 +30,7 @@ const CountryCard = ({ onClick, info, size = 'medium' }: CountryCardProps) => {
         alt="Country Image"
         className="rounded-t-md"
       />
-      <div className="flex flex-col p-2 gap-1">
+      <div className="flex flex-col gap-1 p-2">
         <h2 className="text-base">{title} </h2>
         <p
           className={`h-auto ${size === 'small' ? 'line-clamp-3' : size === 'medium' ? 'line-clamp-5' : 'line-clamp-6'}`}

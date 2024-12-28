@@ -1187,6 +1187,25 @@ export default useInput;
 
 https://stackoverflow.com/questions/49349337/chrome-text-blur-with-overflow-yscroll-and-fixed-height
 
+### prettier-plugin-tailwindcss
+
+- Prettier를 사용하면 코드를 자동으로 포맷팅해주는데, tailwind css를 사용할 때 className까지도 포맷팅 해줄 수 있다.
+
+1. 패키지 설치
+
+```
+npm install -D prettier prettier-plugin-tailwindcss
+```
+
+2. .prettierrc 플러그인 추가
+
+```
+ "plugins": [
+    ...,
+    "prettier-plugin-tailwindcss"
+  ],
+```
+
 ### 해야할 것
 
 1. query와 api 위치 나 코드를 결합할지 고민

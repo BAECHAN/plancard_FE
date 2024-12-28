@@ -6,7 +6,7 @@ const SearchContainerExplore = ({ size = 'large' }: { size?: Size }) => {
   const buttonSize = Util.convertSizeToUpSize(size);
 
   return (
-    <div className="explore-search-area flex items-center gap-2 py-2 px-1">
+    <div className="explore-search-area flex items-center gap-2 px-1 py-2">
       <SearchInputTextExplore
         id="search"
         size={size}

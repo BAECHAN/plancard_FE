@@ -37,9 +37,9 @@ const LoginForm: React.FC = () => {
     <form
       noValidate
       onSubmit={handleSubmit(onSubmit)}
-      className="bg-white p-6 rounded shadow-md w-full max-w-md"
+      className="w-full max-w-md rounded bg-white p-6 shadow-md"
     >
-      <h2 className="text-2xl mb-4">Login</h2>
+      <h2 className="mb-4 text-2xl">Login</h2>
 
       <div className="mb-4">
         <EmailInput
@@ -89,7 +89,7 @@ const LoginForm: React.FC = () => {
 
       <button
         type="submit"
-        className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 disabled:opacity-50"
+        className="bg-blue-500 hover:bg-blue-700 rounded px-4 py-2 text-white disabled:opacity-50"
         disabled={
           isSubmitting || errors.email || errors.password ? true : false
         }

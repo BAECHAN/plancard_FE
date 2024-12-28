@@ -22,7 +22,7 @@ const Header = ({ size = 'medium' }: HeaderProps) => {
 
   return (
     <header
-      className={`${sizeClass[size]} flex justify-between w-dvw bg-skyblue text-white items-center py-2 pl-3 pr-10`}
+      className={`${sizeClass[size]} flex w-dvw items-center justify-between bg-skyblue py-2 pl-3 pr-10 text-white`}
     >
       <strong>PlanCard</strong>
       <div className="flex grow-0" />

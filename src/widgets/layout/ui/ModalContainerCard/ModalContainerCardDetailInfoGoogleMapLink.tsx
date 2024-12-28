@@ -13,13 +13,13 @@ const ModalContainerCardDetailInfoGoogleMapLink = ({
     >
       <div
         aria-label="card-detail-title"
-        className="font-bold whitespace-nowrap"
+        className="whitespace-nowrap font-bold"
       >
         Google Map Link
       </div>
       <div
         aria-label="card-detail-content"
-        className="truncate max-w-md"
+        className="max-w-md truncate"
       >
         {googleMapLink}
       </div>

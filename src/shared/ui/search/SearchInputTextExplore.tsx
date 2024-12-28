@@ -19,7 +19,7 @@ const SearchInputTextExplore = (
   };
 
   return (
-    <div className={`border-mono500 rounded-md border ${sizeClass[size]}`}>
+    <div className={`rounded-md border border-mono500 ${sizeClass[size]}`}>
       <FocusableSearchInputText {...props} />
     </div>
   );

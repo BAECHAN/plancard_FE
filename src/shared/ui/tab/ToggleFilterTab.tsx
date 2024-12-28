@@ -46,7 +46,7 @@ const ToggleFilterTab = ({
       value={activeTab}
       {...props}
     >
-      <TabsList className="bg-lightgray w-auto h-auto ">
+      <TabsList className="h-auto w-auto bg-lightgray">
         {option.map(opt => (
           <TabsTrigger
             key={opt.value}

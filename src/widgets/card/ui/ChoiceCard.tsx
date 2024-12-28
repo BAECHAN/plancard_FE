@@ -36,7 +36,7 @@ const ChoiceCard = ({
 
   return (
     <div
-      className={`border-dashed border-2 border-mono500 ${flexCenter} ${sizeClass[size]}`}
+      className={`border-2 border-dashed border-mono500 ${flexCenter} ${sizeClass[size]}`}
     >
       <BaseButton
         variant={variant}

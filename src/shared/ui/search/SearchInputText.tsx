@@ -76,7 +76,7 @@ const SearchInputText = forwardRef<HTMLInputElement, SearchInputTextProps>(
         {query.length > 0 && (
           <button
             type="button"
-            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-mono500 hover:text-black"
+            className="absolute right-3 top-1/2 -translate-y-1/2 transform text-mono500 hover:text-black"
             onClick={() => handleQueryReset()}
           >
             ✕

@@ -29,7 +29,7 @@ const DayAccordion = ({
   return (
     <div className={`accordion-container w-svw ${flexCenter} flex-col`}>
       <div
-        className={`accordion-header ${flexCenter} gap-2 cursor-pointer`}
+        className={`accordion-header ${flexCenter} cursor-pointer gap-2`}
         onClick={toggle}
         onDoubleClick={handleDoubleClick}
       >

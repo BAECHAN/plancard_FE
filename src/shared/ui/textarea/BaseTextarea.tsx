@@ -37,7 +37,7 @@ const BaseTextarea = forwardRef<HTMLTextAreaElement, BaseTextareaProps>(
     return (
       <Textarea
         ref={ref}
-        className="w-full p-2 border border-gray-300 bg-transparent focus:outline-none focus:border-navy focus:border-2 resize-none"
+        className="border-gray-300 bg-transparent w-full resize-none border p-2 focus:border-2 focus:border-navy focus:outline-none"
         defaultValue={value}
         {...props}
       />

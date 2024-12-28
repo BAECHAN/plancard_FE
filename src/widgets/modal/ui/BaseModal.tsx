@@ -58,7 +58,7 @@ const BaseModal: React.FC<BaseModalProps> = ({
         },
       }}
     >
-      <div className="modal-header flex justify-end  ">
+      <div className="modal-header flex justify-end">
         <ESCButton onClick={closeModal} />
       </div>
       <div className={`modal-content flex-1 ${flexCenter} `}>{children}</div>

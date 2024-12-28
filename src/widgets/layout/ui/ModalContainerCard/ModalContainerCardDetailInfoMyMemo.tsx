@@ -28,11 +28,11 @@ const ModalContainerCardDetailInfoMyMemo = ({
   return (
     <div
       aria-label="card-detail-info-my-memo"
-      className="flex flex-col gap-3 flex-grow h-full overflow-y-hidden"
+      className="flex h-full flex-grow flex-col gap-3 overflow-y-hidden"
     >
       <div
         aria-label="card-detail-title"
-        className="font-bold flex gap-2"
+        className="flex gap-2 font-bold"
       >
         <span>My Memo</span>
         <IconButton
@@ -49,7 +49,7 @@ const ModalContainerCardDetailInfoMyMemo = ({
         {isEditMode ? (
           <div
             aria-label="card-detail-content-edit"
-            className="h-full flex flex-grow"
+            className="flex h-full flex-grow"
           >
             <BaseTextarea
               ref={textareaRef}

@@ -16,7 +16,7 @@ const ModalContainerCardDetail = React.memo(
     return (
       <div
         aria-label="card-detail-container"
-        className={` ${flexCenter} w-full gap-3 h-5/6`}
+        className={` ${flexCenter} h-5/6 w-full gap-3`}
       >
         <ModalContainerCardDetailImageSwiper />
         <ModalContainerCardDetailInfo

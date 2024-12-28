@@ -20,7 +20,7 @@ const ESCButton = ({
 
   return (
     <Button
-      className={`${sizeClass[size]} bg-mono200 rounded-lg p-2 h-[3vh] hover:bg-mono300`}
+      className={`${sizeClass[size]} h-[3vh] rounded-lg bg-mono200 p-2 hover:bg-mono300`}
       onClick={onClick}
       aria-label={'ESC Button'}
     >

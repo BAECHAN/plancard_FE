@@ -8,11 +8,11 @@ const ModalContainerCardDetailInfoDescription = ({
   return (
     <div
       aria-label="card-detail-descrtipion"
-      className=" flex flex-col gap-3"
+      className="flex flex-col gap-3"
     >
       <div
         aria-label="card-detail-title"
-        className=" font-bold"
+        className="font-bold"
       >
         Description
       </div>

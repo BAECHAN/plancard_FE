@@ -121,7 +121,7 @@ const UserEditForm: React.FC<{
 
       <button
         type="submit"
-        className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 disabled:opacity-50 flex-1"
+        className="bg-blue-500 hover:bg-blue-700 flex-1 rounded px-4 py-2 text-white disabled:opacity-50"
         disabled={
           isSubmitting || errors.email || errors.age || errors.name
             ? true
