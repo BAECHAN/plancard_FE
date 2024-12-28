@@ -15,6 +15,7 @@ const Textarea = React.forwardRef<
         'disabled:cursor-not-allowed disabled:opacity-50',
         className,
       )}
+      autoFocus
       ref={ref}
       {...props}
     />
