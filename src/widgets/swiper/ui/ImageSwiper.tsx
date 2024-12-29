@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
 
 // Import Swiper React components
@@ -13,7 +12,7 @@ import 'swiper/css/pagination';
 import { CardImage, Size } from '@/shared/type';
 import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
 
-const StyledSwiper = styled(Swiper)`
+export const StyledSwiper = styled(Swiper)`
   width: 100%;
   height: 374px;
   margin: 20px auto;
@@ -60,39 +59,33 @@ const StyledSwiper = styled(Swiper)`
   }
 `;
 
-type ImageSwiperProps = {
+export type ImageSwiperProps = {
   imageList: CardImage[];
   size?: Size;
 };
 
 const ImageSwiper = ({ imageList, size = 'medium' }: ImageSwiperProps) => {
-  const mainFirstImageList = imageList.sort((a, b) =>
-    a.isMain === b.isMain ? 0 : a.isMain ? -1 : 1,
-  );
-
   return (
-    <>
-      <StyledSwiper
-        slidesPerGroup={1}
-        navigation
-        pagination
-        mousewheel
-        keyboard
-        modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-        className="mySwiper"
-      >
-        {mainFirstImageList.map((image, index) => {
-          return (
-            <SwiperSlide key={index}>
-              <img
-                src={image.imageUrl}
-                alt={image.alt}
-              />
-            </SwiperSlide>
-          );
-        })}
-      </StyledSwiper>
-    </>
+    <StyledSwiper
+      slidesPerGroup={1}
+      navigation
+      pagination
+      mousewheel
+      keyboard
+      modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+      className="mySwiper"
+    >
+      {imageList.map((image, index) => {
+        return (
+          <SwiperSlide key={index}>
+            <img
+              src={image.imageUrl}
+              alt={image.alt}
+            />
+          </SwiperSlide>
+        );
+      })}
+    </StyledSwiper>
   );
 };
 

@@ -1,9 +1,9 @@
-import { ImageSwiper } from '@/widgets/swiper/ui';
+import { CardImageSwiper } from '@/widgets/swiper/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof ImageSwiper> = {
-  title: 'Widgets/Swiper/ImageSwiper',
-  component: ImageSwiper,
+const meta: Meta<typeof CardImageSwiper> = {
+  title: 'Widgets/Swiper/CardImageSwiper',
+  component: CardImageSwiper,
   parameters: {
     layout: 'centered',
   },
@@ -15,7 +15,7 @@ const meta: Meta<typeof ImageSwiper> = {
       description: '',
     },
   },
-} satisfies Meta<typeof ImageSwiper>;
+} satisfies Meta<typeof CardImageSwiper>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
