@@ -10,6 +10,7 @@ export { default as IconButton } from './button/IconButton/IconButton';
 export { default as ScrapButton } from './button/IconButton/ScrapButton';
 export { default as TrashButton } from './button/IconButton/TrashButton';
 export { default as FilterTagButton } from './button/TagButton/FilterTagButton';
+export { default as InputTagButton } from './button/TagButton/InputTagButton';
 export { default as TagButton } from './button/TagButton/TagButton';
 
 export { default as BaseDropdown } from './dropdown/BaseDropdown';

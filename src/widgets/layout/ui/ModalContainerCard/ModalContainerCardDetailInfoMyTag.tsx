@@ -1,5 +1,5 @@
 import { MyCard } from '@/shared/type';
-import { FilterTagButton } from '@/shared/ui';
+import { FilterTagButton, InputTagButton } from '@/shared/ui';
 import { ButtonList } from '@/widgets/button/ui';
 
 const ModalContainerCardDetailInfoMyTag = ({
@@ -20,14 +20,26 @@ const ModalContainerCardDetailInfoMyTag = ({
       </div>
       <div aria-label="card-detail-content">
         <ButtonList className="flex-wrap gap-1">
+          {/** TODO: 외부에서 값을 핸들링하기 위해 defaultValue가 아닌 value를 사용
+           * 나중에 데이터를 변경하는 함수를 추가해야 함
+           */}
           {myTagList?.map(tag => (
             <FilterTagButton
               key={tag.tagId}
-              defaultValue={false}
+              value
+              onToggle={() => alert(tag.tagName)}
             >
               {tag.tagName}
             </FilterTagButton>
           ))}
+
+          {myTagList.length < 5 && (
+            <InputTagButton
+              defaultValue={'Add..'}
+              key={`add-tag`}
+              onToggle={() => {}}
+            />
+          )}
         </ButtonList>
       </div>
     </div>
