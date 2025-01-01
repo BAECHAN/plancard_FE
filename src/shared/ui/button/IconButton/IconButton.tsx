@@ -39,9 +39,15 @@ const IconButton = ({
 
   const { value: isHovered, openToggle, closeToggle } = useToggle();
 
+  const handleIconButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    e.preventDefault();
+    onClick?.(e);
+  };
+
   return (
     <button
-      onClick={onClick}
+      onClick={handleIconButtonClick}
       onMouseEnter={openToggle}
       onMouseLeave={closeToggle}
       className={`inline-flex items-center justify-center rounded-full p-0 transition-colors duration-300`}

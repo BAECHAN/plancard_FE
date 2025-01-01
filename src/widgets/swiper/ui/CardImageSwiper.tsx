@@ -22,8 +22,6 @@ const CardImageSwiper = ({
   onIndexChange,
   size = 'medium',
 }: CardImageSwiperProps) => {
-  console.log('imageList : ', imageList);
-
   return (
     <StyledSwiper
       slidesPerGroup={1}

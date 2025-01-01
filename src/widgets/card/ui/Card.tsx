@@ -78,6 +78,7 @@ const Card = ({
 
   const handleScrapButtonClick = () => {
     console.log('북마크 버튼 클릭');
+
     onScrap?.();
   };
 
