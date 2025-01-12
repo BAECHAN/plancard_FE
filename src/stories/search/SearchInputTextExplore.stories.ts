@@ -10,27 +10,13 @@ const meta: Meta<typeof SearchInputTextExplore> = {
   },
   tags: ['autodocs'],
   argTypes: {
-    defaultValue: {
-      control: 'text',
-      description: '검색 초기값 텍스트',
-    },
-
     placeholder: {
       control: 'text',
       description: '검색 텍스트 플레이스홀더',
     },
-    label: {
-      control: 'text',
-      description: '검색 텍스트 라벨',
-    },
     type: {
       control: 'text',
       description: '검색 텍스트 타입',
-    },
-    align: {
-      control: 'radio',
-      options: ['left', 'center', 'right'],
-      description: '검색 텍스트 정렬',
     },
   },
   args: {
@@ -44,7 +30,5 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-    defaultValue: '감사',
-  },
+  args: {},
 };
