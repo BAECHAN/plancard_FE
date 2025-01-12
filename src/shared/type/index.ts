@@ -233,7 +233,6 @@ interface RegionBase {
 }
 
 export interface Country extends RegionBase {
-  countryId: string;
   isoCode: CountryCode; // ISO 3166-1 alpha-2 코드 (예: "US", "KR")
 }
 
