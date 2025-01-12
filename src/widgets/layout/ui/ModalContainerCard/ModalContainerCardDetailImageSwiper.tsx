@@ -1,63 +1,39 @@
-import { CardImage } from '@/shared/type';
 import { BaseButton } from '@/shared/ui';
 import { ButtonList } from '@/widgets/button/ui';
+import { useModalContainerCardDetailImageSwiper } from '@/widgets/layout/hooks';
 import { CardImageSwiper } from '@/widgets/swiper/ui';
-import { useState } from 'react';
-
-const tempImageList: CardImage[] = [
-  {
-    imageId: '1',
-    isMain: false,
-    imageUrl: 'images/eiffel-tower.svg',
-    alt: 'Image 1',
-  },
-  {
-    imageId: '2',
-    isMain: true,
-    imageUrl: 'images/spain.svg',
-    alt: 'Image 2',
-  },
-  {
-    imageId: '3',
-    isMain: false,
-    imageUrl: 'https://via.placeholder.com/800x600',
-    alt: 'Image 3',
-  },
-];
-
-/**
- * 메인 이미지를 맨 앞으로 정렬하는 함수
- * @param imageList 이미지 리스트
- * @returns 메인 이미지를 맨 앞으로 정렬한 이미지 리스트
- */
-const convertSortingMainFirst = (imageList: CardImage[]) => {
-  return imageList.sort((a, b) =>
-    a.isMain === b.isMain ? 0 : a.isMain ? -1 : 1,
-  );
-};
 
 const ModalContainerCardDetailImageSwiper = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [mainFirstImageList, setMainFirstImageList] = useState<CardImage[]>(
-    convertSortingMainFirst(tempImageList),
-  );
-
-  const handleIndexChange = (index: number) => {
-    setCurrentIndex(index);
-  };
-
-  const handleDeleteImage = () => {
-    setMainFirstImageList(imageList => {
-      const newArr = [...imageList];
-      newArr.splice(currentIndex, 1);
-      return newArr;
-    });
-  };
+  const {
+    swiperInstance,
+    mainFirstImageList,
+    checkMainImage,
+    handleSwiperReady,
+    handleIndexChange,
+    handleDeleteImage,
+    handleRegisterMainImage,
+  } = useModalContainerCardDetailImageSwiper();
 
   const handleDeleteButtonClick = () => {
     if (confirm('정말 삭제하시겠습니까?')) {
       handleDeleteImage();
     }
+  };
+
+  const handleRegisterMainImageButtonClick = () => {
+    if (checkMainImage()) {
+      alert('이미 메인 이미지로 등록되어 있습니다.');
+      return;
+    }
+
+    if (confirm('메인 이미지로 등록하시겠습니까?')) {
+      handleRegisterMainImage();
+      slideToFirstImage();
+      //TODO: 메인 이미지 등록 API 호출
+    }
+  };
+  const slideToFirstImage = () => {
+    swiperInstance?.slideTo(0);
   };
 
   return (
@@ -68,6 +44,7 @@ const ModalContainerCardDetailImageSwiper = () => {
       <CardImageSwiper
         imageList={mainFirstImageList}
         onIndexChange={handleIndexChange}
+        onSwiperReady={handleSwiperReady}
       />
       <div
         aria-label="card-detail-image-button-group"
@@ -82,7 +59,7 @@ const ModalContainerCardDetailImageSwiper = () => {
           </BaseButton>
           <BaseButton
             variant="skyblue"
-            onClick={() => {}}
+            onClick={handleRegisterMainImageButtonClick}
           >
             대표 사진으로 등록
           </BaseButton>
