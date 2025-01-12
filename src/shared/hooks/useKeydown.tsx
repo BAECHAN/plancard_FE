@@ -7,8 +7,6 @@ const useKeydown = (
 ) => {
   useEffect(() => {
     const handleKeydown = (event: globalThis.KeyboardEvent) => {
-      console.log(event.key);
-
       if (event.key === targetKey) {
         event.preventDefault();
         event.stopPropagation();
@@ -17,8 +15,6 @@ const useKeydown = (
     };
 
     const element = targetRef?.current || window;
-
-    console.log('element : ', element);
 
     element.addEventListener('keydown', handleKeydown as EventListener);
 
