@@ -14,6 +14,7 @@ const BaseTextarea = forwardRef<HTMLTextAreaElement, BaseTextareaProps>(
         const handleKeyDown = (e: KeyboardEvent) => {
           if (e.key === 'Escape') {
             e.stopPropagation();
+            e.preventDefault();
             onEscape?.();
           }
         };
