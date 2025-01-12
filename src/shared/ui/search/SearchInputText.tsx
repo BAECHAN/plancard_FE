@@ -1,6 +1,12 @@
 import { useDebounce, useInput } from '@/shared/hooks';
-
-import { forwardRef, useEffect, useImperativeHandle } from 'react';
+import Input from '@/shared/ui/input/Input';
+import {
+  forwardRef,
+  memo,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+} from 'react';
 
 export type SearchInputTextProps = {
   id: string;
@@ -10,82 +16,78 @@ export type SearchInputTextProps = {
   placeholder?: string;
   align?: 'left' | 'center' | 'right';
   label?: string;
+  shouldEncode?: boolean;
+  debounceTime?: number;
 };
 
-const SearchInputText = forwardRef<HTMLInputElement, SearchInputTextProps>(
-  (
-    {
-      id,
-      defaultValue = '',
-      onSearch,
-      label = '',
-      placeholder = '',
-      align = 'left',
-      type = 'text',
-    },
-    ref,
-  ) => {
-    const {
-      value: query,
-      onChange: onChangeQuery,
-      onReset: onResetQuery,
-      ref: searchInputRef,
-    } = useInput(defaultValue);
+const SearchInputText = memo(
+  forwardRef<HTMLInputElement, SearchInputTextProps>(
+    (
+      {
+        id,
+        defaultValue = '',
+        onSearch,
+        label = '',
+        placeholder = '',
+        align = 'left',
+        type = 'text',
+        shouldEncode = true,
+        debounceTime = 700,
+      },
+      ref,
+    ) => {
+      const {
+        value: query,
+        onChange: onChangeQuery,
+        onReset: onResetQuery,
+        ref: searchInputRef,
+      } = useInput(defaultValue);
 
-    const searchInputTextStyle = `block w-full h-full pl-2 ${query.length ? 'pr-10' : 'pr-2'} py-2 border rounded-lg focus:outline-none border-gray-300`;
+      const debouncedQuery = useDebounce(query, debounceTime);
 
-    const debouncedQuery = useDebounce(query, 700);
+      useImperativeHandle(ref, () => searchInputRef.current!);
 
-    useImperativeHandle(ref, () => searchInputRef.current!);
+      const handleInputChange = useCallback(
+        (e: React.ChangeEvent<HTMLInputElement>) => {
+          e.stopPropagation();
+          e.preventDefault();
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      e.stopPropagation();
-      e.preventDefault();
+          const inputValue = e.target.value;
+          const normalizedValue = inputValue.normalize('NFC');
+          onChangeQuery(normalizedValue);
+        },
+        [onChangeQuery],
+      );
 
-      const inputValue = e.target.value;
-      const normalizedValue = inputValue.normalize('NFC');
-      onChangeQuery(normalizedValue);
-    };
+      const handleQueryReset = useCallback(() => {
+        onResetQuery();
+        searchInputRef.current?.focus();
+      }, [onResetQuery]);
 
-    const handleQueryReset = () => {
-      onResetQuery();
-      searchInputRef.current?.focus();
-    };
+      useEffect(() => {
+        onSearch(
+          shouldEncode ? encodeURIComponent(debouncedQuery) : debouncedQuery,
+        );
+        onChangeQuery(debouncedQuery);
+      }, [debouncedQuery, shouldEncode, onSearch]);
 
-    useEffect(() => {
-      onSearch(encodeURIComponent(debouncedQuery));
-    }, [debouncedQuery, onSearch]);
-
-    return (
-      <label
-        htmlFor={id}
-        className="relative"
-      >
-        {label}
-        <input
-          ref={searchInputRef}
-          type={type}
+      return (
+        <Input
           id={id}
-          value={query}
+          type={type}
+          query={query}
+          label={label}
+          align={align}
           onChange={handleInputChange}
+          onReset={handleQueryReset}
           placeholder={placeholder}
-          spellCheck="false"
-          className={`${searchInputTextStyle} text-${align}`}
+          spellCheck={false}
           autoComplete="off"
           autoFocus
         />
-        {query.length > 0 && (
-          <button
-            type="button"
-            className="absolute right-3 top-1/2 -translate-y-1/2 transform text-mono500 hover:text-black"
-            onClick={() => handleQueryReset()}
-          >
-            ✕
-          </button>
-        )}
-      </label>
-    );
-  },
+      );
+    },
+  ),
 );
 
 SearchInputText.displayName = 'InputText';
