@@ -1214,6 +1214,81 @@ package.json에서 script 확인하여 format에 'prettier --write' 명령어가
 npm run format
 ```
 
+### Swiper.js 외부컴포넌트에서 핸들링할 수 있도록
+
+Swiper.js에서 onSwiper라는 props를 제공해주어서 외부컴포넌트에서 따로 핸들링할 수 있도록 기능 추가
+
+```
+const CardImageSwiper = ({
+  imageList,
+  onIndexChange,
+  onSwiperReady,
+  size = 'medium',
+}: CardImageSwiperProps) => {
+  return (
+    <StyledSwiper
+      slidesPerGroup={1}
+      navigation
+      pagination
+      mousewheel
+      keyboard
+      modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+      className="mySwiper"
+      onSlideChange={swiper => {
+        onIndexChange?.(swiper.activeIndex); // 현재 인덱스를 부모로 전달
+      }}
+      onSwiper={swiper => {
+        onSwiperReady?.(swiper);
+      }}
+    >
+
+// 외부
+<CardImageSwiper
+  imageList={mainFirstImageList}
+  onIndexChange={handleIndexChange}
+  onSwiperReady={handleSwiperReady}
+/>
+```
+
+참고 :
+
+- useModalContainerCardDetailImageSwiper.ts
+- ModalContainerCardDetailImageSwiper.tsx
+- CardImageSwiper.tsx
+
+### Autocomplete 컴포넌트 추가
+
+탐험 검색 시 국가 검색 가능하도록 Autocomplete 컴포넌트를 추가 후 적용
+
+- 검색 후 option 선택 시 검색어에 반영
+- 키보드 ArrowUp & ArrowDown으로 선택 가능
+- 키보드로 focus로 처리 하였으며, scroll 같이 되도록 적용
+
+문제 : 첫 렌더링 시 keyboard 입력이 두번씩되어 ArrowDown 이 두번씩 발생하였었음
+
+해결 : 이벤트 처리 플래그를 관리하는 ref 를 생성 후 이벤트핸들러 함수 내에서 한번에 입력되지 않도록 막음
+
+```
+ const handleKeyDown = useCallback(
+      (e: React.KeyboardEvent) => {
+        // 이미 처리된 이벤트인 경우 무시
+        if (keydownProcessedRef.current) {
+          return;
+        }
+
+        // 이벤트 처리 플래그 설정
+        keydownProcessedRef.current = true;
+
+        // 다음 이벤트를 위해 플래그 초기화 (약간의 지연 추가)
+        if (keydownTimeoutRef.current) {
+          clearTimeout(keydownTimeoutRef.current);
+        }
+        keydownTimeoutRef.current = setTimeout(() => {
+          keydownProcessedRef.current = false;
+        }, 100);
+...
+```
+
 ### 해야할 것
 
 1. query와 api 위치 나 코드를 결합할지 고민
