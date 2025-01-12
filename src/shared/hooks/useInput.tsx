@@ -9,29 +9,24 @@ const useInput = (initialValue: string = '') => {
   }, []);
 
   const onReset = useCallback(() => {
-    onChange('');
-  }, [onChange]);
+    setValue('');
+  }, []);
 
-  useEffect(
-    function attachESCKeydownEventListener() {
-      const handleResetESCKeyDown = (event: KeyboardEvent) => {
-        if (event.key === 'Escape') {
-          onReset();
-        }
-      };
-
-      const target = ref.current;
-      if (!value || !target) {
-        return;
+  useEffect(() => {
+    const handleResetESCKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onReset();
       }
+    };
 
-      target.addEventListener('keydown', handleResetESCKeyDown);
-      return () => {
-        target.removeEventListener('keydown', handleResetESCKeyDown);
-      };
-    },
-    [value, onReset],
-  );
+    const target = ref.current;
+    if (!value || !target) {
+      return;
+    }
+
+    target.addEventListener('keydown', handleResetESCKeyDown);
+    return () => target.removeEventListener('keydown', handleResetESCKeyDown);
+  }, [value]);
 
   return { ref, value, onChange, onReset };
 };
