@@ -1,4 +1,4 @@
-import { CountryCode } from '@/shared/type';
+import { CountryCode, Option } from '@/shared/type';
 
 export const API_URL = `${import.meta.env.VITE_SERVER_URL}/api`;
 
@@ -26,8 +26,57 @@ export const COUNTRY_MAP: Partial<Record<CountryCode, string>> = {
   IS: '아이슬란드',
   GR: '그리스',
 };
+export const MY_CARD_BUTTON_FILTER_THEME_OPTION: Option<string>[] = [
+  {
+    label: 'Sports',
+    value: 'sports',
+  },
+  {
+    label: 'Music',
+    value: 'music',
+  },
+  {
+    label: 'Food',
+    value: 'food',
+  },
+  {
+    label: 'Travel',
+    value: 'travel',
+  },
+  {
+    label: 'Art',
+    value: 'art',
+  },
+];
 
-export const TOGGLE_FILTER_TAB_OPTION = [
+export const PLAN_BUTTON_FILTER_THEME_OPTION: Option<string>[] = [
+  {
+    label: 'Beach',
+    value: 'beach',
+  },
+  {
+    label: 'Mountain',
+    value: 'mountain',
+  },
+  {
+    label: 'Arts and Culture',
+    value: 'arts-and-culture',
+  },
+  {
+    label: 'Delicious Food',
+    value: 'delicious-food',
+  },
+  {
+    label: 'Vacation',
+    value: 'vacation',
+  },
+  {
+    label: 'Night View',
+    value: 'night-view',
+  },
+];
+
+export const TOGGLE_FILTER_OPTION: Option<string>[][] = [
   [
     {
       label: 'Plan',

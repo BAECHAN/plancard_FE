@@ -16,20 +16,6 @@ type SortingOptionsType = {
 const sortingOptions: SortingOptionsType = {
   card: [
     {
-      label: '빠른 획득순',
-      value: {
-        sortBy: 'getDate',
-        sortOrder: 'asc',
-      },
-    },
-    {
-      label: '느린 획득순',
-      value: {
-        sortBy: 'getDate',
-        sortOrder: 'desc',
-      },
-    },
-    {
       label: '카드 이름순',
       value: {
         sortBy: 'cardTitle',
@@ -40,20 +26,6 @@ const sortingOptions: SortingOptionsType = {
       label: '카드 이름역순',
       value: {
         sortBy: 'cardTitle',
-        sortOrder: 'desc',
-      },
-    },
-    {
-      label: '도시 이름순',
-      value: {
-        sortBy: 'cityTitle',
-        sortOrder: 'asc',
-      },
-    },
-    {
-      label: '도시 이름역순',
-      value: {
-        sortBy: 'cityTitle',
         sortOrder: 'desc',
       },
     },
@@ -71,13 +43,6 @@ const sortingOptions: SortingOptionsType = {
         sortOrder: 'asc',
       },
     },
-    {
-      label: '최근 업데이트순',
-      value: {
-        sortBy: 'lastUpdateDate',
-        sortOrder: 'desc',
-      },
-    },
   ],
   plan: [
     {
@@ -88,23 +53,16 @@ const sortingOptions: SortingOptionsType = {
       },
     },
     {
-      label: '나중 등록순',
+      label: '최근 업데이트순',
       value: {
-        sortBy: 'createdDate',
-        sortOrder: 'asc',
+        sortBy: 'lastUpdateDate',
+        sortOrder: 'desc',
       },
     },
     {
-      label: '플랜 이름순',
+      label: '좋아요 많은 순',
       value: {
-        sortBy: 'planName',
-        sortOrder: 'asc',
-      },
-    },
-    {
-      label: '플랜 이름역순',
-      value: {
-        sortBy: 'planName',
+        sortBy: 'likeCount',
         sortOrder: 'desc',
       },
     },
@@ -112,7 +70,7 @@ const sortingOptions: SortingOptionsType = {
 };
 
 // TODO: API 처리하는 로직은 Props로 받아올 예정
-const SortingContainerMy = () => {
+const SortingContainerExplore = () => {
   const { pageType } = useContentPageStore();
 
   const {
@@ -159,4 +117,4 @@ const SortingContainerMy = () => {
   );
 };
 
-export default SortingContainerMy;
+export default SortingContainerExplore;

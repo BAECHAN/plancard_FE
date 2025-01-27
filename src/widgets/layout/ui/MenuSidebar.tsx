@@ -1,24 +1,26 @@
-import { Size } from '@/shared/type';
+import { useContentPageStore } from '@/shared/store';
+import { ContentPage, Size } from '@/shared/type';
 import { MenuItem } from '@/shared/ui';
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface MenuSidebarProps {
   size?: Size;
 }
 
-type MenuTabOption = 'card' | 'plan';
-
 const MenuSidebar = ({ size = 'medium', ...props }: MenuSidebarProps) => {
+  const navigate = useNavigate();
+
   const sizeClass: Record<Size, string> = {
     small: 'w-48 text-xs',
     medium: 'w-60 text-sm',
     large: 'w-72 text-base',
   };
 
-  const [activeTab, setActiveTab] = useState<MenuTabOption>('card');
+  const { pageType, setPageType } = useContentPageStore();
 
-  const handleTabClick = (activeMenu: MenuTabOption) => {
-    setActiveTab(activeMenu);
+  const handleTabClick = (activeMenu: ContentPage) => {
+    setPageType(activeMenu);
+    navigate(`/${activeMenu}`);
   };
 
   return (
@@ -27,14 +29,14 @@ const MenuSidebar = ({ size = 'medium', ...props }: MenuSidebarProps) => {
       {...props}
     >
       <MenuItem
-        active={activeTab === 'card'}
+        active={pageType === 'card'}
         size={size}
         onClick={() => handleTabClick('card')}
       >
         <b>카드</b>
       </MenuItem>
       <MenuItem
-        active={activeTab === 'plan'}
+        active={pageType === 'plan'}
         size={size}
         onClick={() => handleTabClick('plan')}
       >

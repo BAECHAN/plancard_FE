@@ -14,12 +14,9 @@ const useActiveTabStore = create(
     set => ({
       activeTab: initialActiveTab,
 
-      setActiveTab: newActiveTab =>
-        set(state => ({
-          activeTab: newActiveTab,
-        })),
+      setActiveTab: newActiveTab => set({ activeTab: newActiveTab }),
     }),
-    { name: 'CommonStore' },
+    { name: 'ActiveTabStore' },
   ),
 );
 

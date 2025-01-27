@@ -1,3 +1,23 @@
+import { useActiveTabStore } from '@/shared/store';
+import {
+  ControlContainerExplore,
+  ControlContainerMy,
+} from '@/widgets/layout/ui';
+
 export const PlanPage = () => {
-  return <div className="">플랜</div>;
+  const { activeTab } = useActiveTabStore();
+
+  return (
+    <div className="">
+      <div className="flex flex-col gap-20">
+        <div className="flex flex-col gap-2">
+          {activeTab === 'explore' ? (
+            <ControlContainerExplore />
+          ) : (
+            <ControlContainerMy />
+          )}
+        </div>
+      </div>
+    </div>
+  );
 };

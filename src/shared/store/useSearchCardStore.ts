@@ -13,6 +13,10 @@ interface SearchCardStoreState {
 }
 
 const initialSearchCard: SearchCardForm = {
+  search: '',
+  filter: {
+    scrap: false,
+  },
   sort: {
     sortBy: 'lastUpdateDate',
     sortOrder: 'desc',

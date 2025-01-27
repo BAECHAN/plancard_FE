@@ -45,8 +45,9 @@ export type Variant =
 type DateToString = 'yyyy-MM-dd';
 type PlanVisibility = 'public' | 'private'; // private 은 mine에만, public은 explore에 노출됨 - 여기서 선택된 타입은 DailyPlan에도 일괄 적용됨
 
-type SortOrder = 'asc' | 'desc';
-type PlanOrDay = 'plan' | 'day';
+export type SortOrder = 'asc' | 'desc';
+export type ContentPage = 'card' | 'plan';
+
 export type MyOrExplore = 'my' | 'explore';
 export type AddOrRemove = 'add' | 'remove';
 
@@ -106,32 +107,38 @@ interface SearchRegionForm extends SearchBaseForm {
   filter?: SearchFilterBase;
 }
 
-export type SearchCardForm = SearchBaseForm & {
-  sort: SearchSortCard;
-  search?: string;
-  filter?: SearchFilterCard;
-};
-
-interface SearchPlanForm extends SearchBaseForm {
-  sort: SearchSortPlan;
-  search?: string;
-  filter?: SearchFilterPlan;
-}
-
 export type SearchFilterBase = {
-  scrap: boolean;
   country?: Country['isoCode'];
   city?: City['cityId'];
   theme?: Theme['themeId'][];
   category?: Category['categoryId'][];
 };
 
-export type SearchFilterCard = SearchFilterBase;
+export type SearchToggleFilterCard = {
+  scrap: boolean;
+};
 
-interface SearchFilterPlan extends SearchFilterBase {
+export type SearchToggleFilterPlan = SearchToggleFilterCard & {
   like: boolean;
-  type: PlanOrDay;
-}
+  day: boolean;
+};
+
+export type SearchFilterCard = SearchFilterBase & SearchToggleFilterCard;
+
+export type SearchFilterPlan = SearchFilterBase & SearchToggleFilterPlan;
+
+// 검색 폼 타입 업데이트
+export type SearchCardForm = {
+  sort: SearchSortCard;
+  search?: string;
+  filter?: SearchFilterCard;
+};
+
+export type SearchPlanForm = {
+  sort: SearchSortPlan;
+  search?: string;
+  filter?: SearchFilterPlan;
+};
 
 type SearchSortBase = {
   sortBy: string;
@@ -142,9 +149,9 @@ export type SearchSortCard = SearchSortBase & {
   sortBy: 'cardTitle' | 'cityTitle' | 'rating' | 'lastUpdateDate' | 'getDate';
 };
 
-interface SearchSortPlan extends SearchSortBase {
+export type SearchSortPlan = SearchSortBase & {
   sortBy: 'planName' | 'createdDate' | 'lastUpdateDate' | 'likeCount';
-}
+};
 
 type Plan = {
   planId: string;

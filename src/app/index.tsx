@@ -8,7 +8,12 @@ import {
 } from '@/pages/main/ui';
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
-import { Route, HashRouter as Router, Routes } from 'react-router-dom';
+import {
+  Route,
+  HashRouter as Router,
+  Routes,
+  useLocation,
+} from 'react-router-dom';
 
 import '@/app/index.css';
 import '@fontsource/noto-sans-kr/400.css';
@@ -17,6 +22,8 @@ import '@fontsource/noto-sans-kr/700.css';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { queryClient } from '@/shared/query';
+import { useContentPageStore } from '@/shared/store';
+import { ContentPage } from '@/shared/type';
 import { MainLayout } from '@/widgets/layout/ui';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
@@ -24,42 +31,65 @@ import Modal from 'react-modal';
 import { ToastContainer } from 'react-toastify';
 import { RecoilRoot } from 'recoil';
 
+const isContentPage = (pathname: string): pathname is ContentPage => {
+  return pathname === 'plan' || pathname === 'card';
+};
+
+const AppRoutes: React.FC = () => {
+  const location = useLocation();
+  const { setPageType } = useContentPageStore();
+
+  React.useEffect(
+    function updateActiveTabBasedOnPathname() {
+      const pathname = location.pathname.replace('/', '');
+
+      if (isContentPage(pathname)) {
+        setPageType(pathname);
+      }
+    },
+    [location.pathname],
+  );
+
+  return (
+    <Routes>
+      <Route
+        path="/"
+        element={<MainLayout />}
+      >
+        <Route
+          index
+          element={<MainPage />}
+        />
+        <Route
+          path="/card"
+          element={<CardPage />}
+        />
+        <Route
+          path="/plan"
+          element={<PlanPage />}
+        />
+      </Route>
+
+      <Route
+        path="/login"
+        element={<LoginPage />}
+      />
+      <Route
+        path="/mypage"
+        element={<MyPage />}
+      />
+      <Route
+        path="*"
+        element={<NotFound />}
+      />
+    </Routes>
+  );
+};
+
 const App: React.FC = () => {
   return (
     <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={<MainLayout />}
-        >
-          <Route
-            index
-            element={<MainPage />}
-          />
-          <Route
-            path="/card"
-            element={<CardPage />}
-          />
-          <Route
-            path="/plan"
-            element={<PlanPage />}
-          />
-        </Route>
-
-        <Route
-          path="/login"
-          element={<LoginPage />}
-        />
-        <Route
-          path="/mypage"
-          element={<MyPage />}
-        />
-        {/* 404 페이지 */}
-        <Route
-          path="*"
-          element={<NotFound />}
-        />
-      </Routes>
+      <AppRoutes />
     </Router>
   );
 };

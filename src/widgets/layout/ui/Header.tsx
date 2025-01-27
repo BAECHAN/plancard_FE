@@ -2,6 +2,7 @@ import { Size } from '@/shared/type';
 import IconButton from '@/shared/ui/button/IconButton/IconButton';
 import { FaUser } from 'react-icons/fa';
 import { MdLogout } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 interface HeaderProps {
   size?: Size;
@@ -24,7 +25,7 @@ const Header = ({ size = 'medium' }: HeaderProps) => {
     <header
       className={`${sizeClass[size]} flex w-dvw items-center justify-between bg-skyblue py-2 pl-3 pr-10 text-white`}
     >
-      <strong>PlanCard</strong>
+      <Link to="/card">PlanCard</Link>
       <div className="flex grow-0" />
       <div className={`flex ${gapClass[size]}`}>
         <IconButton

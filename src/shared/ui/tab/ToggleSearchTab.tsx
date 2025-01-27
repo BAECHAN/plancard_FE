@@ -3,19 +3,14 @@ import {
   TabsList,
   TabsTrigger,
 } from '@/shared/lib/shadcn-ui/components/ui';
-import { useActiveTabStore } from '@/shared/store';
+import { useActiveTabStore, useContentPageStore } from '@/shared/store';
 import { MyOrExplore, Option, Size } from '@/shared/type';
-import { MouseEvent } from 'react';
+import { MouseEvent, useMemo } from 'react';
 
 interface ToggleSearchTabProps {
   size?: Size;
   disabled?: boolean;
 }
-
-const optionList: Option<MyOrExplore>[] = [
-  { label: 'My Card', value: 'my' },
-  { label: 'Explore', value: 'explore' },
-];
 
 const ToggleSearchTab = ({
   disabled = false,
@@ -31,6 +26,15 @@ const ToggleSearchTab = ({
     'data-[state=active]:border-none data-[state=active]:rounded-none data-[state=active]:shadow-[inset_0_-1px_0_0,0_4px_0_0] data-[state=active]:shadow-current data-[state=active]:text-primary pb-4';
 
   const { activeTab, setActiveTab } = useActiveTabStore();
+  const { pageType } = useContentPageStore();
+
+  const optionList: Option<MyOrExplore>[] = useMemo(
+    () => [
+      { label: `My ${pageType === 'card' ? 'Card' : 'Plan'}`, value: 'my' },
+      { label: 'Explore', value: 'explore' },
+    ],
+    [pageType],
+  );
 
   const handleTabClick = (
     e: MouseEvent<HTMLButtonElement>,
