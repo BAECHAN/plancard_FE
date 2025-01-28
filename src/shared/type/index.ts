@@ -179,7 +179,7 @@ interface MyPlan extends Plan {
 }
 
 // ThumnailCardForPlan을 Card에서 필요한 필드만 Pick해서 정의
-interface ThumnailCardForPlan
+export interface ThumnailCardForPlan
   extends Pick<
     Card,
     | 'cardId'
