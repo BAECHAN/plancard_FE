@@ -1,59 +1,61 @@
 import { useActiveTabStore } from '@/shared/store';
 import { BaseButton } from '@/shared/ui';
 import {
+  Block,
+  ContentContainer,
+  ControlContainer,
   ControlContainerExplore,
   ControlContainerMy,
+  GroupInBlock,
   ListContainerPlan,
+  MainContainer,
 } from '@/widgets/layout/ui';
 import { FaPlus } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 
 export const PlanPage = () => {
   const { activeTab } = useActiveTabStore();
 
   return (
-    <div
-      className="flex flex-col gap-10"
-      aria-label="main-area"
-    >
-      <div
-        className="flex flex-col gap-2"
-        aria-label="control-area"
-      >
+    <MainContainer>
+      <ControlContainer>
         {activeTab === 'explore' ? (
           <ControlContainerExplore />
         ) : (
           <ControlContainerMy />
         )}
-      </div>
+      </ControlContainer>
 
-      <div
-        className="flex flex-col gap-4"
-        aria-label="contents-area"
-      >
-        <div
-          className="flex flex-col gap-2"
-          aria-label="action-area"
+      <ContentContainer>
+        <Block
+          label="action"
+          className="justify-end"
         >
-          <div
-            aria-label="button-area"
-            className="flex justify-end"
+          <GroupInBlock
+            label="button"
+            className="justify-end"
           >
-            <BaseButton
-              onClick={() => {}}
-              aria-label="new-plan-button"
+            <Link
+              to="/plans/new"
+              className="inline-flex"
             >
-              <span>New Plan</span>
-              <span>
-                <FaPlus />
-              </span>
-            </BaseButton>
-          </div>
-        </div>
+              <BaseButton
+                aria-label="new-plan-button"
+                onClick={() => {}}
+              >
+                <span>New Plan</span>
+                <span>
+                  <FaPlus />
+                </span>
+              </BaseButton>
+            </Link>
+          </GroupInBlock>
+        </Block>
 
-        <div aria-label="list-area">
+        <Block label="list">
           <ListContainerPlan />
-        </div>
-      </div>
-    </div>
+        </Block>
+      </ContentContainer>
+    </MainContainer>
   );
 };

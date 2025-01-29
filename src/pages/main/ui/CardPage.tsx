@@ -1,31 +1,28 @@
 import { useActiveTabStore } from '@/shared/store';
 import {
+  ContentContainer,
+  ControlContainer,
   ControlContainerExplore,
   ControlContainerMy,
   ListContainerCard,
+  MainContainer,
 } from '@/widgets/layout/ui';
 
 export const CardPage = () => {
   const { activeTab } = useActiveTabStore();
 
   return (
-    <div
-      className="flex flex-col gap-10"
-      aria-label="main-area"
-    >
-      <div
-        className="flex flex-col gap-2"
-        aria-label="control-area"
-      >
+    <MainContainer>
+      <ControlContainer>
         {activeTab === 'explore' ? (
           <ControlContainerExplore />
         ) : (
           <ControlContainerMy />
         )}
-      </div>
-      <div aria-label="list-area">
+      </ControlContainer>
+      <ContentContainer>
         <ListContainerCard />
-      </div>
-    </div>
+      </ContentContainer>
+    </MainContainer>
   );
 };

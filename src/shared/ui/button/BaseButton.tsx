@@ -22,8 +22,9 @@ import { SizeWithXLarge, Variant } from '@/shared/type';
 
 interface BaseButtonProps {
   children: React.ReactNode;
-  onClick: () => void;
 
+  onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset';
   variant?: Variant;
   size?: SizeWithXLarge;
   disabled?: boolean;
@@ -32,6 +33,7 @@ interface BaseButtonProps {
 const BaseButton = ({
   children,
   onClick,
+  type = 'button',
 
   variant = 'primary',
   disabled = false,
@@ -60,6 +62,7 @@ const BaseButton = ({
     <Button
       className={`${sizeClass[size]} ${variantClass[variant]} ${disabledStyle} ${hoverStyle}`}
       disabled={disabled}
+      type={type}
       onClick={onClick}
       {...props}
     >
