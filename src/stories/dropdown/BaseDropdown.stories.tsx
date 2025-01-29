@@ -6,9 +6,10 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
 } from '@/shared/lib/shadcn-ui/components/ui';
-import { BaseDropdown, MoreButton } from '@/shared/ui';
+import { BaseDropdown, IconBadge } from '@/shared/ui';
 
 import type { Meta, StoryObj } from '@storybook/react';
+import { FiMoreVertical } from 'react-icons/fi';
 
 const meta: Meta<typeof BaseDropdown> = {
   title: 'Dropdown/BaseDropdown',
@@ -28,7 +29,13 @@ type Story = StoryObj<typeof meta>;
 
 export const PlanDetailMenu: Story = {
   args: {
-    triggerNode: <MoreButton size="small" />,
+    triggerNode: (
+      <IconBadge
+        IconComponent={FiMoreVertical}
+        alt="더보기 아이콘"
+        className="rounded p-1.5 hover:bg-mono200"
+      />
+    ),
     contentNode: (
       <>
         <DropdownMenuItem className={DROPDOWN_MENU_ITEM_STYLE}>
