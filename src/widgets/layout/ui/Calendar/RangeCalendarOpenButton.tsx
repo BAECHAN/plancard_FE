@@ -5,11 +5,15 @@ import { useEffect } from 'react';
 import { FaArrowRightLong, FaCalendarDay } from 'react-icons/fa6';
 
 const RangeCalendarOpenButton = () => {
-  const { openCalendar, isCalendarOpen, startDate, endDate } =
+  const { openCalendar, isCalendarOpen, startDate, endDate, resetRangeDate } =
     useRangeCalendarStore();
 
-  useEffect(function openCalendarOnMount() {
+  useEffect(function handleCalendarLifecycle() {
     openCalendar();
+
+    return () => {
+      resetRangeDate();
+    };
   }, []);
 
   return (
