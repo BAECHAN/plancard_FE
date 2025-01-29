@@ -153,7 +153,7 @@ export type SearchSortPlan = SearchSortBase & {
   sortBy: 'planName' | 'createdDate' | 'lastUpdateDate' | 'likeCount';
 };
 
-type Plan = {
+export type Plan = {
   planId: string;
   visibility: PlanVisibility;
 
@@ -218,8 +218,8 @@ interface Day {
   bridgeList: Bridge[];
 }
 
-interface PlanWithMemo {
-  planId: string;
+export interface PlanWithMemo {
+  planId: Plan['planId'];
   memo: string;
 }
 
