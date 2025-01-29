@@ -31,7 +31,13 @@ export const Default: Story = {
 
     return (
       <>
-        <BaseButton onClick={openModal}>Open Modal</BaseButton>
+        <BaseButton
+          onClick={() =>
+            openModal({ type: 'planMemoDetail', data: { title: 'test' } })
+          }
+        >
+          Open Modal
+        </BaseButton>
         <BaseModal {...args} />
       </>
     );

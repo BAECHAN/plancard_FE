@@ -1,10 +1,6 @@
-import { useModalStore } from '@/shared/store';
-import { CardOrMyCard, Card as CardType } from '@/shared/type';
+import { CARD_DETAIL, useModalStore } from '@/shared/store';
+import { CardOrMyCard } from '@/shared/type';
 import { Card, CardList } from '@/widgets/card/ui';
-import { ModalContainerCardDetail } from '@/widgets/layout/ui';
-
-import { BaseModal } from '@/widgets/modal/ui';
-import { useState } from 'react';
 
 const cardList: CardOrMyCard[] = [
   {
@@ -253,43 +249,25 @@ http://plancard/card~
 ];
 
 const ListContainerCard = () => {
-  const [selectedCardId, setSelectedCardId] = useState<
-    CardType['cardId'] | null
-  >(null);
-
   const { openModal } = useModalStore();
 
   const handleCardClick = (clickedCardId: string) => {
-    const findedCardId = cardList.find(
-      card => card.cardId === clickedCardId,
-    )?.cardId;
-
-    setSelectedCardId(findedCardId ?? null);
-    openModal();
+    openModal({
+      type: CARD_DETAIL,
+      data: cardList.find(item => item.cardId === clickedCardId),
+    });
   };
 
-  const cardData = cardList.find(item => item.cardId === selectedCardId);
-
   return (
-    <>
-      <CardList className="gap-6">
-        {cardList.map((card, index) => (
-          <Card
-            key={index}
-            onClick={() => handleCardClick(card.cardId)}
-            info={card}
-          />
-        ))}
-      </CardList>
-
-      <BaseModal
-        width="70vw"
-        height="80vh"
-        onAfterClose={() => setSelectedCardId(null)}
-      >
-        {cardData && <ModalContainerCardDetail cardData={cardData} />}
-      </BaseModal>
-    </>
+    <CardList className="gap-6">
+      {cardList.map((card, index) => (
+        <Card
+          key={index}
+          onClick={() => handleCardClick(card.cardId)}
+          info={card}
+        />
+      ))}
+    </CardList>
   );
 };
 

@@ -12,6 +12,9 @@ export { default as ContentContainer } from './Common/ContentContainer';
 export { default as ControlContainer } from './Common/ControlContainer';
 export { default as GroupInBlock } from './Common/GroupInBlock';
 export { default as MainContainer } from './Common/MainContainer';
+export { default as ModalContainer } from './Common/ModalContainer';
+
+export { default as ModalContainerPlanMemoDetail } from './ModalContainerPlan/ModalContainerPlanMemoDetail';
 
 export { default as ListContainerCard } from './ListContainerCard';
 export { default as ListContainerPlan } from './ListContainerPlan';

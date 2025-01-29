@@ -1,11 +1,12 @@
-import { flexCenter } from '@/shared/const';
 import { useKeydown } from '@/shared/hooks';
 import { useModalStore } from '@/shared/store';
 import { ESCButton } from '@/shared/ui';
+import { Block, ContentContainer, GroupInBlock } from '@/widgets/layout/ui';
 import Modal from 'react-modal';
 
 export type BaseModalProps = {
   children: React.ReactNode;
+  footer?: React.ReactNode; // footer 컨텐츠를 위한 prop 추가
 
   width?: string; // 모달의 너비를 설정합니다.
   height?: string; // 모달의 높이를 설정합니다
@@ -21,6 +22,7 @@ export type BaseModalProps = {
 const BaseModal: React.FC<BaseModalProps> = ({
   contentLabel = 'Modal',
   children,
+  footer,
   width = '92vw',
   height = '95vh',
   onAfterOpen,
@@ -37,6 +39,7 @@ const BaseModal: React.FC<BaseModalProps> = ({
       onAfterOpen={onAfterOpen}
       onAfterClose={onAfterClose}
       contentLabel={contentLabel}
+      ariaHideApp={false}
       style={{
         overlay: {
           backgroundColor: 'rgba(216, 216, 216, 0.7)',
@@ -58,10 +61,30 @@ const BaseModal: React.FC<BaseModalProps> = ({
         },
       }}
     >
-      <div className="modal-header flex justify-end">
-        <ESCButton onClick={closeModal} />
-      </div>
-      <div className={`modal-content flex-1 ${flexCenter} `}>{children}</div>
+      <ContentContainer>
+        <Block
+          label="modal-header"
+          className="justify-end"
+        >
+          <GroupInBlock label="modal-header-group">
+            <ESCButton onClick={closeModal} />
+          </GroupInBlock>
+        </Block>
+        <Block
+          label="modal-body"
+          className="flex-1"
+        >
+          {children}
+        </Block>
+        {footer && (
+          <Block
+            label="modal-footer"
+            className="justify-between"
+          >
+            {footer}
+          </Block>
+        )}
+      </ContentContainer>
     </Modal>
   );
 };

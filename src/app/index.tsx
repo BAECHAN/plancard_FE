@@ -25,7 +25,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { queryClient } from '@/shared/query';
 import { useContentPageStore } from '@/shared/store';
 import { ContentPage } from '@/shared/type';
-import { MainLayout } from '@/widgets/layout/ui';
+import { MainLayout, ModalContainer } from '@/widgets/layout/ui';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Modal from 'react-modal';
@@ -136,7 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
               draggable
               pauseOnHover
               theme="light"
-            />
+            />{' '}
+            <ModalContainer /> {/* ModalContainer 추가 */}
           </RecoilRoot>
           <ReactQueryDevtools initialIsOpen={isDevtoolsOpen} />
         </QueryClientProvider>
