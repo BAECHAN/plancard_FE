@@ -6,18 +6,51 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
 } from '@/shared/lib/shadcn-ui/components/ui';
-import { BaseDropdown, MoreButton } from '@/shared/ui';
+import { useModalStore } from '@/shared/store';
+import { BaseDropdown, IconBadge } from '@/shared/ui';
+import { FiMoreVertical } from 'react-icons/fi';
 
 const PlanDetailMenuDropdown = () => {
+  const { openModal } = useModalStore();
+  const handleMenuItemClick = (
+    e: React.MouseEvent<HTMLDivElement>,
+    clickedItem: string,
+  ) => {
+    console.log(clickedItem);
+
+    switch (clickedItem) {
+      case 'showMemo':
+        openModal({
+          type: 'planMemoDetail',
+          data: {
+            planId: '1',
+            memo: 'test',
+          },
+        });
+        break;
+      case 'editPlanDate':
+        break;
+    }
+  };
+
   return (
     <BaseDropdown
-      triggerNode={<MoreButton size="small" />}
+      triggerNode={
+        <IconBadge
+          IconComponent={FiMoreVertical}
+          alt="더보기 아이콘"
+          className="rounded p-1.5 hover:bg-mono200"
+        />
+      }
       contentNode={
         <>
           <DropdownMenuItem className={DROPDOWN_MENU_ITEM_STYLE}>
             제목 수정
           </DropdownMenuItem>
-          <DropdownMenuItem className={DROPDOWN_MENU_ITEM_STYLE}>
+          <DropdownMenuItem
+            className={DROPDOWN_MENU_ITEM_STYLE}
+            onClick={e => handleMenuItemClick(e, 'showMemo')}
+          >
             메모 보기
           </DropdownMenuItem>
           <DropdownMenuItem className={DROPDOWN_MENU_ITEM_STYLE}>
