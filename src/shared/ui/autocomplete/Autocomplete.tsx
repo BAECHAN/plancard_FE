@@ -4,7 +4,7 @@ import {
   exploreSuggestionsSmall as small,
 } from '@/shared/const';
 import { Option, Size } from '@/shared/type';
-import SearchInputTextExplore from '@/shared/ui/search/SearchInputTextExplore';
+import { SearchInputTextExplore } from '@/shared/ui';
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
 
 /**
@@ -49,6 +49,7 @@ const Autocomplete = memo(
 
       setSuggestionList(filteredSuggestionList);
 
+      // 조건에 맞으면 추천목록 열기
       if (filteredSuggestionList.length && query.length > 0) {
         setOpenSuggestionArea(true);
       } else {

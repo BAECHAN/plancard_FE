@@ -1,6 +1,6 @@
 import { useControlledToggle } from '@/shared/hooks';
 import { SizeWithXSmall } from '@/shared/type';
-import IconButton from '@/shared/ui/button/IconButton/IconButton';
+import { IconButton } from '@/shared/ui';
 import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
 
 const ScrapButton = ({

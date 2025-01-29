@@ -18,6 +18,7 @@ interface IconButtonProps {
   size?: SizeWithXSmall;
   color?: string;
   hoverIconColor?: string;
+  className?: string;
 }
 
 const IconButton = ({
@@ -29,6 +30,7 @@ const IconButton = ({
   size = 'small',
   color,
   hoverIconColor,
+  className = '',
 }: IconButtonProps) => {
   const sizeClass: Record<SizeWithXSmall, string> = {
     xSmall,
@@ -50,7 +52,7 @@ const IconButton = ({
       onClick={handleIconButtonClick}
       onMouseEnter={openToggle}
       onMouseLeave={closeToggle}
-      className={`inline-flex items-center justify-center rounded-full p-0 transition-colors duration-300`}
+      className={`inline-flex items-center justify-center p-0 transition-colors duration-300 ${className}`}
     >
       {iconPath && (
         <img

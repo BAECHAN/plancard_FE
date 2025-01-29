@@ -1,5 +1,5 @@
 import { SizeWithXSmall } from '@/shared/type';
-import IconButton from '@/shared/ui/button/IconButton/IconButton';
+import { IconButton } from '@/shared/ui';
 import { Util } from '@/shared/util';
 import { FaCopy, FaRegCopy } from 'react-icons/fa6';
 import { toast } from 'react-toastify';
