@@ -54,6 +54,11 @@ export {
   xsmall3 as titleXsmall3,
 } from './Title';
 
+export {
+  DROPDOWN_MENU_ITEM_STYLE,
+  DROPDOWN_MENU_SEPARATOR_STYLE,
+} from './DropdownMenu';
+
 export const flexCenter = 'flex items-center justify-center';
 
 export * from './const';
