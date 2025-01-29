@@ -12,6 +12,7 @@ interface IconBadgeProps {
   IconComponent?: IconType; // FontAwesome 같은 라이브러리에서 컴포넌트를 전달할 때
   alt?: string; // SVG에 대한 설명
   size?: SizeWithXSmall; // 아이콘 크기
+  className?: string; // 추가 클래스 이름
 }
 
 const IconBadge = ({
@@ -19,6 +20,7 @@ const IconBadge = ({
   IconComponent,
   alt = '',
   size = 'medium',
+  className = '',
 }: IconBadgeProps) => {
   const sizeClass: Record<SizeWithXSmall, string> = {
     xSmall,
@@ -33,10 +35,12 @@ const IconBadge = ({
         <img
           src={iconPath}
           alt={alt}
-          className={`${sizeClass[size]}`}
+          className={`${sizeClass[size]} ${className}`}
         />
       )}
-      {IconComponent && <IconComponent className={`${sizeClass[size]}`} />}
+      {IconComponent && (
+        <IconComponent className={`${sizeClass[size]} ${className}`} />
+      )}
     </div>
   );
 };
