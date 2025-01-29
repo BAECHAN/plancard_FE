@@ -1,7 +1,8 @@
-import useModalStore from '@/shared/store/useModalStore';
+import { useModalStore } from '@/shared/store';
 import { CardOrMyCard, Card as CardType } from '@/shared/type';
 import { Card, CardList } from '@/widgets/card/ui';
-import ModalContainerCardDetail from '@/widgets/layout/ui/ModalContainerCard/ModalContainerCardDetail';
+import { ModalContainerCardDetail } from '@/widgets/layout/ui';
+
 import { BaseModal } from '@/widgets/modal/ui';
 import { useState } from 'react';
 
@@ -270,7 +271,7 @@ const ListContainerCard = () => {
   const cardData = cardList.find(item => item.cardId === selectedCardId);
 
   return (
-    <div className="">
+    <>
       <CardList className="gap-6">
         {cardList.map((card, index) => (
           <Card
@@ -288,7 +289,7 @@ const ListContainerCard = () => {
       >
         {cardData && <ModalContainerCardDetail cardData={cardData} />}
       </BaseModal>
-    </div>
+    </>
   );
 };
 

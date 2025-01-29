@@ -1,5 +1,5 @@
 import { useDebounce, useInput } from '@/shared/hooks';
-import Input from '@/shared/ui/input/Input';
+import { Input } from '@/shared/ui';
 import {
   forwardRef,
   memo,
@@ -75,7 +75,7 @@ const SearchInputText = memo(
         <Input
           id={id}
           type={type}
-          query={query}
+          value={query}
           label={label}
           align={align}
           onChange={handleInputChange}

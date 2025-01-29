@@ -29,16 +29,16 @@ const MenuSidebar = ({ size = 'medium', ...props }: MenuSidebarProps) => {
       {...props}
     >
       <MenuItem
-        active={pageType === 'card'}
+        active={pageType === 'cards'}
         size={size}
-        onClick={() => handleTabClick('card')}
+        onClick={() => handleTabClick('cards')}
       >
         <b>카드</b>
       </MenuItem>
       <MenuItem
-        active={pageType === 'plan'}
+        active={pageType === 'plans'}
         size={size}
-        onClick={() => handleTabClick('plan')}
+        onClick={() => handleTabClick('plans')}
       >
         <b>플랜</b>
       </MenuItem>

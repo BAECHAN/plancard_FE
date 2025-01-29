@@ -1,4 +1,4 @@
-import useModalStore from '@/shared/store/useModalStore';
+import { useModalStore } from '@/shared/store';
 import { BaseButton } from '@/shared/ui';
 import { BaseModal } from '@/widgets/modal/ui';
 import type { Meta, StoryObj } from '@storybook/react';

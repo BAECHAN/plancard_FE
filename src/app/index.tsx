@@ -4,6 +4,7 @@ import {
   MainPage,
   MyPage,
   NotFound,
+  PlanEditPage,
   PlanPage,
 } from '@/pages/main/ui';
 import * as React from 'react';
@@ -32,7 +33,7 @@ import { ToastContainer } from 'react-toastify';
 import { RecoilRoot } from 'recoil';
 
 const isContentPage = (pathname: string): pathname is ContentPage => {
-  return pathname === 'plan' || pathname === 'card';
+  return pathname === 'plans' || pathname === 'cards';
 };
 
 const AppRoutes: React.FC = () => {
@@ -61,12 +62,22 @@ const AppRoutes: React.FC = () => {
           element={<MainPage />}
         />
         <Route
-          path="/card"
+          path="/cards"
           element={<CardPage />}
         />
         <Route
-          path="/plan"
+          path="/plans"
           element={<PlanPage />}
+        />
+        {/* 플랜 생성 */}
+        <Route
+          path="/plans/new"
+          element={<PlanEditPage />}
+        />
+        {/* 플랜 수정 */}
+        <Route
+          path="/plans/:planId"
+          element={<PlanEditPage />}
         />
       </Route>
 

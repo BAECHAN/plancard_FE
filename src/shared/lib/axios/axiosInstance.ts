@@ -1,6 +1,6 @@
 // src/api/axiosInstance.ts
-import { getAccessToken } from '@/shared/api/index';
-import { API_URL } from '@/shared/util';
+import { getAccessToken } from '@/shared/api';
+import { API_URL } from '@/shared/const';
 import axios from 'axios';
 
 const axiosInstance = axios.create({

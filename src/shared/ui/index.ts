@@ -11,7 +11,10 @@ export { default as ScrapButton } from './button/IconButton/ScrapButton';
 export { default as TrashButton } from './button/IconButton/TrashButton';
 export { default as FilterTagButton } from './button/TagButton/FilterTagButton';
 export { default as InputTagButton } from './button/TagButton/InputTagButton';
-export { default as TagButton } from './button/TagButton/TagButton';
+export {
+  default as TagButton,
+  type TagButtonProps,
+} from './button/TagButton/TagButton';
 
 export { default as BaseDropdown } from './dropdown/BaseDropdown';
 export { default as DayDropdown } from './dropdown/DayDropdown';
@@ -29,7 +32,10 @@ export { default as InputTextInForm } from './inputText/InputTextInForm';
 export { default as Loading } from './loading/Loading';
 export { default as QueryStatusWrapper } from './queryStatusController/QueryStatusWrapper';
 export { default as FocusableSearchInputText } from './search/FocusableSearchInputText';
-export { default as SearchInputText } from './search/SearchInputText';
+export {
+  default as SearchInputText,
+  type SearchInputTextProps,
+} from './search/SearchInputText';
 export { default as SearchInputTextExplore } from './search/SearchInputTextExplore';
 export { default as SearchInputTextMy } from './search/SearchInputTextMy';
 export { default as MenuItem } from './sidebar/MenuItem';

@@ -55,3 +55,5 @@ export {
 } from './Title';
 
 export const flexCenter = 'flex items-center justify-center';
+
+export * from './const';

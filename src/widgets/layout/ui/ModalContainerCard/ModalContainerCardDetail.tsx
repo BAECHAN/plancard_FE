@@ -1,8 +1,10 @@
 import { flexCenter } from '@/shared/const';
 import { CardOrMyCard } from '@/shared/type';
 import { TypeGuard } from '@/shared/util';
-import ModalContainerCardDetailImageSwiper from '@/widgets/layout/ui/ModalContainerCard/ModalContainerCardDetailImageSwiper';
-import ModalContainerCardDetailInfo from '@/widgets/layout/ui/ModalContainerCard/ModalContainerCardDetailInfo';
+import {
+  ModalContainerCardDetailImageSwiper,
+  ModalContainerCardDetailInfo,
+} from '@/widgets/layout/ui';
 import React from 'react';
 
 const ModalContainerCardDetail = React.memo(

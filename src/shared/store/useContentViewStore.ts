@@ -7,7 +7,7 @@ interface ContentPageState {
   setPageType: (type: ContentPage) => void;
 }
 
-const initialPageType: ContentPage = 'card';
+const initialPageType: ContentPage = 'cards';
 
 const useContentPageStore = create(
   devtools<ContentPageState>(

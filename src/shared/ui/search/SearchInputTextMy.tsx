@@ -4,8 +4,7 @@ import {
   myInputSmall as small,
 } from '@/shared/const';
 import { Size } from '@/shared/type';
-import FocusableSearchInputText from '@/shared/ui/search/FocusableSearchInputText';
-import { SearchInputTextProps } from '@/shared/ui/search/SearchInputText';
+import { FocusableSearchInputText, SearchInputTextProps } from '@/shared/ui';
 
 const SearchInputTextMy = (props: SearchInputTextProps & { size: Size }) => {
   const { size } = props;

@@ -5,7 +5,7 @@ import {
 } from '@/shared/const';
 import { useKeydown } from '@/shared/hooks';
 import { Size } from '@/shared/type';
-import Input from '@/shared/ui/input/Input';
+import { Input } from '@/shared/ui';
 import { memo, useRef } from 'react';
 
 type SearchInputTextExploreProps = {
@@ -66,7 +66,7 @@ const SearchInputTextExplore = memo(
           ref={searchInputRef}
           id={id}
           type={type}
-          query={query}
+          value={query}
           placeholder={placeholder}
           onChange={handleInputChange}
           onReset={handleReset}

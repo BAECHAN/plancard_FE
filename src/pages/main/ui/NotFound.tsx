@@ -9,7 +9,7 @@ export const NotFound = () => {
         <div className="flex flex-col gap-6">
           <p className="text-4xl">페이지를 찾을 수 없습니다.</p>
           <Link
-            to="/card"
+            to="/cards"
             className="text-3xl font-bold text-skyblue hover:underline"
           >
             PlanCard 구경가기

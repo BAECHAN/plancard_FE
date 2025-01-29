@@ -9,12 +9,12 @@ import { TypeGuard } from '@/shared/util';
 import { ButtonList } from '@/widgets/button/ui';
 
 type SortingOptionsType = {
-  card: Option<SearchSortCard>[];
-  plan: Option<SearchSortPlan>[];
+  cards: Option<SearchSortCard>[];
+  plans: Option<SearchSortPlan>[];
 };
 
 const sortingOptions: SortingOptionsType = {
-  card: [
+  cards: [
     {
       label: '카드 이름순',
       value: {
@@ -44,7 +44,7 @@ const sortingOptions: SortingOptionsType = {
       },
     },
   ],
-  plan: [
+  plans: [
     {
       label: '최근 등록순',
       value: {
@@ -104,9 +104,9 @@ const SortingContainerExplore = () => {
               title={option.label}
               isActive={
                 option.value.sortBy ===
-                  (pageType === 'card' ? cardSortBy : planSortBy) &&
+                  (pageType === 'cards' ? cardSortBy : planSortBy) &&
                 option.value.sortOrder ===
-                  (pageType === 'card' ? cardSortOrder : planSortOrder)
+                  (pageType === 'cards' ? cardSortOrder : planSortOrder)
               }
               onClick={() => handleButtonClick(option.value)}
             />

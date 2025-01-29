@@ -1,5 +1,8 @@
 import { CountryCode, Option } from '@/shared/type';
 
+export const LEAVE_CONFIRM_MESSAGE =
+  '작성 중인 내용이 저장되지 않을 수 있습니다. 정말 나가시겠습니까?';
+
 export const API_URL = `${import.meta.env.VITE_SERVER_URL}/api`;
 
 export const COUNTRY_MAP: Partial<Record<CountryCode, string>> = {

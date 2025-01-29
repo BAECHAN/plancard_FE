@@ -1,7 +1,5 @@
 import { useKeydown } from '@/shared/hooks';
-import SearchInputText, {
-  SearchInputTextProps,
-} from '@/shared/ui/search/SearchInputText';
+import { SearchInputText, type SearchInputTextProps } from '@/shared/ui';
 import { forwardRef, memo, useImperativeHandle, useRef } from 'react';
 
 /**

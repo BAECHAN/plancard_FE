@@ -1,6 +1,6 @@
 import { flexCenter } from '@/shared/const';
 import { useKeydown } from '@/shared/hooks';
-import useModalStore from '@/shared/store/useModalStore';
+import { useModalStore } from '@/shared/store';
 import { ESCButton } from '@/shared/ui';
 import Modal from 'react-modal';
 

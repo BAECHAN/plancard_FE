@@ -97,11 +97,11 @@ module.exports = {
     'no-restricted-imports': [
       'error',
       {
-        paths: [],
         patterns: [
           {
-            group: importPatterns,
-            message: 'Please import from the index.ts file in the ui folder.',
+            group: ['*/shared/*/*', '*/widgets/*/*/*/*', '!*/shared/lib/*'],
+            message:
+              '직접 import하지 마세요. 대신 index.ts를 통해 import 해주세요.',
           },
         ],
       },
@@ -189,6 +189,12 @@ module.exports = {
     'src/shared/type/index.d.ts',
   ], // 린트 무시할 파일/폴더 (기본적으로 node_modules 폴더나 .로 시작하는 설정 파일은 무시)
   overrides: [
+    {
+      files: ['./src/shared/util/index.ts', './src/widgets/layout/ui/index.ts'],
+      rules: {
+        'no-restricted-imports': 'off',
+      },
+    },
     {
       files: ['*.cjs'],
       rules: {

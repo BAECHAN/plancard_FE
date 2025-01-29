@@ -30,7 +30,7 @@ const ToggleSearchTab = ({
 
   const optionList: Option<MyOrExplore>[] = useMemo(
     () => [
-      { label: `My ${pageType === 'card' ? 'Card' : 'Plan'}`, value: 'my' },
+      { label: `My ${pageType === 'cards' ? 'Card' : 'Plan'}`, value: 'my' },
       { label: 'Explore', value: 'explore' },
     ],
     [pageType],

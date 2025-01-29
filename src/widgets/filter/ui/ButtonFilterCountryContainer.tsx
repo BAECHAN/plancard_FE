@@ -1,6 +1,6 @@
+import { COUNTRY_MAP } from '@/shared/const';
 import { City, Country } from '@/shared/type';
 import { FilterTagButton, IconBadge } from '@/shared/ui';
-import { COUNTRY_MAP } from '@/shared/util';
 import { ButtonList } from '@/widgets/button/ui';
 
 const ButtonFilterCountryContainer = ({

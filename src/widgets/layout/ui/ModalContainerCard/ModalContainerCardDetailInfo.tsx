@@ -1,9 +1,11 @@
 import { Card, MyCard } from '@/shared/type';
-import ModalContainerCardDetailInfoDescription from '@/widgets/layout/ui/ModalContainerCard/ModalContainerCardDetailInfoDescription';
-import ModalContainerCardDetailInfoGoogleMapLink from '@/widgets/layout/ui/ModalContainerCard/ModalContainerCardDetailInfoGoogleMapLink';
-import ModalContainerCardDetailInfoMyMemo from '@/widgets/layout/ui/ModalContainerCard/ModalContainerCardDetailInfoMyMemo';
-import ModalContainerCardDetailInfoMyTag from '@/widgets/layout/ui/ModalContainerCard/ModalContainerCardDetailInfoMyTag';
-import ModalContainerCardDetailInfoName from '@/widgets/layout/ui/ModalContainerCard/ModalContainerCardDetailInfoName';
+import {
+  ModalContainerCardDetailInfoDescription,
+  ModalContainerCardDetailInfoGoogleMapLink,
+  ModalContainerCardDetailInfoMyMemo,
+  ModalContainerCardDetailInfoMyTag,
+  ModalContainerCardDetailInfoName,
+} from '@/widgets/layout/ui';
 
 const ModalContainerCardDetailInfo = ({
   title,

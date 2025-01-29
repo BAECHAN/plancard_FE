@@ -1,8 +1,5 @@
 import { useToggle } from '@/shared/hooks';
-import TagButton, {
-  TagButtonProps,
-} from '@/shared/ui/button/TagButton/TagButton';
-import PlusIcon from '@/shared/ui/icon/PlusIcon';
+import { PlusIcon, TagButton, TagButtonProps } from '@/shared/ui';
 import { useState } from 'react';
 
 const InputTagButton = ({
