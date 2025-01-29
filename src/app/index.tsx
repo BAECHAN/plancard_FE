@@ -4,7 +4,7 @@ import {
   MainPage,
   MyPage,
   NotFound,
-  PlanEditPage,
+  PlanDetailPage,
   PlanPage,
 } from '@/pages/main/ui';
 import * as React from 'react';
@@ -72,12 +72,17 @@ const AppRoutes: React.FC = () => {
         {/* 플랜 생성 */}
         <Route
           path="/plans/new"
-          element={<PlanEditPage />}
+          element={<PlanDetailPage />}
         />
         {/* 플랜 수정 */}
         <Route
+          path="/plans/:planId/edit"
+          element={<PlanDetailPage />}
+        />
+        {/* 플랜 상세 */}
+        <Route
           path="/plans/:planId"
-          element={<PlanEditPage />}
+          element={<PlanDetailPage />}
         />
       </Route>
 
