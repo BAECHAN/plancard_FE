@@ -1,7 +1,6 @@
 import { useToggle } from '@/shared/hooks';
 import { MyCard } from '@/shared/type';
 import { BaseTextarea, IconButton } from '@/shared/ui';
-import { useRef } from 'react';
 import { HiOutlinePencilSquare, HiPencilSquare } from 'react-icons/hi2';
 
 const ModalContainerCardDetailInfoMyMemo = ({
@@ -10,7 +9,6 @@ const ModalContainerCardDetailInfoMyMemo = ({
   myMemo: MyCard['myMemo'];
 }) => {
   const { value: isEditMode, toggle } = useToggle(false);
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const handleMyMemoToggle = () => {
     toggle();
@@ -43,7 +41,6 @@ const ModalContainerCardDetailInfoMyMemo = ({
             className="flex h-full flex-grow"
           >
             <BaseTextarea
-              ref={textareaRef}
               onEscape={handleMyMemoToggle}
               value={myMemo}
             />
