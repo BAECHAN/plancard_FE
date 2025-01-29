@@ -1,4 +1,4 @@
-import { forwardRef, useMemo } from 'react';
+import { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
 
 export type InputProps = {
   id: string;
@@ -43,10 +43,43 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       [value.length],
     );
 
-    const handleCloseButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const [isFocused, setIsFocused] = useState(false);
+
+    /** input reset 버튼 클릭 시 input blur 방지 */
+    const isClickedResetButtonRef = useRef(false);
+
+    const handleCloseButtonMouseDown = (
+      e: React.MouseEvent<HTMLButtonElement>,
+    ) => {
+      e.preventDefault();
+      isClickedResetButtonRef.current = true;
+
       onReset?.();
       onFocus?.();
+
+      setTimeout(() => {
+        isClickedResetButtonRef.current = false;
+      }, 0);
     };
+
+    const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+      if (isClickedResetButtonRef.current) {
+        return;
+      }
+      setIsFocused(false);
+      onBlur?.();
+    };
+
+    const handleFocus = () => {
+      setIsFocused(true);
+      onFocus?.();
+    };
+
+    useEffect(() => {
+      return () => {
+        isClickedResetButtonRef.current = false;
+      };
+    }, []);
 
     return (
       <label
@@ -64,16 +97,16 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           spellCheck={spellCheck}
           autoComplete={autoComplete}
           autoFocus={autoFocus}
-          onFocus={onFocus}
-          onBlur={onBlur}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
           onKeyDown={onKeyDown}
           className={`${inputTextStyle} text-${align}`}
         />
-        {value.length > 0 && (
+        {value.length > 0 && isFocused && (
           <button
             type="button"
             className="absolute right-3 top-1/2 -translate-y-1/2 transform text-mono500 hover:text-black"
-            onClick={handleCloseButtonClick}
+            onMouseDown={handleCloseButtonMouseDown}
             aria-label="입력 내용 지우기"
           >
             ✕
