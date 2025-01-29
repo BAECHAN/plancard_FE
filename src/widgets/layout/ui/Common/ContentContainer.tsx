@@ -9,7 +9,7 @@ const ContentContainer = ({
 }: ContentContainerProps) => {
   return (
     <section
-      className={`flex flex-col gap-4 ${className}`}
+      className={`flex flex-col gap-4 ${className} h-full`}
       role="region"
       aria-label="content-section"
     >
