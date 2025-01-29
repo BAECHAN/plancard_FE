@@ -2,13 +2,11 @@ import { forwardRef, useMemo } from 'react';
 
 export type InputProps = {
   id: string;
-  defaultValue?: string;
-  onSearch?: (query: string) => void;
   label?: string;
   placeholder?: string;
   align?: 'left' | 'center' | 'right';
   type?: 'text' | 'password';
-  query?: string;
+  value?: string;
   spellCheck?: boolean;
   autoComplete?: 'off' | 'on';
   autoFocus?: boolean;
@@ -27,7 +25,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       placeholder = '',
       align = 'left',
       type = 'text',
-      query = '',
+      value = '',
       onChange,
       onReset,
       spellCheck = false,
@@ -39,10 +37,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     },
     ref,
   ) => {
-    const searchInputTextStyle = useMemo(
+    const inputTextStyle = useMemo(
       () =>
-        `block w-full h-full pl-2 ${query.length ? 'pr-10' : 'pr-2'} py-2 border rounded-lg focus:outline-none border-gray-300`,
-      [query.length],
+        `block w-full h-full pl-2 ${value.length ? 'pr-10' : 'pr-2'} py-2 border rounded-lg focus:outline-none border-gray-300`,
+      [value.length],
     );
 
     const handleCloseButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -60,7 +58,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           type={type}
           id={id}
-          value={query}
+          value={value}
           onChange={onChange}
           placeholder={placeholder}
           spellCheck={spellCheck}
@@ -69,9 +67,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           onFocus={onFocus}
           onBlur={onBlur}
           onKeyDown={onKeyDown}
-          className={`${searchInputTextStyle} text-${align}`}
+          className={`${inputTextStyle} text-${align}`}
         />
-        {query.length > 0 && (
+        {value.length > 0 && (
           <button
             type="button"
             className="absolute right-3 top-1/2 -translate-y-1/2 transform text-mono500 hover:text-black"
