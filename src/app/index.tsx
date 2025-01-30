@@ -10,7 +10,7 @@ import {
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider,
   useNavigate,
 } from 'react-router-dom';
@@ -40,7 +40,7 @@ const RedirectComponent: React.FC<{ to: string }> = ({ to }) => {
   return null;
 };
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <MainLayout />,
