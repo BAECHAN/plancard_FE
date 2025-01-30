@@ -1,5 +1,5 @@
 import PlanDetailMenuDropdown from '@/pages/plan/ui/PlanDetailMenuDropdown';
-import { BaseButton, ConfirmAlert, Input } from '@/shared/ui';
+import { BaseButton, Input } from '@/shared/ui';
 import {
   Block,
   ContentContainer,
@@ -29,13 +29,7 @@ export const PlanDetailPage = () => {
           label="content-nav"
           className="flex justify-between"
         >
-          <ConfirmAlert
-            confirmTitle="페이지를 떠나시겠습니까?"
-            confirmMessage="저장되지 않은 내용이 있습니다."
-            onConfirm={() => navigate('/plans/my')}
-          >
-            <BaseButton>목록</BaseButton>
-          </ConfirmAlert>
+          <BaseButton onClick={() => navigate('/plans/my')}>목록</BaseButton>
           <BaseButton>저장</BaseButton>
         </Block>
         <Block
