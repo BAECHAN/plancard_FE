@@ -3,12 +3,11 @@ import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 
 export default defineConfig(({ mode }) => {
-  // 환경 변수 로드
-  const env = loadEnv(mode, process.cwd(), '');
+  const env = loadEnv(mode, process.cwd(), 'VITE_');
 
   return {
     plugins: [react()],
-    base: env.VITE_BASE_URL,
+    base: mode === 'production' ? `/${env.VITE_REPOSITORY_NAME}/` : '/',
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
