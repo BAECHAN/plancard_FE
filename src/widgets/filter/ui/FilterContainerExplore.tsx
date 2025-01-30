@@ -2,7 +2,7 @@ import {
   PLAN_BUTTON_FILTER_THEME_OPTION,
   TOGGLE_FILTER_OPTION,
 } from '@/shared/const';
-import { useContentPageStore } from '@/shared/store';
+import { usePathStore } from '@/shared/store';
 import { City, Country } from '@/shared/type';
 import {
   ButtonFilterContainer,
@@ -12,8 +12,7 @@ import {
 import { useState } from 'react';
 
 const FilterContainerExplore = () => {
-  const { pageType } = useContentPageStore();
-
+  const { currentPage } = usePathStore();
   const [activeCountry, setActiveCountry] = useState<Country['isoCode'] | null>(
     null,
   );
@@ -30,7 +29,7 @@ const FilterContainerExplore = () => {
 
   return (
     <div className="flex flex-col gap-4">
-      {pageType === 'cards' ? (
+      {currentPage === 'cards' ? (
         <>
           <ButtonFilterCountryContainer
             activeCountry={activeCountry}

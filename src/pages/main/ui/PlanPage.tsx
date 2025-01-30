@@ -1,4 +1,4 @@
-import { useActiveTabStore } from '@/shared/store';
+import { usePathStore } from '@/shared/store';
 import { BaseButton } from '@/shared/ui';
 import {
   Block,
@@ -14,12 +14,11 @@ import { FaPlus } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 
 export const PlanPage = () => {
-  const { activeTab } = useActiveTabStore();
-
+  const { currentTab } = usePathStore();
   return (
     <MainContainer>
       <ControlContainer>
-        {activeTab === 'explore' ? (
+        {currentTab === 'explore' ? (
           <ControlContainerExplore />
         ) : (
           <ControlContainerMy />
@@ -36,7 +35,7 @@ export const PlanPage = () => {
             className="justify-end"
           >
             <Link
-              to="/plans/new"
+              to="/plans/my/new"
               className="inline-flex"
             >
               <BaseButton

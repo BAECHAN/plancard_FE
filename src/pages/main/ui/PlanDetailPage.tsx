@@ -30,7 +30,7 @@ export const PlanDetailPage = () => {
           label="content-nav"
           className="flex justify-between"
         >
-          <BaseButton onClick={() => handleNavigateWithConfirm('/plans')}>
+          <BaseButton onClick={() => handleNavigateWithConfirm('/plans/my')}>
             목록
           </BaseButton>
           <BaseButton>저장</BaseButton>

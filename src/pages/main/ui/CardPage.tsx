@@ -1,4 +1,4 @@
-import { useActiveTabStore } from '@/shared/store';
+import { usePathStore } from '@/shared/store';
 import {
   ContentContainer,
   ControlContainer,
@@ -9,12 +9,12 @@ import {
 } from '@/widgets/layout/ui';
 
 export const CardPage = () => {
-  const { activeTab } = useActiveTabStore();
+  const { currentTab } = usePathStore();
 
   return (
     <MainContainer>
       <ControlContainer>
-        {activeTab === 'explore' ? (
+        {currentTab === 'explore' ? (
           <ControlContainerExplore />
         ) : (
           <ControlContainerMy />
