@@ -8,6 +8,7 @@ export {
 } from './atom';
 
 export { default as useActiveTabStore } from './useActiveTabStore';
+export { default as useConfirmAlertStore } from './useConfirmAlertStore';
 export { default as useContentPageStore } from './useContentViewStore';
 export {
   CARD_DETAIL,

@@ -2,7 +2,10 @@ export { default as DayAccordion } from './accordion/DayAccordion';
 export { default as BaseAlert } from './alert/BaseAlert';
 export { default as BaseBadge } from './badge/BaseBadge';
 export { default as IconBadge } from './badge/IconBadge';
-export { default as BaseButton } from './button/BaseButton';
+export {
+  default as BaseButton,
+  type BaseButtonProps,
+} from './button/BaseButton';
 export { default as ESCButton } from './button/ESCButton/ESCButton';
 export { default as CheckboxButton } from './button/IconButton/CheckboxButton';
 export { default as ClipboardCopyButton } from './button/IconButton/ClipboardCopyButton';
@@ -16,6 +19,10 @@ export {
   type TagButtonProps,
 } from './button/TagButton/TagButton';
 
+export {
+  default as ConfirmAlert,
+  type ConfirmAlertProps,
+} from './alert/ConfirmAlert';
 export { default as BaseDropdown } from './dropdown/BaseDropdown';
 export { default as DayDropdown } from './dropdown/DayDropdown';
 export { default as DropdownMenu } from './dropdown/DropdownMenu';
