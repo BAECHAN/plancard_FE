@@ -10,7 +10,7 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Size } from '@/shared/type';
-import TrashButton from '@/shared/ui/button/IconButton/TrashButton';
+import { TrashButton } from '@/shared/ui';
 import { Card } from '@/widgets/card/ui';
 import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
 
@@ -84,7 +84,7 @@ const CardSwiper = ({ size = 'medium' }: { size: Size }) => {
                 imageList: [
                   {
                     imageId: '1',
-                    imageUrl: 'images/eiffel-tower.svg',
+                    imageUrl: '/images/eiffel-tower.svg',
                     alt: '에펠탑',
                     isMain: true,
                   },
