@@ -10,10 +10,8 @@ import {
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
 import {
-  Route,
-  HashRouter as Router,
-  Routes,
-  useLocation,
+  createBrowserRouter,
+  RouterProvider,
   useNavigate,
 } from 'react-router-dom';
 
@@ -42,98 +40,46 @@ const RedirectComponent: React.FC<{ to: string }> = ({ to }) => {
   return null;
 };
 
-const AppRoutes: React.FC = () => {
-  return (
-    <Routes>
-      <Route
-        path="/"
-        element={<MainLayout />}
-      >
-        <Route
-          index
-          element={<MainPage />}
-        />
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <MainLayout />,
+    children: [
+      { index: true, element: <MainPage /> },
+      {
+        path: 'cards',
+        children: [
+          { path: 'my', element: <CardPage /> },
+          { path: 'explore', element: <CardPage /> },
+          { index: true, element: <RedirectComponent to="/cards/my" /> },
+        ],
+      },
+      {
+        path: 'plans',
+        children: [
+          { path: 'my', element: <PlanPage /> },
+          { path: 'explore', element: <PlanPage /> },
+          { index: true, element: <RedirectComponent to="/plans/my" /> },
+          { path: 'my/new', element: <PlanDetailPage /> },
+          { path: ':planId/edit', element: <PlanDetailPage /> },
+          { path: ':planId', element: <PlanDetailPage /> },
+        ],
+      },
+    ],
+  },
+  { path: '/login', element: <LoginPage /> },
+  { path: '/mypage', element: <MyPage /> },
+  { path: '*', element: <NotFound /> },
+]);
 
-        <Route path="/cards">
-          <Route
-            path="my"
-            element={<CardPage />}
-          />
-          <Route
-            path="explore"
-            element={<CardPage />}
-          />
-          <Route
-            index
-            element={<RedirectComponent to="/cards/my" />}
-          />
-        </Route>
-
-        <Route path="/plans">
-          <Route
-            path="my"
-            element={<PlanPage />}
-          />
-          <Route
-            path="explore"
-            element={<PlanPage />}
-          />
-          <Route
-            index
-            element={<RedirectComponent to="/plans/my" />}
-          />
-        </Route>
-
-        {/* 플랜 생성 */}
-        <Route
-          path="/plans/my/new"
-          element={<PlanDetailPage />}
-        />
-        {/* 플랜 수정 */}
-        <Route
-          path="/plans/:planId/edit"
-          element={<PlanDetailPage />}
-        />
-        {/* 플랜 상세 */}
-        <Route
-          path="/plans/:planId"
-          element={<PlanDetailPage />}
-        />
-      </Route>
-
-      <Route
-        path="/login"
-        element={<LoginPage />}
-      />
-      <Route
-        path="/mypage"
-        element={<MyPage />}
-      />
-      <Route
-        path="*"
-        element={<NotFound />}
-      />
-    </Routes>
-  );
-};
-
-const AppContent: React.FC = () => {
-  const location = useLocation();
-  const setPath = usePathStore(state => state.setPath);
-
-  React.useEffect(() => {
-    setPath(location.pathname);
-  }, [location.pathname, setPath]);
-
-  return <AppRoutes />;
-};
+// 라우터의 변경을 감지하기 위한 subscriber 설정
+router.subscribe(state => {
+  const setPath = usePathStore.getState().setPath;
+  setPath(state.location.pathname);
+});
 
 const App: React.FC = () => {
-  return (
-    <Router>
-      <AppContent />
-    </Router>
-  );
+  return <RouterProvider router={router} />;
 };
 
 Modal.setAppElement('#root');
