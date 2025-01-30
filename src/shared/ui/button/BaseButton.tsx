@@ -20,7 +20,7 @@ import {
 } from '@/shared/const';
 import { SizeWithXLarge, Variant } from '@/shared/type';
 
-interface BaseButtonProps {
+export interface BaseButtonProps {
   children: React.ReactNode;
 
   onClick?: () => void;

@@ -1,4 +1,11 @@
 export {
+  large as badgeLarge,
+  medium as badgeMedium,
+  small as badgeSmall,
+  xLarge as badgeXLarge,
+  xSmall as badgeXSmall,
+} from './Badge';
+export {
   amber,
   large as buttonLarge,
   medium as buttonMedium,
@@ -15,6 +22,7 @@ export {
   skyblue,
   white,
 } from './Button';
+
 export {
   large as cardLarge,
   medium as cardMedium,

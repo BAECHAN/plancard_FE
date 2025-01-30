@@ -3,17 +3,19 @@ import { Badge } from '@/shared/lib/shadcn-ui/components/ui';
 import {
   amber,
   cream,
+  disabledStyle,
   flexCenter,
   gray,
-  buttonLarge as large,
-  buttonMedium as medium,
+  hoverStyle,
+  badgeLarge as large,
+  badgeMedium as medium,
   navy,
   periwinkle,
   primary,
   skyblue,
-  buttonSmall as small,
+  badgeSmall as small,
   white,
-  buttonXSmall as xSmall,
+  badgeXSmall as xSmall,
 } from '@/shared/const';
 import { SizeWithXSmall, Variant } from '@/shared/type';
 
@@ -21,12 +23,14 @@ interface BaseBadgeProps {
   children: React.ReactNode;
   variant?: Variant;
   size?: SizeWithXSmall;
+  rounded?: 'full' | 'md' | 'lg' | 'none';
 }
 
 const BaseBadge = ({
   children,
   variant = 'primary',
   size = 'medium',
+  rounded,
 }: BaseBadgeProps) => {
   const sizeClass: Record<SizeWithXSmall, string> = {
     xSmall,
@@ -48,7 +52,8 @@ const BaseBadge = ({
 
   return (
     <Badge
-      className={`${sizeClass[size]} ${variantClass[variant]} border-none`}
+      className={`${sizeClass[size]} ${variantClass[variant]} ${disabledStyle} ${hoverStyle} border-none`}
+      rounded={rounded}
     >
       <span className={`${flexCenter} gap-2`}>{children}</span>
     </Badge>
