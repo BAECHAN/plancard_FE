@@ -47,7 +47,7 @@ const ConfirmAlert = ({
       open={isConfirmAlertOpen}
       onOpenChange={setIsConfirmAlertOpen}
     >
-      <AlertDialogTrigger>{children}</AlertDialogTrigger>
+      <AlertDialogTrigger asChild>{children}</AlertDialogTrigger>
       <AlertDialogContent ref={ref}>
         <AlertDialogHeader>
           <AlertDialogTitle>{confirmTitle}</AlertDialogTitle>

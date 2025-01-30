@@ -1,5 +1,5 @@
 import { Button } from '@/shared/lib/shadcn-ui/components/ui';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import {
   amber,
@@ -20,9 +20,9 @@ import {
 } from '@/shared/const';
 import { SizeWithXLarge, Variant } from '@/shared/type';
 
-export interface BaseButtonProps {
+export interface BaseButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   variant?: Variant;
@@ -30,45 +30,52 @@ export interface BaseButtonProps {
   disabled?: boolean;
 }
 
-const BaseButton = ({
-  children,
-  onClick,
-  type = 'button',
+const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(
+  (
+    {
+      children,
+      onClick,
+      type = 'button',
+      variant = 'primary',
+      disabled = false,
+      size = 'medium',
+      ...props
+    },
+    ref,
+  ) => {
+    const sizeClass: Record<SizeWithXLarge, string> = {
+      small,
+      medium,
+      large,
+      xLarge,
+    };
 
-  variant = 'primary',
-  disabled = false,
-  size = 'medium',
-  ...props
-}: BaseButtonProps) => {
-  const sizeClass: Record<SizeWithXLarge, string> = {
-    small,
-    medium,
-    large,
-    xLarge,
-  };
+    const variantClass: Record<Variant, string> = {
+      primary,
+      gray,
+      cream,
+      skyblue,
+      amber,
+      navy,
+      periwinkle,
+      white,
+    };
 
-  const variantClass: Record<Variant, string> = {
-    primary,
-    gray,
-    cream,
-    skyblue,
-    amber,
-    navy,
-    periwinkle,
-    white,
-  };
+    return (
+      <Button
+        ref={ref}
+        className={`${sizeClass[size]} ${variantClass[variant]} ${disabledStyle} ${hoverStyle}`}
+        disabled={disabled}
+        type={type}
+        onClick={onClick}
+        {...props}
+      >
+        <span className={`${flexCenter} gap-2`}>{children}</span>
+      </Button>
+    );
+  },
+);
 
-  return (
-    <Button
-      className={`${sizeClass[size]} ${variantClass[variant]} ${disabledStyle} ${hoverStyle}`}
-      disabled={disabled}
-      type={type}
-      onClick={onClick}
-      {...props}
-    >
-      <span className={`${flexCenter} gap-2`}>{children}</span>
-    </Button>
-  );
-};
+BaseButton.displayName = 'BaseButton';
 
 export default BaseButton;

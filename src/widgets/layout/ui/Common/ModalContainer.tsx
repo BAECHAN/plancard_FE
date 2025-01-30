@@ -1,5 +1,6 @@
 import { CARD_DETAIL, PLAN_MEMO_DETAIL, useModalStore } from '@/shared/store';
-import { BaseBadge, BaseButton, ConfirmAlert } from '@/shared/ui';
+import { BaseButton, ConfirmAlert } from '@/shared/ui';
+
 import {
   ModalContainerCardDetail,
   ModalContainerPlanMemoDetail,
@@ -30,12 +31,7 @@ const ModalContainer = () => {
                 confirmTitle="삭제"
                 onConfirm={() => console.log('confirm')}
               >
-                <BaseBadge
-                  variant="amber"
-                  rounded="md"
-                >
-                  Delete
-                </BaseBadge>
+                <BaseButton variant="amber">Delete</BaseButton>
               </ConfirmAlert>
               <BaseButton>Save</BaseButton>
             </>

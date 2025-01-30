@@ -1,6 +1,5 @@
 import PlanDetailMenuDropdown from '@/pages/plan/ui/PlanDetailMenuDropdown';
-import { usePreventLeave } from '@/shared/hooks';
-import { BaseButton, Input } from '@/shared/ui';
+import { BaseButton, ConfirmAlert, Input } from '@/shared/ui';
 import {
   Block,
   ContentContainer,
@@ -9,10 +8,10 @@ import {
   RangeCalendarOpenButton,
 } from '@/widgets/layout/ui';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const PlanDetailPage = () => {
-  const { handleNavigateWithConfirm } = usePreventLeave();
-
+  const navigate = useNavigate();
   const [planTitle, setPlanTitle] = useState<string>('');
 
   const handlePlanTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,9 +29,13 @@ export const PlanDetailPage = () => {
           label="content-nav"
           className="flex justify-between"
         >
-          <BaseButton onClick={() => handleNavigateWithConfirm('/plans/my')}>
-            목록
-          </BaseButton>
+          <ConfirmAlert
+            confirmTitle="페이지를 떠나시겠습니까?"
+            confirmMessage="저장되지 않은 내용이 있습니다."
+            onConfirm={() => navigate('/plans/my')}
+          >
+            <BaseButton>목록</BaseButton>
+          </ConfirmAlert>
           <BaseButton>저장</BaseButton>
         </Block>
         <Block

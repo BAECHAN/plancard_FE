@@ -19,18 +19,18 @@ import {
 } from '@/shared/const';
 import { SizeWithXSmall, Variant } from '@/shared/type';
 
-interface BaseBadgeProps {
+type BaseBadgeProps = {
   children: React.ReactNode;
   variant?: Variant;
   size?: SizeWithXSmall;
-  rounded?: 'full' | 'md' | 'lg' | 'none';
-}
+  className?: string;
+};
 
 const BaseBadge = ({
   children,
   variant = 'primary',
   size = 'medium',
-  rounded,
+  className,
 }: BaseBadgeProps) => {
   const sizeClass: Record<SizeWithXSmall, string> = {
     xSmall,
@@ -52,8 +52,7 @@ const BaseBadge = ({
 
   return (
     <Badge
-      className={`${sizeClass[size]} ${variantClass[variant]} ${disabledStyle} ${hoverStyle} border-none`}
-      rounded={rounded}
+      className={`${sizeClass[size]} ${variantClass[variant]} ${disabledStyle} ${hoverStyle} border-none ${className}`}
     >
       <span className={`${flexCenter} gap-2`}>{children}</span>
     </Badge>
