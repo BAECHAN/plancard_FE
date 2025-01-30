@@ -4,7 +4,8 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/plancard_FE/',
+  base:
+    process.env.NODE_ENV === 'production' ? `/${process.env.REPO_NAME}/` : '/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
