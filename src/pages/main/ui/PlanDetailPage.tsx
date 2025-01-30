@@ -1,4 +1,5 @@
 import PlanDetailMenuDropdown from '@/pages/plan/ui/PlanDetailMenuDropdown';
+import { usePreventLeave } from '@/shared/hooks';
 import { BaseButton, Input } from '@/shared/ui';
 import {
   Block,
@@ -11,6 +12,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const PlanDetailPage = () => {
+  usePreventLeave();
+
   const navigate = useNavigate();
   const [planTitle, setPlanTitle] = useState<string>('');
 
