@@ -5,30 +5,30 @@ import { useEffect } from 'react';
 import { FaArrowRightLong, FaCalendarDay } from 'react-icons/fa6';
 
 const RangeCalendarOpenButton = () => {
-  const { openCalendar, isCalendarOpen, startDate, endDate, resetRangeDate } =
+  const { openCalendar, isOpen, confirmedRange, handleCancel } =
     useRangeCalendarStore();
 
   useEffect(function handleCalendarLifecycle() {
     openCalendar();
 
     return () => {
-      resetRangeDate();
+      handleCancel();
     };
   }, []);
 
   return (
     <>
       <TagButton onClick={openCalendar}>
-        <span>{startDate?.toLocaleDateString()}</span>
+        <span>{confirmedRange.from?.toLocaleDateString()}</span>
         <span>
           <FaArrowRightLong />
         </span>
-        <span>{endDate?.toLocaleDateString()}</span>
+        <span>{confirmedRange.to?.toLocaleDateString()}</span>
         <span>
           <FaCalendarDay />
         </span>
       </TagButton>
-      {isCalendarOpen && <RangeCalendar />}
+      {isOpen && <RangeCalendar />}
     </>
   );
 };

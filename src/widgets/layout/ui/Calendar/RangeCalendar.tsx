@@ -7,7 +7,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import './styles.css';
 
 const RangeCalendar = () => {
-  const { closeCalendar, startDate, endDate, setStartDate, setEndDate } =
+  const { draftRange, closeCalendar, handleConfirm, handleDateChange } =
     useRangeCalendarStore();
 
   useKeydown('Escape', closeCalendar);
@@ -18,25 +18,23 @@ const RangeCalendar = () => {
         <div className="flex w-full justify-end">
           <ESCButton onClick={closeCalendar} />
         </div>
-        <div className="calendar-header">Jan 2025</div>
-        {startDate && endDate && (
+        {draftRange.from && draftRange.to && (
           <div className="selected-range">
-            {format(startDate, 'M월 d일')} → {format(endDate, 'M월 d일')}
+            {format(draftRange.from, 'M월 d일')} →{' '}
+            {format(draftRange.to, 'M월 d일')}
           </div>
         )}
         <DatePicker
-          selected={startDate}
-          onChange={dates => {
-            const [start, end] = dates as [Date, Date];
-            setStartDate(start);
-            setEndDate(end);
-          }}
-          startDate={startDate}
-          endDate={endDate}
+          selected={draftRange.from}
+          onChange={dates =>
+            handleDateChange(dates as [Date | null, Date | null])
+          }
+          startDate={draftRange.from}
+          endDate={draftRange.to}
           selectsRange
           inline
         />
-        <BaseButton onClick={closeCalendar}>선택</BaseButton>
+        <BaseButton onClick={handleConfirm}>선택</BaseButton>
       </div>
     </div>
   );

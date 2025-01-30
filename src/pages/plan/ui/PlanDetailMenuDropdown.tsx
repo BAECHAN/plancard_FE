@@ -6,12 +6,14 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
 } from '@/shared/lib/shadcn-ui/components/ui';
-import { useModalStore } from '@/shared/store';
+import { useModalStore, useRangeCalendarStore } from '@/shared/store';
 import { BaseDropdown, IconBadge } from '@/shared/ui';
 import { FiMoreVertical } from 'react-icons/fi';
 
 const PlanDetailMenuDropdown = () => {
   const { openModal } = useModalStore();
+  const { openCalendar } = useRangeCalendarStore();
+
   const handleMenuItemClick = (
     e: React.MouseEvent<HTMLDivElement>,
     clickedItem: string,
@@ -28,7 +30,9 @@ const PlanDetailMenuDropdown = () => {
           },
         });
         break;
+
       case 'editPlanDate':
+        openCalendar();
         break;
     }
   };
@@ -44,16 +48,16 @@ const PlanDetailMenuDropdown = () => {
       }
       contentNode={
         <>
-          <DropdownMenuItem className={DROPDOWN_MENU_ITEM_STYLE}>
-            제목 수정
-          </DropdownMenuItem>
           <DropdownMenuItem
             className={DROPDOWN_MENU_ITEM_STYLE}
             onClick={e => handleMenuItemClick(e, 'showMemo')}
           >
             메모 보기
           </DropdownMenuItem>
-          <DropdownMenuItem className={DROPDOWN_MENU_ITEM_STYLE}>
+          <DropdownMenuItem
+            className={DROPDOWN_MENU_ITEM_STYLE}
+            onClick={e => handleMenuItemClick(e, 'editPlanDate')}
+          >
             여행날짜 수정
           </DropdownMenuItem>
           <DropdownMenuSeparator className={DROPDOWN_MENU_SEPARATOR_STYLE} />
