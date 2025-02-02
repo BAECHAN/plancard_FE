@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const NotFound = () => {
   return (
-    <div className="flex h-dvh items-center justify-center overflow-hidden bg-[url('/images/error.jpg')] bg-cover bg-center">
+    <div className="flex h-dvh items-center justify-center overflow-hidden bg-[url('../images/error.jpg')] bg-cover bg-center">
       <div className="text-center text-white">
         <h1 className="text-[250px] font-bold text-black">404</h1>
         <div className="flex flex-col gap-6">
