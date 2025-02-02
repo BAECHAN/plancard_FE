@@ -10,7 +10,13 @@ import {
   titleXsmall3,
 } from '@/shared/const';
 import { Card as CardType, Size } from '@/shared/type';
-import { BaseBadge, IconBadge, IconButton, ScrapButton } from '@/shared/ui';
+import {
+  BaseBadge,
+  IconBadge,
+  IconButton,
+  Image,
+  ScrapButton,
+} from '@/shared/ui';
 import { Util } from '@/shared/util';
 import { forwardRef } from 'react';
 import { FaStar } from 'react-icons/fa6';
@@ -81,7 +87,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
     return (
       <div
         ref={ref}
-        className="flex flex-col gap-1"
+        className="flex cursor-pointer flex-col gap-1"
       >
         {IconComponent && (
           <div className={`flex justify-end`}>
@@ -118,12 +124,10 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
             <p className={`${sizeClassTitle[size]}`}>{title}</p>
           </div>
           <div className="card-image mb-4 mt-2">
-            <img
+            <Image
               src={`${imageList[0].imageUrl}`}
               alt="Card Image"
-              className="rounded-md"
-              width={'100%'}
-              height="auto"
+              className="h-auto w-full rounded-md"
             />
           </div>
 

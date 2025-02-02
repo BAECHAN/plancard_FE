@@ -18,6 +18,7 @@ export {
   default as TagButton,
   type TagButtonProps,
 } from './button/TagButton/TagButton';
+export { default as Image } from './image/Image';
 
 export {
   default as ConfirmAlert,

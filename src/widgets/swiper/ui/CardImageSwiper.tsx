@@ -7,6 +7,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 // import required modules
+import { Image } from '@/shared/ui';
 import {
   ImageSwiperProps,
   StyledSwiper,
@@ -44,7 +45,7 @@ const CardImageSwiper = ({
       {imageList.map((image, index) => {
         return (
           <SwiperSlide key={index}>
-            <img
+            <Image
               src={image.imageUrl}
               alt={image.alt}
             />

@@ -4,6 +4,7 @@ import {
   countrySmall as small,
 } from '@/shared/const';
 import { Country, Size } from '@/shared/type';
+import { Image } from '@/shared/ui';
 
 interface CountryCardProps {
   onClick: () => void;
@@ -25,7 +26,7 @@ const CountryCard = ({ onClick, info, size = 'medium' }: CountryCardProps) => {
       className={`rounded-md ${sizeClass[size]} relative flex flex-col gap-1 text-ellipsis whitespace-pre-wrap border border-[#D9D9DE]`}
       onClick={onClick}
     >
-      <img
+      <Image
         src={imageUrl}
         alt="Country Image"
         className="rounded-t-md"

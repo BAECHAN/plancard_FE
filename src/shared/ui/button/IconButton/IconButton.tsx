@@ -6,6 +6,7 @@ import {
 } from '@/shared/const';
 import { useToggle } from '@/shared/hooks';
 import { SizeWithXSmall } from '@/shared/type';
+import { Image } from '@/shared/ui';
 import { MouseEventHandler } from 'react';
 import { IconType } from 'react-icons'; // FontAwesome이나 react-icons 같은 라이브러리용
 
@@ -55,7 +56,7 @@ const IconButton = ({
       className={`inline-flex items-center justify-center p-0 transition-colors duration-300 ${className}`}
     >
       {iconPath && (
-        <img
+        <Image
           src={iconPath}
           alt={alt}
           className={`${sizeClass[size]}`}
