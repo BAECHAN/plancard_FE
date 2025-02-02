@@ -15,7 +15,7 @@ const cardList: CardOrMyCard[] = [
     imageList: [
       {
         imageId: '1',
-        imageUrl: '../images/eiffel-tower.svg',
+        imageUrl: '/images/eiffel-tower.svg',
         alt: '에펠탑',
         isMain: true,
       },
@@ -36,7 +36,7 @@ const cardList: CardOrMyCard[] = [
     imageList: [
       {
         imageId: '1',
-        imageUrl: '../images/eiffel-tower.svg',
+        imageUrl: '/images/eiffel-tower.svg',
         alt: '에펠탑',
         isMain: true,
       },
@@ -49,7 +49,7 @@ const cardList: CardOrMyCard[] = [
     myImageList: [
       {
         imageId: '1',
-        imageUrl: '../images/eiffel-tower.svg',
+        imageUrl: '/images/eiffel-tower.svg',
         alt: '에펠탑',
         isMain: true,
       },
@@ -95,7 +95,7 @@ http://plancard/card~
     imageList: [
       {
         imageId: '1',
-        imageUrl: '../images/eiffel-tower.svg',
+        imageUrl: '/images/eiffel-tower.svg',
         alt: '에펠탑',
         isMain: true,
       },
@@ -115,7 +115,7 @@ http://plancard/card~
     imageList: [
       {
         imageId: '1',
-        imageUrl: '../images/eiffel-tower.svg',
+        imageUrl: '/images/eiffel-tower.svg',
         alt: '에펠탑',
         isMain: true,
       },
@@ -135,7 +135,7 @@ http://plancard/card~
     imageList: [
       {
         imageId: '1',
-        imageUrl: '../images/eiffel-tower.svg',
+        imageUrl: '/images/eiffel-tower.svg',
         alt: '에펠탑',
         isMain: true,
       },
@@ -155,7 +155,7 @@ http://plancard/card~
     imageList: [
       {
         imageId: '1',
-        imageUrl: '../images/eiffel-tower.svg',
+        imageUrl: '/images/eiffel-tower.svg',
         alt: '에펠탑',
         isMain: true,
       },
@@ -176,7 +176,7 @@ http://plancard/card~
     imageList: [
       {
         imageId: '1',
-        imageUrl: '../images/eiffel-tower.svg',
+        imageUrl: '/images/eiffel-tower.svg',
         alt: '에펠탑',
         isMain: true,
       },
@@ -197,7 +197,7 @@ http://plancard/card~
     imageList: [
       {
         imageId: '1',
-        imageUrl: '../images/eiffel-tower.svg',
+        imageUrl: '/images/eiffel-tower.svg',
         alt: '에펠탑',
         isMain: true,
       },
@@ -217,7 +217,7 @@ http://plancard/card~
     imageList: [
       {
         imageId: '1',
-        imageUrl: '../images/eiffel-tower.svg',
+        imageUrl: '/images/eiffel-tower.svg',
         alt: '에펠탑',
         isMain: true,
       },
@@ -237,7 +237,7 @@ http://plancard/card~
     imageList: [
       {
         imageId: '1',
-        imageUrl: '../images/eiffel-tower.svg',
+        imageUrl: '/images/eiffel-tower.svg',
         alt: '에펠탑',
         isMain: true,
       },

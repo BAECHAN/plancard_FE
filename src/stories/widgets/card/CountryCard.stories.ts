@@ -21,7 +21,7 @@ const meta: Meta<typeof CountryCard> = {
     size: 'medium',
     info: {
       title: '스페인',
-      imageUrl: '../images/spain.svg',
+      imageUrl: '/images/spain.svg',
       description: `Learn step-by-step instructions on how to bake a moist and delicious chocolate cake that will impress everyone. From mixing the ingredients to frosting and decorating, this guide has all the tips and tricks you need for baking success.`,
       isoCode: 'SP',
     },
