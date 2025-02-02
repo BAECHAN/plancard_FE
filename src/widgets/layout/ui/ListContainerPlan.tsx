@@ -15,7 +15,7 @@ const cardListInPlan: CardOrMyCard[] = [
     imageList: [
       {
         imageId: '1',
-        imageUrl: '/images/greece-1.svg',
+        imageUrl: `${import.meta.env.BASE_URL}images/greece-1.svg`,
         alt: '아크로폴리스 이미지',
         isMain: true,
       },
@@ -35,7 +35,7 @@ const cardListInPlan: CardOrMyCard[] = [
     imageList: [
       {
         imageId: '2',
-        imageUrl: '/images/greece-2.svg',
+        imageUrl: `${import.meta.env.BASE_URL}images/greece-2.svg`,
         alt: '파나티나이코 경기장 이미지',
         isMain: true,
       },
@@ -54,7 +54,7 @@ const cardListInPlan: CardOrMyCard[] = [
     imageList: [
       {
         imageId: '3',
-        imageUrl: '/images/greece-3.svg',
+        imageUrl: `${import.meta.env.BASE_URL}images/greece-3.svg`,
         alt: '리카비토스 언덕 이미지',
         isMain: true,
       },

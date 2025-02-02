@@ -6,13 +6,13 @@ const tempImageList: CardImage[] = [
   {
     imageId: '1',
     isMain: false,
-    imageUrl: '/images/eiffel-tower.svg',
+    imageUrl: `${import.meta.env.BASE_URL}images/eiffel-tower.svg`,
     alt: 'Image 1',
   },
   {
     imageId: '2',
     isMain: true,
-    imageUrl: '/images/spain.svg',
+    imageUrl: `${import.meta.env.BASE_URL}images/spain.svg`,
     alt: 'Image 2',
   },
   {
