@@ -274,3 +274,8 @@ export interface CardImage {
   alt: string;
   isMain: boolean;
 }
+
+export type DateRange = {
+  from: Date | null;
+  to: Date | null;
+};

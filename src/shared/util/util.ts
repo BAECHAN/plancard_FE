@@ -1,4 +1,10 @@
-import { Size } from '@/shared/type';
+import { DateRange, Size } from '@/shared/type';
+import { differenceInDays, eachDayOfInterval } from 'date-fns';
+
+type DateRangeInfo = {
+  totalDays: number;
+  dateList: Date[];
+};
 
 export class Util {
   constructor() {}
@@ -27,9 +33,9 @@ export class Util {
    */
   static formatDateForDayPlan = (date: Date): string => {
     // 월, 일, 요일 정보를 추출
-    const month = date.getMonth() + 1; // 월은 0부터 시작하므로 +1
-    const day = date.getDate();
-    const dayOfWeek = date.getDay(); // 요일 (0: 일요일, 1: 월요일, ... 6: 토요일)
+    const month = date?.getMonth() + 1; // 월은 0부터 시작하므로 +1
+    const day = date?.getDate();
+    const dayOfWeek = date?.getDay(); // 요일 (0: 일요일, 1: 월요일, ... 6: 토요일)
 
     // 요일 배열을 선언하여 숫자를 요일 문자열로 변환
     const dayOfWeekMap = ['일', '월', '화', '수', '목', '금', '토'];
@@ -37,6 +43,32 @@ export class Util {
 
     // "8.13/토" 형식으로 변환
     return `${month}.${day}/${dayOfWeekStr}`;
+  };
+
+  /**
+   * DateRange 타입의 날짜 범위로부터 총 일수와 날짜 목록을 반환하는 유틸리티 함수
+   * @param range DateRange 타입의 날짜 범위
+   * @returns DateRangeInfo 타입의 날짜 정보
+   */
+  static getDateRangeInfo = (range: DateRange): DateRangeInfo => {
+    const { from, to } = range;
+
+    // 시작일과 종료일이 모두 존재하는 경우에만 계산
+    if (from && to) {
+      const totalDays = differenceInDays(to, from) + 1;
+      const dateList = eachDayOfInterval({ start: from, end: to });
+
+      return {
+        totalDays,
+        dateList,
+      };
+    }
+
+    // 유효하지 않은 날짜 범위인 경우 기본값 반환
+    return {
+      totalDays: 0,
+      dateList: [],
+    };
   };
 
   /**
@@ -48,7 +80,6 @@ export class Util {
    * @param obj2
    * @returns boolean
    */
-
   static compareCommonKeys = <T>(
     obj1: Record<string, T>,
     obj2: Record<string, T>,

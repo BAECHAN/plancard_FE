@@ -1,9 +1,5 @@
+import { DateRange } from '@/shared/type';
 import { create } from 'zustand';
-
-interface DateRange {
-  from: Date | null;
-  to: Date | null;
-}
 
 interface RangeCalendarStore {
   // 최종 확정된 날짜 범위
