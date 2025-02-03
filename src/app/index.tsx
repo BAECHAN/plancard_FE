@@ -73,10 +73,15 @@ const router = createHashRouter([
 ]);
 
 // 라우터의 변경을 감지하기 위한 subscriber 설정
+const { setPath } = usePathStore.getState();
+
+// 라우터 변경 시
 router.subscribe(state => {
-  const setPath = usePathStore.getState().setPath;
   setPath(state.location.pathname);
 });
+
+// 초기 path 지정
+setPath(window.location.hash.slice(1) || '/');
 
 const App: React.FC = () => {
   return <RouterProvider router={router} />;
