@@ -16,6 +16,10 @@ const meta: Meta<typeof DayAccordion> = {
       description: '메뉴 사이드바 크기',
     },
   },
+  args: {
+    optionDateList: [new Date(), new Date()],
+    index: 0,
+  },
 } satisfies Meta<typeof DayAccordion>;
 
 export default meta;

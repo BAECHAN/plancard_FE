@@ -1,7 +1,7 @@
 import { flexCenter } from '@/shared/const';
-import useToggle from '@/shared/hooks/useToggle';
+import { useToggle } from '@/shared/hooks';
 import { Size } from '@/shared/type';
-import { EditableTitle, ToggleArrowDown } from '@/shared/ui';
+import { DayDropdown, EditableTitle, ToggleArrowDown } from '@/shared/ui';
 
 import React from 'react';
 
@@ -10,43 +10,62 @@ interface DayAccordionProps {
   onSaveTitle: (title: string) => void;
   size?: Size;
   title?: string;
+  optionDateList: Date[];
+  index: number;
+  onChangeDate: (date: Date) => void;
 }
 
 const DayAccordion = ({
+  optionDateList,
   children,
   onSaveTitle,
   title = '',
   size = 'medium',
+  index,
+  onChangeDate,
 }: DayAccordionProps) => {
-  const { value: isOpen, toggle, closeToggle } = useToggle(false);
+  const { value: isOpen, toggle, closeToggle } = useToggle(true);
 
   const handleDoubleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    console.log('double click');
     e.preventDefault();
     e.stopPropagation();
-    closeToggle();
+  };
+
+  const handleDayDropdownClick = (date: Date) => {
+    //onChangeDate(date);
   };
 
   return (
-    <div className={`accordion-container w-svw ${flexCenter} flex-col`}>
+    <div className={`accordion-container ${flexCenter} flex-col`}>
       <div
-        className={`accordion-header ${flexCenter} cursor-pointer gap-2`}
+        className={`accordion-header flex w-full cursor-pointer items-center justify-between gap-2`}
         onClick={toggle}
         onDoubleClick={handleDoubleClick}
       >
-        <EditableTitle
-          initialTitle={title}
-          onSaveTitle={onSaveTitle}
-          size={size}
-          onFocusTitle={closeToggle}
-        />
-        <ToggleArrowDown
-          isOpen={isOpen}
-          size={size}
-        />
+        <div className="flex w-1/3 min-w-[100px] whitespace-nowrap">
+          <DayDropdown
+            optionList={optionDateList}
+            index={index}
+            onClick={clickedDate => handleDayDropdownClick(clickedDate)}
+          />
+        </div>
+        <div className="flex w-1/3 min-w-[300px] items-center justify-center gap-2">
+          <EditableTitle
+            initialTitle={title}
+            onSaveTitle={onSaveTitle}
+            size={size}
+          />
+          <ToggleArrowDown
+            isOpen={isOpen}
+            size={size}
+          />
+        </div>
+        <div className="flex w-1/3" />
       </div>
       <div
-        className={`${flexCenter} w-full overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? 'max-h-[200px] p-4' : 'max-h-0'
+        className={`flex w-full justify-start overflow-hidden transition-all duration-300 ease-in-out ${
+          isOpen ? 'max-h-[200px] py-4' : 'max-h-0'
         }`}
       >
         {children}

@@ -6,18 +6,18 @@ import {
 import { useInput, useToggle } from '@/shared/hooks';
 
 import { Size } from '@/shared/type';
+import { IconButton } from '@/shared/ui';
 import { ChangeEvent, useEffect, useRef } from 'react';
+import { HiPencilSquare } from 'react-icons/hi2';
 
 interface EditableTitleProps {
   initialTitle: string;
   onSaveTitle: (title: string) => void;
-  onFocusTitle?: () => void;
   size?: Size;
   placeholder?: string;
 }
 const EditableTitle = ({
   initialTitle,
-  onFocusTitle,
   onSaveTitle,
   size = 'medium',
   placeholder = '제목 입력',
@@ -28,32 +28,25 @@ const EditableTitle = ({
     large,
   };
 
-  const { value: isOpen, toggle } = useToggle(false);
+  const { value: isOpen, toggle: toggleInput } = useToggle(false);
 
   const { value: title, onChange } = useInput(initialTitle);
 
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleTitleBlur = () => {
-    toggle();
+    toggleInput();
     onSaveTitle(title);
-  };
-
-  const handleTitleDoubleClick = (
-    e: React.MouseEvent<HTMLParagraphElement>,
-  ) => {
-    e.preventDefault();
-    e.stopPropagation();
-    toggle();
   };
 
   useEffect(() => {
     isOpen && inputRef.current?.focus();
   }, [isOpen]);
 
-  const handleClick = (e: React.MouseEvent<HTMLParagraphElement>) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     e.preventDefault();
+    toggleInput();
   };
 
   return (
@@ -65,18 +58,19 @@ const EditableTitle = ({
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             onChange(e.target.value)
           }
-          onClick={handleClick}
           onBlur={handleTitleBlur}
-          onFocus={onFocusTitle}
           ref={inputRef}
         />
       ) : (
-        <p
-          onDoubleClick={handleTitleDoubleClick}
-          className="cursor-pointer text-mono400"
-        >
-          {initialTitle !== '' ? initialTitle : placeholder}
-        </p>
+        <div className="flex items-center gap-2">
+          <p className="cursor-pointer text-mono400">
+            {initialTitle || placeholder}
+          </p>
+          <IconButton
+            IconComponent={HiPencilSquare}
+            onClick={e => handleClick(e)}
+          />
+        </div>
       )}
     </span>
   );

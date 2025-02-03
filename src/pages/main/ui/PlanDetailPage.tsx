@@ -1,6 +1,8 @@
 import PlanDetailMenuDropdown from '@/pages/plan/ui/PlanDetailMenuDropdown';
 import { usePreventLeave } from '@/shared/hooks';
-import { BaseButton, Input } from '@/shared/ui';
+import { useRangeCalendarStore } from '@/shared/store';
+import { BaseButton, DayAccordion, Input } from '@/shared/ui';
+import { Util } from '@/shared/util';
 import {
   Block,
   ContentContainer,
@@ -24,6 +26,10 @@ export const PlanDetailPage = () => {
   const handlePlanTitleReset = () => {
     setPlanTitle('');
   };
+
+  const { confirmedRange } = useRangeCalendarStore();
+
+  const { totalDays, dateList } = Util.getDateRangeInfo(confirmedRange);
 
   return (
     <MainContainer className="py-10">
@@ -64,6 +70,24 @@ export const PlanDetailPage = () => {
           <GroupInBlock label="plan-button-group">
             <PlanDetailMenuDropdown />
           </GroupInBlock>
+        </Block>
+        <Block label="content-body">
+          {totalDays > 0 && (
+            <div className="flex w-full flex-col gap-2">
+              {Array.from({ length: totalDays }).map((_, index) => (
+                <div key={index}>
+                  <DayAccordion
+                    onSaveTitle={() => {}}
+                    optionDateList={dateList}
+                    index={index}
+                    onChangeDate={() => {}}
+                  >
+                    <BaseButton>카드 선택</BaseButton>
+                  </DayAccordion>
+                </div>
+              ))}
+            </div>
+          )}
         </Block>
       </ContentContainer>
     </MainContainer>

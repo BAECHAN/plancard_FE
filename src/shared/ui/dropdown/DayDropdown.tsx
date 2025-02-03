@@ -16,7 +16,7 @@ interface DayDropdownProps {
   optionList: Date[];
   index: number;
   size?: Size;
-  onClick: () => void;
+  onClick: (clickedDate: Date) => void;
 }
 
 const DayDropdown = ({
@@ -29,6 +29,13 @@ const DayDropdown = ({
     small: 'text-xs',
     medium: 'text-sm',
     large: 'text-base',
+  };
+
+  const handleDayDropdownClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onClick(optionList[index]);
+    toggle();
   };
 
   const { value: isOpen, toggle } = useToggle(false);
@@ -52,11 +59,13 @@ const DayDropdown = ({
         {optionList.map((date, i) => (
           <DropdownMenuItem
             key={i}
-            onClick={onClick}
+            onClick={handleDayDropdownClick}
             className={`${flexCenter} ${sizeClass[size]} cursor-pointer gap-2 rounded-md hover:bg-skyblue`}
           >
             <b>day {i + 1}</b>
-            <b className="text-mono400">{Util.formatDateForDayPlan(date)}</b>
+            {typeof date === 'object' && (
+              <b className="text-mono400">{Util.formatDateForDayPlan(date)}</b>
+            )}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
