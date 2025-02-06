@@ -196,7 +196,7 @@ interface PlanWithDay {
   dayList: Day[];
 }
 
-interface Day {
+export type Day = {
   dayId: string;
   planId: string;
   dayNumber: number; // 1부터 시작
@@ -213,7 +213,7 @@ interface Day {
   tagList: CardTag[]; // country, city, theme, category 태그
   cardList: Card[];
   bridgeList: Bridge[];
-}
+};
 
 export interface PlanWithMemo {
   planId: Plan['planId'];
