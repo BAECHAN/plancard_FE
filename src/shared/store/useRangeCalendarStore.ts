@@ -23,15 +23,14 @@ interface RangeCalendarStore {
   handleDateChange: (dates: [Date | null, Date | null]) => void;
 }
 
+const initialRangeState = {
+  from: null,
+  to: null,
+};
+
 const useRangeCalendarStore = create<RangeCalendarStore>(set => ({
-  confirmedRange: {
-    from: null,
-    to: null,
-  },
-  draftRange: {
-    from: null,
-    to: null,
-  },
+  confirmedRange: initialRangeState,
+  draftRange: initialRangeState,
   isOpen: false,
 
   openCalendar: () =>
@@ -56,7 +55,8 @@ const useRangeCalendarStore = create<RangeCalendarStore>(set => ({
 
   handleCancel: () =>
     set({
-      draftRange: { from: null, to: null },
+      draftRange: initialRangeState,
+      confirmedRange: initialRangeState,
       isOpen: false,
     }),
 

@@ -1,20 +1,10 @@
 import { useRangeCalendarStore } from '@/shared/store';
 import { TagButton } from '@/shared/ui';
 import { RangeCalendar } from '@/widgets/layout/ui';
-import { useEffect } from 'react';
 import { FaArrowRightLong, FaCalendarDay } from 'react-icons/fa6';
 
 const RangeCalendarOpenButton = () => {
-  const { openCalendar, isOpen, confirmedRange, handleCancel } =
-    useRangeCalendarStore();
-
-  useEffect(function handleCalendarLifecycle() {
-    openCalendar();
-
-    return () => {
-      handleCancel();
-    };
-  }, []);
+  const { openCalendar, isOpen, confirmedRange } = useRangeCalendarStore();
 
   return (
     <>
