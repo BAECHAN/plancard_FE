@@ -42,7 +42,7 @@ const BaseAlert = ({
 
   return (
     <div
-      className={`${sizeClass[size]} ${variantClass[variant]} shadow-custom`}
+      className={`${sizeClass[size]} ${variantClass[variant]} fixed left-1/2 top-1 z-10 -translate-x-1/2 shadow-custom`}
       {...props}
     >
       <span className={`${flexCenter} gap-2`}>{children}</span>
