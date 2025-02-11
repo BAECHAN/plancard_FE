@@ -11,10 +11,16 @@ import {
   MainContainer,
 } from '@/widgets/layout/ui';
 import { FaPlus } from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const PlanPage = () => {
   const { currentTab } = usePathStore();
+  const navigate = useNavigate();
+
+  const handleNewPlan = () => {
+    navigate('/plans/my/edit');
+  };
+
   return (
     <MainContainer>
       <ControlContainer>
@@ -34,20 +40,13 @@ export const PlanPage = () => {
             label="button"
             className="justify-end"
           >
-            <Link
-              to="/plans/my/new"
-              className="inline-flex"
+            <BaseButton
+              onClick={handleNewPlan}
+              aria-label="새 플랜 만들기"
             >
-              <BaseButton
-                aria-label="new-plan-button"
-                onClick={() => {}}
-              >
-                <span>New Plan</span>
-                <span>
-                  <FaPlus />
-                </span>
-              </BaseButton>
-            </Link>
+              <span>New Plan</span>
+              <FaPlus className="h-4 w-4" />
+            </BaseButton>
           </GroupInBlock>
         </Block>
 
