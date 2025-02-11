@@ -21,7 +21,6 @@ export {
 export {
   default as usePickViewStore,
   type CommonPickViewInPlanPage,
-  type PickViewInPlanPage,
   type PickViewMode,
 } from './usePickViewStore';
 export { default as useRangeCalendarStore } from './useRangeCalendarStore';
