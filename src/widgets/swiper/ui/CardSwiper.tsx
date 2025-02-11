@@ -10,7 +10,6 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Size } from '@/shared/type';
-import { TrashButton } from '@/shared/ui';
 import { Card } from '@/widgets/card/ui';
 import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
 
@@ -70,7 +69,8 @@ const CardSwiper = ({ size = 'medium' }: { size: Size }) => {
         return (
           <SwiperSlide key={index}>
             <Card
-              IconComponent={TrashButton}
+              showDelete
+              onDelete={() => {}}
               size="small"
               info={{
                 cardId: '1',
