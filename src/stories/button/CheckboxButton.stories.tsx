@@ -15,6 +15,9 @@ const meta: Meta<typeof CheckboxButton> = {
       description: '아이콘 버튼 크기',
     },
   },
+  args: {
+    defaultIsChecked: false,
+  },
 } satisfies Meta<typeof CheckboxButton>;
 
 export default meta;

@@ -1,3 +1,4 @@
+import { CARD_LIST } from '@/shared/const';
 import { usePathStore } from '@/shared/store';
 import {
   ContentContainer,
@@ -11,6 +12,8 @@ import {
 export const CardPage = () => {
   const { currentTab } = usePathStore();
 
+  const cardList = CARD_LIST;
+
   return (
     <MainContainer>
       <ControlContainer>
@@ -21,7 +24,7 @@ export const CardPage = () => {
         )}
       </ControlContainer>
       <ContentContainer>
-        <ListContainerCard />
+        <ListContainerCard cardList={cardList} />
       </ContentContainer>
     </MainContainer>
   );

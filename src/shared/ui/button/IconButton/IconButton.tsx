@@ -53,7 +53,7 @@ const IconButton = ({
       onClick={handleIconButtonClick}
       onMouseEnter={openToggle}
       onMouseLeave={closeToggle}
-      className={`inline-flex items-center justify-center p-0 transition-colors duration-300 ${className}`}
+      className={`inline-flex cursor-pointer items-center justify-center p-0 transition-colors duration-300 ${className}`}
     >
       {iconPath && (
         <Image

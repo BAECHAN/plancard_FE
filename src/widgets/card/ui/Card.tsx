@@ -12,10 +12,12 @@ import {
 import { Card as CardType, Size } from '@/shared/type';
 import {
   BaseBadge,
+  CheckboxButton,
   IconBadge,
   IconButton,
   Image,
   ScrapButton,
+  TrashButton,
 } from '@/shared/ui';
 import { Util } from '@/shared/util';
 import { forwardRef } from 'react';
@@ -46,16 +48,43 @@ const sizeClassDescription: Record<Size, string> = {
   small: titleXsmall,
 };
 
-export interface CardProps {
+interface BaseCardProps {
   onClick: () => void;
   onScrap?: () => void;
-  IconComponent?: React.ElementType;
   info: CardType;
   size?: Size;
 }
 
+interface CheckboxFeature {
+  showCheckbox: boolean;
+  isChecked: boolean;
+  onCheck: (checked: boolean) => void;
+}
+
+interface DeleteFeature {
+  showDelete: boolean;
+  onDelete: () => void;
+}
+
+type CardProps = BaseCardProps &
+  Partial<CheckboxFeature> &
+  Partial<DeleteFeature>;
+
 const Card = forwardRef<HTMLDivElement, CardProps>(
-  ({ onClick, onScrap, info, size = 'medium', IconComponent }, ref) => {
+  (
+    {
+      onClick,
+      onScrap,
+      info,
+      size = 'medium',
+      showCheckbox,
+      isChecked = false,
+      onCheck,
+      showDelete,
+      onDelete,
+    },
+    ref,
+  ) => {
     const {
       cardId,
       imageList,
@@ -74,26 +103,34 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
 
     const handleMapPinButtonClick = () => {
       console.log('지도 핀 버튼 클릭');
-
       Util.openInNewTab(googleMapLink);
     };
 
     const handleScrapButtonClick = () => {
       console.log('북마크 버튼 클릭');
-
       onScrap?.();
     };
 
     return (
       <div
         ref={ref}
-        className="flex cursor-pointer flex-col gap-1"
+        className="flex w-fit cursor-pointer flex-col gap-1"
       >
-        {IconComponent && (
-          <div className={`flex justify-end`}>
-            <IconComponent size={iconSize} />
-          </div>
-        )}
+        <div className="flex justify-end">
+          {showCheckbox && onCheck && (
+            <CheckboxButton
+              size={iconSize}
+              isChecked={isChecked}
+              onClick={onCheck}
+            />
+          )}
+          {showDelete && onDelete && (
+            <TrashButton
+              size={iconSize}
+              onClick={onDelete}
+            />
+          )}
+        </div>
 
         <div
           className={`rounded-md bg-white ${sizeClassCountry[size]} flex flex-col text-ellipsis whitespace-pre-wrap border border-[#D9D9DE] p-2`}

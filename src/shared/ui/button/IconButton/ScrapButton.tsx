@@ -13,7 +13,7 @@ const ScrapButton = ({
   size?: SizeWithXSmall;
   isActive?: boolean;
   defaultIsActive?: boolean; // internalValue 초기값
-  onClick?: () => void;
+  onClick: (isActive: boolean) => void;
 }) => {
   const { actualValue, handleToggle } = useControlledToggle({
     value: isActive,
