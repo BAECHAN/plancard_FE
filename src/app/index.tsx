@@ -60,7 +60,7 @@ const router = createHashRouter([
           { path: 'my', element: <PlanPage /> },
           { path: 'explore', element: <PlanPage /> },
           { index: true, element: <RedirectComponent to="/plans/my" /> },
-          { path: 'my/new', element: <PlanDetailPage /> },
+          { path: 'my/edit', element: <PlanDetailPage /> },
           { path: ':planId/edit', element: <PlanDetailPage /> },
           { path: ':planId', element: <PlanDetailPage /> },
         ],
