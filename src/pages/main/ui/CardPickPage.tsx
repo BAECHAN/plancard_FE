@@ -1,4 +1,5 @@
-import { MyOrExplore, usePickViewStore } from '@/shared/store';
+import { CARD_LIST } from '@/shared/const';
+import { usePickViewStore } from '@/shared/store';
 import { BaseAlert, BaseButton } from '@/shared/ui';
 import {
   ContentContainer,
@@ -8,18 +9,35 @@ import {
   ListContainerCard,
   MainContainer,
 } from '@/widgets/layout/ui';
-import { useState } from 'react';
 import { PiWarningCircleFill } from 'react-icons/pi';
 
 export const CardPickPage = () => {
-  const [type, setType] = useState<MyOrExplore>('my');
+  const {
+    pickView,
+    updatePickView,
+    pickCardList,
+    addPickCardList,
+    removePickCardList,
+  } = usePickViewStore();
 
-  const { updatePickView } = usePickViewStore();
+  const cardList = CARD_LIST;
 
   const handleCardPickCompleteClick = () => {
     updatePickView({
-      viewMode: 'PLAN',
+      viewMode: 'PLAN_DETAIL',
     });
+  };
+
+  const checkCardPick = (cardId: string) => {
+    return pickCardList.some(pickedCardId => pickedCardId === cardId);
+  };
+
+  const handleCardPick = (cardId: string) => {
+    if (checkCardPick(cardId)) {
+      removePickCardList(cardId);
+    } else {
+      addPickCardList(cardId);
+    }
   };
 
   return (
@@ -40,14 +58,19 @@ export const CardPickPage = () => {
       </BaseAlert>
       <MainContainer>
         <ControlContainer>
-          {type === 'explore' ? (
+          {pickView.viewMode === 'EXPLORE_CARD_PICK' ? (
             <ControlContainerExplore />
           ) : (
             <ControlContainerMy />
           )}
         </ControlContainer>
         <ContentContainer>
-          <ListContainerCard />
+          <ListContainerCard
+            cardList={cardList}
+            showCheckbox
+            checkCardPick={checkCardPick}
+            onCardPick={handleCardPick}
+          />
         </ContentContainer>
       </MainContainer>
     </>

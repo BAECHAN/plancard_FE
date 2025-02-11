@@ -22,7 +22,7 @@ export const PlanDetailPage = () => {
   usePreventLeave();
 
   const navigate = useNavigate();
-  const { pickView, updatePickView, resetPickView } = usePickViewStore();
+  const { pickView, updatePickView, resetPickViewAllData } = usePickViewStore();
   const [planTitle, setPlanTitle] = useState<string>('');
 
   const handlePlanTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,10 +38,13 @@ export const PlanDetailPage = () => {
 
   useEffect(() => {
     openCalendar();
+    updatePickView({
+      viewMode: 'PLAN_DETAIL',
+    });
 
     return () => {
       handleCancel();
-      resetPickView();
+      resetPickViewAllData();
     };
   }, []);
 
@@ -51,38 +54,23 @@ export const PlanDetailPage = () => {
    * 페이지 상태 변경
    * @param viewMode 페이지 뷰 모드
    * @param selectedDayIndex 선택된 날짜 인덱스. day1은 0, day2는 1, ...
+   * TODO: 인덱스로 관리하게되면 순서 변경 시 문제가 생길 수 있음. 추후 순서 관리 방법 고려 필요
    */
   const handlePickPageOpen = ({
     viewMode,
     selectedDayIndex,
   }: CommonPickViewInPlanPage) => {
-    switch (viewMode) {
-      case 'CARD_PICK':
-        updatePickView({
-          viewMode: 'CARD_PICK',
-          selectedDayIndex,
-          pickCardList: [],
-        });
-        break;
-      case 'DAY_PICK':
-        updatePickView({
-          viewMode: 'DAY_PICK',
-          selectedDayIndex,
-          pickDay: null,
-        });
-        break;
-      case 'PLAN':
-        updatePickView({
-          viewMode: 'PLAN',
-          selectedDayIndex,
-        });
-        break;
-    }
+    updatePickView({
+      viewMode: viewMode,
+      selectedDayIndex,
+    });
   };
 
   return (
-    <MainContainer className="py-10">
-      {pickView.viewMode === 'PLAN' && (
+    <MainContainer
+      className={`${pickView.viewMode === 'PLAN_DETAIL' ? 'py-10' : ''}`}
+    >
+      {pickView.viewMode === 'PLAN_DETAIL' && (
         <ContentContainer>
           <Block
             label="content-nav"
@@ -137,7 +125,7 @@ export const PlanDetailPage = () => {
                           <BaseButton
                             onClick={() =>
                               handlePickPageOpen({
-                                viewMode: 'CARD_PICK',
+                                viewMode: 'EXPLORE_CARD_PICK',
                                 selectedDayIndex: index,
                               })
                             }
@@ -147,7 +135,7 @@ export const PlanDetailPage = () => {
                           <BaseButton
                             onClick={() =>
                               handlePickPageOpen({
-                                viewMode: 'DAY_PICK',
+                                viewMode: 'EXPLORE_DAY_PICK',
                                 selectedDayIndex: index,
                               })
                             }
@@ -164,7 +152,8 @@ export const PlanDetailPage = () => {
           </Block>
         </ContentContainer>
       )}
-      {pickView.viewMode === 'CARD_PICK' && <CardPickPage />}
+      {pickView.viewMode === 'MY_CARD_PICK' && <CardPickPage />}
+      {pickView.viewMode === 'EXPLORE_CARD_PICK' && <CardPickPage />}
       {/* {pageState.viewMode === 'DAY_PICK' && <DayPickPage />} */}
     </MainContainer>
   );

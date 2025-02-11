@@ -1,50 +1,87 @@
-import { Card, Day } from '@/shared/type';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
-export type PickViewMode = 'CARD_PICK' | 'DAY_PICK' | 'PLAN';
+export type PickViewMode =
+  | 'MY_CARD_PICK'
+  | 'EXPLORE_CARD_PICK'
+  | 'MY_DAY_PICK'
+  | 'EXPLORE_DAY_PICK'
+  | 'PLAN_DETAIL';
 
 export type CommonPickViewInPlanPage = {
-  viewMode: PickViewMode;
+  viewMode: PickViewMode | null;
   selectedDayIndex: number | null;
 };
 
-export type PickViewInPlanPage =
-  | ({
-      pickCardList: Card[];
-    } & CommonPickViewInPlanPage)
-  | ({
-      pickDay: Day | null;
-    } & CommonPickViewInPlanPage)
-  | ({
-      pickDay?: Day | null;
-      pickCardList?: Card[];
-    } & CommonPickViewInPlanPage);
-
 interface PickViewStoreState {
-  pickView: PickViewInPlanPage;
-  updatePickView: (newPickView: Partial<PickViewInPlanPage>) => void;
-  resetPickView: () => void;
+  pickView: CommonPickViewInPlanPage;
+  updatePickView: (newPickView: Partial<CommonPickViewInPlanPage>) => void;
+
+  pickCardList: string[];
+
+  addPickCardList: (cardId: string) => void;
+  removePickCardList: (cardId: string) => void;
+  setPickCardList: (cardList: string[]) => void;
+
+  pickDay: string | null;
+  updatePickDay: (newPickDay: string | null) => void;
+
+  resetPickViewAllData: () => void;
 }
 
-const initialPickView: PickViewInPlanPage = {
-  viewMode: 'PLAN',
+const initialPickView: CommonPickViewInPlanPage = {
+  viewMode: null,
   selectedDayIndex: null,
 };
 
+const initialPickCardList: string[] = [];
+
+const initialPickDay: string | null = null;
 const usePickViewStore = create(
   devtools<PickViewStoreState>(
     set => ({
       pickView: initialPickView,
+      pickCardList: initialPickCardList,
+      pickDay: initialPickDay,
+
       updatePickView: newPickView =>
         set(state => ({
           ...state,
           pickView: {
             ...state.pickView,
             ...newPickView,
-          } as PickViewInPlanPage,
+          } as CommonPickViewInPlanPage,
         })),
-      resetPickView: () => set({ pickView: initialPickView }),
+
+      setPickCardList: (cardList: string[]) =>
+        set(state => ({
+          ...state,
+          pickCardList: cardList,
+        })),
+
+      addPickCardList: addedCardId =>
+        set(state => ({
+          ...state,
+          pickCardList: [...state.pickCardList, addedCardId],
+        })),
+      removePickCardList: removedCardId =>
+        set(state => ({
+          ...state,
+          pickCardList: state.pickCardList.filter(
+            pickedCardId => pickedCardId !== removedCardId,
+          ),
+        })),
+      updatePickDay: newPickDay =>
+        set(state => ({
+          ...state,
+          pickDay: newPickDay,
+        })),
+      resetPickViewAllData: () =>
+        set({
+          pickView: initialPickView,
+          pickCardList: initialPickCardList,
+          pickDay: initialPickDay,
+        }),
     }),
     { name: 'PickViewStore' },
   ),

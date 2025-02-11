@@ -3,7 +3,12 @@ import {
   TabsList,
   TabsTrigger,
 } from '@/shared/lib/shadcn-ui/components/ui';
-import { MyOrExplore, usePathStore } from '@/shared/store';
+import {
+  MyOrExplore,
+  PickViewMode,
+  usePathStore,
+  usePickViewStore,
+} from '@/shared/store';
 import { Option, Size } from '@/shared/type';
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
@@ -36,26 +41,74 @@ const ToggleSearchTab = ({
     [currentPage],
   );
 
+  const { pickView, updatePickView } = usePickViewStore();
+
+  const optionListInPickView: Option<PickViewMode | MyOrExplore>[] =
+    useMemo(() => {
+      if (
+        pickView.viewMode === 'MY_CARD_PICK' ||
+        pickView.viewMode === 'EXPLORE_CARD_PICK'
+      ) {
+        return [
+          { label: 'My Card', value: 'MY_CARD_PICK' },
+          { label: 'Explore', value: 'EXPLORE_CARD_PICK' },
+        ];
+      } else if (
+        pickView.viewMode === 'MY_DAY_PICK' ||
+        pickView.viewMode === 'EXPLORE_DAY_PICK'
+      ) {
+        return [
+          { label: 'My Day', value: 'MY_DAY_PICK' },
+          { label: 'Explore', value: 'EXPLORE_DAY_PICK' },
+        ];
+      } else {
+        return optionList;
+      }
+    }, [pickView.viewMode]);
+
+  const isPickView: boolean =
+    (pickView.viewMode &&
+      [
+        'MY_CARD_PICK',
+        'EXPLORE_CARD_PICK',
+        'MY_DAY_PICK',
+        'EXPLORE_DAY_PICK',
+      ].includes(pickView.viewMode)) ??
+    false;
+
   return (
     <Tabs
       defaultValue={optionList[0].value}
-      value={currentTab}
+      value={isPickView ? pickView.viewMode! : currentTab}
     >
       <TabsList className="relative h-auto w-full bg-white">
-        {optionList.map(option => (
-          <Link
-            key={option.value}
-            to={`/${currentPage}/${option.value}`}
-            className="w-[50%]"
-          >
-            <TabsTrigger
-              value={option.value}
-              className={`w-full ${sizeClass[size]} ${activeClass}`}
-            >
-              {option.label}
-            </TabsTrigger>
-          </Link>
-        ))}
+        {isPickView
+          ? optionListInPickView.map(option => (
+              <TabsTrigger
+                key={option.value}
+                value={option.value}
+                className={`w-full ${sizeClass[size]} ${activeClass}`}
+                onClick={() =>
+                  updatePickView({ viewMode: option.value as PickViewMode })
+                }
+              >
+                {option.label}
+              </TabsTrigger>
+            ))
+          : optionList.map(option => (
+              <Link
+                key={option.value}
+                to={`/${currentPage}/${option.value}`}
+                className="w-[50%]"
+              >
+                <TabsTrigger
+                  value={option.value}
+                  className={`w-full ${sizeClass[size]} ${activeClass}`}
+                >
+                  {option.label}
+                </TabsTrigger>
+              </Link>
+            ))}
       </TabsList>
     </Tabs>
   );

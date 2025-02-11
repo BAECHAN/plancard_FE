@@ -4,14 +4,7 @@ interface MainContainerProps {
 }
 
 const MainContainer = ({ children, className = '' }: MainContainerProps) => {
-  return (
-    <main
-      className={`flex flex-col gap-10 ${className}`}
-      role="main"
-    >
-      {children}
-    </main>
-  );
+  return <div className={`flex flex-col gap-10 ${className}`}>{children}</div>;
 };
 
 export default MainContainer;
