@@ -1,4 +1,3 @@
-import { useKeydown } from '@/shared/hooks';
 import { useModalStore } from '@/shared/store';
 import { ESCButton } from '@/shared/ui';
 import { Block, ContentContainer, GroupInBlock } from '@/widgets/layout/ui';
@@ -29,8 +28,6 @@ const BaseModal: React.FC<BaseModalProps> = ({
   onAfterClose,
 }) => {
   const { isModalOpen, closeModal } = useModalStore();
-
-  useKeydown('Escape', closeModal);
 
   return (
     <Modal

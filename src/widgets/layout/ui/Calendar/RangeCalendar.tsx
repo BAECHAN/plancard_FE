@@ -1,4 +1,3 @@
-import { useKeydown } from '@/shared/hooks';
 import { useRangeCalendarStore } from '@/shared/store';
 import { BaseButton, ESCButton } from '@/shared/ui';
 import { format } from 'date-fns';
@@ -9,8 +8,6 @@ import './styles.css';
 const RangeCalendar = () => {
   const { draftRange, closeCalendar, handleConfirm, handleDateChange } =
     useRangeCalendarStore();
-
-  useKeydown('Escape', closeCalendar);
 
   return (
     <div className="calendar-overlay">
