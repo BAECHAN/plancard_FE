@@ -22,12 +22,15 @@ export const PlanPage = () => {
   };
 
   return (
-    <MainContainer>
+    <MainContainer
+      label="plan-page"
+      className="gap-10"
+    >
       <ControlContainer>
         {currentTab === 'explore' ? (
-          <ControlContainerExplore />
+          <ControlContainerExplore contentPage="plans" />
         ) : (
-          <ControlContainerMy />
+          <ControlContainerMy contentPage="plans" />
         )}
       </ControlContainer>
 

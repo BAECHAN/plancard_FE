@@ -1,10 +1,22 @@
 interface MainContainerProps {
   children: React.ReactNode;
   className?: string;
+  label?: string;
 }
 
-const MainContainer = ({ children, className = '' }: MainContainerProps) => {
-  return <div className={`flex flex-col gap-10 ${className}`}>{children}</div>;
+const MainContainer = ({
+  children,
+  className = '',
+  label,
+}: MainContainerProps) => {
+  return (
+    <div
+      className={`flex flex-col ${className}`}
+      aria-label={label}
+    >
+      {children}
+    </div>
+  );
 };
 
 export default MainContainer;

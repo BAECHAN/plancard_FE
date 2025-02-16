@@ -15,15 +15,18 @@ export const CardPage = () => {
   const cardList = CARD_LIST;
 
   return (
-    <MainContainer>
-      <ControlContainer>
+    <MainContainer
+      label="card-page"
+      className="gap-10"
+    >
+      <ControlContainer label="card-page-control">
         {currentTab === 'explore' ? (
-          <ControlContainerExplore />
+          <ControlContainerExplore contentPage="cards" />
         ) : (
-          <ControlContainerMy />
+          <ControlContainerMy contentPage="cards" />
         )}
       </ControlContainer>
-      <ContentContainer>
+      <ContentContainer label="card-page-content">
         <ListContainerCard cardList={cardList} />
       </ContentContainer>
     </MainContainer>

@@ -68,10 +68,11 @@ export const PlanDetailPage = () => {
 
   return (
     <MainContainer
-      className={`${pickView.viewMode === 'PLAN_DETAIL' ? 'py-10' : ''}`}
+      label="plan-detail-page"
+      className="gap-4"
     >
       {pickView.viewMode === 'PLAN_DETAIL' && (
-        <ContentContainer>
+        <ContentContainer label="plan-detail-page-content">
           <Block
             label="content-nav"
             className="flex justify-between"

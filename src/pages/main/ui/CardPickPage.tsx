@@ -1,3 +1,4 @@
+import { PickedCardsContainer } from '@/pages/pick/ui';
 import { CARD_LIST } from '@/shared/const';
 import { usePickViewStore } from '@/shared/store';
 import { BaseAlert, BaseButton } from '@/shared/ui';
@@ -56,15 +57,19 @@ export const CardPickPage = () => {
           카드 선택 완료
         </BaseButton>
       </BaseAlert>
-      <MainContainer>
-        <ControlContainer>
+      <PickedCardsContainer />
+      <MainContainer
+        label="card-pick-page"
+        className="gap-10"
+      >
+        <ControlContainer label="card-pick-page-control">
           {pickView.viewMode === 'EXPLORE_CARD_PICK' ? (
-            <ControlContainerExplore />
+            <ControlContainerExplore contentPage="cards" />
           ) : (
-            <ControlContainerMy />
+            <ControlContainerMy contentPage="cards" />
           )}
         </ControlContainer>
-        <ContentContainer>
+        <ContentContainer label="card-pick-page-content">
           <ListContainerCard
             cardList={cardList}
             showCheckbox
