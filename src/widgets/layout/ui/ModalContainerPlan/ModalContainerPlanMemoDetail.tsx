@@ -17,6 +17,8 @@ const ModalContainerPlanMemoDetail = ({ planId, memo }: PlanWithMemo) => {
           placeholder="메모 입력"
           hasBorder={false}
           textSize="large"
+          showMaxLength
+          maxLength={2000}
         />
       </div>
     </div>

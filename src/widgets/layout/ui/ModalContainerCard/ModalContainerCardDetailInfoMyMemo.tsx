@@ -43,6 +43,9 @@ const ModalContainerCardDetailInfoMyMemo = ({
             <BaseTextarea
               onEscape={handleMyMemoToggle}
               value={myMemo}
+              hasBorder
+              showMaxLength
+              maxLength={500}
             />
           </div>
         ) : (
