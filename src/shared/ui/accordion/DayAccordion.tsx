@@ -64,8 +64,8 @@ const DayAccordion = ({
         <div className="flex w-1/3" />
       </div>
       <div
-        className={`flex w-full justify-start overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? 'max-h-[200px] py-4' : 'max-h-0'
+        className={`flex w-full justify-start overflow-hidden px-4 transition-all duration-500 ease-in-out ${
+          isOpen ? 'max-h-fit py-4' : 'max-h-0'
         }`}
       >
         {children}
