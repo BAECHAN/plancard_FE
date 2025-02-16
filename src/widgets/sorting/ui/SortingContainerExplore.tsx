@@ -1,5 +1,5 @@
 import {
-  usePathStore,
+  CardOrPlan,
   useSearchCardStore,
   useSearchPlanStore,
 } from '@/shared/store';
@@ -70,9 +70,11 @@ const sortingOptions: SortingOptionsType = {
 };
 
 // TODO: API 처리하는 로직은 Props로 받아올 예정
-const SortingContainerExplore = () => {
-  const { currentPage } = usePathStore();
-
+const SortingContainerExplore = ({
+  contentPage,
+}: {
+  contentPage: CardOrPlan;
+}) => {
   const {
     searchCard: {
       sort: { sortBy: cardSortBy, sortOrder: cardSortOrder },
@@ -98,15 +100,15 @@ const SortingContainerExplore = () => {
   return (
     <div className="flex flex-col gap-2">
       <ButtonList className="">
-        {sortingOptions[currentPage].map(option => (
+        {sortingOptions[contentPage].map(option => (
           <li key={option.label}>
             <SortingTitleButton
               title={option.label}
               isActive={
                 option.value.sortBy ===
-                  (currentPage === 'cards' ? cardSortBy : planSortBy) &&
+                  (contentPage === 'cards' ? cardSortBy : planSortBy) &&
                 option.value.sortOrder ===
-                  (currentPage === 'cards' ? cardSortOrder : planSortOrder)
+                  (contentPage === 'cards' ? cardSortOrder : planSortOrder)
               }
               onClick={() => handleButtonClick(option.value)}
             />
