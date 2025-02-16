@@ -1,4 +1,5 @@
 import { CardPickPage } from '@/pages/main/ui';
+import { CardInPlan } from '@/pages/plan/ui';
 import PlanDetailMenuDropdown from '@/pages/plan/ui/PlanDetailMenuDropdown';
 import { usePreventLeave } from '@/shared/hooks';
 import {
@@ -122,28 +123,37 @@ export const PlanDetailPage = () => {
                       onChangeDate={() => {}}
                     >
                       <Block label="day-card-pick-button">
-                        <GroupInBlock label="day-card-pick-button">
-                          <BaseButton
-                            onClick={() =>
-                              handlePickPageOpen({
-                                viewMode: 'EXPLORE_CARD_PICK',
-                                selectedDayIndex: index,
-                              })
-                            }
+                        {index !== 3 ? (
+                          <GroupInBlock label="day-card-pick-button">
+                            <BaseButton
+                              onClick={() =>
+                                handlePickPageOpen({
+                                  viewMode: 'EXPLORE_CARD_PICK',
+                                  selectedDayIndex: index,
+                                })
+                              }
+                            >
+                              카드 선택
+                            </BaseButton>
+                            <BaseButton
+                              onClick={() =>
+                                handlePickPageOpen({
+                                  viewMode: 'EXPLORE_DAY_PICK',
+                                  selectedDayIndex: index,
+                                })
+                              }
+                            >
+                              데이 선택
+                            </BaseButton>
+                          </GroupInBlock>
+                        ) : (
+                          <Block
+                            label="day-card-pick-button"
+                            className="flex w-fit flex-col justify-center"
                           >
-                            카드 선택
-                          </BaseButton>
-                          <BaseButton
-                            onClick={() =>
-                              handlePickPageOpen({
-                                viewMode: 'EXPLORE_DAY_PICK',
-                                selectedDayIndex: index,
-                              })
-                            }
-                          >
-                            데이 선택
-                          </BaseButton>
-                        </GroupInBlock>
+                            <CardInPlan />
+                          </Block>
+                        )}
                       </Block>
                     </DayAccordion>
                   </div>
