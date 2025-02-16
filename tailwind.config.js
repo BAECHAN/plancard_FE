@@ -154,5 +154,5 @@ module.exports = {
       yellow: '#FFD700',
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [require('tailwindcss-animate'), require('tailwind-scrollbar-hide')],
 };
