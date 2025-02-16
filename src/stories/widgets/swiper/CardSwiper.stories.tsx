@@ -23,5 +23,6 @@ type Story = StoryObj<typeof meta>;
 export const Large: Story = {
   args: {
     size: 'large',
+    onClose: () => {},
   },
 };
