@@ -1,6 +1,8 @@
+import { useToggle } from '@/shared/hooks';
 import { usePathStore } from '@/shared/store';
 import { Size } from '@/shared/type';
 import { MenuItem } from '@/shared/ui';
+import SidebarToggleButton from '@/widgets/layout/ui/SidebarToggleButton';
 import { Link } from 'react-router-dom';
 
 interface MenuSidebarProps {
@@ -16,27 +18,44 @@ const MenuSidebar = ({ size = 'medium', ...props }: MenuSidebarProps) => {
     large: 'w-72 text-base',
   };
 
+  const { value: isOpen, toggle } = useToggle(true);
+
   return (
     <aside
-      className={`${sizeClass[size]} flex flex-col gap-2 bg-lightgray pt-8`}
+      className={`${sizeClass[size]} ${isOpen ? 'w-60 bg-mono200' : 'w-fit bg-white'}`}
       {...props}
     >
-      <Link to="/cards/my">
-        <MenuItem
-          active={currentPage === 'cards'}
-          size={size}
-        >
-          <b>카드</b>
-        </MenuItem>
-      </Link>
-      <Link to="/plans/my">
-        <MenuItem
-          active={currentPage === 'plans'}
-          size={size}
-        >
-          <b>플랜</b>
-        </MenuItem>
-      </Link>
+      <div className="flex items-center justify-between">
+        <SidebarToggleButton
+          isOpen={isOpen}
+          toggle={toggle}
+        />
+      </div>
+
+      {isOpen && (
+        <ul className="flex flex-col gap-2">
+          <li>
+            <Link to="/cards/my">
+              <MenuItem
+                active={currentPage === 'cards'}
+                size={size}
+              >
+                <b>카드</b>
+              </MenuItem>
+            </Link>
+          </li>
+          <li>
+            <Link to="/plans/my">
+              <MenuItem
+                active={currentPage === 'plans'}
+                size={size}
+              >
+                <b>플랜</b>
+              </MenuItem>
+            </Link>
+          </li>
+        </ul>
+      )}
     </aside>
   );
 };

@@ -30,3 +30,5 @@ export { default as ModalContainerCardDetailInfoName } from './ModalContainerCar
 
 export { default as RangeCalendar } from './Calendar/RangeCalendar';
 export { default as RangeCalendarOpenButton } from './Calendar/RangeCalendarOpenButton';
+
+export { default as SidebarToggleButton } from './SidebarToggleButton';

@@ -27,6 +27,8 @@ export {
 export { default as BaseDropdown } from './dropdown/BaseDropdown';
 export { default as DayDropdown } from './dropdown/DayDropdown';
 export { default as DropdownMenu } from './dropdown/DropdownMenu';
+export { default as PanelLeftClose } from './icon/PanelLeftClose';
+export { default as PanelRightOpen } from './icon/PanelRightOpen';
 export { default as PencilIcon } from './icon/PencilIcon';
 export { default as PlusIcon } from './icon/PlusIcon';
 export { default as ToggleArrowDown } from './icon/ToggleArrowDown';
