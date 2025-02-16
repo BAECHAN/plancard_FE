@@ -1,27 +1,7 @@
+import { PICKED_CARD_LIST } from '@/shared/const';
 import { CardImage } from '@/shared/type';
 import { useCallback, useState } from 'react';
 import Swiper from 'swiper';
-
-const tempImageList: CardImage[] = [
-  {
-    imageId: '1',
-    isMain: false,
-    imageUrl: `${import.meta.env.BASE_URL}images/eiffel-tower.svg`,
-    alt: 'Image 1',
-  },
-  {
-    imageId: '2',
-    isMain: true,
-    imageUrl: `${import.meta.env.BASE_URL}images/spain.svg`,
-    alt: 'Image 2',
-  },
-  {
-    imageId: '3',
-    isMain: false,
-    imageUrl: 'https://via.placeholder.com/800x600',
-    alt: 'Image 3',
-  },
-];
 
 /**
  * 메인 이미지를 맨 앞으로 정렬하는 함수
@@ -38,7 +18,7 @@ const useModalContainerCardDetailImageSwiper = () => {
   const [swiperInstance, setSwiperInstance] = useState<Swiper | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [mainFirstImageList, setMainFirstImageList] = useState<CardImage[]>(
-    convertSortingMainFirst(tempImageList),
+    convertSortingMainFirst(PICKED_CARD_LIST),
   );
 
   const handleSwiperReady = useCallback((swiper: Swiper) => {

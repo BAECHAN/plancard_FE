@@ -1,4 +1,4 @@
-import { CardOrMyCard, CountryCode, Option } from '@/shared/type';
+import { CardImage, CardOrMyCard, CountryCode, Option } from '@/shared/type';
 
 export const LEAVE_CONFIRM_MESSAGE =
   '작성 중인 내용이 저장되지 않을 수 있습니다. 정말 나가시겠습니까?';
@@ -355,5 +355,26 @@ http://plancard/card~
     rating: 4,
     category: '관광지',
     googleMapLink: 'https://www.google.com/maps/place/Machu+Picchu/',
+  },
+];
+
+export const PICKED_CARD_LIST: CardImage[] = [
+  {
+    imageId: '1',
+    isMain: false,
+    imageUrl: `${import.meta.env.BASE_URL}images/eiffel-tower.svg`,
+    alt: 'Image 1',
+  },
+  {
+    imageId: '2',
+    isMain: true,
+    imageUrl: `${import.meta.env.BASE_URL}images/spain.svg`,
+    alt: 'Image 2',
+  },
+  {
+    imageId: '3',
+    isMain: false,
+    imageUrl: '',
+    alt: 'Image 3',
   },
 ];
