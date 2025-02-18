@@ -64,7 +64,7 @@ const CardSwiper = ({
     <div className="fixed left-1/2 z-50 -translate-x-1/2">
       <Block
         label="card-swiper"
-        className="relative right-3 top-11 z-50 flex justify-end"
+        className="relative right-3 top-11 z-50 justify-end"
       >
         <ESCButton onClick={onClose} />
       </Block>

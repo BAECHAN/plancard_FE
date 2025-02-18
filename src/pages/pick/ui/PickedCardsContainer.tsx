@@ -9,7 +9,7 @@ const PickedCardsContainer = () => {
   return (
     <Block
       label="picked-cards-container"
-      className="flex justify-end"
+      className="justify-end"
     >
       <IconButton
         iconPath="/icons/card.svg"

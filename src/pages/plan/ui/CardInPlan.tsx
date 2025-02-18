@@ -3,7 +3,10 @@ import { Card } from '@/widgets/card/ui';
 
 const CardInPlan = () => {
   return (
-    <div className="flex w-fit flex-col justify-center gap-2">
+    <div
+      className="flex w-fit flex-col justify-center gap-2"
+      aria-label="card-in-plan"
+    >
       <Card
         size="medium"
         info={{
