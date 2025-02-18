@@ -1,5 +1,5 @@
 import { CardPickPage } from '@/pages/main/ui';
-import { CardInPlan } from '@/pages/plan/ui';
+import { DraggableCardInPlanList } from '@/pages/plan/ui';
 import PlanDetailMenuDropdown from '@/pages/plan/ui/PlanDetailMenuDropdown';
 import { usePreventLeave } from '@/shared/hooks';
 import {
@@ -76,7 +76,7 @@ export const PlanDetailPage = () => {
         <ContentContainer label="plan-detail-page-content">
           <Block
             label="content-nav"
-            className="flex justify-between"
+            className="justify-between"
           >
             <BaseButton onClick={() => navigate('/plans/my')}>목록</BaseButton>
             <BaseButton>저장</BaseButton>
@@ -149,9 +149,9 @@ export const PlanDetailPage = () => {
                         ) : (
                           <Block
                             label="day-card-pick-button"
-                            className="flex w-fit flex-col justify-center"
+                            className="flex-wrap"
                           >
-                            <CardInPlan />
+                            <DraggableCardInPlanList />
                           </Block>
                         )}
                       </Block>
