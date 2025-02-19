@@ -9,6 +9,7 @@ import {
 } from '@/shared/store';
 import { BaseButton, DayAccordion, Input } from '@/shared/ui';
 import { Util } from '@/shared/util';
+import { ChoiceCard } from '@/widgets/card/ui';
 import {
   Block,
   ContentContainer,
@@ -122,7 +123,7 @@ export const PlanDetailPage = () => {
                       index={index}
                       onChangeDate={() => {}}
                     >
-                      <Block label="day-card-pick-button">
+                      <Block label="day-area">
                         {index !== 3 ? (
                           <GroupInBlock label="day-card-pick-button">
                             <BaseButton
@@ -148,10 +149,20 @@ export const PlanDetailPage = () => {
                           </GroupInBlock>
                         ) : (
                           <Block
-                            label="day-card-pick-button"
+                            label="picked-card-list"
                             className="flex-wrap"
                           >
                             <DraggableCardInPlanList />
+                            <div className="ml-9 mt-9">
+                              <ChoiceCard
+                                onClick={() =>
+                                  handlePickPageOpen({
+                                    viewMode: 'EXPLORE_CARD_PICK',
+                                    selectedDayIndex: index,
+                                  })
+                                }
+                              />
+                            </div>
                           </Block>
                         )}
                       </Block>
