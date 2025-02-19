@@ -1,3 +1,4 @@
+import { TrashButton } from '@/shared/ui';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { GripVertical } from 'lucide-react';
@@ -33,9 +34,13 @@ const SortableItem = ({
       <div
         {...attributes}
         {...listeners}
-        className={`flex h-8 w-full cursor-grab items-center px-2 active:cursor-grabbing`}
+        className={`flex h-8 w-full cursor-grab items-center justify-between px-2 active:cursor-grabbing`}
       >
-        <GripVertical className="text-mono600 h-4 w-4" />
+        <GripVertical className="h-4 w-4 text-mono300" />
+        <TrashButton
+          size="small"
+          onClick={() => {}}
+        />
       </div>
       {/* 컨텐츠 영역 */}
       <div
