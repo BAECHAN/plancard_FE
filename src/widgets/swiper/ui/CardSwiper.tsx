@@ -109,7 +109,6 @@ const CardSwiper = ({
                   googleMapLink:
                     'https://www.google.com/maps/place/%EC%97%90%ED%8E%A0%ED%83%91/data=!4m2!3m1!1s0x47e66e2964e34e2d:0x8ddca9ee380ef7e0?sa=X&ved=1t:155783&ictx=111',
                 }}
-                onClick={() => {}}
               />
             </SwiperSlide>
           );
