@@ -50,7 +50,6 @@ const CardStack = ({
           <Card
             ref={childrenCardRef}
             size="medium"
-            onClick={() => {}}
             info={card}
           />
         </div>
