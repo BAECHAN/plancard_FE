@@ -122,7 +122,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
     return (
       <div
         ref={ref}
-        className="flex w-fit cursor-pointer flex-col gap-1"
+        className="flex w-fit flex-col gap-1"
       >
         <div className="flex justify-end">
           {showCheckbox && onCheck && (
@@ -141,7 +141,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
         </div>
 
         <div
-          className={`rounded-md bg-white ${sizeClassCountry[size]} flex flex-col text-ellipsis whitespace-pre-wrap border border-[#D9D9DE] p-2`}
+          className={`rounded-md bg-white ${sizeClassCountry[size]} flex cursor-pointer flex-col text-ellipsis whitespace-pre-wrap border border-[#D9D9DE] p-2`}
           onClick={() => handleCardClick(cardId)}
         >
           <div className="card-header flex justify-between">
