@@ -1,6 +1,5 @@
 import { Card } from '@/widgets/card/ui';
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
 
 const meta: Meta<typeof Card> = {
   title: 'Widgets/Card/Card',
@@ -17,7 +16,6 @@ const meta: Meta<typeof Card> = {
     },
   },
   args: {
-    onClick: fn(),
     size: 'medium',
     info: {
       cardId: '1',

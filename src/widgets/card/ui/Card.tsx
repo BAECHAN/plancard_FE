@@ -9,6 +9,7 @@ import {
   titleXsmall2,
   titleXsmall3,
 } from '@/shared/const';
+import { CARD_DETAIL, useModalStore } from '@/shared/store';
 import { Card as CardType, Size } from '@/shared/type';
 import {
   BaseBadge,
@@ -49,7 +50,6 @@ const sizeClassDescription: Record<Size, string> = {
 };
 
 interface BaseCardProps {
-  onClick: () => void;
   onScrap?: () => void;
   info: CardType;
   size?: Size;
@@ -73,7 +73,6 @@ type CardProps = BaseCardProps &
 const Card = forwardRef<HTMLDivElement, CardProps>(
   (
     {
-      onClick,
       onScrap,
       info,
       size = 'medium',
@@ -98,6 +97,15 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
       googleMapLink,
       scrap,
     } = info;
+
+    const { openModal } = useModalStore();
+
+    const handleCardClick = (clickedCardId: string) => {
+      openModal({
+        type: CARD_DETAIL,
+        data: info,
+      });
+    };
 
     const iconSize = Util.convertSizeToDownSize(size);
 
@@ -134,7 +142,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
 
         <div
           className={`rounded-md bg-white ${sizeClassCountry[size]} flex flex-col text-ellipsis whitespace-pre-wrap border border-[#D9D9DE] p-2`}
-          onClick={onClick}
+          onClick={() => handleCardClick(cardId)}
         >
           <div className="card-header flex justify-between">
             <div className="flex gap-1">
