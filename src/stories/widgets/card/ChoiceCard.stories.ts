@@ -33,3 +33,24 @@ export const Primary: Story = {
     size: 'medium',
   },
 };
+
+export const Small: Story = {
+  args: {
+    variant: 'primary',
+    size: 'small',
+  },
+};
+
+export const Medium: Story = {
+  args: {
+    variant: 'primary',
+    size: 'medium',
+  },
+};
+
+export const Large: Story = {
+  args: {
+    variant: 'primary',
+    size: 'large',
+  },
+};

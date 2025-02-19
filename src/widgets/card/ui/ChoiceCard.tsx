@@ -1,14 +1,13 @@
 import {
   flexCenter,
-  cardLarge as large,
-  cardMedium as medium,
-  cardSmall as small,
+  choiceCardLarge as large,
+  choiceCardMedium as medium,
+  choiceCardSmall as small,
 } from '@/shared/const';
 import { Size, Variant } from '@/shared/type';
 import { BaseButton } from '@/shared/ui';
 
 interface ChoiceCardProps {
-  children: React.ReactNode;
   onClick: () => void;
 
   variant?: Variant;
@@ -26,13 +25,6 @@ const ChoiceCard = ({
     medium,
     large,
   };
-
-  // const heightSizeClass =
-  //   size === 'small'
-  //     ? 'h-[15rem]'
-  //     : size === 'medium'
-  //       ? 'h-[22rem]'
-  //       : 'h-[30rem]';
 
   return (
     <div
