@@ -279,3 +279,22 @@ export type DateRange = {
   from: Date | null;
   to: Date | null;
 };
+
+export type InputProps = {
+  id: string;
+  label?: string;
+  placeholder?: string;
+  align?: 'left' | 'center' | 'right';
+  type?: 'text' | 'password' | 'email' | 'number';
+  value?: string;
+  spellCheck?: boolean;
+  autoComplete?: 'off' | 'on';
+  autoFocus?: boolean;
+  ariaInvalid?: 'true' | 'false' | undefined;
+  hasResetButton?: boolean;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onReset?: () => void;
+  onFocus?: () => void;
+  onBlur?: () => void;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+};

@@ -1,21 +1,5 @@
+import { InputProps } from '@/shared/type';
 import { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
-
-export type InputProps = {
-  id: string;
-  label?: string;
-  placeholder?: string;
-  align?: 'left' | 'center' | 'right';
-  type?: 'text' | 'password';
-  value?: string;
-  spellCheck?: boolean;
-  autoComplete?: 'off' | 'on';
-  autoFocus?: boolean;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onReset?: () => void;
-  onFocus?: () => void;
-  onBlur?: () => void;
-  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-};
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
   (
@@ -31,9 +15,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       spellCheck = false,
       autoComplete = 'off',
       autoFocus = false,
+      hasResetButton = true,
       onKeyDown,
       onFocus,
       onBlur,
+      ariaInvalid,
     },
     ref,
   ) => {
@@ -101,8 +87,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           onBlur={handleBlur}
           onKeyDown={onKeyDown}
           className={`${inputTextStyle} text-${align}`}
+          aria-invalid={ariaInvalid}
         />
-        {value.length > 0 && isFocused && (
+        {hasResetButton && value.length > 0 && isFocused && (
           <button
             type="button"
             className="absolute right-3 top-1/2 -translate-y-1/2 transform text-mono500 hover:text-black"

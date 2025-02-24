@@ -6,7 +6,7 @@ import {
 import { useInput, useToggle } from '@/shared/hooks';
 
 import { Size } from '@/shared/type';
-import { IconButton } from '@/shared/ui';
+import { IconButton, Input } from '@/shared/ui';
 import { ChangeEvent, useEffect, useRef } from 'react';
 import { HiPencilSquare } from 'react-icons/hi2';
 
@@ -52,7 +52,8 @@ const EditableTitle = ({
   return (
     <span className={`${sizeClass[size]}`}>
       {isOpen ? (
-        <input
+        <Input
+          id={'editable-title-input'}
           type="text"
           value={title}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -60,6 +61,7 @@ const EditableTitle = ({
           }
           onBlur={handleTitleBlur}
           ref={inputRef}
+          hasResetButton={false}
         />
       ) : (
         <div className="flex items-center gap-2">

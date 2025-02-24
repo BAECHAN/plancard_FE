@@ -37,8 +37,8 @@ export { default as XMarkIcon } from './icon/XMarkIcon';
 export { default as Autocomplete } from './autocomplete/Autocomplete';
 export { default as SortingTitleButton } from './button/SortingButton/SortingTitleButton';
 export { default as Input } from './input/Input';
-export { default as InputText } from './inputText/InputText';
-export { default as InputTextInForm } from './inputText/InputTextInForm';
+export { default as InputInForm } from './input/InputInForm';
+
 export { default as Loading } from './loading/Loading';
 export { default as QueryStatusWrapper } from './queryStatusController/QueryStatusWrapper';
 export { default as FocusableSearchInputText } from './search/FocusableSearchInputText';

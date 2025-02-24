@@ -1,8 +1,7 @@
-import { LoginPage } from '@/pages/login/ui';
+import { ForgotPasswordPage, LoginPage, SignUpPage } from '@/pages/login/ui';
 import {
   CardPage,
   MainPage,
-  MyPage,
   NotFound,
   PlanDetailPage,
   PlanPage,
@@ -23,7 +22,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { queryClient } from '@/shared/query';
 import { usePathStore } from '@/shared/store';
-import { MainLayout, ModalContainer } from '@/widgets/layout/ui';
+import { LoginLayout, MainLayout, ModalContainer } from '@/widgets/layout/ui';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Modal from 'react-modal';
@@ -41,6 +40,21 @@ const RedirectComponent: React.FC<{ to: string }> = ({ to }) => {
 };
 
 const router = createHashRouter([
+  {
+    path: '/login',
+    element: <LoginLayout />,
+    children: [{ index: true, element: <LoginPage /> }],
+  },
+  {
+    path: '/forgot-password',
+    element: <LoginLayout />,
+    children: [{ index: true, element: <ForgotPasswordPage /> }],
+  },
+  {
+    path: '/signup',
+    element: <LoginLayout />,
+    children: [{ index: true, element: <SignUpPage /> }],
+  },
   {
     path: '/',
     element: <MainLayout />,
@@ -67,8 +81,6 @@ const router = createHashRouter([
       },
     ],
   },
-  { path: '/login', element: <LoginPage /> },
-  { path: '/mypage', element: <MyPage /> },
   { path: '*', element: <NotFound /> },
 ]);
 

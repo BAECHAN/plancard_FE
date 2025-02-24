@@ -4,7 +4,9 @@ import { IconButton } from '@/shared/ui';
 import { ImCheckboxChecked, ImCheckboxUnchecked } from 'react-icons/im';
 
 interface CheckboxButtonProps {
+  children: React.ReactNode;
   size?: SizeWithXSmall;
+
   onClick: (isChecked: boolean) => void;
   isControlled?: boolean;
 
@@ -14,7 +16,7 @@ interface CheckboxButtonProps {
 
 const CheckboxButton = ({
   size = 'small',
-
+  children,
   isChecked,
   defaultIsChecked = false,
   onClick,
@@ -26,13 +28,19 @@ const CheckboxButton = ({
   });
 
   return (
-    <IconButton
-      IconComponent={actualValue ? ImCheckboxChecked : ImCheckboxUnchecked}
-      alt="체크박스 버튼"
-      size={size}
-      color={actualValue ? '#28A745' : ''}
+    <div
+      className="flex cursor-pointer items-center gap-2"
       onClick={handleToggle}
-    />
+    >
+      <IconButton
+        IconComponent={actualValue ? ImCheckboxChecked : ImCheckboxUnchecked}
+        alt="체크박스 버튼"
+        size={size}
+        color={actualValue ? '#28A745' : ''}
+        stopPropagation={false}
+      />
+      {children}
+    </div>
   );
 };
 

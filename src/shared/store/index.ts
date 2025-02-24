@@ -1,12 +1,4 @@
-export {
-  counterAtom,
-  counterSelector,
-  modalOpenAtom,
-  modalOpenSelector,
-  modalUserInfoDataAtom,
-  modalUserInfoDataSelector,
-} from './atom';
-
+export { default as useAuthStore } from './useAuthStore';
 export { default as useConfirmAlertStore } from './useConfirmAlertStore';
 export {
   CARD_DETAIL,

@@ -20,6 +20,7 @@ interface IconButtonProps {
   color?: string;
   hoverIconColor?: string;
   className?: string;
+  stopPropagation?: boolean;
 }
 
 const IconButton = ({
@@ -32,6 +33,7 @@ const IconButton = ({
   color,
   hoverIconColor,
   className = '',
+  stopPropagation = true,
 }: IconButtonProps) => {
   const sizeClass: Record<SizeWithXSmall, string> = {
     xSmall,
@@ -43,7 +45,7 @@ const IconButton = ({
   const { value: isHovered, openToggle, closeToggle } = useToggle();
 
   const handleIconButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
+    stopPropagation && e.stopPropagation();
     e.preventDefault();
     onClick?.(e);
   };
