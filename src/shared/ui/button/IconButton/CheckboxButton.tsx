@@ -4,7 +4,7 @@ import { IconButton } from '@/shared/ui';
 import { ImCheckboxChecked, ImCheckboxUnchecked } from 'react-icons/im';
 
 interface CheckboxButtonProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   size?: SizeWithXSmall;
 
   onClick: (isChecked: boolean) => void;
