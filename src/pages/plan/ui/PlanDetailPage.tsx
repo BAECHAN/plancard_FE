@@ -1,6 +1,4 @@
-import { CardPickPage } from '@/pages/main/ui';
-import { DraggableCardInPlanList } from '@/pages/plan/ui';
-import PlanDetailMenuDropdown from '@/pages/plan/ui/PlanDetailMenuDropdown';
+import { CardPickPage } from '@/pages/pick/ui';
 import { usePreventLeave } from '@/shared/hooks';
 import {
   CommonPickViewInPlanPage,
@@ -17,6 +15,10 @@ import {
   MainContainer,
   RangeCalendarOpenButton,
 } from '@/widgets/layout/ui';
+import {
+  DraggableCardInPlanList,
+  PlanDetailMenuDropdown,
+} from '@/widgets/plan/plan-item/ui';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 

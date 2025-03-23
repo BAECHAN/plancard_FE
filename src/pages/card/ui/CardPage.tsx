@@ -9,7 +9,7 @@ import {
   MainContainer,
 } from '@/widgets/layout/ui';
 
-export const CardPage = () => {
+const CardPage = () => {
   const { currentTab } = usePathStore();
 
   const cardList = CARD_LIST;
@@ -32,3 +32,4 @@ export const CardPage = () => {
     </MainContainer>
   );
 };
+export default CardPage;

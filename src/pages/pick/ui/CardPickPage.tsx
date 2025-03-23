@@ -12,7 +12,7 @@ import {
 } from '@/widgets/layout/ui';
 import { PiWarningCircleFill } from 'react-icons/pi';
 
-export const CardPickPage = () => {
+const CardPickPage = () => {
   const {
     pickView,
     updatePickView,
@@ -81,3 +81,5 @@ export const CardPickPage = () => {
     </>
   );
 };
+
+export default CardPickPage;

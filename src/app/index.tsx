@@ -1,11 +1,6 @@
 import { ForgotPasswordPage, LoginPage, SignUpPage } from '@/pages/login/ui';
-import {
-  CardPage,
-  MainPage,
-  NotFound,
-  PlanDetailPage,
-  PlanPage,
-} from '@/pages/main/ui';
+import { MainPage, NotFound } from '@/pages/main/ui';
+
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
 import {
@@ -20,6 +15,8 @@ import '@fontsource/noto-sans-kr/700.css';
 
 import 'react-toastify/dist/ReactToastify.css';
 
+import { CardPage } from '@/pages/card/ui';
+import { PlanDetailPage, PlanPage } from '@/pages/plan/ui';
 import { queryClient } from '@/shared/query';
 import { usePathStore } from '@/shared/store';
 import { LoginLayout, MainLayout, ModalContainer } from '@/widgets/layout/ui';

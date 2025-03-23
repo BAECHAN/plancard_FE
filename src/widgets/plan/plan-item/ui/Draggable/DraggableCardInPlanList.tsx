@@ -1,4 +1,3 @@
-import { BridgeInPlan, CardInPlan, SortableItem } from '@/pages/plan/ui';
 import {
   DndContext,
   DragEndEvent,
@@ -12,6 +11,9 @@ import {
   horizontalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { useState } from 'react';
+import BridgeInPlan from '../BridgeInPlan';
+import CardInPlan from '../CardInPlan';
+import SortableItem from './SortableItem';
 
 type DraggableItem = {
   id: string;
