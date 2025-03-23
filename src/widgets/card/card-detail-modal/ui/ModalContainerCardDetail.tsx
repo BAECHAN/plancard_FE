@@ -4,7 +4,7 @@ import { TypeGuard } from '@/shared/util';
 import {
   ModalContainerCardDetailImageSwiper,
   ModalContainerCardDetailInfo,
-} from '@/widgets/layout/ui';
+} from '@/widgets/card/card-detail-modal/ui';
 import React from 'react';
 
 const ModalContainerCardDetail = React.memo(

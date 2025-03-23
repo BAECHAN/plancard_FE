@@ -1,5 +1,5 @@
-import { LoginForm } from '@/features/auth/ui';
 import { Block, MainContainer } from '@/widgets/layout/ui';
+import { LoginForm } from '@/widgets/login/ui';
 
 const LoginPage: React.FC = () => {
   return (

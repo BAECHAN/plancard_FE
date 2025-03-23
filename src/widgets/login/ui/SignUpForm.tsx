@@ -1,5 +1,5 @@
-import { useSignUpForm } from '@/features/auth/model';
 import { BaseButton, InputInForm } from '@/shared/ui';
+import { useSignUpForm } from '@/widgets/login/hooks';
 import { Link } from 'react-router-dom';
 
 const SignUpForm: React.FC = () => {

@@ -1,5 +1,5 @@
 import { BaseTextarea } from '@/shared/ui';
-import { Card } from '@/widgets/card/ui';
+import { Card } from '@/widgets/card/card-item/ui';
 
 const CardInPlan = () => {
   return (

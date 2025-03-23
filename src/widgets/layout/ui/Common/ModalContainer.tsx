@@ -1,11 +1,9 @@
 import { CARD_DETAIL, PLAN_MEMO_DETAIL, useModalStore } from '@/shared/store';
 import { BaseButton, ConfirmAlert } from '@/shared/ui';
 
-import {
-  ModalContainerCardDetail,
-  ModalContainerPlanMemoDetail,
-} from '@/widgets/layout/ui';
+import { ModalContainerCardDetail } from '@/widgets/card/card-detail-modal/ui';
 import { BaseModal } from '@/widgets/modal/ui';
+import { ModalContainerPlanMemoDetail } from '@/widgets/plan/plan-memo/ui';
 
 const ModalContainer = () => {
   const { modalType, modalData } = useModalStore();

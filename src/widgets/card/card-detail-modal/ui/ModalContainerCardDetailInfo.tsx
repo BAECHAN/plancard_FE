@@ -5,7 +5,7 @@ import {
   ModalContainerCardDetailInfoMyMemo,
   ModalContainerCardDetailInfoMyTag,
   ModalContainerCardDetailInfoName,
-} from '@/widgets/layout/ui';
+} from '@/widgets/card/card-detail-modal/ui';
 
 const ModalContainerCardDetailInfo = ({
   title,

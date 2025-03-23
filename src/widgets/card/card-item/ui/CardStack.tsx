@@ -1,5 +1,5 @@
 import { CardOrMyCard } from '@/shared/type';
-import Card from '@/widgets/card/ui/Card';
+import { Card } from '@/widgets/card/card-item/ui';
 import { useEffect, useRef, useState } from 'react';
 
 const leftPositions = [

@@ -1,5 +1,5 @@
-import { ForgotPasswordForm } from '@/features/auth/ui';
 import { Block, MainContainer } from '@/widgets/layout/ui';
+import { ForgotPasswordForm } from '@/widgets/login/ui';
 
 const ForgotPasswordPage: React.FC = () => {
   return (

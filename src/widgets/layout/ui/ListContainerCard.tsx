@@ -1,5 +1,5 @@
 import { CardOrMyCard } from '@/shared/type';
-import { Card, CardList } from '@/widgets/card/ui';
+import { Card, CardList } from '@/widgets/card/card-item/ui';
 
 interface ListContainerCardProps {
   cardList: CardOrMyCard[];

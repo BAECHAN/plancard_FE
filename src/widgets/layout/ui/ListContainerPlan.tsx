@@ -1,5 +1,5 @@
 import { CardOrMyCard } from '@/shared/type';
-import CardStack from '@/widgets/card/ui/CardStack';
+import { CardStack } from '@/widgets/card/card-item/ui';
 
 const cardListInPlan: CardOrMyCard[] = [
   {

@@ -9,7 +9,7 @@ import {
 } from '@/shared/store';
 import { BaseButton, DayAccordion, Input } from '@/shared/ui';
 import { Util } from '@/shared/util';
-import { ChoiceCard } from '@/widgets/card/ui';
+import { ChoiceCard } from '@/widgets/card/card-item/ui';
 import {
   Block,
   ContentContainer,

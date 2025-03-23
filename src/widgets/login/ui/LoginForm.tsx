@@ -1,5 +1,5 @@
-import { useLoginForm } from '@/features/auth/model';
 import { BaseButton, CheckboxButton, InputInForm } from '@/shared/ui';
+import { useLoginForm } from '@/widgets/login/hooks';
 import { Link } from 'react-router-dom';
 
 const LoginForm: React.FC = () => {

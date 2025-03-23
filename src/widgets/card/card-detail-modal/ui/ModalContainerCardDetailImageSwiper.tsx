@@ -1,6 +1,6 @@
 import { BaseButton } from '@/shared/ui';
 import { ButtonList } from '@/widgets/button/ui';
-import { useModalContainerCardDetailImageSwiper } from '@/widgets/layout/hooks';
+import { useModalContainerCardDetailImageSwiper } from '@/widgets/card/card-detail-modal/hooks';
 import { CardImageSwiper } from '@/widgets/swiper/ui';
 
 const ModalContainerCardDetailImageSwiper = () => {

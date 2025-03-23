@@ -11,7 +11,7 @@ import 'swiper/css/pagination';
 // import required modules
 import { Size } from '@/shared/type';
 import { ESCButton } from '@/shared/ui';
-import { Card } from '@/widgets/card/ui';
+import { Card } from '@/widgets/card/card-item/ui';
 import { Block } from '@/widgets/layout/ui';
 import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
 

@@ -1,5 +1,5 @@
-import { SignUpForm } from '@/features/auth/ui';
 import { Block, MainContainer } from '@/widgets/layout/ui';
+import { SignUpForm } from '@/widgets/login/ui';
 
 const SignUpPage: React.FC = () => {
   return (
