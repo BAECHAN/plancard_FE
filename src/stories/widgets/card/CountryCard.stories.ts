@@ -1,4 +1,4 @@
-import { CountryCard } from '@/widgets/card/ui';
+import { CountryCard } from '@/widgets/card/card-item/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 

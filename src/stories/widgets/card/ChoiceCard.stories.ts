@@ -1,4 +1,4 @@
-import { ChoiceCard } from '@/widgets/card/ui';
+import { ChoiceCard } from '@/widgets/card/card-item/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 

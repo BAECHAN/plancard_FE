@@ -1,4 +1,4 @@
-import { Card } from '@/widgets/card/ui';
+import { Card } from '@/widgets/card/card-item/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Card> = {
