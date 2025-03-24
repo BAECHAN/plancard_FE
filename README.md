@@ -1293,6 +1293,14 @@ const CardImageSwiper = ({
 ...
 ```
 
+### 이미지를 상대경로로 못찾아서 BASE_URL을 붙여서 처리
+
+```
+iconPath={`${import.meta.env.BASE_URL}icons/card.svg`}
+```
+
+import.meta.env.BASE_URL은 Vite에서 기본적으로 제공하는 내장 환경 변수라서 env파일이 없어도 자동 반영됨.
+
 ### 해야할 것
 
 1. query와 api 위치 나 코드를 결합할지 고민

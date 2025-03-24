@@ -12,7 +12,7 @@ const PickedCardsContainer = () => {
       className="justify-end"
     >
       <IconButton
-        iconPath="/icons/card.svg"
+        iconPath={`${import.meta.env.BASE_URL}icons/card.svg`}
         alt="선택한 카드 보기"
         size="small"
         onClick={toggle}
