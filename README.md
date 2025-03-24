@@ -1,3 +1,7 @@
+### 배포
+
+https://baechan.github.io/plancard_FE/#/cards/my
+
 ### 초기세팅
 
 ### Vite 프로젝트 생성
